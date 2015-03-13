@@ -10,3 +10,15 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+PulseGames/nbproject/private/
+Videojuegos/nbproject/private/
+Videojuegos/build/
+Videojuegos/dist/
+Videojuegos/nbproject/private/
+Videojuegos/build/
+Videojuegos/nbbuild/
+Videojuegos/dist/
+Videojuegos/nbdist/
+Videojuegos/nbactions.xml
+Videojuegos/nb-configuration.xml
+Videojuegos/.nb-gradle/

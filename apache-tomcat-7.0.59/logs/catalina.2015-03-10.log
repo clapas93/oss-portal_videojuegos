@@ -1,0 +1,380 @@
+mar 10, 2015 10:39:00 AM org.apache.catalina.core.StandardServer await
+INFORMACIÓN: Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+mar 10, 2015 10:39:00 AM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 10:39:00 AM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 10:39:00 AM org.apache.catalina.core.StandardService stopInternal
+INFORMACIÓN: Parando servicio Catalina
+mar 10, 2015 10:39:01 AM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 10:39:01 AM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 10:39:01 AM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 10:39:01 AM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server version:        Apache Tomcat/7.0.59
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server built:          Jan 28 2015 15:51:10 UTC
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server number:         7.0.59.0
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Name:               Mac OS X
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Version:            10.9.5
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Architecture:          x86_64
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Version:           1.8.0_31-b13
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Vendor:            Oracle Corporation
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_BASE:         /Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_HOME:         /Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.config.file=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/logging.properties
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|vl13h137.fciencias.unam.mx
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.endorsed.dirs=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/endorsed
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.base=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.home=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 12:58:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.io.tmpdir=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/temp
+mar 10, 2015 12:58:06 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFORMACIÓN: La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: /Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/webcommon/bin::/Users/alfonso/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+mar 10, 2015 12:58:07 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 12:58:07 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 12:58:07 PM org.apache.catalina.startup.Catalina load
+INFORMACIÓN: Initialization processed in 2835 ms
+mar 10, 2015 12:58:07 PM org.apache.catalina.core.StandardService startInternal
+INFORMACIÓN: Arrancando servicio Catalina
+mar 10, 2015 12:58:07 PM org.apache.catalina.core.StandardEngine startInternal
+INFORMACIÓN: Starting Servlet Engine: Apache Tomcat/7.0.59
+mar 10, 2015 12:58:08 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml
+mar 10, 2015 12:58:09 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml has finished in 1.725 ms
+mar 10, 2015 12:58:09 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/docs de la aplicación web
+mar 10, 2015 12:58:09 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/docs has finished in 75 ms
+mar 10, 2015 12:58:09 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/examples de la aplicación web
+mar 10, 2015 12:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/examples has finished in 1.842 ms
+mar 10, 2015 12:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/host-manager de la aplicación web
+mar 10, 2015 12:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/host-manager has finished in 61 ms
+mar 10, 2015 12:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/manager de la aplicación web
+mar 10, 2015 12:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/manager has finished in 56 ms
+mar 10, 2015 12:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/ROOT de la aplicación web
+mar 10, 2015 12:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/ROOT has finished in 54 ms
+mar 10, 2015 12:58:11 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 12:58:11 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 12:58:11 PM org.apache.catalina.startup.Catalina start
+INFORMACIÓN: Server startup in 4078 ms
+mar 10, 2015 12:59:10 PM org.apache.catalina.core.StandardServer await
+INFORMACIÓN: Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+mar 10, 2015 12:59:10 PM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 12:59:10 PM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 12:59:10 PM org.apache.catalina.core.StandardService stopInternal
+INFORMACIÓN: Parando servicio Catalina
+mar 10, 2015 12:59:10 PM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 12:59:10 PM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 12:59:10 PM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 12:59:10 PM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server version:        Apache Tomcat/7.0.59
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server built:          Jan 28 2015 15:51:10 UTC
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server number:         7.0.59.0
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Name:               Mac OS X
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Version:            10.9.5
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Architecture:          x86_64
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Version:           1.8.0_31-b13
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Vendor:            Oracle Corporation
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_BASE:         /Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_HOME:         /Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.config.file=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/logging.properties
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|vl23h158.fciencias.unam.mx
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.endorsed.dirs=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/endorsed
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.base=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.home=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.io.tmpdir=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/temp
+mar 10, 2015 1:25:19 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFORMACIÓN: La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: /Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/webcommon/bin::/Users/alfonso/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+mar 10, 2015 1:25:19 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 1:25:19 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 1:25:19 PM org.apache.catalina.startup.Catalina load
+INFORMACIÓN: Initialization processed in 2082 ms
+mar 10, 2015 1:25:20 PM org.apache.catalina.core.StandardService startInternal
+INFORMACIÓN: Arrancando servicio Catalina
+mar 10, 2015 1:25:20 PM org.apache.catalina.core.StandardEngine startInternal
+INFORMACIÓN: Starting Servlet Engine: Apache Tomcat/7.0.59
+mar 10, 2015 1:25:20 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml
+mar 10, 2015 1:25:21 PM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+INFORMACIÓN: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [104] milliseconds.
+mar 10, 2015 1:25:21 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml has finished in 1.126 ms
+mar 10, 2015 1:25:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/docs de la aplicación web
+mar 10, 2015 1:25:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/docs has finished in 82 ms
+mar 10, 2015 1:25:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/examples de la aplicación web
+mar 10, 2015 1:25:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/examples has finished in 578 ms
+mar 10, 2015 1:25:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/host-manager de la aplicación web
+mar 10, 2015 1:25:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/host-manager has finished in 78 ms
+mar 10, 2015 1:25:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/manager de la aplicación web
+mar 10, 2015 1:25:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/manager has finished in 68 ms
+mar 10, 2015 1:25:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/ROOT de la aplicación web
+mar 10, 2015 1:25:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/ROOT has finished in 78 ms
+mar 10, 2015 1:25:22 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 1:25:22 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 1:25:22 PM org.apache.catalina.startup.Catalina start
+INFORMACIÓN: Server startup in 2238 ms
+mar 10, 2015 1:55:20 PM org.apache.catalina.core.StandardServer await
+INFORMACIÓN: Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+mar 10, 2015 1:55:20 PM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 1:55:20 PM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 1:55:20 PM org.apache.catalina.core.StandardService stopInternal
+INFORMACIÓN: Parando servicio Catalina
+mar 10, 2015 1:55:21 PM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 1:55:21 PM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 1:55:21 PM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 1:55:21 PM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server version:        Apache Tomcat/7.0.59
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server built:          Jan 28 2015 15:51:10 UTC
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server number:         7.0.59.0
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Name:               Mac OS X
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Version:            10.9.5
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Architecture:          x86_64
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Version:           1.8.0_31-b13
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Vendor:            Oracle Corporation
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_BASE:         /Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_HOME:         /Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.config.file=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/logging.properties
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|vl23h158.fciencias.unam.mx
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.endorsed.dirs=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/endorsed
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.base=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.home=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 4:11:01 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.io.tmpdir=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/temp
+mar 10, 2015 4:11:01 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFORMACIÓN: La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: /Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/webcommon/bin::/Users/alfonso/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+mar 10, 2015 4:11:05 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 4:11:06 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 4:11:06 PM org.apache.catalina.startup.Catalina load
+INFORMACIÓN: Initialization processed in 14305 ms
+mar 10, 2015 4:11:06 PM org.apache.catalina.core.StandardService startInternal
+INFORMACIÓN: Arrancando servicio Catalina
+mar 10, 2015 4:11:06 PM org.apache.catalina.core.StandardEngine startInternal
+INFORMACIÓN: Starting Servlet Engine: Apache Tomcat/7.0.59
+mar 10, 2015 4:11:06 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml
+mar 10, 2015 4:11:07 PM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+INFORMACIÓN: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [104] milliseconds.
+mar 10, 2015 4:11:07 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml has finished in 1.227 ms
+mar 10, 2015 4:11:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/docs de la aplicación web
+mar 10, 2015 4:11:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/docs has finished in 90 ms
+mar 10, 2015 4:11:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/examples de la aplicación web
+mar 10, 2015 4:11:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/examples has finished in 552 ms
+mar 10, 2015 4:11:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/host-manager de la aplicación web
+mar 10, 2015 4:11:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/host-manager has finished in 82 ms
+mar 10, 2015 4:11:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/manager de la aplicación web
+mar 10, 2015 4:11:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/manager has finished in 207 ms
+mar 10, 2015 4:11:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/ROOT de la aplicación web
+mar 10, 2015 4:11:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/ROOT has finished in 91 ms
+mar 10, 2015 4:11:08 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 4:11:08 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 4:11:08 PM org.apache.catalina.startup.Catalina start
+INFORMACIÓN: Server startup in 2626 ms
+mar 10, 2015 6:50:45 PM org.apache.catalina.core.StandardServer await
+INFORMACIÓN: Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+mar 10, 2015 6:50:45 PM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 6:50:45 PM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 6:50:45 PM org.apache.catalina.core.StandardService stopInternal
+INFORMACIÓN: Parando servicio Catalina
+mar 10, 2015 6:50:45 PM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 6:50:45 PM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 6:50:45 PM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 6:50:45 PM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server version:        Apache Tomcat/7.0.59
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server built:          Jan 28 2015 15:51:10 UTC
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server number:         7.0.59.0
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Name:               Mac OS X
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Version:            10.9.5
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Architecture:          x86_64
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Version:           1.8.0_31-b13
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Vendor:            Oracle Corporation
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_BASE:         /Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_HOME:         /Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.config.file=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/logging.properties
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|macminils.gateway.2wire.net
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.endorsed.dirs=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/endorsed
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.base=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.home=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59
+mar 10, 2015 10:02:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.io.tmpdir=/Users/alfonso/Sites/converse/apache-tomcat-7.0.59/temp
+mar 10, 2015 10:02:31 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFORMACIÓN: La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: /Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/webcommon/bin::/Users/alfonso/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+mar 10, 2015 10:02:32 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 10:02:32 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 10:02:32 PM org.apache.catalina.startup.Catalina load
+INFORMACIÓN: Initialization processed in 1633 ms
+mar 10, 2015 10:02:32 PM org.apache.catalina.core.StandardService startInternal
+INFORMACIÓN: Arrancando servicio Catalina
+mar 10, 2015 10:02:32 PM org.apache.catalina.core.StandardEngine startInternal
+INFORMACIÓN: Starting Servlet Engine: Apache Tomcat/7.0.59
+mar 10, 2015 10:02:32 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml
+mar 10, 2015 10:02:33 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml has finished in 1.007 ms
+mar 10, 2015 10:02:33 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/docs de la aplicación web
+mar 10, 2015 10:02:33 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/docs has finished in 113 ms
+mar 10, 2015 10:02:33 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/examples de la aplicación web
+mar 10, 2015 10:02:34 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/examples has finished in 611 ms
+mar 10, 2015 10:02:34 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/host-manager de la aplicación web
+mar 10, 2015 10:02:34 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/host-manager has finished in 131 ms
+mar 10, 2015 10:02:34 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/manager de la aplicación web
+mar 10, 2015 10:02:34 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/manager has finished in 115 ms
+mar 10, 2015 10:02:34 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/ROOT de la aplicación web
+mar 10, 2015 10:02:34 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /Users/alfonso/Sites/converse/apache-tomcat-7.0.59/webapps/ROOT has finished in 100 ms
+mar 10, 2015 10:02:34 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["http-bio-8080"]
+mar 10, 2015 10:02:34 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["ajp-bio-8009"]
+mar 10, 2015 10:02:34 PM org.apache.catalina.startup.Catalina start
+INFORMACIÓN: Server startup in 2371 ms
