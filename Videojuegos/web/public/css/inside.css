@@ -1,18 +1,6 @@
-body {
-   margin:0;
-   padding:0;
-   height:100%;
-}
-
 .navbar-default {
 	z-index: 10;
 	background-color: #f1f1f1;
 	border-color: #D3D3D3;
-}
-#wrap{
-	padding-top: 60px;
-}
-#footer{
-position: fixed;
-height: 4em;
+	color:red!important;
 }
