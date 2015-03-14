@@ -5,29 +5,51 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<style type="text/css">
+#pad{
+  padding-left: 10em;
+}
+</style>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
+    <div class="carousel-indicators">
+      <div  data-target="#carousel-example-generic" data-slide-to="0" class="pad">
+        <img src="public/img/morado.jpg" style="width:10em; margin: auto !important;">
+      </div>
+      <div data-target="#carousel-example-generic" data-slide-to="1"class="pad">
+        <img src="public/img/morado.jpg" style="width:10em;margin: auto !important;">
+      </div>
+      <div data-target="#carousel-example-generic" data-slide-to="2"class="pad">
+        <img src="public/img/morado.jpg" style="width:10em;margin: auto !important;">
+      </div>
+    </div>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img style="margin-left:4em" src="public/img/morado.jpg" alt="...">
-        <div style="color:black;" class="carousel-caption">
-         Bla Bla Bla
+      <div class="item active row">
+        <div class="col-md-6">
+          <img  src="public/img/morado.jpg" alt="...">
         </div>
-      </div>
-      <div class="item">
-        <img src="public/img/morado.jpg" alt="...">
-        <div class="carousel-caption">
-          ...
+        <div style="padding-left:3em;"class="col-md-6">
+          <h1>Videojuego de Muestra 1</h1>
         </div>
-      </div>
-      ...
+        </div>
+     <div class="item  row">
+        <div class="col-md-6">
+          <img  src="public/img/morado.jpg" alt="...">
+        </div>
+        <div style="padding-left:3em;"class="col-md-6">
+          <h1>Videojuego de Muestra 2</h1>
+        </div>
+        </div>
+        <div class="item  row">
+        <div class="col-md-6">
+          <img  src="public/img/morado.jpg" alt="...">
+        </div>
+        <div style="padding-left:3em;"class="col-md-6">
+          <h1>Videojuego de Muestra 3</h1>
+        </div>
+        </div>
     </div>
 
     <!-- Controls -->

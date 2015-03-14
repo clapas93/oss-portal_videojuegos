@@ -157,3 +157,299 @@ mar 13, 2015 2:40:01 AM org.apache.coyote.AbstractProtocol destroy
 INFORMACIÓN: Destroying ProtocolHandler ["http-bio-8080"]
 mar 13, 2015 2:40:01 AM org.apache.coyote.AbstractProtocol destroy
 INFORMACIÓN: Destroying ProtocolHandler ["ajp-bio-8009"]
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server version:        Apache Tomcat/7.0.59
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server built:          Jan 28 2015 15:51:10 UTC
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server number:         7.0.59.0
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Name:               Linux
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Version:            3.16.0-0.bpo.4-amd64
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Architecture:          amd64
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Java Home:             /usr/lib/jvm/java-8-oracle/jre
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Version:           1.8.0_31-b13
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Vendor:            Oracle Corporation
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_BASE:         /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_HOME:         /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.config.file=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/logging.properties
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|littlebastard
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.endorsed.dirs=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/endorsed
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.base=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.home=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59
+mar 13, 2015 12:35:33 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.io.tmpdir=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/temp
+mar 13, 2015 12:35:33 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFORMACIÓN: La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: /usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+mar 13, 2015 12:35:33 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["http-bio-8080"]
+mar 13, 2015 12:35:34 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["ajp-bio-8009"]
+mar 13, 2015 12:35:34 PM org.apache.catalina.startup.Catalina load
+INFORMACIÓN: Initialization processed in 2280 ms
+mar 13, 2015 12:35:34 PM org.apache.catalina.core.StandardService startInternal
+INFORMACIÓN: Arrancando servicio Catalina
+mar 13, 2015 12:35:34 PM org.apache.catalina.core.StandardEngine startInternal
+INFORMACIÓN: Starting Servlet Engine: Apache Tomcat/7.0.59
+mar 13, 2015 12:35:34 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Videojuegos.xml
+mar 13, 2015 12:35:35 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Videojuegos.xml has finished in 1.350 ms
+mar 13, 2015 12:35:35 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml
+mar 13, 2015 12:35:35 PM org.apache.catalina.core.StandardContext resourcesStart
+GRAVE: Error arrancando Recursos estáticos
+java.lang.IllegalArgumentException: El Documento base /Users/alfonso/Sites/converse/Converse/build/web no existe o no es un directorio legible
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5141)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5326)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:649)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:672)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1859)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+mar 13, 2015 12:35:35 PM org.apache.catalina.core.ContainerBase addChildInternal
+GRAVE: ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/Converse]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:154)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:649)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:672)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1859)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.catalina.LifecycleException: Error in resourceStart()
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5327)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 10 more
+
+mar 13, 2015 12:35:35 PM org.apache.catalina.startup.HostConfig deployDescriptor
+GRAVE: Error durante el despliegue del descriptor de configuración /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/Converse]]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:904)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:649)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:672)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1859)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+mar 13, 2015 12:35:35 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml has finished in 42 ms
+mar 13, 2015 12:35:35 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/host-manager de la aplicación web
+mar 13, 2015 12:35:35 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/host-manager has finished in 297 ms
+mar 13, 2015 12:35:35 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/manager de la aplicación web
+mar 13, 2015 12:35:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/manager has finished in 219 ms
+mar 13, 2015 12:35:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/examples de la aplicación web
+mar 13, 2015 12:35:37 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/examples has finished in 1.114 ms
+mar 13, 2015 12:35:37 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/docs de la aplicación web
+mar 13, 2015 12:35:37 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/docs has finished in 152 ms
+mar 13, 2015 12:35:37 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/ROOT de la aplicación web
+mar 13, 2015 12:35:37 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/ROOT has finished in 174 ms
+mar 13, 2015 12:35:37 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["http-bio-8080"]
+mar 13, 2015 12:35:37 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["ajp-bio-8009"]
+mar 13, 2015 12:35:37 PM org.apache.catalina.startup.Catalina start
+INFORMACIÓN: Server startup in 3586 ms
+mar 13, 2015 12:35:39 PM org.apache.catalina.startup.HostConfig undeploy
+INFORMACIÓN: Repliegue (undeploy) de la aplicación web que tiene como trayectoria de contexto /Videojuegos
+mar 13, 2015 12:35:39 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Videojuegos.xml
+mar 13, 2015 12:35:39 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Videojuegos.xml has finished in 164 ms
+mar 13, 2015 2:04:40 PM org.apache.catalina.core.StandardServer await
+INFORMACIÓN: Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+mar 13, 2015 2:04:40 PM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["http-bio-8080"]
+mar 13, 2015 2:04:40 PM org.apache.coyote.AbstractProtocol pause
+INFORMACIÓN: Pausing ProtocolHandler ["ajp-bio-8009"]
+mar 13, 2015 2:04:41 PM org.apache.catalina.core.StandardService stopInternal
+INFORMACIÓN: Parando servicio Catalina
+mar 13, 2015 2:04:41 PM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["http-bio-8080"]
+mar 13, 2015 2:04:41 PM org.apache.coyote.AbstractProtocol stop
+INFORMACIÓN: Stopping ProtocolHandler ["ajp-bio-8009"]
+mar 13, 2015 2:04:41 PM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["http-bio-8080"]
+mar 13, 2015 2:04:41 PM org.apache.coyote.AbstractProtocol destroy
+INFORMACIÓN: Destroying ProtocolHandler ["ajp-bio-8009"]
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server version:        Apache Tomcat/7.0.59
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server built:          Jan 28 2015 15:51:10 UTC
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Server number:         7.0.59.0
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Name:               Linux
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: OS Version:            3.16.0-0.bpo.4-amd64
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Architecture:          amd64
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Java Home:             /usr/lib/jvm/java-8-oracle/jre
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Version:           1.8.0_31-b13
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: JVM Vendor:            Oracle Corporation
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_BASE:         /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: CATALINA_HOME:         /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.config.file=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/logging.properties
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|littlebastard
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.endorsed.dirs=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/endorsed
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.base=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Dcatalina.home=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59
+mar 13, 2015 9:06:35 PM org.apache.catalina.startup.VersionLoggerListener log
+INFORMACIÓN: Command line argument: -Djava.io.tmpdir=/home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/temp
+mar 13, 2015 9:06:35 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFORMACIÓN: La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: /usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+mar 13, 2015 9:06:36 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["http-bio-8080"]
+mar 13, 2015 9:06:36 PM org.apache.coyote.AbstractProtocol init
+INFORMACIÓN: Initializing ProtocolHandler ["ajp-bio-8009"]
+mar 13, 2015 9:06:36 PM org.apache.catalina.startup.Catalina load
+INFORMACIÓN: Initialization processed in 2282 ms
+mar 13, 2015 9:06:36 PM org.apache.catalina.core.StandardService startInternal
+INFORMACIÓN: Arrancando servicio Catalina
+mar 13, 2015 9:06:36 PM org.apache.catalina.core.StandardEngine startInternal
+INFORMACIÓN: Starting Servlet Engine: Apache Tomcat/7.0.59
+mar 13, 2015 9:06:36 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Videojuegos.xml
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Videojuegos.xml has finished in 1.239 ms
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml
+mar 13, 2015 9:06:38 PM org.apache.catalina.core.StandardContext resourcesStart
+GRAVE: Error arrancando Recursos estáticos
+java.lang.IllegalArgumentException: El Documento base /Users/alfonso/Sites/converse/Converse/build/web no existe o no es un directorio legible
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5141)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5326)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:649)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:672)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1859)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+mar 13, 2015 9:06:38 PM org.apache.catalina.core.ContainerBase addChildInternal
+GRAVE: ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/Converse]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:154)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:649)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:672)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1859)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.catalina.LifecycleException: Error in resourceStart()
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5327)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 10 more
+
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDescriptor
+GRAVE: Error durante el despliegue del descriptor de configuración /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/Converse]]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:904)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:649)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:672)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1859)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Converse.xml has finished in 54 ms
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/host-manager de la aplicación web
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/host-manager has finished in 303 ms
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/manager de la aplicación web
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/manager has finished in 193 ms
+mar 13, 2015 9:06:38 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/examples de la aplicación web
+mar 13, 2015 9:06:39 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/examples has finished in 899 ms
+mar 13, 2015 9:06:39 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/docs de la aplicación web
+mar 13, 2015 9:06:39 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/docs has finished in 128 ms
+mar 13, 2015 9:06:39 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Despliegue del directorio /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/ROOT de la aplicación web
+mar 13, 2015 9:06:39 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFORMACIÓN: Deployment of web application directory /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/webapps/ROOT has finished in 198 ms
+mar 13, 2015 9:06:39 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["http-bio-8080"]
+mar 13, 2015 9:06:39 PM org.apache.coyote.AbstractProtocol start
+INFORMACIÓN: Starting ProtocolHandler ["ajp-bio-8009"]
+mar 13, 2015 9:06:39 PM org.apache.catalina.startup.Catalina start
+INFORMACIÓN: Server startup in 3277 ms
+mar 13, 2015 9:07:54 PM org.apache.catalina.startup.HostConfig undeploy
+INFORMACIÓN: Repliegue (undeploy) de la aplicación web que tiene como trayectoria de contexto /Videojuegos
+mar 13, 2015 9:07:54 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Desplieque del descriptor de configuración /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Videojuegos.xml
+mar 13, 2015 9:07:54 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFORMACIÓN: Deployment of configuration descriptor /home/lalo/oss-portal_videojuegos/apache-tomcat-7.0.59/conf/Catalina/localhost/Videojuegos.xml has finished in 132 ms
+mar 13, 2015 9:07:54 PM org.apache.catalina.util.LifecycleBase start
+INFORMACIÓN: The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/Videojuegos]] after start() had already been called. The second call will be ignored.
