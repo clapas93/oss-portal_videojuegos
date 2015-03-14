@@ -6208,6 +6208,7 @@ button.close {
 }
 .carousel-indicators div {
   display: inline-block;
+
   /*text-indent: -999px;
   cursor: pointer;
   background-color: #000 \9;
@@ -6217,6 +6218,8 @@ button.close {
 }
 .carousel-indicators .active {
   background-color: #fff;
+  border: solid;
+  border-color: green;
 }
 .carousel-caption {
   position: absolute;

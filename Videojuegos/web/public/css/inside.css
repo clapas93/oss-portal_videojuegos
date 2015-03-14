@@ -2,6 +2,7 @@ body {
    margin:0;
    padding:0;
    height:100%;
+   overflow-x:hidden; 
 }
 
 .navbar-default {
@@ -13,12 +14,15 @@ body {
 	padding-top: 60px;
 }
 #footer{
-	position: relative;
-	height: 4em;
+	top:7em;
+	border-top: solid;
+	border-color: #D3D3D3; 
+	position: relative !important;
+	height: 2em;
 }
 
 .carousel-indicators {
-	bottom: -101px!important;
+	bottom: -90px!important;
 	z-index: 10;
 	left: 200px !important;
 }
@@ -26,6 +30,5 @@ body {
 display: inline-block;
 margin-left: 0.5em !important;
 }
-
 .carousel-indicators .active {
 }

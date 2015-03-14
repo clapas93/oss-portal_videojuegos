@@ -14,13 +14,13 @@
     <!-- Indicators -->
     <div class="carousel-indicators">
       <div  data-target="#carousel-example-generic" data-slide-to="0" class="pad">
-        <img src="public/img/morado.jpg" style="width:10em; margin: auto !important;">
+        <img src="public/img/morado.jpg" style="width:9em; margin: auto !important;">
       </div>
       <div data-target="#carousel-example-generic" data-slide-to="1"class="pad">
-        <img src="public/img/morado.jpg" style="width:10em;margin: auto !important;">
+        <img src="public/img/morado.jpg" style="width:9em;margin: auto !important;">
       </div>
       <div data-target="#carousel-example-generic" data-slide-to="2"class="pad">
-        <img src="public/img/morado.jpg" style="width:10em;margin: auto !important;">
+        <img src="public/img/morado.jpg" style="width:9em;margin: auto !important;">
       </div>
     </div>
 
@@ -53,11 +53,19 @@
     </div>
 
     <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <style type="text/css">
+      #left-car{
+        left: -4em !important;
+      }
+      #right-car{
+        right: -4em !important;
+      }
+    </style>
+    <a id="left-car" class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <a id="right-car" class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
