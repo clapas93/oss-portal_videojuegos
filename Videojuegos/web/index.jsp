@@ -79,8 +79,12 @@
     <span>E</span><span>n</span><span>t</span><span>r</span><span>a</span><span>r</span>
     </button>
   </div>
- -->  
+ -->
   </div>
+  <div >
+      <a href="layout.jsp"><img id="pressstart" src="public/img/press_start_color.png"></a>
+  </div>
+
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="public/js/main.js"></script>

@@ -15,6 +15,12 @@
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
   <link rel="stylesheet" type="text/css" href="public/css/inside.css">
+    <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
+
+  <script type="text/javascript" src="public/js/jssor.js"></script>
+
+  <script type="text/javascript" src="public/js/jssor.slider.js"></script>
+
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -42,15 +48,9 @@
     <%@include file='videojuegos.jsp'%>
   
   <div id="footer">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav pull-left">
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </div>
-    </div>
+   
+          <p><a href="#">Contacto</a></p>
   </div>
-  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="public/js/main.js"></script>
 </body>
