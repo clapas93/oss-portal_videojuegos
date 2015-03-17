@@ -1,6 +1,42 @@
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+   overflow-x:hidden; 
+}
+
+
+
 .navbar-default {
 	z-index: 10;
 	background-color: #f1f1f1;
 	border-color: #D3D3D3;
-	color:red!important;
+
+}
+#wrap{
+	padding-top: 60px;
+}
+#footer{
+	top:-1em;
+	border-top: solid;
+	border-color: #D3D3D3; 
+	position: relative !important;
+	height: 2em;
+}
+
+#footer > p{
+	margin: 1em 2em;
+}
+
+.carousel-indicators {
+	bottom: -90px!important;
+	z-index: 10;
+	left: 200px !important;
+}
+.carousel-indicators div {
+display: inline-block;
+margin-left: 0.5em !important;
+}
+.carousel-indicators .active {
+>>>>>>> Luis-Miranda-Practica1
 }

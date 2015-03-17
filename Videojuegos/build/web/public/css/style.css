@@ -34,8 +34,11 @@ body{
 */
 
 /* Main styles */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
-
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);*/
+@font-face {
+   font-family: font;
+   src: url(../font/pixelart.ttf)t;
+} 
 .text-mask {
   fill: white;
   stroke: white;
@@ -43,7 +46,10 @@ body{
   stroke-width: 10;
 }
 
-
+#press{
+		font-family: font!important;
+		font-size: 10em;
+}
 svg {
 	z-index: 0;
   position: absolute;
@@ -54,6 +60,13 @@ svg {
 
 #logo{
 	font-size: 6em;
+}
+
+#pressstart{
+	width: 17em;
+position: absolute;
+top: 32em;
+left: 38em;
 }
 
 /* Common button styles */

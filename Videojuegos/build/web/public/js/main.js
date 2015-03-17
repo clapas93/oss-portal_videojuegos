@@ -18,5 +18,6 @@ function pulse(elem, duration, easing, props_to, props_from, until) {
 
 $( document ).ready(function() {
 	pulse($('#logo'), 1500, 'swing', {opacity:0.15}, {opacity:1}, function() { return false; });
+	pulse($('#pressstart'), 1500, 'swing', {opacity:0.3}, {opacity:1}, function() { return false; });
 });
 
