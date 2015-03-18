@@ -36,10 +36,10 @@
           <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Administrador <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Videojuegos</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="AdministrarJuegos.jsp">Videojuegos</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Préstamos</a></li>
               <li class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Salir</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="index.jsp">Salir</a></li>
             </ul>
           </li>
         </ul>
@@ -52,7 +52,7 @@
     <div class="row">
       <div class="col-lg-12">
         <p>
-          <button class="btn btn-large btn btn-success pull-right" type="submit">Subir Videojuego</button>
+          <a href="SubirJuego.jsp" class="btn btn-large btn btn-success pull-right" type="submit">Subir Videojuego</a>
           <form class="form-search">
             <div class="input-append">
               <input type="text" class="span2 search-query" placeholder="Buscar Videojuego">
@@ -87,7 +87,7 @@
                   <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</td>
                   <td>200</td>
                   <td>
-                    <p><button class="btn btn-primary" type="button">Editar</button></p>
+                    <p><a href="EditarJuego.jsp" class="btn btn-primary" type="button">Editar</a></p>
                     <p><button class="btn btn-primary btn btn-danger" type="button">Eliminar</button></p>
                   </td>
                 </tr>

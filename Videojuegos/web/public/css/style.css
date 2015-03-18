@@ -4,7 +4,9 @@ body{
 	min-height: 480px;
 	width: 100%;
 	height: 100%;
-	background: #f1f1f1;
+	background: url(../img/Retro-V1.jpg) no-repeat;
+        background-position-y: -12em;
+        overflow-x: hidden ;
 }	
 #brand{
 	height: 30px;
@@ -12,21 +14,23 @@ body{
 
 .navbar-default {
 	z-index: 10;
-	background-color: #f1f1f1;
-	border-color: #f1f1f1;
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
 	color:red!important;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-	color: #1c9ccd;
+	color: #AD0EBE;
 	background-color: transparent;
 }
 
 .navbar-default .navbar-nav > li > a {
 	color: #1c9ccd;
+        font-weight: bold;
 }
 .navbar-default .navbar-text {
 	color: #1c9ccd;
+        font-weight: bold;
 }
 
 /**
@@ -54,7 +58,7 @@ svg {
 	z-index: 0;
 	position: absolute;
 	width: 112%;
-	height: 100%;
+	height: 115%;
 	bottom:0em;
 }
 
@@ -64,9 +68,9 @@ svg {
 
 #pressstart{
 	width: 17em;
-position: absolute;
-top: 32em;
-left: 38em;
+        position: absolute;
+        top: 28em;
+        left: 38em;
 }
 
 /* Common button styles */
