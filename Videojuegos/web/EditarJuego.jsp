@@ -36,10 +36,10 @@
           <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Administrador <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Videojuegos</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="AdministrarJuegos.jsp">Videojuegos</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Préstamos</a></li>
               <li class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Salir</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="index.jsp">Salir</a></li>
             </ul>
           </li>
         </ul>
