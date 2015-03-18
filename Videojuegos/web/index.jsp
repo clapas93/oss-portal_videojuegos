@@ -11,6 +11,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="public/img/favicon.png"/>
+  <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
@@ -42,7 +43,7 @@
           <text text-anchor="middle"
           x="50%"
           y="50%"
-          dy=".35em"
+          dy=".20em"
           class="text"
           >
           Pulse Games
@@ -62,7 +63,7 @@
       <g mask="url(#m-text)">
       <!-- Masked content -->
         <!-- http://tympanus.net/codrops-playground/assets/images/posts/23145/image2.jpg -->
-        <image xlink:href="public/img/morado.jpg"
+        <image xlink:href="public/img/pulse2.jpg"
         width="900"
         height="532"
         x="-30%"

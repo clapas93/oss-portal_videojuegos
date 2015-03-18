@@ -4,7 +4,7 @@ body{
 	min-height: 480px;
 	width: 100%;
 	height: 100%;
-	background: #f1f1f1;
+        background: white;
 }	
 #brand{
 	height: 30px;
@@ -12,13 +12,12 @@ body{
 
 .navbar-default {
 	z-index: 10;
-	background-color: #f1f1f1;
-	border-color: #f1f1f1;
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
 	color:red!important;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-	color: #1c9ccd;
 	background-color: transparent;
 }
 
@@ -33,28 +32,20 @@ body{
 *LOGO
 */
 
-/* Main styles */
-/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);*/
-@font-face {
-   font-family: font;
-   src: url(../font/pixelart.ttf)t;
-} 
 .text-mask {
+        font-size: 0.6em;
+        font-family: 'Orbitron', sans-serif;
 	fill: white;
 	stroke: white;
 	stroke-opacity: .2;
-	stroke-width: 12;
+	stroke-width: 10;
 }
 
-#press{
-		font-family: font!important;
-		font-size: 10em;
-}
 svg {
 	z-index: 0;
 	position: absolute;
-	width: 112%;
-	height: 100%;
+	width: 110%;
+	height: 120%;
 	bottom:0em;
 }
 
