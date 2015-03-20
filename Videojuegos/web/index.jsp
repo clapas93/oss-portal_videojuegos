@@ -15,6 +15,9 @@
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
+  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
+  <script type="text/javascript" src="public/js/jssor.js"></script>
+  <script type="text/javascript" src="public/js/jssor.slider.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -35,7 +38,8 @@
       </div>
     </div>
   </nav>
-  <div id="logo" class="row">
+  <section id="front" class="">
+    <div id="logo" class="row">
     <svg viewBox="20 20 600 300">
 
         <!-- Symbol with text -->
@@ -63,7 +67,7 @@
       <g mask="url(#m-text)">
       <!-- Masked content -->
         <!-- http://tympanus.net/codrops-playground/assets/images/posts/23145/image2.jpg -->
-        <image xlink:href="public/img/pulse2.jpg"
+        <image xlink:href="public/img/morado.jpg"
         width="900"
         height="532"
         x="-30%"
@@ -73,21 +77,14 @@
     </svg>
     
   </div>
-  <div class="container">
-<!--   <div id="entrar_row" class="row-fluid">
-    <div class="col-md-5"></div>
-    <button class="button button--nina button--border-thin button--round-s" data-text="Entrar">
-    <span>E</span><span>n</span><span>t</span><span>r</span><span>a</span><span>r</span>
-    </button>
-  </div>
- -->
-  </div>
   <div >
-      <a href="layout.jsp"><img id="pressstart" src="public/img/press_start_color.png"></a>
+    <img id="pressstart" src="public/img/press_start_color.png">
   </div>
+  </section>
 
-  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-  <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+  <section id="games" class="hidden">
+      <%@include file='videojuegos.jsp'%>
+  </section>
   <script type="text/javascript" src="public/js/main.js"></script>
 </body>
 </html>

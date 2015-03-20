@@ -13,7 +13,7 @@
   <title>Subir Videojuegos</title>
   <meta name="author" content="Claudia Medina"/>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="public/css/style.css">
+  <link rel="stylesheet" type="text/css" href="public/css/backed_style.css">
   <link rel="stylesheet" type="text/css" href="public/css/inside.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img id="brand" alt="pulsegames" src="public/img/logo.png">
+          <img style="height:1.5em;" id="brand" alt="pulsegames" src="public/img/logo.png">
         </a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
