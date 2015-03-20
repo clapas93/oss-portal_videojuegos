@@ -113,8 +113,8 @@
     </script>
     <!-- Jssor Slider Begin -->
     <!-- You can move inline styles to css file or css block. -->
-    <div id="slider1_container" style="position: relative; top: -20px; left: 0px; width: 100%;
-        height: 39em; background: #191919; overflow: hidden;">
+    <div id="slider1_container" style="position: relative; top: -20px; left: 0px; width: 800px;
+        height: 300px; background-color: rgba(25,25,25,0.9); overflow: hidden;">
 
         <!-- Loading Screen -->
         <!-- <div u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -127,7 +127,7 @@
         </div> -->
 
         <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1370px; height: 450px; overflow: hidden;">
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 450px; overflow: hidden;">
             <div>
                 <img u="image" src="public/img/alila/01.jpg" />
                 <img u="thumb" src="public/img/alila/thumb-01.jpg" />

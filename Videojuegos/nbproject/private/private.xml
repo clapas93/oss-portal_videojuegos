@@ -3,7 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/home/magdiel/Documentos/ing_software/proyecto/oss-portal_videojuegos/Videojuegos/nbproject/build-impl.xml</file>
+=======
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/index.jsp</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/videojuegos.jsp</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/public/css/style.css</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/public/css/backend_style.css</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/public/css/inside.css</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/EditarJuego.jsp</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/backend_layout.jsp</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/layout.jsp</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/SubirJuego.jsp</file>
+            <file>file:/home/lalo/oss-portal_videojuegos/Videojuegos/web/AdministrarJuegos.jsp</file>
+>>>>>>> Luis-Miranda-Practica1
         </group>
     </open-files>
 </project-private>

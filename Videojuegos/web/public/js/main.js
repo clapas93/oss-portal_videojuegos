@@ -6,7 +6,11 @@ function pulsate(element) {
 
 });
 */
-function pulse(elem, duration, easing, props_to, props_from, until) {
+
+
+
+$( document ).ready(function() {
+	function pulse(elem, duration, easing, props_to, props_from, until) {
 	elem.animate( props_to, duration, easing,
 		function() {
 			if ( until() == false )
@@ -15,9 +19,13 @@ function pulse(elem, duration, easing, props_to, props_from, until) {
 			}
 		});
 }
-
-$( document ).ready(function() {
-	pulse($('#logo'), 1500, 'swing', {opacity:0.15}, {opacity:1}, function() { return false; });
-	pulse($('#pressstart'), 1500, 'swing', {opacity:0.3}, {opacity:1}, function() { return false; });
+	pulse($('#front'), 1500, 'swing', {opacity:0.15}, {opacity:1}, function() { return false; });
 });
 
+$("#pressstart").click(function(){
+	//$("#front").fadeOut(5000);
+	$("#front").addClass('hidden');
+
+	$("#games").removeClass('hidden');
+	//$("#games").fadeIn("slow");
+});

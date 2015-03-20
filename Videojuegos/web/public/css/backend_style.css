@@ -1,60 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19/03/2015, 01:48:56 PM
+    Author     : lalo
+*/
 body{
-	position: fixed;
 	top: 0;
 	z-index: 100;
 	min-height: 480px;
 	width: 100%;
 	height: 100%;
-	background: #f1f1f1;
+	background-color:#e7e7e7; 
 }	
 #brand{
-	height: 30px;
+    width: 9em !important;
 }
 
 .navbar-default {
 	z-index: 10;
-	background-color: #f1f1f1;
-	border-color: #f1f1f1;
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
 	color:red!important;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-	color: #1c9ccd;
+	color: #AD0EBE;
 	background-color: transparent;
 }
 
 .navbar-default .navbar-nav > li > a {
 	color: #1c9ccd;
+        font-weight: bold;
 }
 .navbar-default .navbar-text {
 	color: #1c9ccd;
+        font-weight: bold;
 }
 
 /**
 *LOGO
 */
 
-/* Main styles */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
-
 .text-mask {
-  fill: white;
-  stroke: white;
-  stroke-opacity: .2;
-  stroke-width: 10;
+        font-size: 0.8em;
+        font-family: 'Orbitron', sans-serif;
+	fill: white;
+	stroke: white;
+	stroke-opacity: .2;
+	stroke-width: 10;
 }
-
 
 svg {
 	z-index: 0;
-  position: absolute;
-  width: 110%;
-  height: 100%;
-  bottom:0em;
+	position: absolute;
+	width: 112%;
+	height: 115%;
+	bottom:0em;
 }
 
 #logo{
-	font-size: 6em;
+	font-size: 5em;
+}
+
+#pressstart{
+	width: 19em;
+  position: absolute;
+  top: 28em;
+  left: 38em;
+  cursor: pointer;
 }
 
 /* Common button styles */
