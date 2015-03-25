@@ -5,6 +5,7 @@ Videojuegos/build/
 #netbeans specific
 core
 Videojuegos/nbproject/*
+Videojuegos/nbproject/project.properties
 !Videojuegos/nbproject/project.properties
 !Videojuegos/nbproject/project.xml
  
