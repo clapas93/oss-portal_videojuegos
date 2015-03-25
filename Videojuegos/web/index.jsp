@@ -49,8 +49,6 @@
             })
         });
     </script>        
-  <script type="text/javascript" src="public/js/jssor.js"></script>
-  <script type="text/javascript" src="public/js/jssor.slider.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -124,7 +122,9 @@
     <img id="pressstart" src="public/img/press_start_color.png">
   </div>
   </section>
-
+  <style type="text/css">
+    
+  </style>
   <section id="games" class="hidden">
       <%@include file='videojuegos.jsp'%>
   </section>
