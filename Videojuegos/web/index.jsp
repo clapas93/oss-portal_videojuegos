@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 12/03/2015, 01:55:10 PM
-    Author     : lalo
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,40 +10,13 @@
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
+  <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-  <style>
-      .form-index{
-            width: 340px;
-            background: gray;
-            border-radius: 10px 0px 10px 10px;
-            padding: 20px;
-            position: fixed;
-            right: 10%;
-            top: 50px;
-            display:none;
-      }
-      #form-input{
-            width: 213px;
-            display: inline-block;
-            float: right;
-      }
-      .event-click{
-          padding: 10px;
-      }
-  </style>
-  <script>
-        $(window).load( function() {
-            var n=1;
-            $('#event_click').click(function(){
-                n++;
-                if((n % 2)==0){
-                        $('.form-index').fadeIn()
-                }else{
-                      	$('.form-index').fadeOut()
-                }
-            })
-        });
-    </script>        
+  <script type="text/javascript" src="public/js/jssor.js"></script>
+  <script type="text/javascript" src="public/js/jssor.slider.js"></script>
+  <script type="text/javascript" src="public/js/magdieljs.js"></script>
+  <script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+  
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -64,18 +32,39 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
           <li ><a id="event_click" >Iniciar Sesión</a></li>
-          <li><a href="registro.jsp">Registrarse</a></li>
+          <li><a id="registro" href="registro.jsp">Registrarse</a></li>
         </ul>
           
-          <div class="form-index">
-              <span>Datos de usuario</span>
-              <hr>
-              <div>
-                  <div><span display="inline-block">Usuario</span><input id="form-input" class="form-control" type="text" placeholder=""></div>
-                  
-                  <div><span display="inline-block">Contraseña</span><input id="form-input" class="form-control" type="password" placeholder=""></div>
-              </div>
-          </div>
+        <div class="form-index">
+            <span style="color:#fff; font-size: 1.5em;">Datos de usuario</span>
+            <hr color="#2c2c2c">
+            <div>
+                <form id="loginForm" method="post" class="form-horizontal" action="#">
+				 <div class="form-group">
+					 <label class="col-md-3 control-label">Usuario</label>
+					 <div class="col-md-7">
+						 <input type="text" class="form-control" name="usuario" placeholder="ejemplo@correo.com"/>
+					 </div>
+				 </div>
+				 <div class="form-group">
+		 			<label class="col-md-3 control-label">Contraseña</label>
+					 <div class="col-md-7">
+						 <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
+					 </div>
+				 </div>
+				 <div class="form-group">
+					 <div class="col-md-5 col-md-offset-3">
+						 <button type="submit" class="btn btn-default">Entrar</button>
+					 </div>
+				 </div>
+                </form>
+            </div>
+        </div>
+        
+          
+          
+          
+          
       </div>
     </div>
   </nav>

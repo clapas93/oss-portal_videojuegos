@@ -15,26 +15,14 @@
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
   <link rel="stylesheet" type="text/css" href="public/css/inside.css">
+  <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
   <script type="text/javascript" src="public/js/validator.js"></script>
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="public/js/main.js"></script>
   <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-  <style type="text/css">
-    .form-registro {
-      padding: 0 5% 5% 5%;
-      background: #e6e6e6;
-      width: 50%;
-      margin:0 auto;
-      border-radius: 25px;
-    }
-    .form-registro td {padding: 0px 16px; width: 270px;}
-    .form-registro .mi-title {text-align: center; padding: 10px 10px 20px 10px;
-                              font-size: 2em;}
-    .formulario{
-      width:100%;
-      margin: 0 auto;
-    }
-  </style>
+  <script type="text/javascript" src="public/js/magdieljs.js"></script>
+  <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"></link>
+  
 </head>
 <body>
   <nav class="navbar navbar-default">
