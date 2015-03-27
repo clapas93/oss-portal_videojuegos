@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 12/03/2015, 01:55:10 PM
-    Author     : lalo
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,35 +16,7 @@
   <script type="text/javascript" src="public/js/jssor.slider.js"></script>
   <script type="text/javascript" src="public/js/magdieljs.js"></script>
   <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-  <script type="text/javascript">
-      $( document ).ready(function() {
-    $('#loginForm').bootstrapValidator({
-	 message: 'Este valor no es valido',
-	 feedbackIcons: {
-		 valid: 'glyphicon glyphicon-ok',
-		 invalid: 'glyphicon glyphicon-remove',
-		 validating: 'glyphicon glyphicon-refresh'
-	 },
-	 fields: {
-		 usuario: {
-			 validators: {
-				 notEmpty: {
-					 message: 'El nombre de usuario es requerido'
-				 }
-			 }
-		 },
-		 password: {
-			 validators: {
-				 notEmpty: {
-					 message: 'La contraseña es requerida'
-				 }
-			 }
-		 }
-	 }
-    });
-});
-      
-  </script>
+  <script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -72,22 +39,22 @@
             <span style="color:#fff; font-size: 1.5em;">Datos de usuario</span>
             <hr color="#2c2c2c">
             <div>
-                <form id="loginForm" method="post" class="form-horizontal" action="none">
+                <form id="loginForm" method="post" class="form-horizontal" action="#">
 				 <div class="form-group">
-					 <label class="col-md-3 control-label">Nombre de Usuario</label>
+					 <label class="col-md-3 control-label">Usuario</label>
 					 <div class="col-md-7">
-						 <input type="text" class="form-control" name="usuario" />
+						 <input type="text" class="form-control" name="usuario" placeholder="ejemplo@correo.com"/>
 					 </div>
 				 </div>
 				 <div class="form-group">
-		 			<label class="col-md-3 control-label">Password</label>
+		 			<label class="col-md-3 control-label">Contraseña</label>
 					 <div class="col-md-7">
-						 <input type="password" class="form-control" name="password" />
+						 <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
 					 </div>
 				 </div>
 				 <div class="form-group">
 					 <div class="col-md-5 col-md-offset-3">
-						 <button type="submit" class="btn btn-default">Login</button>
+						 <button type="submit" class="btn btn-default">Entrar</button>
 					 </div>
 				 </div>
                 </form>
@@ -144,7 +111,9 @@
     <img id="pressstart" src="public/img/press_start_color.png">
   </div>
   </section>
-
+  <style type="text/css">
+    
+  </style>
   <section id="games" class="hidden">
       <%@include file='videojuegos.jsp'%>
   </section>

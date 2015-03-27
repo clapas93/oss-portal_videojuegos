@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/03/2015, 01:38:04 PM
+    Author     : magdiel
+*/
+.form-index{
+            width: 420px;
+            background: #0B243B;
+            border-radius: 10px 0px 10px 10px;
+            padding: 20px;
+            position: fixed;
+            right: 135px;
+            top: 50px;
+            display:none;
+            box-shadow: 0px 0px 29px 0px;
+            cursor:pointer;
+      }
+      #form-input{
+            width: 250px;
+            display: inline-block;
+            float: right;
+      }
+      .event-click{
+          padding: 10px;
+      }
+      .form-index:hover{
+          cursor:pointer;
+      }
+      .form-registro {
+      padding: 0 5% 5% 5%;
+      background: #e6e6e6;
+      width: 50%;
+      margin:0 auto;
+      border-radius: 25px;
+    }
+    .form-registro td {padding: 0px 16px; width: 270px;}
+    .form-registro .mi-title {text-align: center; padding: 10px 10px 20px 10px;
+                              font-size: 2em;}
+    .formulario{
+      width:100%;
+      margin: 0 auto;
+    }
