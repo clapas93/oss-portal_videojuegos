@@ -17,17 +17,13 @@
   <link rel="stylesheet" type="text/css" href="public/css/inside.css">
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
 
-  <script type="text/javascript" src="public/js/jssor.js"></script>
-
-  <script type="text/javascript" src="public/js/jssor.slider.js"></script>
-
 </head>
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img id="brand" alt="pulsegames" src="public/img/logo.png">
+         
         </a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
@@ -45,9 +41,9 @@
     </div>
   </nav>
   
-    <%@include file='videojuegos.jsp'%>
+   
   
-  <div id="footer">
+  <div id="footer" class="navbar navbar-default navbar-fixed-bottom">
    
           <p><a href="#">Contacto</a></p>
   </div>
