@@ -6,9 +6,10 @@ Videojuegos/build/
 core
 Videojuegos/nbproject/*
 Videojuegos/nbproject/project.properties
-!Videojuegos/nbproject/project.properties
-!Videojuegos/nbproject/project.xml
-Videojuegos/nbproject/project.properties
+Videojuegos/nbproject/project.xml
+Videojuegos/nbproject/genfiles.properties
+Videojuegos/nbproject/build-impl.xml
+Videojuegos/nbproject/ant-deploy.xml
  
 #java specific
 *.class

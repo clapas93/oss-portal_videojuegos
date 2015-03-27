@@ -28,7 +28,7 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img id="brand" style="height: 3em;"alt="pulsegames" src="public/img/logo.png">
+          <img id="brand" style="height: 1em;"alt="pulsegames" src="public/img/logo.png">
         </a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
@@ -53,6 +53,5 @@
       </div>
     </div>
   </nav>
-<%@include file='EditarJuego.jsp'%>
 </body>
 </html>

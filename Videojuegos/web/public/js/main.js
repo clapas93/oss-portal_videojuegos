@@ -23,9 +23,10 @@ $( document ).ready(function() {
 });
 
 $("#pressstart").click(function(){
-	//$("#front").fadeOut(5000);
+	$("#front").fadeOut(5000);
 	$("#front").addClass('hidden');
-
+        
+        $("#games").fadeIn("slow");
 	$("#games").removeClass('hidden');
-	//$("#games").fadeIn("slow");
+	
 });
