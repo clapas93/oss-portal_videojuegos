@@ -1,5 +1,5 @@
 <%-- 
-    Document   : UploadGameHI.jsp
+    Document   : UpdateGameHI.jsp
     Author     : Claudia
 --%>
 
@@ -10,7 +10,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="public/img/favicon.png"/>
-  <title>UploadGamesHI</title>
+  <title>UpdateGamesHI</title>
   <meta name="author" content="Claudia Medina"/>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/backend_style.css">
@@ -57,29 +57,28 @@
   </nav>
     
     <div class="container">
-        <h1>Subir Videojuego</h1>
+        <h1>Editar Videojuego</h1>
         <div class="panel panel-default">
           <div class="panel-body">
-            <form id="gameForm" enctype="multipart/form-data">
-                
-              <div class="row">
+            <form role="form">
+            <div class="row">
                 <div class="col-lg-6">
-                    <div class="form-group">
-                        <label class="control-label" for="TITLE">Título</label>
-                        <input class="form-control" name="TITLE" placeholder="Título">
-                    </div>
+                          <div class="form-group">
+                            <label>Título</label>
+                            <input class="form-control" placeholder="Título en BD">
+                          </div>
                 </div>
                 <div class="col-lg-6">
                         <label>Número de créditos</label>
                         <div class="controls controls-row">
                           <div class="col-lg-2">
-                              <input type="radio" name="creditOptions" id="FREE" value="FREE" checked> Gratis
+                              <input type="radio" name="creditOptions" id="free" value="free" checked> Gratis
                           </div>
                           <div class="col-lg-3">
-                            <input type="radio" name="creditOptions" id="CREDIT" value="CREDIT"> Crédito
+                            <input type="radio" name="creditOptions" id="credit" value="free"> Crédito
                           </div>
                           <div class="col-lg-6">
-                            <input class="form-control FREE" type="number" id="numCredits" placeholder="Número de Créditos" disabled="true">
+                            <input class="form-control free" type="text" id="numCredits" placeholder="Número de Créditos en BD" disabled="true">
                           </div>
                         </div>
                 </div>
@@ -89,7 +88,7 @@
                           <div class="form-group">
                             <label>Clasificación</label>
                             <select class="form-control">
-                              <option>Elige una opción</option>
+                              <option>Clasificación en BD</option>
                               <option>C</option>
                               <option>E</option>
                               <option>T</option>
@@ -102,7 +101,7 @@
                           <div class="form-group">
                             <label>Genero</label>
                             <select class="form-control">
-                              <option>Elige una opción</option>
+                              <option>Genero en BD</option>
                               <option>Acción</option>
                               <option>Lucha</option>
                               <option>Estrategia</option>
@@ -120,7 +119,7 @@
                   <div class="col-lg-6">
                         <div class="form-group">
                             <label>Videojuego</label>
-                            <input type="file" class="form-control" name="VIDEOGAME" id="VIDEOGAME">
+                            <input type="file">
                         </div>
                   </div>
             </div><!--2-row-->
@@ -128,24 +127,24 @@
                 <div class="col-lg-6">
                         <div class="form-group">
                             <label>Descripción</label>
-                              <textarea rows="4" class="form-control" placeholder="Descripción"></textarea>
+                              <textarea rows="4" class="form-control" placeholder="Descripción en BD"></textarea>
                         </div>
                 </div>
                 <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="control-label">Portada</label>
-                            <input type="file" class="form-control" name="FRONT" id="FRONT"/>
+                            <label>Portada</label>
+                            <input type="file">
                         </div>
                         <div class="form-group">
-                            <label>Video</label>
-                            <input type="url" class="form-control" id="title" name="VIDEO" id="VIDEO" placeholder="Url del video">
+                            <label>Video del Demo</label>
+                            <input type="file">
                         </div>
                 </div>
             </div><!--3-row-->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center">
-                        <button type="submit" name="submit" value="submit" class="btn btn-default">Subir</button>
+                        <button type="submit" class="btn btn-default">Subir</button>
                         <button type="reset" class="btn btn-default">Limpiar</button>
                     </div>
                 </div>
@@ -155,10 +154,7 @@
         </div><!--panel-->
     </div>
     
-    
     <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-    <script type="text/javascript" src="public/js/jquery.validate.js"></script>
-    <script type="text/javascript" src="public/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="public/js/main.js"></script>
     <script type="text/javascript" src="public/js/uGame.js"></script>
