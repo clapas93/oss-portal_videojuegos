@@ -13,8 +13,13 @@
   <title>UploadGamesHI</title>
   <meta name="author" content="Claudia Medina"/>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="public/css/backend_style.css">
   <link rel="stylesheet" type="text/css" href="public/css/inside.css">
+  
+  <link rel="stylesheet" type="text/css" href="public/css/formvalidation/formValidation.css">
+  <link rel="stylesheet" type="text/css" href="public/css/formvalidation/formValidation.min.css">
+  
 </head>
 
 <body>
@@ -66,11 +71,13 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="control-label" for="TITLE">Título</label>
-                        <input class="form-control" name="TITLE" placeholder="Título">
+                        <div class="input-group">
+                        <input type="text" class="form-control" name="TITLE" placeholder="Título">
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                        <label>Número de créditos</label>
+                    <label class="control-label" for="PRICE">Número de créditos</label>
                         <div class="controls controls-row">
                           <div class="col-lg-2">
                               <input type="radio" name="creditOptions" id="FREE" value="FREE" checked> Gratis
@@ -79,7 +86,7 @@
                             <input type="radio" name="creditOptions" id="CREDIT" value="CREDIT"> Crédito
                           </div>
                           <div class="col-lg-6">
-                            <input class="form-control FREE" type="number" id="numCredits" placeholder="Número de Créditos" disabled="true">
+                            <input class="form-control FREE" name="PRICE" type="number" id="numCredits" placeholder="Número de Créditos" disabled>
                           </div>
                         </div>
                 </div>
@@ -87,9 +94,9 @@
               <div class="row">
                 <div class="col-lg-3">
                           <div class="form-group">
-                            <label>Clasificación</label>
-                            <select class="form-control">
-                              <option>Elige una opción</option>
+                            <label class="control-label">Clasificación</label>
+                            <select name="CLASS" class="form-control">
+                              <option></option>
                               <option>C</option>
                               <option>E</option>
                               <option>T</option>
@@ -100,9 +107,9 @@
                 </div>
                   <div class="col-lg-3">
                           <div class="form-group">
-                            <label>Genero</label>
-                            <select class="form-control">
-                              <option>Elige una opción</option>
+                            <label class="control-label">Genero</label>
+                            <select name="GENRE" class="form-control">
+                              <option></option>
                               <option>Acción</option>
                               <option>Lucha</option>
                               <option>Estrategia</option>
@@ -119,33 +126,33 @@
                   </div>
                   <div class="col-lg-6">
                         <div class="form-group">
-                            <label>Videojuego</label>
-                            <input type="file" class="form-control" name="VIDEOGAME" id="VIDEOGAME">
+                            <label class="control-label">Videojuego</label>
+                            <input type="file" class="form-control" name="VIDEOGAME">
                         </div>
                   </div>
             </div><!--2-row-->
             <div class="row">
                 <div class="col-lg-6">
                         <div class="form-group">
-                            <label>Descripción</label>
-                              <textarea rows="4" class="form-control" placeholder="Descripción"></textarea>
+                            <label class="control-label">Descripción</label>
+                              <textarea rows="4" class="form-control" name="DESCRIPTION" placeholder="Descripción"></textarea>
                         </div>
                 </div>
                 <div class="col-lg-6">
                         <div class="form-group">
                             <label class="control-label">Portada</label>
-                            <input type="file" class="form-control" name="FRONT" id="FRONT"/>
+                            <input type="file" class="form-control" name="FRONT"/>
                         </div>
                         <div class="form-group">
-                            <label>Video</label>
-                            <input type="url" class="form-control" id="title" name="VIDEO" id="VIDEO" placeholder="Url del video">
+                            <label class="control-label">Video</label>
+                            <input type="url" class="form-control" name="VIDEO" placeholder="Url del video">
                         </div>
                 </div>
             </div><!--3-row-->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center">
-                        <button type="submit" name="submit" value="submit" class="btn btn-default">Subir</button>
+                        <button type="submit" class="btn btn-default">Subir</button>
                         <button type="reset" class="btn btn-default">Limpiar</button>
                     </div>
                 </div>
@@ -157,11 +164,22 @@
     
     
     <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-    <script type="text/javascript" src="public/js/jquery.validate.js"></script>
-    <script type="text/javascript" src="public/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="public/js/jquery.min.js"></script>
+    
+    <!--<script type="text/javascript" src="public/js/jquery.validate.js"></script>-->
+    <!--<script type="text/javascript" src="public/js/jquery.validate.min.js"></script>-->
+    
     <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="public/js/main.js"></script>
-    <script type="text/javascript" src="public/js/uGame.js"></script>
+    
+    <script type="text/javascript" src="public/js/formvalidation/formValidation.min.js"></script>
+    <script type="text/javascript" src="public/js/formvalidation/formValidation.js"></script>
+    <script type="text/javascript" src="public/js/formvalidation/framework/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+    
+    <script type="text/javascript" src="public/js/videogames/uGame.js"></script>
     
 </body>
 </html>
