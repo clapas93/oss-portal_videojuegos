@@ -108,7 +108,7 @@
               <td>&nbsp;</td>
               <td>
                 <div class="form-group" style="float:right;">
-                  <a class="btn btn-primary" href="index.jsp" title="Recrea Comunicación">Volver</a>
+                  <a class="btn btn-primary" href="videogames" title="Recrea Comunicación">Volver</a>
                   <button type="submit" class="btn btn-primary">Registrarme</button>
                 </div>
               </td>

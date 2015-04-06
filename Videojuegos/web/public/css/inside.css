@@ -18,12 +18,14 @@ body {
 }
 
 #footer{
+    padding-top: 1em;
     font-weight: bold;
     background-color: rgba(25,25,25,0.9);
 }
 
 #footer > p{
-	margin: 1em 2em;
+    margin: 1em 2em;
+    margin-bottom: 2em;
 }
 
 .carousel-indicators {
