@@ -12,6 +12,10 @@
         <servlet-name>ManageGamesController</servlet-name>
         <servlet-class>ManageGames.ManageGamesController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoansController</servlet-name>
+        <servlet-class>Loans.LoansController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
@@ -26,6 +30,10 @@
     <servlet-mapping>
         <servlet-name>ManageGamesController</servlet-name>
         <url-pattern>/managegames</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoansController</servlet-name>
+        <url-pattern>/loanapplications</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

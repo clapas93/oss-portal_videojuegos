@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
   String view = (String)request.getAttribute("view");
+  String title = (String)request.getAttribute("title");
 %>
 <!DOCTYPE html>
 <html>
@@ -14,10 +15,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="public/img/favicon.png"/>
-  <title></title>
+  <title><%= title %></title>
   <meta name="author" content="Claudia Medina"/>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="public/css/backend_style.css">
   <link rel="stylesheet" type="text/css" href="public/css/inside.css">
   
@@ -49,10 +49,10 @@
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Administrador 
                 <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li role="presentation"><a role="menuitem" href="ManageGamesHI.jsp">
+              <li role="presentation"><a role="menuitem" href="managegames">
                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Videojuegos</a>
               </li>
-              <li role="presentation"><a role="menuitem" href="#">
+              <li role="presentation"><a role="menuitem" href="loanapplications">
                       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Préstamos</a></li>
               <li class="divider"></li>
               <li role="presentation"><a role="menuitem" href="index.jsp">

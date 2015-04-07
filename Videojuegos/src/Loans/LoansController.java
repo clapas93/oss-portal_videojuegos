@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ManageGames;
+package Loans;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lalo
  */
-public class ManageGamesController extends HttpServlet {
+public class LoansController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,9 +29,9 @@ public class ManageGamesController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String view = "ManageGamesHI.jsp";
+        String view = "LoansHI.jsp";
         request.setAttribute("view", view); 
-        request.setAttribute("title", "Manage Games");
+        request.setAttribute("title", "Loans Applications"); 
         request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
     }
 
