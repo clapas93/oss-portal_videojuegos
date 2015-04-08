@@ -15,8 +15,8 @@
   <script type="text/javascript" src="public/js/jssor.js"></script>
   <script type="text/javascript" src="public/js/jssor.slider.js"></script>
   <script type="text/javascript" src="public/js/magdieljs.js"></script>
-  <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
   <script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+  <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-default">

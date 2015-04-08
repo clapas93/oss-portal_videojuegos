@@ -25,7 +25,7 @@ body{
 	z-index: 10;
 	background-color: rgba(0,0,0,0);
 	border-color: rgba(0,0,0,0);
-	color:red!important;
+	color:#950ebe
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
