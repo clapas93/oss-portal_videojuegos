@@ -1,14 +1,10 @@
 #ant specific
 Videojuegos/dist/
 Videojuegos/build/
+Videojuegos/nbproject/
  
 #netbeans specific
 core
-Videojuegos/nbproject/*
-Videojuegos/nbproject/project.properties
-Videojuegos/nbproject/project.properties
-Videojuegos/nbproject/project.xml
-Videojuegos/nbproject/project.properties
  
 #java specific
 *.class

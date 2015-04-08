@@ -5,43 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="icon" type="image/vnd.microsoft.icon" href="public/img/logo2.0.png"/>
-  <title>Pulse Games</title>
-  <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="public/css/style.css">
-  <link rel="stylesheet" type="text/css" href="public/css/inside.css">
-  <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
-  <script type="text/javascript" src="public/js/validator.js"></script>
-  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-  <script type="text/javascript" src="public/js/main.js"></script>
-  <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="public/js/magdieljs.js"></script>
-  <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"></link>
-  
-</head>
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <img id="brand" alt="pulsegames" src="public/img/logo.png">
-        </a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      
-    </div>
-  </nav>
-
+<br>
+<br>
+<br>
   <div class="form-registro">
     <div class="mi-title"><span>Registro</span></div>
     <hr size="2">  
@@ -109,7 +75,7 @@
               <td>&nbsp;</td>
               <td>
                 <div class="form-group" style="float:right;">
-                  <a class="btn btn-primary" href="index.jsp" title="Recrea Comunicación">Volver</a>
+                  <a class="btn btn-primary" href="videogames" title="Recrea Comunicación">Volver</a>
                   <button type="submit" class="btn btn-primary">Registrarme</button>
                 </div>
               </td>
@@ -136,9 +102,4 @@
     </div>
 </nav>
 -->
-  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-  <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="public/js/main.js"></script>
-</body>
-</html>
 

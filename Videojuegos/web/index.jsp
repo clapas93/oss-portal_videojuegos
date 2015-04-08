@@ -12,9 +12,12 @@
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
   <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-  <script type="text/javascript" src="public/js/jssor.js"></script>
-  <script type="text/javascript" src="public/js/jssor.slider.js"></script>
   <script type="text/javascript" src="public/js/magdieljs.js"></script>
+<<<<<<< HEAD
+=======
+  <script type="text/javascript" src="public/js/main.js"></script>
+  <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+>>>>>>> 8087af314ce82b0e83615e5226a4f7243c331063
   <script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
   <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 </head>
@@ -32,7 +35,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
           <li ><a id="event_click" >Iniciar Sesión</a></li>
-          <li><a id="registro" href="registro.jsp">Registrarse</a></li>
+          <li><a id="registro" href="registro">Registrarse</a></li>
         </ul>
           
         <div class="form-index">
@@ -60,9 +63,7 @@
                 </form>
             </div>
         </div>
-        
-          
-          
+       
           
           
       </div>
@@ -108,15 +109,8 @@
     
   </div>
   <div >
-    <img id="pressstart" src="public/img/press_start_color.png">
+      <a href="videogames" ><img id="pressstart" src="public/img/press_start_color.png"></a>
   </div>
   </section>
-  <style type="text/css">
-    
-  </style>
-  <section id="games" class="hidden">
-      <%@include file='videojuegos.jsp'%>
-  </section>
-  <script type="text/javascript" src="public/js/main.js"></script>
 </body>
 </html>

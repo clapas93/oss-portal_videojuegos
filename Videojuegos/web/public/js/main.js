@@ -22,10 +22,6 @@ $( document ).ready(function() {
 	pulse($('#front'), 1500, 'swing', {opacity:0.15}, {opacity:1}, function() { return false; });
 });
 
-$("#pressstart").click(function(){
-	//$("#front").fadeOut(5000);
-	$("#front").addClass('hidden');
-
-	$("#games").removeClass('hidden');
-	//$("#games").fadeIn("slow");
+$(document).ready(function () {
+    $('body').fadeIn(1000).removeClass('hidden');
 });
