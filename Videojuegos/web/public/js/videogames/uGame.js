@@ -52,6 +52,17 @@ $('#gameForm')
             validators:{
                 notEmpty:{
                     message:'Especifica el número de creditos.'
+                },
+                numeric:{
+                    message:'El número de créditos debe de ser un número.'
+                },
+                integer:{
+                    message:'El número de créditos debe de ser un entero.'
+                },
+                between:{
+                    min:1,
+                    max:10000,
+                    message:'El número de créditos debe de ser mayor a 1.'
                 }
             }
         },

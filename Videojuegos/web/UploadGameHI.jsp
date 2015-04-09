@@ -71,12 +71,11 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="control-label" for="TITLE">Título</label>
-                        <div class="input-group">
-                        <input type="text" class="form-control" name="TITLE" placeholder="Título">
-                        </div>
+                        <input type="text" class="form-control input-group" name="TITLE" placeholder="Título">
                     </div>
                 </div>
                 <div class="col-lg-6">
+                  <div class="form-group">
                     <label class="control-label" for="PRICE">Número de créditos</label>
                         <div class="controls controls-row">
                           <div class="col-lg-2">
@@ -86,9 +85,10 @@
                             <input type="radio" name="creditOptions" id="CREDIT" value="CREDIT"> Crédito
                           </div>
                           <div class="col-lg-6">
-                            <input class="form-control FREE" name="PRICE" type="number" id="numCredits" placeholder="Número de Créditos" disabled>
+                            <input class="form-control FREE input-group" name="PRICE" type="number" placeholder="Número de Créditos" disabled>
                           </div>
                         </div>
+                 </div>
                 </div>
             </div><!--1-row-->
               <div class="row">
@@ -166,9 +166,6 @@
     <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="public/js/jquery.min.js"></script>
     
-    <!--<script type="text/javascript" src="public/js/jquery.validate.js"></script>-->
-    <!--<script type="text/javascript" src="public/js/jquery.validate.min.js"></script>-->
-    
     <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="public/js/main.js"></script>
     
@@ -176,8 +173,8 @@
     <script type="text/javascript" src="public/js/formvalidation/formValidation.js"></script>
     <script type="text/javascript" src="public/js/formvalidation/framework/bootstrap.min.js"></script>
     
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/bootstrap-select.min.css">
+    <script type="text/javascript" src="public/js/bootstrap-select.min.js"></script>
     
     <script type="text/javascript" src="public/js/videogames/uGame.js"></script>
     
