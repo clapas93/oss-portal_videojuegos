@@ -1,6 +1,6 @@
 body{  
 	overflow-x:hidden;
-	position: relative;
+	position: absolute;
 	z-index: 100;
 	width: 100%;
 	height: 100%;
@@ -23,13 +23,6 @@ body{
 	height: 111%;
 	background-color: rgba(25,25,25,0.9);
 }
-#gamesview{
-	position: absolute;	
-	top: 0em;
-	width: 100%;
-	height: 122%;
-	background-color: rgba(25,25,25,0.9);
-}
 
 #gamesupdate{
 	position: relative;
@@ -38,10 +31,7 @@ body{
 	margin-left: 4em;
 	height: 100%;
 }
-#view{
-	position: relative;
-	height: 100%;
-}
+
 
 #brand{
 	height: 30px;
