@@ -68,7 +68,7 @@
     <jsp:include page='<%= view %>' />
     
     <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-    <script type="text/javascript" src="public/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="public/js/jquery.min.js"></script>-->
     
     <!--<script type="text/javascript" src="public/js/jquery.validate.js"></script>-->
     <!--<script type="text/javascript" src="public/js/jquery.validate.min.js"></script>-->
@@ -80,8 +80,8 @@
     <script type="text/javascript" src="public/js/formvalidation/formValidation.js"></script>
     <script type="text/javascript" src="public/js/formvalidation/framework/bootstrap.min.js"></script>
     
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/bootstrap-select.min.css">
+    <script type="text/javascript" src="public/js/bootstrap-select.min.js"></script>
     
     <script type="text/javascript" src="public/js/videogames/uGame.js"></script>
     
