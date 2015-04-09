@@ -9,11 +9,11 @@
   <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="public/css/style.css">
+  <link rel="stylesheet" type="text/css" href="public/css/portadastyle.css">
   <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="public/js/magdieljs.js"></script>
-  <script type="text/javascript" src="public/js/main.js"></script>
+   <script type="text/javascript" src="public/js/main.js"></script>
   <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
   <script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 </head>
