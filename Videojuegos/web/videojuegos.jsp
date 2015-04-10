@@ -125,8 +125,8 @@
                     position: absolute;
                     top: 0px;
                     left: 0px;
-                    width: 68px;
-                    height: 68px;
+                    width: 72px;
+                    height: 72px;
                     border: #000 2px solid;
                 }
 

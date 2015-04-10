@@ -97,7 +97,7 @@ Author     : Claudia
             <div class="text-center">
               <button type="submit" class="btn btn-success">Subir</button>
               <button type="reset" class="btn btn-primary">Limpiar</button>
-              <button class="btn btn-danger">Cancelar</button>
+              <a href="managegames" role="button" class="btn btn-large btn-danger">Cancelar</a>
             </div>
           </div>
         </div>

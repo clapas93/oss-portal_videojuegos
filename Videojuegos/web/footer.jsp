@@ -6,8 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
   <script type="text/javascript" src="public/js/magdieljs.js"></script>
-  <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-  <script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
+  <script type="text/javascript" src="public/js/bootstrapValidator.min.js"></script>
+  <!--<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>-->
+  <!--<script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>-->
   <div id="footer" class="navbar navbar-default navbar-fixed-bottom">
           <p><a href="#">Contacto</a></p>
   </div>
