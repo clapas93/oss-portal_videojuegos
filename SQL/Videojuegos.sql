@@ -1,80 +1,104 @@
--- -----------------------------------------------------
--- Table  Alumno 
--- -----------------------------------------------------
-
-CREATE TABLE Alumno  (
-   email_alumno  VARCHAR(45) NOT NULL,
-   Nombres  VARCHAR(45) NOT NULL,
-   Apellidos  VARCHAR(45) NOT NULL,
-   numero_cuenta  VARCHAR(9) NOT NULL,
-   carrera  VARCHAR(45) NOT NULL,
-   credito  FLOAT NOT NULL,
-   password  VARCHAR(45) NOT NULL,
-   historial_academico  VARCHAR(45) NOT NULL,
-  PRIMARY KEY ( email_alumno ));
-
 
 -- -----------------------------------------------------
--- Table  Videojuego 
+-- Table Admin
 -- -----------------------------------------------------
-
-CREATE TABLE Videojuego  (
-   idVideojuego  INT NOT NULL,
-   precio  FLOAT NOT NULL,
-   ruta_almacenamiento  VARCHAR(45) NOT NULL,
-   portada  VARCHAR(45) NOT NULL,
-   título  VARCHAR(45) NOT NULL,
-   descripción  VARCHAR(200) NOT NULL,
-   Ruta_juego  VARCHAR(45) NOT NULL,
-  PRIMARY KEY ( idVideojuego )
-  );
+DROP TABLE IF EXISTS Admin;
+CREATE TABLE IF NOT EXISTS Admin (
+  adminEmail VARCHAR(318) NOT NULL, --local-part@domain 64+1+253 = 318
+  name VARCHAR(45) NOT NULL,
+  lastName1 VARCHAR(45) NOT NULL,
+  lastName2 VARCHAR(45) NOT NULL,
+  emailContact VARCHAR(318) NOT NULL,
+  phone VARCHAR(13) NOT NULL, 
+  password VARCHAR(255) NOT NULL, --password + salt
+  PRIMARY KEY (adminEmail)
+);
 
 
 -- -----------------------------------------------------
--- Table  Descargar 
+-- Table Student
 -- -----------------------------------------------------
-
-
-CREATE TABLE Descargar  (
-   email_alumno  VARCHAR(45) REFERENCES Alumno (email_alumno),
-   id_videojuego INT REFERENCES Videojuego(idVideojuego)
-   );
-
-
--- -----------------------------------------------------
--- Table  Administrador 
--- -----------------------------------------------------
-
-
-CREATE TABLE Administrador  (
-   email_admin  VARCHAR(45) NOT NULL,
-   password  VARCHAR(45) NOT NULL,
-   email_contacto  VARCHAR(45) NOT NULL,
-   telefono  VARCHAR(45) NULL,
-   nombres  VARCHAR(45) NOT NULL,
-   apellidos  VARCHAR(45) NOT NULL,
-  PRIMARY KEY ( email_admin ));
-
+DROP TABLE IF EXISTS Student;
+CREATE TABLE IF NOT EXISTS Student (
+  studentEmail VARCHAR(318) NOT NULL,
+  name VARCHAR(45) NOT NULL,
+  lastName1 VARCHAR(45) NOT NULL,
+  lastName2 VARCHAR(45) NULL,
+  accountNumber VARCHAR(9) NOT NULL,
+  career VARCHAR(45) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  status CHAR NOT NULL,
+  credits FLOAT NOT NULL,
+  history VARCHAR(45) NOT NULL,
+  PRIMARY KEY (studentEmail)
+);
 
 -- -----------------------------------------------------
--- Table  Otorgar_prestamo 
+-- Table Loan
 -- -----------------------------------------------------
-
-
-CREATE TABLE Otorgar_prestamo  (
-   email_alumno  VARCHAR(45) REFERENCES Alumno(email_alumno),
-   email_admin  VARCHAR(45) REFERENCES Administrador(email_admin),
-   cantidad_credito  FLOAT NOT NULL,
-   fecha  DATE NOT NULL,
-   aprobado  CHAR NOT NULL
-   );
+DROP TABLE IF EXISTS Loan;
+CREATE TABLE IF NOT EXISTS Loan (
+  studentEmail VARCHAR(318) NULL,
+  adminEmail VARCHAR(318) NULL,
+  date DATETIME NOT NULL,
+  status CHAR NOT NULL,
+  creditApproved FLOAT NOT NULL,
+  creditRequested FLOAT NOT NULL,
+  CONSTRAINT studentEmail
+    FOREIGN KEY (studentEmail)
+    REFERENCES Student (studentEmail)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT adminEmail
+    FOREIGN KEY (adminEmail)
+    REFERENCES Admin (adminEmail)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
 
 
 -- -----------------------------------------------------
--- Table  Ofrecer 
+-- Table Videogame
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS;
+CREATE TABLE IF NOT EXISTS Videogame (
+  idGame INT NOT NULL,
+  routeGame VARCHAR(45) NOT NULL,
+  front VARCHAR(45) NOT NULL,
+  downloads INT NOT NULL,
+  classification CHAR NOT NULL,
+  price FLOAT NOT NULL,
+  storageRoute VARCHAR(45) NOT NULL,
+  genre VARCHAR(15) NOT NULL,
+  title VARCHAR(45) NOT NULL,
+  description VARCHAR(250) NOT NULL,
+  state CHAR NOT NULL,
+  videoUrl VARCHAR(45) NOT NULL,
+  adminEmail VARCHAR(318) NULL,
+  PRIMARY KEY (idGame),
+  CONSTRAINT adminEmail
+    FOREIGN KEY (adminEmail)
+    REFERENCES Admin (adminEmail)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
 
-CREATE TABLE Ofrecer  (
-   email_admin  VARCHAR(45) REFERENCES Administrador(email_admin),
-   id_videojuego  INT REFERENCES Videojuego(idVideojuego)
-   );
+-- -----------------------------------------------------
+-- Table Download
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS Download;
+CREATE TABLE IF NOT EXISTS Download (
+  idGame INT NULL,
+  studentEmail VARCHAR(318) NULL,
+  date DATETIME NOT NULL,
+  CONSTRAINT idGame
+    FOREIGN KEY (idGame)
+    REFERENCES Videogame (idGame)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT studentEmail
+    FOREIGN KEY (studentEmail)
+    REFERENCES Student (studentEmail)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
