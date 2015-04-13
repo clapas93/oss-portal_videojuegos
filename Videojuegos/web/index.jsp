@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,13 +8,14 @@
   <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="public/css/style.css">
+  <link rel="stylesheet" type="text/css" href="public/css/portadastyle.css">
   <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="public/js/magdieljs.js"></script>
   <script type="text/javascript" src="public/js/main.js"></script>
-  <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-  <script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="public/js/bootstrapValidator.min.js"></script>
+  <!--<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>-->
+  <!--<script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>-->
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -33,7 +33,7 @@
           <li ><a id="event_click" >Iniciar Sesión</a></li>
           <li><a id="registro" href="registro">Registrarse</a></li>
         </ul>
-          
+
         <div class="form-index">
             <span style="color:#fff; font-size: 1.5em;">Datos de usuario</span>
             <hr color="#2c2c2c">
@@ -58,16 +58,15 @@
 				 </div>
                 </form>
             </div>
+
         </div>
-       
-          
-          
+
       </div>
     </div>
   </nav>
   <section id="front" class="">
     <div id="logo" class="row">
-    <svg viewBox="20 20 600 300">
+      <svg viewBox="20 20 600 300">
 
         <!-- Symbol with text -->
         <symbol id="s-text">
@@ -78,35 +77,35 @@
           class="text"
           >
           Pulse Games
-          </text>    
-        </symbol>
+        </text>    
+      </symbol>
 
       <!--Mask-->
       <mask id="m-text"
-        maskunits="userSpaceOnUse"
-        maskcontentunits="userSpaceOnUse">
-        <use xlink:href="#s-text"
-        class="text-mask">
-        </use>
-      </mask>
+      maskunits="userSpaceOnUse"
+      maskcontentunits="userSpaceOnUse">
+      <use xlink:href="#s-text"
+      class="text-mask">
+    </use>
+  </mask>
 
-      <!-- Group with mask -->
-      <g mask="url(#m-text)">
-      <!-- Masked content -->
-        <!-- http://tympanus.net/codrops-playground/assets/images/posts/23145/image2.jpg -->
-        <image xlink:href="public/img/morado.jpg"
-        width="900"
-        height="532"
-        x="-30%"
-        y="-20%">
-        </image>
-      </g>
-    </svg>
-    
-  </div>
-  <div >
-      <a href="videogames" ><img id="pressstart" src="public/img/press_start_color.png"></a>
-  </div>
-  </section>
+  <!-- Group with mask -->
+  <g mask="url(#m-text)">
+    <!-- Masked content -->
+    <!-- http://tympanus.net/codrops-playground/assets/images/posts/23145/image2.jpg -->
+    <image xlink:href="public/img/morado.jpg"
+    width="900"
+    height="532"
+    x="-30%"
+    y="-20%">
+  </image>
+</g>
+</svg>
+
+</div>
+<div >
+  <a href="videogames" ><img id="pressstart" src="public/img/press_start_color.png"></a>
+</div>
+</section>
 </body>
 </html>
