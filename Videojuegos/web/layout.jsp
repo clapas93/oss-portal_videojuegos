@@ -19,8 +19,15 @@
   <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
 </head>
+<%
+        String view = (String)request.getAttribute("view");
+        String footer = (String)request.getAttribute("footer");
+        String header = (String)request.getAttribute("header");
+%>
 <body class="hidden">
   <nav class="navbar navbar-default">
+      
+      <% if(header == null){ %>
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -61,22 +68,18 @@
                 </form>
             </div>
         </div>
-        
-          
-          
-          
-          
       </div>
     </div>
-  </nav>
+    <%} else { %>
+    <div>
+        <jsp:include page='<%= header %>' /> 
+    </div>
+        <% } %>
+</nav>
   <section id="games">
-      <%
-        String view = (String)request.getAttribute("view");
-        String footer = (String)request.getAttribute("footer");
-      %>
-      <jsp:include page='<%= view %>' />
+        <jsp:include page='<%= view %>' />
   </section>
-      <jsp:include page='<%= footer %>' />
+        <jsp:include page='<%= footer %>' />
 </body>
 </html>
 

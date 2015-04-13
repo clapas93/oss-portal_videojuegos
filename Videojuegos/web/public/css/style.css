@@ -27,11 +27,11 @@ body{
 	z-index: 10;
 	background-color: rgba(0,0,0,0);
 	border-color: rgba(0,0,0,0);
-	color:#950ebe
+	color:#fff;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-	color: #AD0EBE;
+	color: #fff;
 	background-color: transparent;
 }
 

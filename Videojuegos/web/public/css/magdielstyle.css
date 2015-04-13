@@ -41,8 +41,14 @@ and open the template in the editor.
     .form-registro td {padding: 0px 16px; width: 270px;}
     .form-registro .mi-title {text-align: center; padding: 10px 10px 20px 10px;
                               font-size: 2em;}
-    .formulario{
-      width:100%;
-      margin: 0 auto;
+    .formulario{width:100%; margin: 0 auto; }
+    .navbar-default .navbar-nav > li > a {cursor:pointer;}
+    nav.navbar.navbar-default > div {float:right;}
+    #header-login {  
+        margin-top: 14px;
+        color: #1c9ccd;
+        font-weight: bold;
+        margin-right: 50px !important;
+        display: inline-block;
+        font-size: 15px;
     }
-    .navbar-default .navbar-nav > li > a {cursor:pointer}
