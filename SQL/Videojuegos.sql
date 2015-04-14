@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS Loan;
 CREATE TABLE IF NOT EXISTS Loan (
   studentEmail VARCHAR(318) NULL,
   adminEmail VARCHAR(318) NULL,
-  date DATETIME NOT NULL,
+  date TIMESTAMP NOT NULL,
   status CHAR NOT NULL,
   creditApproved FLOAT NOT NULL,
   creditRequested FLOAT NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS Loan (
 -- -----------------------------------------------------
 -- Table Videogame
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS;
+DROP TABLE IF EXISTS Videogame;
 CREATE TABLE IF NOT EXISTS Videogame (
   idGame INT NOT NULL,
   routeGame VARCHAR(45) NOT NULL,
@@ -90,7 +90,7 @@ DROP TABLE IF EXISTS Download;
 CREATE TABLE IF NOT EXISTS Download (
   idGame INT NULL,
   studentEmail VARCHAR(318) NULL,
-  date DATETIME NOT NULL,
+  date TIMESTAMP NOT NULL,
   CONSTRAINT idGame
     FOREIGN KEY (idGame)
     REFERENCES Videogame (idGame)
