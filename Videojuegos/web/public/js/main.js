@@ -6,10 +6,7 @@ function pulsate(element) {
 
 });
 */
-
-
-
-$( document ).ready(function() {
+$(document).ready(function() {
 	function pulse(elem, duration, easing, props_to, props_from, until) {
 	elem.animate( props_to, duration, easing,
 		function() {

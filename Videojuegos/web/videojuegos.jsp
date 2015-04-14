@@ -10,8 +10,8 @@ Author     : lalo
 <script src="public/js/slider.js"></script>
 <link rel="stylesheet" type="text/css" href="public/css/slider.css">
 
-<div id="slider1_container" class="slider1_container">
 
+<div id="slider1_container" class="slider1_container">
 <div u="slides" class="slidesdiv">
   <div>
     <img u="thumb" src="public/img/1920/thumb.jpg" />
@@ -19,10 +19,10 @@ Author     : lalo
     <div u="caption" class="captiondiv">
       <img class="captionimg" src="public/img/1920/thumb.jpg"/>
     </div>
-    <div class="title" >TE AMO
+    <div class="title" >Touch Swipe Slider
     </div>
     <div class="slidercontent">
-    Claudia
+    Build your slider with anything, includes image, content, text, html, photo, picture
     </div>
   </div>
 

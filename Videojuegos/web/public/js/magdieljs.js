@@ -6,19 +6,35 @@
 
 
 $(window).load( function() {
-            var n=1;
+            var n=0;
             $('#event_click').click(function(){
                 n++;
                 if((n % 2)==0){
-                        $('.form-index').fadeIn()
+                    if(jQuery('.form-index').attr("style")=="display: block;")
+                        $('body').click(function() {
+                            $(".form-index").fadeIn();
+                        });
+                    else
+                        $('.form-index').fadeOut()
                 }else{
-                      	$('.form-index').fadeOut()
+                    if(jQuery('.form-index').attr("style")=="display: none;")
+                      	$('body').click(function() {
+                            $(".form-index").fadeOut();
+                        });
+                    else
+                        $('.form-index').fadeIn()
                 }
-            })
+            });
             $('#registro').click(function() { 
                 $('#page').fadeOut(100, function() { }); 
             });
-        });
+            /**
+            $('body').click(function() {
+                $(".form-index").fadeOut();
+            });
+            **/
+            
+});
 $( document ).ready(function() {
     $('#loginForm').bootstrapValidator({
 	 message: 'Este valor no es valido',

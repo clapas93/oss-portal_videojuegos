@@ -29,10 +29,28 @@ public class ManageGamesController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String view = "ManageGamesHI.jsp";
-        request.setAttribute("view", view); 
-        request.setAttribute("title", "Manage Games");
-        request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+        String view ="";
+        switch(path){
+            case "/managegames":
+                view = "ManageGamesHI.jsp";
+                request.setAttribute("view", view); 
+                request.setAttribute("title", "Manage Games");
+                request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+            break;
+            case "/updategame":
+                view = "UpdateGameHI.jsp";
+                request.setAttribute("view", view); 
+                request.setAttribute("title", "Manage Games");
+                request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+            break;
+            case "/uploadgame":
+                view = "UploadGameHI.jsp";
+                request.setAttribute("view", view); 
+                request.setAttribute("title", "Manage Games");
+                request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+            break;
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
