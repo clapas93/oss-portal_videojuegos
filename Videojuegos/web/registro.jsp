@@ -12,45 +12,51 @@
     <div class="mi-title"><span>Registro</span></div>
     <hr size="2">  
       <div class="formulario">
-        <form data-toggle="validator" role="form">
+        <form data-toggle="validator" role="form" method="post" action="registerController?accion=REGISTER">
           <table border="0">
             <tr>
               <td>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="usr" placeholder="Nombre" required>
-                </div>
-              </td>
-              <td>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="usr" placeholder="Apellidos" required>
+                  <input type="text" class="form-control" id="usr" placeholder="Nombre" name="name" required>
                 </div>
               </td>
             </tr>
             <tr>
               <td>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="usr" placeholder="Número de cuenta" required>
+                  <input type="text" class="form-control" id="usr" placeholder="Apellido Materno" name="lastname1" required>
+                </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="usr" placeholder="Apellido Paterno" name="lastname2">
                 </div>
               </td>
             </tr>
             <tr>
-              <td>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option value="">Actuaría</option>
-                    <option value="">Biología</option>
-                    <option value="">Ciencias de la Computación</option>
-                    <option value="">Ciencias de la Tierra</option>
-                    <option value="">Física</option>
-                    <option value="">Matemáticas</option>
-                  </select>
-                </div>
-              </td>
+                <td>
+                
+                    <div class="form-group">
+                        <select class="form-control" name="career">
+                            <option value="">Actuaría</option>
+                            <option value="">Biología</option>
+                            <option value="">Ciencias de la Computación</option>
+                            <option value="">Ciencias de la Tierra</option>
+                            <option value="">Física</option>
+                            <option value="">Matemáticas</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="usr" placeholder="Número de cuenta" name="accountnumber" required>
+                    </div>
+                </td>
             </tr>
             <tr>
               <td>
                 <div class="form-group">
-                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
                     <div class="help-block with-errors"></div>
                 </div>
               </td>
@@ -58,15 +64,22 @@
             <tr>
               <td>
                 <div class="form-group">
+                    <input type="history" class="form-control" id="inputHistory" placeholder="Historial" name="history">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-group">
                   <div class="form-group">
-                    <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Contraseña" required>
+                    <input type="password" data-minlength="6" class="form-control" placeholder="Contraseña" name="password" required>
               
                   </div>
                 </div>
               </td>
               <td>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirma tu contraseña" required>
+                  <input type="password" class="form-control"  placeholder="Confirma tu contraseña" required>
                   <div class="help-block with-errors"></div>
                 </div>
               </td>   

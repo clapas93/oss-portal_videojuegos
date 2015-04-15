@@ -9,12 +9,12 @@ package User;
  *
  * @author magdiel
  */
-public class user {
+public class UserAdmin {
     String adminemail;
     String name;
     String lastname1;
     String lastname2;
-    int phone;
+    String phone;
     String email_contact;
     String password;
 
@@ -51,11 +51,11 @@ public class user {
         this.lastname2 = lastname2;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

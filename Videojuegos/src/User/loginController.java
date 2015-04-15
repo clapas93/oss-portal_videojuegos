@@ -1,14 +1,11 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package User;
 
-import ConnectionDB.connectiondb;
-import User.user;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,14 +33,14 @@ public class loginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session;
-        String user;
+        String userAdmin;
         
         String action=request.getParameter("accion");
         if(action.equals("LOGIN")){
             if(logueo(request, response)){
                 session = request.getSession();
-                user = request.getParameter("usuario");
-                session.setAttribute("nomUsuario", user);
+                userAdmin = request.getParameter("usuario");
+                session.setAttribute("nomUsuario", userAdmin);
                 String view = "videojuegos.jsp";
                 request.setAttribute("view", view); 
                 String footer = "footer.jsp";
@@ -57,18 +54,18 @@ public class loginController extends HttpServlet {
         }
     }
     
-    public boolean logueo(HttpServletRequest request, HttpServletResponse response){
+    protected boolean logueo(HttpServletRequest request, HttpServletResponse response){
         
             System.out.println("OK ... bien4");
-            user data_user=new user();
+            UserAdmin data_user = new UserAdmin();
             data_user.setAdminemail(request.getParameter("usuario"));
             data_user.setPassword(request.getParameter("password"));
             System.out.println(request.getParameter("usuario"));
             System.out.println(request.getParameter("password"));
             
-            connectiondb cn = new connectiondb();
+            login cn = new login();
             
-            if(cn.login(data_user)){
+            if(cn.loginAdmin(data_user)){
                 System.out.println("OK ... bien5");
                 return true;
             }else{
