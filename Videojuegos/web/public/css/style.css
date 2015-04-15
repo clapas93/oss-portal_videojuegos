@@ -89,9 +89,7 @@ svg {
 	bottom:0em;
 }
 
-#logo{
-	font-size: 5em;
-}
+
 
 #pressstart{
 	width: 19em;
@@ -100,6 +98,8 @@ svg {
 	left: 38em;
 	cursor: pointer;
 }
+
+
 #entrar_row{
 	position: relative;
 	top: 25em;
