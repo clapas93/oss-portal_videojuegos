@@ -50,6 +50,8 @@
     <servlet-mapping>
         <servlet-name>ManageGamesController</servlet-name>
         <url-pattern>/managegames</url-pattern>
+        <url-pattern>/uploadgame</url-pattern>
+        <url-pattern>/updategame</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoansController</servlet-name>
