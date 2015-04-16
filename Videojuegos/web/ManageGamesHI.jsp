@@ -4,6 +4,7 @@ Author     : Claudia
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <div class="container">
   <h1>Videojuegos en el sistema</h1>
   <div class="row">
@@ -37,7 +38,7 @@ Author     : Claudia
                 <th>Video</th>
                 <th>Clasificación</th>
                 <th>Genero</th>
-                <th>Descripción</th>
+                <th><div class="hidden-xs">Descripción</div></th>
                 <th>Créditos</th>
                 <th>Descargas</th>
                 <th>Acciones</th>
@@ -51,13 +52,13 @@ Author     : Claudia
                 <td>url</td>
                 <td>M</td>
                 <td>Aventura</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</td>
+                <td><div class="hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</div></td>
                 <td>200</td>
                 <td>100</td>
                 <td>
-                  <a href="updategame" role="button" class="btn btn-large btn-warning">Editar</a>
+                  <a href="updategame" role="button" class="btn btn-large btn-primary">Editar</a>
                   <br><br>
-                  <button class="btn btn-danger" type="button">Eliminar</button>
+                  <button class="btn btn-danger deleteCM" type="button">Eliminar</button>
                 </td>
               </tr>
               <tr>
@@ -67,7 +68,7 @@ Author     : Claudia
                 <td>url</td>
                 <td>T</td>
                 <td>Simulacion</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</td>
+                <td><div class="hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</div></td>
                 <td>150</td>
                 <td>500</td>
                 <td>
@@ -83,7 +84,7 @@ Author     : Claudia
                 <td>url</td>
                 <td>E</td>
                 <td>Lucha</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</td>
+                <td><div class="hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</div></td>
                 <td>80</td>
                 <td>40</td>
                 <td>
@@ -105,4 +106,3 @@ Author     : Claudia
     </div>
   </div>
 </div> <!--container-->
-
