@@ -1,7 +1,7 @@
 .navbar-default {
     z-index: 10;
-    background-color: rgba(25,25,25,0);
-    border-color: rgba(25,25,25,0);
+    background-color: rgba(165, 156, 244, 0.11);
+    border-color: rgba(25,25,25,0.25);
 
 }
 #wrap{
