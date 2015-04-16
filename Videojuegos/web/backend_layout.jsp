@@ -83,5 +83,9 @@
     
     <script type="text/javascript" src="public/js/videogames/uGame.js"></script>
     
+    <link rel="stylesheet" type="text/css" href="public/css/videogames/jquery-confirm.css" />
+    <script type="text/javascript" src="public/js/videogames/jquery-confirm.js"></script>
+    <script type="text/javascript" src="public/js/videogames/messagesVGames.js"></script>
+    
 </body>
 </html>
