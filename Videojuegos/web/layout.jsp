@@ -15,8 +15,6 @@
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
-  <link rel="stylesheet" type="text/css" href="public/css/inside.css">
-  <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
 </head>
 <%
@@ -25,7 +23,7 @@
         String header = (String)request.getAttribute("header");
 %>
 <body class="hidden">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
       
       <% if(header == null){ %>
     <div class="container-fluid">
@@ -36,6 +34,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+          <img src="public/img/brand.png" id="brandimage">
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
