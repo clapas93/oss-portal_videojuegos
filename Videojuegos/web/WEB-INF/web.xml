@@ -4,76 +4,94 @@
         <servlet-name>VideogamesController</servlet-name>
         <servlet-class>controllers.VideogamesController</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>controllers.RegisterController</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>ManageGamesController</servlet-name>
         <servlet-class>ManageGames.ManageGamesController</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>LoansController</servlet-name>
         <servlet-class>Loans.LoansController</servlet-class>
     </servlet>
-    <servlet>
 
+    <servlet>
         <servlet-name>UpdateStudent</servlet-name>
         <servlet-class>User.UpdateStudent</servlet-class>
+    </servlet>
 
+    <servlet>
         <servlet-name>loginController</servlet-name>
         <servlet-class>User.loginController</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>controllers.login</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>controllers.NewServlet</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>User.loginController</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>registerController</servlet-name>
         <servlet-class>User.registerController</servlet-class>
-
     </servlet>
+
     <servlet-mapping>
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/registro</url-pattern>
     </servlet-mapping>
+    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
     <servlet-mapping>
         <servlet-name>ManageGamesController</servlet-name>
         <url-pattern>/managegames</url-pattern>
+        <url-pattern>/uploadgame</url-pattern>
+        <url-pattern>/updategame</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>LoansController</servlet-name>
         <url-pattern>/loanapplications</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
 
+    <servlet-mapping>
         <servlet-name>UpdateStudent</servlet-name>
         <url-pattern>/updatestudent</url-pattern>
         <url-pattern>/studentsave</url-pattern>
-
+    </servlet-mapping>
+    
+    <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>registerController</servlet-name>
         <url-pattern>/registerController</url-pattern>
-
     </servlet-mapping>
+
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
