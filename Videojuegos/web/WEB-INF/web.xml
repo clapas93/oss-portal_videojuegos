@@ -16,6 +16,10 @@
         <servlet-name>LoansController</servlet-name>
         <servlet-class>Loans.LoansController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateStudent</servlet-name>
+        <servlet-class>User.UpdateStudent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
@@ -36,6 +40,11 @@
     <servlet-mapping>
         <servlet-name>LoansController</servlet-name>
         <url-pattern>/loanapplications</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStudent</servlet-name>
+        <url-pattern>/updatestudent</url-pattern>
+        <url-pattern>/studentsave</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
