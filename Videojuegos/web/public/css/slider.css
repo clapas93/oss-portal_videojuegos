@@ -100,7 +100,7 @@
 }
 
 .jssort01 .p:hover .c, .jssort01 .pav:hover .c, .jssort01 .pav .c {
-  background: url(public/img/t01.png) center center;
+  background: url(../img/t01.png) center center;
   border-width: 0px;
   top: 2px;
   left: 2px;
@@ -128,7 +128,7 @@
   position: absolute;
   cursor: pointer;
   display: block;
-  background: url(public/img/a21.png) center center no-repeat;
+  background: url(../img/a21.png) center center no-repeat;
   overflow: hidden;
 }
 .jssora21l { background-position: -3px -33px; }
