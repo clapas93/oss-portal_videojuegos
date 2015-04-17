@@ -57,46 +57,6 @@ public class UpdateStudent extends HttpServlet {
                 request.setAttribute("title", "Manage Games");
                 request.setAttribute("footer", footer); 
                 request.getRequestDispatcher("layout.jsp").forward(request, response);
-                if (ServletFileUpload.isMultipartContent(request)) {
-
-            FileItemFactory factory = new DiskFileItemFactory();
-            ServletFileUpload upload= new ServletFileUpload(factory);
-            upload.setSizeMax(Long.MAX_VALUE);
-
-            List listUploadFiles = null;
-            FileItem item = null;
-        try (PrintWriter out = response.getWriter()) {
-            try {
-                listUploadFiles = upload.parseRequest((RequestContext) request);
-
-                Iterator it = listUploadFiles.iterator();
-                while (it.hasNext()) {
-                    item = (FileItem) it.next();
-                    if (!item.isFormField()) {
-                        if (item.getSize() > 0) {
-                            String nombre = item.getName();
-                            String tipo = item.getContentType();
-
-                            long tamanio = item.getSize();
-
-                            String extension = nombre.substring(nombre.lastIndexOf("."));
-
-                            out.println("Nombre: " + nombre + "<br>");
-                            out.println("Tipo: " + tipo + "<br>");
-                            out.println("Extension: " + extension + "<br>");
-                        }
-                    }
-                }
-
-            } catch (FileUploadException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }catch(Exception e) {
-                e.printStackTrace();
-        }
-        }
             break;
         }
     }
