@@ -32,6 +32,11 @@ public class UpdateStudent extends HttpServlet {
         String path = request.getRequestURI().substring(request.getContextPath().length());
         String view = "";
         String footer = "footer.jsp";
+        
+        userStudent student = new userStudent("g.antonio@ciencias", "Jenny","Galván",
+             "Gámez","308082379","Matemáticas","pass", "online", "100","chanel.pdf");
+                request.setAttribute("student", student);
+                System.out.println(student.getName() + "Mi nombre es:");
 
         switch (path) {
             case "/updatestudent":
@@ -41,16 +46,31 @@ public class UpdateStudent extends HttpServlet {
                 request.setAttribute("title", "Manage Games");
                 request.setAttribute("footer", footer);
                 request.getRequestDispatcher("layout.jsp").forward(request, response);
-
+                
                 break;
             case "/studentsave":
-                view = "registro.jsp";
+                view = "profileUpdate.jsp";
 
                 request.setAttribute("view", view);
                 request.setAttribute("title", "Manage Games");
                 request.setAttribute("footer", footer);
                 request.getRequestDispatcher("layout.jsp").forward(request, response);
-                System.out.println(request.getParameter("nombre_s"));
+                
+                String name = request.getParameter("nombre_s");
+                String lastName1 = request.getParameter("last_name1");
+                String carrer = request.getParameter("carrer");
+                String numberAcc = request.getParameter("numberacc");
+                String pass = request.getParameter("pass1");
+                
+                System.out.println(request.getParameter("fileUpload"));
+                
+                String query = "INSERT INTO student VALUES('g.antonio', 'antonio' )";
+  
+
+
+
+
+
 
                 break;
         }
