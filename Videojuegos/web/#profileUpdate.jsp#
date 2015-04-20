@@ -16,49 +16,51 @@
         <form class='actualizaDatos form-horizontal' method ="POST" action="studentsave">
         <div class="form-group">
                 <label>Nombre :</label>
-                <input type='text'style="width:20em !important" name="nombre_s" size = 50 id='nombre'  class="form-control" required placeholder='Nombre(s) en la base de datos' id="formGroupInputSmall" placeholder="Small input">
+                <input type='text'style="width:20em !important" size = 50 id='nombre'  class="form-control" required placeholder='Nombre en la base de datos' id="formGroupInputSmall" placeholder="Small input">
               </div>
 
                <div class="form-group">
-                <label> Apellido Paterno :</label>
-                <input type='text' style="width:20em !important" size = 50 id ='apellidoPatertno'  class="form-control" required placeholder='Apellido Paterno en la base de datos'>
+											                <label> Apellido Paterno :</label>
+                <input type='text' style="width:20em !important" size = 50 id ='apellidos'  class="form-control" required placeholder='Apellidos en la base de datos'>
               </div>
             
-            
+            <div class="form-group">
+                <label> Apellido Materno :</label>
+                <input type='text' style="width:20em !important" size = 50 id ='apellidos'  class="form-control" required placeholder='Apellidos en la base de datos'>
+              </div>
                       
         <div class="form-group">
           <label> Carrera:</label>
           <select class="form-control" style="width:20em !important" >
             <option>-------------------------------------</option>
-            <option>Actuar√≠a</option>
-            <option>Biolog√≠a</option>
-            <option>Ciencias de la Computaci√≥n</option>
+            <option>ActuarÅÌa</option>
+            <option>BiologÅÌa</option>
+            <option>Ciencias de la ComputaciÅÛn</option>
             <option>Ciencias de la Tierra</option>
-            <option>F√≠sica</option>
-            <option>F√≠sica Biomedica</option>
-            <option>Matem√°ticas</option>
-            <option>Matem√°ticas Aplicadas</option>
+            <option>FÅÌsica</option>
+            <option>FÅÌsica Biomedica</option>
+            <option>MatemÅ·ticas</option>
+            <option>MatemÅ·ticas Aplicadas</option>
             <option>Manejo Sustentable de Zonas Costeras</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="control-label"> N√∫mero de cuenta :</label>
-          <input type='text'size = 50  style="width:20em !important"  id='num_cuenta'  class="form-control" required placeholder='N√∫mero en la base de datos'>
+          <label class="control-label"> NÅ˙mero de cuenta :</label>
+          <input type='text'size = 50  style="width:20em !important"  id='num_cuenta'  class="form-control" required placeholder='NÅ˙mero en la base de datos'>
         </div>
 
         
 
           <div class="form-group">
-            <label class="control-label">Contrase√±a :</label>
+            <label class="control-label">ContraseÅÒa :</label>
             <input type='password'  style="width:20em !important" class="form-control" value='Antonio ' size = 50 id='pass' required>
           </div>
           <div class="form-group">
-            <label class="control-label">Confirmar Contrase√±a :</label>
+            <label class="control-label">Confirmar ContraseÅÒa :</label>
             <input type='password'  style="width:20em !important"  class="form-control" value='Antonio ' size = 50 id='passCompare' required>
           </div>
 
           <div class="form-group">
-           <a class="btn btn-primary" href="videogames" title="back">Cancelar</a>
            <button class="btn btn-primary submit">Actualizar Datos</button>  
          </div>
           
