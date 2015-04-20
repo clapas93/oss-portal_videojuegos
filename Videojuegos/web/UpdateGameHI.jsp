@@ -40,11 +40,11 @@ Author     : Claudia
               <label class="control-label">Clasificación</label>
               <select name="CLASS" class="form-control">
                 <option></option>
-                <option>C</option>
-                <option>E</option>
-                <option>T</option>
-                <option>M</option>
-                <option>A</option>
+                <option>C (-5)</option>
+                <option>E (+5)</option>
+                <option>T (+13)</option>
+                <option>M (+17)</option>
+                <option>A (+18)</option>
               </select>
             </div>
           </div>
@@ -70,7 +70,7 @@ Author     : Claudia
           <div class="col-lg-6">
             <div class="form-group">
               <label class="control-label">Videojuego</label>
-              <input type="file" class="form-control" name="VIDEOGAME">
+              <input type="file" class="form-control" name="GAME">
             </div>
           </div>
         </div><!--2-row-->

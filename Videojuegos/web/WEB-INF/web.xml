@@ -69,6 +69,7 @@
         <url-pattern>/managegames</url-pattern>
         <url-pattern>/uploadgame</url-pattern>
         <url-pattern>/updategame</url-pattern>
+        <url-pattern>/saveGame</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

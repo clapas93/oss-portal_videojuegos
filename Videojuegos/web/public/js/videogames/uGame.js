@@ -89,7 +89,7 @@ $(document).ready(function(){
                     }
                 }
             },
-            VIDEOGAME: {
+            GAME: {
                 validators: {
                     notEmpty:{
                         message:'Indica la ubicación del archivo.'

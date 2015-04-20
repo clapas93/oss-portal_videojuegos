@@ -8,13 +8,14 @@ Author     : Claudia
   <h1>Subir Videojuego</h1>
   <div class="panel panel-default">
     <div class="panel-body">
-      <form id="gameForm" enctype="multipart/form-data">
+      <form id="gameForm" enctype="multipart/form-data" method="get" action="saveGame">
+      <!--<form id="gameForm" enctype="multipart/form-data" >-->
         
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
               <label class="control-label" for="TITLE">Título</label>
-              <input type="text" class="form-control input-group" name="TITLE" placeholder="Título">
+              <input type="text" class="form-control input-group" name="TITLE" placeholder="Título" value="Videojuego1">
             </div>
           </div>
           <div class="col-lg-6">
@@ -28,7 +29,7 @@ Author     : Claudia
                   <input type="radio" name="creditOptions" id="CREDIT" value="CREDIT"> Crédito
                 </div>
                 <div class="col-lg-6">
-                  <input class="form-control FREE input-group" name="PRICE" type="number" placeholder="Número de Créditos" disabled>
+                  <input class="form-control FREE input-group" name="PRICE" type="number" placeholder="Número de Créditos" disabled value="100">
                 </div>
               </div>
             </div>
@@ -40,11 +41,11 @@ Author     : Claudia
               <label class="control-label">Clasificación</label>
               <select name="CLASS" class="form-control">
                 <option></option>
-                <option>C</option>
-                <option>E</option>
-                <option>T</option>
-                <option>M</option>
-                <option>A</option>
+                <option>C (-5)</option>
+                <option>E (+5)</option>
+                <option>T (+13)</option>
+                <option>M (+17)</option>
+                <option>A (+18)</option>
               </select>
             </div>
           </div>
@@ -70,7 +71,7 @@ Author     : Claudia
           <div class="col-lg-6">
             <div class="form-group">
               <label class="control-label">Videojuego</label>
-              <input type="file" class="form-control" name="VIDEOGAME">
+              <input type="file" class="form-control" name="GAME">
             </div>
           </div>
         </div><!--2-row-->
@@ -88,13 +89,14 @@ Author     : Claudia
             </div>
             <div class="form-group">
               <label class="control-label">Video</label>
-              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video">
+              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" value="http://www.tutorialspoint.com/servlets/servlets-form-data.htm">
             </div>
           </div>
         </div><!--3-row-->
         <div class="row">
           <div class="col-lg-12">
             <div class="text-center">
+              <!--<input type="submit" class="btn btn-success" value="Subir" value="UPLOAD">-->
               <button type="submit" class="btn btn-success">Subir</button>
               <button type="reset" class="btn btn-primary">Limpiar</button>
               <a href="managegames" role="button" class="btn btn-large btn-danger">Cancelar</a>

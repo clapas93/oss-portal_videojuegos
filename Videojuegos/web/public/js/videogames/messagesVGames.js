@@ -16,7 +16,7 @@ $('.deleteCM').on('click', function () {
         confirmButton: 'Aceptar',
         confirmButtonClass: 'btn-success',
         animation: 'top',
-        confirm: function () {
+        /*confirm: function () {
             var val = this.$b.find('input').val();
             if(val == '1'){
                 alert('hola')
@@ -25,7 +25,7 @@ $('.deleteCM').on('click', function () {
                 console.log(this.content);
             }
             else{ return false;}
-        }
+        }*/
       });
     }
   });

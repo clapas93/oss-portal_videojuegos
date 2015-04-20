@@ -20,30 +20,30 @@ public class Videogame {
     String routeGame;
     String front; 
     int downloads; 
-    Character classification;
+    char classification;
     float price;
     String storageRoute;
     String genre;
     String title;
     String description;
-    Character state;
+    int state;
     String videoUrl;
     String adminEmail;
     
-    public Videogame(String routeGame,String front,int downloads, Character classification,float price,String storageRoute,String genre,String title,String description,Character state,String videoUrl,String adminEmail){
-        //this.id=id;
-        this.routeGame=routeGame;
+    public Videogame(String front,char classification,float price,String storageRoute,String genre,String title,String description,String videoUrl){
+        this.id=0;
+        this.routeGame="";
         this.front=front;
-        this.downloads=downloads;
+        this.downloads=0;
         this.classification=classification;
         this.price=price;
         this.storageRoute=storageRoute;
         this.genre=genre;
         this.title=title;
         this.description=description;
-        this.state=state;
+        this.state=1;
         this.videoUrl=videoUrl;
-        this.adminEmail=adminEmail;
+        this.adminEmail="admin@oss.com";
     }
     
     public int getId(){
@@ -74,11 +74,11 @@ public class Videogame {
         this.downloads=downloads;
     }
     
-    public Character getClassification(){
+    public char getClassification(){
         return classification;
     }
     
-    public void setClassification(Character classification){
+    public void setClassification(char classification){
         this.classification=classification;
     }
     
@@ -122,11 +122,11 @@ public class Videogame {
         this.description=description;
     }
     
-    public Character getState(){
+    public int getState(){
         return state;
     }
     
-    public void setState(Character state){
+    public void setState(char state){
         this.state=state;
     }
     
@@ -148,10 +148,9 @@ public class Videogame {
     
     public boolean saveDB(){
         try{
-            String sql = "INSERT INTO Videogame (idGame,routeGame,front,downloads,classification,price,"
+            String sql = "INSERT INTO Videogame (routeGame,front,downloads,classification,price,"
                     + "storageRoute,genre,title,description,state,videoUrl,adminEmail) VALUES"
-                    + "(" + id + ","
-                    + "'" + routeGame + "',"
+                    + "('" +  routeGame + "',"
                     + "'" + front + "'," + downloads + "," 
                     + "'" + classification + "'," + price + ","
                     + "'" + storageRoute +"',"
@@ -180,10 +179,10 @@ public class Videogame {
             cn = conexion.connectionDB();
             st = cn.createStatement();
             st.executeUpdate(script);
+            //st.executeQuery("SELECT * FROM Videogame");
             return true;
         }catch(SQLException e){
-            System.out.println("Error al insertar videojuego");
-            e.getMessage();
+            System.out.println("Error al insertar videojuego, " + e.getMessage());
             return false;
         }catch(Exception e){
             System.out.println("sql "+e.getMessage());
