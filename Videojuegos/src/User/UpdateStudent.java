@@ -5,7 +5,11 @@
  */
 package User;
 
+import ConnectionDB.connectiondb;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,10 +37,48 @@ public class UpdateStudent extends HttpServlet {
         String view = "";
         String footer = "footer.jsp";
         
-        userStudent student = new userStudent("g.antonio@ciencias", "Jenny","Galván",
-             "Gámez","308082379","Matemáticas","pass", "online", "100","chanel.pdf");
+        String selectSQL = "SELECT * FROM student * WHERE studentemail = 'jen@ciencias.unam.mx'";
+        
+        connectiondb cn = new connectiondb();
+        Connection connection;
+        
+
+        Statement stat;
+        String emaildb = null;
+        String namedb = null;
+        String lastName1db = null;
+        String lastName2db = null;
+        String carrerdb = null;
+        String numAccdb = null;
+        String passdb = null;
+        String statusdb = null;
+        String creditdb = null;
+        String histdb = null;
+        try{
+            connection = cn.connectionDB();
+            stat = connection.createStatement();
+            ResultSet executeQuery = stat.executeQuery(selectSQL);
+            while(executeQuery.next()){
+                emaildb = executeQuery.getString("studentemail");
+                namedb = executeQuery.getString("name");
+                lastName1db = executeQuery.getString("lastname1");
+                lastName2db = executeQuery.getString("lastname2");
+                numAccdb = executeQuery.getString("accountnumber");
+                carrerdb = executeQuery.getString("career");
+                passdb = executeQuery.getString("password");
+                statusdb = executeQuery.getString("status");
+                creditdb = executeQuery.getString("credits");
+                histdb = executeQuery.getString("history");
+            }
+                    
+            }catch(Exception e){    
+                System.out.println(e.toString());
+            }
+        
+        userStudent student = new userStudent(emaildb, namedb,lastName1db,
+             lastName2db,numAccdb,carrerdb,passdb, statusdb, creditdb,histdb);
                 request.setAttribute("student", student);
-                System.out.println(student.getName() + "Mi nombre es:");
+                
 
         switch (path) {
             case "/updatestudent":
@@ -58,14 +100,44 @@ public class UpdateStudent extends HttpServlet {
                 
                 String name = request.getParameter("nombre_s");
                 String lastName1 = request.getParameter("last_name1");
+                String lastName2 = request.getParameter("last_name2");
                 String carrer = request.getParameter("carrer");
                 String numberAcc = request.getParameter("numberacc");
                 String pass = request.getParameter("pass1");
+                String hist = request.getParameter("fileUpload");
                 
-                System.out.println(request.getParameter("fileUpload"));
+                student.setName(name);
+                student.setLastname1(lastName1);
+                student.setLastname2(lastName2);
+                student.setCareer(carrer);
+                System.out.println(carrer);
+                student.setAccountnumber(numberAcc);
+                student.setPassword(pass);
+                student.setHistory(hist);
                 
-                String query = "INSERT INTO student VALUES('g.antonio', 'antonio' )";
-  
+                //String SQL = "INSERT INTO student VALUES('gantonio@ciencias'"+",'"+name+"','"+lastName1+"','"+lastName2+"','"+"','"+carrer+"','"+numberAcc+"','"+pass+hist+"');";
+                
+                String SQL ="UPDATE student (studentemail, name, lastname1, lastname2, accountnumber,"
+                    + "career, password, status, credits, history) VALUES "
+                    + "('" + student.getStudentemail() + "',"
+                    + "'" + student.getName() + "',"
+                    + "'" + student.getLastname1() + "',"
+                    + "'" + student.getLastname2() + "',"
+                    + "'" + student.getAccountnumber() + "',"
+                    + "'" + student.getCareer() + "',"
+                    + "'" + student.getPassword() + "',"
+                    + "'" + student.getStatus() + "',"
+                    + "'" + student.getCredits() + "',"
+                    + "'" + student.getHistory() + "');"; 
+                
+                
+                try{
+                    connection = cn.connectionDB();
+                    stat = connection.createStatement();
+                    stat.executeQuery(SQL);
+                }catch(Exception e){    
+                    System.out.println(e.toString());
+                }
 
 
 
