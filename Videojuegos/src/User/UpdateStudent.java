@@ -37,7 +37,7 @@ public class UpdateStudent extends HttpServlet {
         String view = "";
         String footer = "footer.jsp";
         
-        String selectSQL = "SELECT * FROM student * WHERE studentemail = 'jen@ciencias.unam.mx'";
+        String selectSQL = "SELECT * FROM student * WHERE studentemail = 'g.antonio@ciencias.unam.mx'";
         
         connectiondb cn = new connectiondb();
         Connection connection;
@@ -110,31 +110,42 @@ public class UpdateStudent extends HttpServlet {
                 student.setLastname1(lastName1);
                 student.setLastname2(lastName2);
                 student.setCareer(carrer);
-                System.out.println(carrer);
+                
                 student.setAccountnumber(numberAcc);
                 student.setPassword(pass);
                 student.setHistory(hist);
                 
                 //String SQL = "INSERT INTO student VALUES('gantonio@ciencias'"+",'"+name+"','"+lastName1+"','"+lastName2+"','"+"','"+carrer+"','"+numberAcc+"','"+pass+hist+"');";
                 
-                String SQL ="UPDATE student (studentemail, name, lastname1, lastname2, accountnumber,"
-                    + "career, password, status, credits, history) VALUES "
-                    + "('" + student.getStudentemail() + "',"
-                    + "'" + student.getName() + "',"
-                    + "'" + student.getLastname1() + "',"
-                    + "'" + student.getLastname2() + "',"
-                    + "'" + student.getAccountnumber() + "',"
-                    + "'" + student.getCareer() + "',"
-                    + "'" + student.getPassword() + "',"
-                    + "'" + student.getStatus() + "',"
-                    + "'" + student.getCredits() + "',"
-                    + "'" + student.getHistory() + "');"; 
+                //String insertSQL ="INSERT INTO student (studentemail, name, lastname1, lastname2, accountnumber,"
+                  //  + "career, password, status, credits, history) VALUES "
+                  //  + "('" + student.getStudentemail() + "',"
+                  //  + "'" + student.getName() + "',"
+                  //  + "'" + student.getLastname1() + "',"
+                  //  + "'" + student.getLastname2() + "',"
+                  //  + "'" + student.getAccountnumber() + "',"
+                  //  + "'" + student.getCareer() + "',"
+                  //  + "'" + student.getPassword() + "',"
+                  //  + "'" + student.getStatus() + "',"
+                  //  + "'" + student.getCredits() + "',"
+                  //  + "'" + student.getHistory() + "');"; 
                 
+                String updateSQL = "UPDATE student set name="+"'"+student.getName()+"',"
+                        +"lastname1 = '"+student.getLastname1()+"',"
+                        +"lastname2 = '"+student.getLastname2()+"',"
+                        +"accountnumber = '"+student.getAccountnumber()+"',"
+                        +"career = '"+student.getCareer()+"',"
+                        +"status = '"+student.getStatus()+"',"
+                        +"credits ="+student.getCredits()+","
+                        +"history ='"+student.getHistory()+"'"
+                        + "where studentemail = '"+student.getStudentemail()+"';";
+                        
                 
                 try{
                     connection = cn.connectionDB();
                     stat = connection.createStatement();
-                    stat.executeQuery(SQL);
+                    //stat.executeQuery("DELETE FROM student WHERE studentemail = 'jen@ciencias.unam.mx'");
+                    stat.executeQuery(updateSQL);
                 }catch(Exception e){    
                     System.out.println(e.toString());
                 }
