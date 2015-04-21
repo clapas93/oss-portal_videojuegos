@@ -23,6 +23,7 @@
   
   <link rel="stylesheet" type="text/css" href="public/css/formvalidation/formValidation.css">
   <link rel="stylesheet" type="text/css" href="public/css/formvalidation/formValidation.min.css">
+  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   
 </head>
 
@@ -43,7 +44,7 @@
         <ul class="nav navbar-nav nav nav-pills pull-right">
             
           <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="Logout" role="button" aria-expanded="false">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Administrador 
                 <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
@@ -53,7 +54,7 @@
               <li role="presentation"><a role="menuitem" href="loanapplications">
                       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Préstamos</a></li>
               <li class="divider"></li>
-              <li role="presentation"><a role="menuitem" href="index.jsp">
+              <li role="presentation"><a role="menuitem" href="logoutController">
                       <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Salir</a>
               </li>
             </ul>
@@ -65,7 +66,6 @@
     
     <jsp:include page='<%= view %>' />
     
-    <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
     <!--<script type="text/javascript" src="public/js/jquery.min.js"></script>-->
     
     <!--<script type="text/javascript" src="public/js/jquery.validate.js"></script>-->

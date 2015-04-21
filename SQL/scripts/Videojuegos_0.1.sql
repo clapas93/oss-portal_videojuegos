@@ -2,7 +2,7 @@
 -- -----------------------------------------------------
 -- Table Admin
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Admin;
+DROP TABLE IF EXISTS Admin CASCADE;
 CREATE TABLE IF NOT EXISTS Admin (
   adminEmail VARCHAR(318) NOT NULL, --local-part@domain 64+1+253 = 318
   name VARCHAR(45) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Admin (
 -- -----------------------------------------------------
 -- Table Student
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS Student CASCADE;
 CREATE TABLE IF NOT EXISTS Student (
   studentEmail VARCHAR(318) NOT NULL,
   name VARCHAR(45) NOT NULL,
@@ -36,14 +36,13 @@ CREATE TABLE IF NOT EXISTS Student (
 -- -----------------------------------------------------
 -- Table Loan
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Loan;
+DROP TABLE IF EXISTS Loan CASCADE;
 CREATE TABLE IF NOT EXISTS Loan (
   studentEmail VARCHAR(318) NULL,
   adminEmail VARCHAR(318) NULL,
   date TIMESTAMP NOT NULL,
   status CHAR NOT NULL,
   creditApproved FLOAT NOT NULL,
-  creditRequested FLOAT NOT NULL,
   CONSTRAINT studentEmail
     FOREIGN KEY (studentEmail)
     REFERENCES Student (studentEmail)
@@ -60,7 +59,7 @@ CREATE TABLE IF NOT EXISTS Loan (
 -- -----------------------------------------------------
 -- Table Videogame
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Videogame;
+DROP TABLE IF EXISTS Videogame CASCADE;
 CREATE TABLE IF NOT EXISTS Videogame (
   idGame SERIAL NOT NULL,
   routeGame VARCHAR(300) NOT NULL,
@@ -86,7 +85,7 @@ CREATE TABLE IF NOT EXISTS Videogame (
 -- -----------------------------------------------------
 -- Table Download
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Download;
+DROP TABLE IF EXISTS Download CASCADE;
 CREATE TABLE IF NOT EXISTS Download (
   idGame SERIAL NOT NULL,
   studentEmail VARCHAR(318) NULL,
@@ -102,3 +101,8 @@ CREATE TABLE IF NOT EXISTS Download (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
+-----------------------
+--Insertions
+-----------------------
+INSERT INTO admin values ('admin@oss.com','Eduardo','Miranda','Sánchez','eduardomiranda@ciencias.unam.mx','5519134399','password');
+

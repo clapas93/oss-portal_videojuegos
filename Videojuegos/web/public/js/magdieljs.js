@@ -6,35 +6,13 @@
 
 
 $(window).load( function() {
-            var n=0;
-            $('#event_click').click(function(){
-                n++;
-                if((n % 2)==0){
-                    if(jQuery('.form-index').attr("style")=="display: block;")
-                        $('body').click(function() {
-                            $(".form-index").fadeIn();
-                        });
-                    else
-                        $('.form-index').fadeOut()
-                }else{
-                    if(jQuery('.form-index').attr("style")=="display: none;")
-                      	$('body').click(function() {
-                            $(".form-index").fadeOut();
-                        });
-                    else
-                        $('.form-index').fadeIn()
-                }
-            });
-            $('#registro').click(function() { 
-                $('#page').fadeOut(100, function() { }); 
-            });
-            /**
-            $('body').click(function() {
+            $('.navbar.navbar-default').click(function(){
                 $(".form-index").fadeOut();
+                
             });
-            **/
             
 });
+
 $( document ).ready(function() {
     $('#loginForm').bootstrapValidator({
 	 message: 'Este valor no es valido',
@@ -61,3 +39,4 @@ $( document ).ready(function() {
 	 }
     });
 });
+

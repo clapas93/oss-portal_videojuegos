@@ -54,7 +54,6 @@
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/registro</url-pattern>
@@ -76,6 +75,9 @@
     <servlet-mapping>
         <servlet-name>LoansController</servlet-name>
         <url-pattern>/loanapplications</url-pattern>
+        <url-pattern>/denyloan</url-pattern>
+        <url-pattern>/grantloan</url-pattern>
+        <url-pattern>/getalgo</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
@@ -87,6 +89,7 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
+        <url-pattern>/logoutController</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

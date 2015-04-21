@@ -4,10 +4,11 @@
     Author     : lalo
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="public/img/favicon.png"/>
@@ -21,11 +22,13 @@
         String view = (String)request.getAttribute("view");
         String footer = (String)request.getAttribute("footer");
         String header = (String)request.getAttribute("header");
+        String bool1 = (String)request.getAttribute("bool1");
+        String bool2 =(String)request.getAttribute("bool2");
 %>
 <body class="hidden">
   <nav class="navbar navbar-default navbar-fixed-top">
       
-      <% if(header == null){ %>
+      <% if(header == null && bool1 != "1"){ %>
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -38,7 +41,7 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
-          <li ><a id="event_click" >Iniciar SesiÃ³n</a></li>
+          <li ><a id="event_click" >Iniciar Sesión</a></li>
           <li><a id="registro" href="registro">Registrarse</a></li>
         </ul>
           
@@ -54,9 +57,9 @@
 					 </div>
 				 </div>
 				 <div class="form-group">
-		 			<label class="col-md-3 control-label">ContraseÃ±a</label>
+		 			<label class="col-md-3 control-label">Contraseña</label>
 					 <div class="col-md-7">
-						 <input type="password" class="form-control" name="password" placeholder="ContraseÃ±a"/>
+						 <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
 					 </div>
 				 </div>
 				 <div class="form-group">
@@ -79,6 +82,6 @@
         <jsp:include page='<%= view %>' />
   </section>
         <jsp:include page='<%= footer %>' />
-</body>
+  
 </html>
 
