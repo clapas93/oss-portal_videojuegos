@@ -19,10 +19,19 @@ import javax.swing.JOptionPane;
  * @author magdiel
  */
 public class connectiondb {
+  
+  private Connection connection = null;
+  private ResultSet rs = null;
+  private Statement s = null;
+  
+  public Connection connectionDB(){
     
-    private Connection connection = null;
-    private ResultSet rs = null;
-    private Statement s = null;
+    String host;
+    String port;
+    String database;
+    String user;
+    String password;
+    String stringConection;
     
     public Connection connectionDB(){
         
@@ -52,4 +61,5 @@ public class connectiondb {
             return null;
         }
     }
+  }
 }
