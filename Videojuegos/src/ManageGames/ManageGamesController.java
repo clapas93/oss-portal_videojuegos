@@ -110,8 +110,10 @@ public class ManageGamesController extends HttpServlet {
         String title=request.getParameter("TITLE");
         String description=request.getParameter("DESCRIPTION");
         String videoUrl=request.getParameter("VIDEO");
-        HttpSession session;
-        String adminemail = "admin@oss.com"
+        HttpSession session = request.getSession(true);
+        String username = (String)session.getAttribute("nomUsuario");
+        System.out.println(username);
+        String adminemail = "admin@oss.com";
         Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
         System.out.println("uploadGame");
         return game.saveDB();
@@ -138,7 +140,7 @@ public class ManageGamesController extends HttpServlet {
         String description=request.getParameter("DESCRIPTION");
         String videoUrl=request.getParameter("VIDEO");
         HttpSession session;
-        String adminemail = "admin@oss.com"
+        String adminemail = "admin@oss.com";
         Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
         game.setId(Integer.parseInt(id));
         System.out.println("uploadGame");
