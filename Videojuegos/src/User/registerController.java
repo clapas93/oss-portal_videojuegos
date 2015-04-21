@@ -64,9 +64,9 @@ public class registerController extends HttpServlet {
         student.setAccountnumber(request.getParameter("accountnumber"));
         student.setCareer(request.getParameter("career"));
         student.setPassword(request.getParameter("password"));
-        student.setStatus(request.getParameter("status"));
+        student.setStatus("1");
         student.setCredits("0");
-        student.setHistory(request.getParameter("history"));
+        student.setHistory("");
         
         register reg = new register();
         

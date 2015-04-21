@@ -21,11 +21,13 @@
         String view = (String)request.getAttribute("view");
         String footer = (String)request.getAttribute("footer");
         String header = (String)request.getAttribute("header");
+        String bool1 = (String)request.getAttribute("bool1");
+        String bool2 =(String)request.getAttribute("bool2");
 %>
 <body class="hidden">
   <nav class="navbar navbar-default navbar-fixed-top">
       
-      <% if(header == null){ %>
+      <% if(header == null && bool1 != "1"){ %>
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -79,6 +81,6 @@
         <jsp:include page='<%= view %>' />
   </section>
         <jsp:include page='<%= footer %>' />
-</body>
+  
 </html>
 

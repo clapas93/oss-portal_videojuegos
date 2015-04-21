@@ -37,20 +37,34 @@
         </ul>
 
         <div class="form-index">
-          <span style="color:#fff; font-size: 1.5em;">Datos de usuario</span>
-          <hr color="#2c2c2c">
-          <div>
-            <form id="loginForm" method="post" class="form-horizontal" action="loginController?accion=LOGIN">
-             <div class="form-group">
-              <label class="col-md-3 control-label">Usuario</label>
-              <div class="col-md-7">
-               <input type="text" class="form-control" name="usuario" placeholder="ejemplo@correo.com"/>
-             </div>
-           </div>
-           <div class="form-group">
-            <label class="col-md-3 control-label">Contraseña</label>
-            <div class="col-md-7">
-              <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
+            <span style="color:#fff; font-size: 1.5em;">Datos de usuario</span>
+            <hr color="#2c2c2c">
+            <div>
+                <form id="loginForm" method="post" class="form-horizontal" action="loginController?accion=LOGIN">
+				 <div class="form-group">
+					 <label class="col-md-3 control-label">Usuario</label>
+					 <div class="col-md-7">
+						 <input type="text" class="form-control" name="usuario" placeholder="ejemplo@correo.com"/>
+					 </div>
+				 </div>
+				 <div class="form-group">
+		 			<label class="col-md-3 control-label">Contraseña</label>
+					 <div class="col-md-7">
+                            			 <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
+					 </div>
+				 </div>
+                                 <div class="form-group">
+                                     <div class="col-md-7">
+                                         <span style="color:red"><%= request.getParameter("msg")!=null?request.getParameter("msg"):""%></span>
+                                     </div>
+                                 </div>
+				 <div class="form-group">
+					 <div class="col-md-5 col-md-offset-3">
+                                            <button type="submit" class="btn btn-default">Entrar</button>
+					 </div>
+				 </div>
+                                
+                </form>
             </div>
           </div>
           <div class="form-group">
