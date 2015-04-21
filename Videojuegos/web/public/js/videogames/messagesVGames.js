@@ -1,4 +1,7 @@
 $('.deleteCM').on('click', function () {
+  var id = $(this).attr('row');
+  var vid = $(this).val();
+  console.log(vid);
   $.confirm({
     title: 'Eliminar Videojuego',
     keyboardEnabled: true,
@@ -9,6 +12,20 @@ $('.deleteCM').on('click', function () {
     cancelButtonClass: 'btn-info',
     animation: 'bottom',
     confirm: function () {
+      var name = "#row"+id;   
+      $.ajax({
+        type: "POST",
+          url: 'deleteVideogame',
+          dataType: "json",
+          data:{idGame:vid},
+          success: function(data){
+            console.log(data);
+            $(name).remove();
+          },
+          error: function(data){
+            console.log(data);
+          }
+      });
       $.alert({
         title: 'Videojuego Eliminado',
         keyboardEnabled: true,
@@ -25,8 +42,8 @@ $('.deleteCM').on('click', function () {
                 console.log(this.content);
             }
             else{ return false;}
-        }*/
-      });
+          }*/
+        });
     }
   });
 });

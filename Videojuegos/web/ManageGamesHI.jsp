@@ -51,7 +51,7 @@ List videogameList = (List)request.getAttribute("videogameList");
             </thead>
             <tbody>
               <%for(int i = 0; i<videogameList.size();i++){%>
-                  <%="<tr>"%>
+                  <%="<tr id='row"+i+"'>"%>
                   <td><%=((Videogame)videogameList.get(i)).getId()%></td>
                   <td><%=((Videogame)videogameList.get(i)).getFront()%></td>
                   <td><%=((Videogame)videogameList.get(i)).getTitle()%></td>
@@ -65,7 +65,7 @@ List videogameList = (List)request.getAttribute("videogameList");
                   <td>
                   <a href="updategame?ID=<%=((Videogame)videogameList.get(i)).getId()%>" role="button" class="btn btn-large btn-primary" name="uploadG">Editar</a>
                   <br><br>
-                  <button class="btn btn-danger deleteCM" role="button" name="deleteGame" value=<%=((Videogame)videogameList.get(i)).getId()%>>Eliminar</button>
+                  <button class="btn btn-danger deleteCM" row="<%=i%>" role="button" name="deleteGame" value=<%=((Videogame)videogameList.get(i)).getId()%>>Eliminar</button>
                 </td>
                   <%="</tr>"%>
                 <%}%>
