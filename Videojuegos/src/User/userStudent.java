@@ -9,19 +9,18 @@ package User;
  *
  * @author magdiel
  */
-public class userStudent {
+public class userStudent extends user {
     
-    
-    private String studentemail;
-    private String name;
-    private String lastname1;
-    private String lastname2;
-    private String accountnumber;
-    private String career;
-    private String password;
-    private String status;
-    private String credits;
-    private String history;
+    protected String studentemail;
+    protected String name;
+    protected String lastname1;
+    protected String lastname2;
+    protected String accountnumber;
+    protected String career;
+    protected String password;
+    protected String status;
+    protected String credits;
+    protected String history;
     
     public userStudent(){
         
