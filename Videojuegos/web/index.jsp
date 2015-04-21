@@ -55,11 +55,17 @@
                             			 <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
 					 </div>
 				 </div>
+                                 <div class="form-group">
+                                     <div class="col-md-7">
+                                         <span style="color:red"><%= request.getParameter("msg")!=null?request.getParameter("msg"):""%></span>
+                                     </div>
+                                 </div>
 				 <div class="form-group">
 					 <div class="col-md-5 col-md-offset-3">
                                             <button type="submit" class="btn btn-default">Entrar</button>
 					 </div>
 				 </div>
+                                
                 </form>
             </div>
         </div>

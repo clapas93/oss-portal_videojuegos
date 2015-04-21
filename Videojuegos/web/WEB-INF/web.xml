@@ -5,10 +5,6 @@
         <servlet-class>controllers.VideogamesController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterController</servlet-name>
-        <servlet-class>controllers.RegisterController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ManageGamesController</servlet-name>
         <servlet-class>ManageGames.ManageGamesController</servlet-class>
     </servlet>
@@ -36,13 +32,21 @@
         <servlet-name>registerController</servlet-name>
         <servlet-class>User.registerController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>User.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>User.logoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>controllers.RegisterController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegisterController</servlet-name>
-        <url-pattern>/registro</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
@@ -63,7 +67,35 @@
         <servlet-name>registerController</servlet-name>
         <url-pattern>/registerController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutController</servlet-name>
+        <url-pattern>/logoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/registro</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>User.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>User.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>User.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>User.Logout</servlet-class>
+    </servlet>
 </web-app>

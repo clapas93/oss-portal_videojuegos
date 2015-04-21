@@ -3,19 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package User;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author lalo
+ * @author magdiel
  */
-public class RegisterController extends HttpServlet {
+public class logoutController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,16 +30,10 @@ public class RegisterController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String view = "registro.jsp";
-        request.setAttribute("view", view); 
-        String footer = "footer.jsp";
-        request.setAttribute("footer", footer);
-        /* Para saber si renderizamos el header y footer de registro*/
-        String bool1 = "";
-        request.setAttribute("0", bool1);
-        String bool2 ="";
-        request.setAttribute("0", bool2);
-        request.getRequestDispatcher("layout.jsp").forward(request, response);
+        HttpSession session = request.getSession(false);
+        session.invalidate();
+        response.sendRedirect("index.jsp");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

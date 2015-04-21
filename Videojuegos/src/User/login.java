@@ -46,7 +46,7 @@ public class login {
     }
     
     /*Se intenta realizar la verificación de los datos introducidos en el formulario*/
-    protected boolean loginAdmin(UserAdmin user){
+    protected int loginAdmin(UserAdmin user){
         
         try{
             String sql=
@@ -61,9 +61,36 @@ public class login {
             if(exe_sql(sql)){
                 System.out.println();
                 System.out.println("OK ... bien3");
+                return 1;
+            }else{
+                if(loginStudent(user.getAdminemail(), user.getPassword()))
+                    return 0;
+                else
+                    return 2;
+                
+            }
+                
+        }catch(Exception e){
+            System.out.println("Error:"+ e);
+            return 2;
+        }
+        
+    
+    }
+    
+    protected boolean loginStudent(String user, String psw){
+        try{
+            String sql=
+            "SELECT * FROM student WHERE studentemail = '"+
+                    user +
+                    "' AND password = '"+ psw +"';";
+            System.out.println(user + " && " + psw);
+            
+            if(exe_sql(sql)){
+                System.out.println();
+                System.out.println("OK ... bien3");
                 return true;
             }else{
-                System.out.println("OK ... error3");
                 return false;
             }
                 
@@ -71,11 +98,5 @@ public class login {
             System.out.println("Error:"+ e);
             return false;
         }
-        
-    
-    }
-    
-    protected boolean loginStudent(){
-        return true;
     }
 }

@@ -9,14 +9,11 @@ package User;
  *
  * @author magdiel
  */
-public class UserAdmin {
+public class UserAdmin extends user {
+    
     String adminemail;
-    String name;
-    String lastname1;
-    String lastname2;
     String phone;
     String email_contact;
-    String password;
 
     public String getAdminemail() {
         return adminemail;
@@ -25,30 +22,6 @@ public class UserAdmin {
     public void setAdminemail(String
             adminemail) {
         this.adminemail = adminemail;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastname1() {
-        return lastname1;
-    }
-
-    public void setLastname1(String lastname1) {
-        this.lastname1 = lastname1;
-    }
-
-    public String getLastname2() {
-        return lastname2;
-    }
-
-    public void setLastname2(String lastname2) {
-        this.lastname2 = lastname2;
     }
 
     public String getPhone() {
@@ -67,11 +40,4 @@ public class UserAdmin {
         this.email_contact = email_contact;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

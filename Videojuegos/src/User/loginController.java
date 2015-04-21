@@ -6,6 +6,9 @@
 package User;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import javax.servlet.AsyncContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpSession;
  * @author magdiel
  */
 public class loginController extends HttpServlet {
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,50 +34,8 @@ public class loginController extends HttpServlet {
         
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession session;
-        String userAdmin;
-        
-        String action=request.getParameter("accion");
-        if(action.equals("LOGIN")){
-            if(logueo(request, response)){
-                session = request.getSession();
-                userAdmin = request.getParameter("usuario");
-                session.setAttribute("nomUsuario", userAdmin);
-                String view = "videojuegos.jsp";
-                request.setAttribute("view", view); 
-                String footer = "footer.jsp";
-                request.setAttribute("footer", footer);
-                String header = "headerLogin.jsp";
-                request.setAttribute("header", header);
-                request.getRequestDispatcher("layout.jsp").forward(request, response);
-            }else {
-                System.out.println("<script>alert('Datos inválidos'); location.href='index.jsp'</script>");
-            }
-        }
     }
-    
-    protected boolean logueo(HttpServletRequest request, HttpServletResponse response){
-        
-            System.out.println("OK ... bien4");
-            UserAdmin data_user = new UserAdmin();
-            data_user.setAdminemail(request.getParameter("usuario"));
-            data_user.setPassword(request.getParameter("password"));
-            System.out.println(request.getParameter("usuario"));
-            System.out.println(request.getParameter("password"));
-            
-            login cn = new login();
-            
-            if(cn.loginAdmin(data_user)){
-                System.out.println("OK ... bien5");
-                return true;
-            }else{
-                System.out.println("OK ... error5");
-                return false;
-            }
-        
-        }
     
        // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -103,7 +65,47 @@ public class loginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        
+        String action=request.getParameter("accion");
+        
+        if("LOGIN".equals(action)){
+            // Logueo del usuario
+            System.out.println("123456789");
+            logueo(request, response);
+	}
+        
+        /*
+        HttpSession session;
+        String userAdmin;
+        String action=request.getParameter("accion");
+        
+        if(action.equals("LOGIN")){
+            int value = logueo(request, response);
+            System.out.println(value + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            
+            if(value == 0 ){
+                session = request.getSession();
+                userAdmin = request.getParameter("usuario");
+                session.setAttribute("nomUsuario", userAdmin);
+                String view = "videojuegos.jsp";
+                request.setAttribute("view", view); 
+                String footer = "footer.jsp";
+                request.setAttribute("footer", footer);
+                String header = "headerLogin.jsp";
+                request.setAttribute("header", header);
+                request.getRequestDispatcher("layout.jsp").forward(request, response);
+            }else if(logueo(request, response) == 1){
+                session = request.getSession();
+                userAdmin = request.getParameter("usuario");
+                session.setAttribute("nomUsuario", userAdmin);
+                String view = "ManageGamesHI.jsp";
+                request.setAttribute("view", view); 
+                request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+            }else {
+                
+            }
+        }*/
     }
     
     /**
@@ -114,6 +116,53 @@ public class loginController extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
+    }
+    
+    protected void logueo(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException{
+        
+        
+        System.out.println("OK ... bien4");
+        UserAdmin data_user = new UserAdmin();
+        data_user.setAdminemail(request.getParameter("usuario"));
+        data_user.setPassword(request.getParameter("password"));
+        System.out.println(request.getParameter("usuario"));
+        System.out.println(request.getParameter("password"));
+           
+        login cn = new login();
+        
+        System.out.println("OK ... bien4.1");
+            
+        if(cn.loginAdmin(data_user) == 0){
+            HttpSession session;
+            String userAdmin;
+            session = request.getSession();
+            userAdmin = request.getParameter("usuario");
+            session.setAttribute("nomUsuario", userAdmin);
+            String view = "videojuegos.jsp";
+            request.setAttribute("view", view); 
+            String footer = "footer.jsp";
+            request.setAttribute("footer", footer);
+            String header = "headerLogin.jsp";
+            request.setAttribute("header", header);
+            request.getRequestDispatcher("layout.jsp").forward(request, response);
+            System.out.println("OK ... bienAdmin");
+        }else if(cn.loginAdmin(data_user) == 1){
+            HttpSession session;
+            String userAdmin;
+            session = request.getSession();
+            userAdmin = request.getParameter("usuario");
+            session.setAttribute("nomUsuario", userAdmin);
+            String view = "ManageGamesHI.jsp";
+            request.setAttribute("view", view); 
+            request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+            System.out.println("OK ... bienStudent5");
+        }else {
+            RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o " +
+				"contraseña incorrectos");
+			a.forward(request, response);
+        }
+       
     }
 }
     
