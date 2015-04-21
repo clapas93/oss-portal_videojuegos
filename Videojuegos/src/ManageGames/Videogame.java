@@ -1,8 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+* Optimal Software Solutions
+* Project : Pulse Games
+* This class create a Videogame object and make querys to DB
+* @author Claudia Paola Medina Santamaria 
+* @version 1.0
+* @since 18/04/2015
+*/
 package ManageGames;
 
 import java.sql.Connection;
@@ -13,25 +16,24 @@ import ConnectionDB.connectiondb;
 import java.util.List;
 import java.util.LinkedList;
 
-/**
- *
- * @author claudia
- */
 public class Videogame {
-    private int id; 
-    private String routeGame;
-    private String front; 
-    private int downloads; 
-    private String classification;
-    private float price;
-    private String storageRoute;
-    private String genre;
-    private String title;
-    private String description;
+    private int id; //Videogame id
+    private String routeGame; //Videogame url site
+    private String front; //Videogame Front
+    private int downloads; //Number of downloads 
+    private String classification; //Videogame ESRB classification 
+    private float price; //Number of credits required to download
+    private String storageRoute; //Videogame storage route on the system
+    private String genre; //Videogame genre
+    private String title; //Videogame title
+    private String description; //Videogame description
     private String state; //1 available , 0 deleted
-    private String videoUrl;
-    private String adminEmail;
+    private String videoUrl; //Videogame trailer
+    private String adminEmail; //admin's email who uploaded the videogame
     
+    /**
+    * Initializes a newly created Videogame object with all its attributes with default values.
+    */
     public Videogame(){
         this.id=0;
         this.routeGame="";
@@ -48,6 +50,17 @@ public class Videogame {
         this.adminEmail="";
     }
     
+    /**
+    * Constructs a new Videogame with attributes that the system doesn't generate.
+    * @param front          Videogame front.
+    * @param classification ESRB classification.
+    * @param price          Number of credits required to download.
+    * @param storageRoute   Videogame storage route on the system.
+    * @param genre          Videogame genre.
+    * @param title          Videogame title.
+    * @param description    Videogame description.
+    * @param videoUrl       video trailer.
+    */
     public Videogame(String front,String classification,float price,String storageRoute,String genre,String title,String description,String videoUrl){
         this.id=0;
         this.routeGame="http://pulsegames.com/videogames/"+id;
@@ -64,110 +77,218 @@ public class Videogame {
         this.adminEmail="admin@oss.com";
     }
     
+    /**
+    * Returns videogame id on the system.
+    * @return int   id associated with this videogame.
+    */
     public int getId(){
         return id;
     }
     
+    /**
+    * Set the id on the system of this videogame.
+    * @param id     the new videogame id.
+    */
     public void setId(int id){
         this.id=id;
     }
     
+    /**
+    * Returns videogame url site on the system.
+    * @return String    url site associated with this videogame.
+    */
     public String getRouteGame(){
         return routeGame;
     }
     
+    /**
+    * Set the url site on the system of this videogame.
+    * @param routeGame  the new videogame routeGame.
+    */
     public void setRouteGame(String routeGame){
         this.routeGame=routeGame;
     }
     
+    /**
+    * Returns videogame front.
+    * @return String   front associated with this videogame.
+    */
     public String getFront(){
         return front;
     }
     
+    /**
+    * Set the front of this videogame.
+    * @param front  the new videogame front.
+    */
     public void setFront(String front){
         this.front=front;
     }
     
+    /**
+    * Returns the number of downloads of the videogame.
+    * @return int   number of downloads.
+    */
     public int getDownloads(){
         return downloads;
     }
     
+    /**
+    * Set the number of downoloads of this videogame.
+    * @param downloads  the new number of downloads.
+    */
     public void setDownloads(int downloads){
         this.downloads=downloads;
     }
     
+    /**
+    * Returns the ESRB classification of the videogame.
+    * @return String    ESRB classification associated with this videogame.
+    */
     public String getClassification(){
         return classification;
     }
     
+    /**
+    * Set the videogame ESRB classification to this videogame.
+    * @param classification     the new ESRB classification.
+    */
     public void setClassification(String classification){
         this.classification=classification;
     }
     
+    /**
+    * Returns the number of credits required to download the videogame.
+    * @return float   number of credits associated with this videogame.
+    */
     public float getPrice(){
         return price;
     }
     
+    /**
+    * Set the number of credits required to download this videogame.
+    * @param price  the new number of credits.
+    */
     public void setPrice(float price){
         this.price=price;
     }
     
+    /**
+    * Returns the Videogame storage route on the system.
+    * @return String   storage route associated with this videogame.
+    */
     public String getStorageRoute(){
         return storageRoute;
     }
-    
+
+    /**
+    * Set the storage route on  the system of this videogame.
+    * @param storageRoute   the new storage route.
+    */
     public void setStorageRoute(String storageRoute){
         this.storageRoute=storageRoute;
     }
     
+    /**
+    * Returns the videogame genre.
+    * @return String   genre associated with this videogame.
+    */
     public String getGenre(){
         return genre;
     }
     
+    /**
+    * Set the genre of this videogame.
+    * @param genre  the new genre.
+    */
     public void setGenre(String genre){
         this.genre=genre;
     }
     
+    /**
+    * Returns the videogame title.
+    * @return String   title associated with this videogame.
+    */
     public String getTitle(){
         return title;
     }
     
+    /**
+    * Set the title of this videogame.
+    * @param title  the new title.
+    */
     public void setTitle(String title){
         this.title=title;
     }
     
+    /**
+    * Returns the videogame description.
+    * @return String   description associated with this videogame.
+    */
     public String getDescription(){
         return description;
     }
     
+    /**
+    * Set the description of this videogame.
+    * @param description    the new description.
+    */
     public void setDescription(String description){
         this.description=description;
     }
     
+    /**
+    * Returns the videogame state on the system.
+    * @return String   state on the system, 1 if the game is available and 0 if it doesn't.
+    */
     public String getState(){
         return state;
     }
     
+    /**
+    * Set the state of this videogame on the system.
+    * @param id     videogame id.
+    */
     public void setState(String state){
         this.state=state;
     }
     
+    /**
+    * Returns the url of the trailer video.
+    * @return String   url of the trailer video associated with this videogame.
+    */
     public String getVideoUrl(){
         return videoUrl;
     }
     
+    /**
+    * Set the url of the trailer video of this videogame.
+    * @param videoUrl   the new url of the trailer video.
+    */
     public void setVideoUrl(String videoUrl){
         this.videoUrl=videoUrl;
     }
     
+    /**
+    * Returns the admin's email who uploaded the videogame 
+    * @return String   admin's email who uploaded this videogame
+    */
     public String getAdminEmail(){
         return adminEmail;
     }
     
+    /**
+    * Set the admin's email who uploaded this videogame.
+    * @param adminEmail     the new admin's email.
+    */
     public void setAdminEmail(String adminEmail){
         this.adminEmail=adminEmail;
     }
     
+    /**
+    * Save this videogame on the database.
+    * @return boolean   true if the videogame insert was succesful, false in other case.
+    */
     public boolean saveDB(){
         try{
             String sql = "INSERT INTO Videogame (routeGame,front,downloads,classification,price,"
@@ -189,6 +310,10 @@ public class Videogame {
         }
     }
     
+    /**
+    * Save the modifications to this videogame on the database.
+    * @return boolean   true if the videogame update was succesful, false in other case.
+    */
     public boolean updateDB(){
         try{
             String sql = "UPDATE Videogame SET "
@@ -212,6 +337,11 @@ public class Videogame {
         }
     }
     
+    /**
+    * Returns the record in the database of the videogame with an specific id as a videogame object.
+    * @param  idGame        the id of the game that return. 
+    * @return Videogame     this videogame object.
+    */
     public Videogame getGameDB(String idGame){
         Videogame game= null;
         try{
@@ -224,11 +354,13 @@ public class Videogame {
         }
     }
     
+    /**
+    * Returns all the videogames availables on the system.
+    * @return List<Videogame>   List of all the videogames avilables.
+    */
     public List<Videogame> getDB(){
         List <Videogame> gameList = new LinkedList <Videogame>();
         try{
-            //String sql = "SELECT idGame,routeGame,front,downloads,classification,price,storageRoute,"
-            //        + "genre,title,description,state,videoUrl,adminEmail FROM Videogame WHERE state=" + 1;
             String sql = "SELECT * FROM Videogame WHERE state='1';";
             gameList = initQueryDB(sql);
             return gameList;
@@ -238,6 +370,11 @@ public class Videogame {
         }
     }
     
+    /**
+    * Initializes and prepares the database to insert, update o delete a videogame specified in the script.
+    * @param  script    the sql script to execute.
+    * @return boolean   true if the conecction was established, false in other case.
+    */
     private boolean initUpdateDB(String script){
         connectiondb conection = new connectiondb();
         Connection cn;
@@ -246,7 +383,6 @@ public class Videogame {
             cn = conection.connectionDB();
             st = cn.createStatement();
             st.executeUpdate(script);
-            //st.executeQuery("SELECT * FROM Videogame");
             return true;
         }catch(SQLException e){
             System.out.println("SQL exception: " + e.getMessage());
@@ -257,6 +393,11 @@ public class Videogame {
         }
     }
     
+    /**
+    * Initializes and prepares the database to generate a list of all the videogames obteined by the script.
+    * @param  script            the sql script to execute.
+    * @return List<Videogame>   the list of all the videogames obteined. 
+    */
     public List<Videogame> initQueryDB(String script){
         List<Videogame> list = new LinkedList<Videogame>();
         connectiondb conection = new connectiondb();
@@ -269,20 +410,16 @@ public class Videogame {
             result = st.executeQuery(script);
             while(result.next()){
                 Videogame game = new Videogame();
-                //game.setId(Integer.parseInt(result.getString("idGame")));
                 game.setId(result.getInt("idGame"));
                 game.setRouteGame(result.getString("routeGame"));
                 game.setFront(result.getString("front"));
-                //game.setDownloads(Integer.parseInt(result.getString("downloads")));
                 game.setDownloads(result.getInt("downloads"));
                 game.setClassification(result.getString("classification"));
-                //game.setPrice(Float.parseFloat(result.getString("price")));
                 game.setPrice(result.getFloat("price"));
                 game.setStorageRoute(result.getString("storageRoute"));
                 game.setGenre(result.getString("genre"));
                 game.setTitle(result.getString("title"));
                 game.setDescription(result.getString("description"));
-                //game.setState(Integer.toString(result.getInt(result.getString("state"))));
                 game.setVideoUrl(result.getString("videoUrl"));
                 game.setAdminEmail(result.getString("adminEmail"));
                 list.add(game);
@@ -296,6 +433,11 @@ public class Videogame {
         return null;
     }
     
+    /**
+    * Initializes and prepares the database to generate a videogame object obteined by the script.
+    * @param  script        the sql script to execute.
+    * @return Videogame     the videogame obteined. 
+    */
     public Videogame initQueryGameDB(String script){
         Videogame game = new Videogame();
         connectiondb conection = new connectiondb();
@@ -307,20 +449,16 @@ public class Videogame {
             st = cn.createStatement();
             result = st.executeQuery(script);
             while(result.next()){
-                //game.setId(Integer.parseInt(result.getString("idGame")));
                 game.setId(result.getInt("idGame"));
                 game.setRouteGame(result.getString("routeGame"));
                 game.setFront(result.getString("front"));
-                //game.setDownloads(Integer.parseInt(result.getString("downloads")));
                 game.setDownloads(result.getInt("downloads"));
                 game.setClassification(result.getString("classification"));
-                //game.setPrice(Float.parseFloat(result.getString("price")));
                 game.setPrice(result.getFloat("price"));
                 game.setStorageRoute(result.getString("storageRoute"));
                 game.setGenre(result.getString("genre"));
                 game.setTitle(result.getString("title"));
                 game.setDescription(result.getString("description"));
-                //game.setState(Integer.toString(result.getInt(result.getString("state"))));
                 game.setVideoUrl(result.getString("videoUrl"));
                 game.setAdminEmail(result.getString("adminEmail"));
             }

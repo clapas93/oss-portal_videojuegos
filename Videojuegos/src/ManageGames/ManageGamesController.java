@@ -1,8 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+* Optimal Software Solutions
+* Project : Pulse Games
+* This class is the controller of the manage game use case
+* @author Claudia Paola Medina Santamaria 
+* @version 1.0
+* @since 18/04/2015
+*/
 package ManageGames;
 
 import java.io.IOException;
@@ -13,10 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/**
- *
- * @author lalo
- */
 public class ManageGamesController extends HttpServlet {
 
     /**
