@@ -15,7 +15,7 @@ $('.deleteCM').on('click', function () {
       var name = "#row"+id;   
       $.ajax({
         type: "POST",
-          url: 'deleteVideogame',
+          url: 'deleteGame',
           dataType: "json",
           data:{idGame:vid},
           success: function(data){
@@ -32,17 +32,7 @@ $('.deleteCM').on('click', function () {
         content: 'El videojuego ha sido eliminado',
         confirmButton: 'Aceptar',
         confirmButtonClass: 'btn-success',
-        animation: 'top',
-        /*confirm: function () {
-            var val = this.$b.find('input').val();
-            if(val == '1'){
-                alert('hola')
-            }
-            if(val=='2'){
-                console.log(this.content);
-            }
-            else{ return false;}
-          }*/
+        animation: 'top'
         });
     }
   });

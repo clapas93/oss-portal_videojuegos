@@ -70,6 +70,7 @@
         <url-pattern>/updategame</url-pattern>
         <url-pattern>/saveGame</url-pattern>
         <url-pattern>/editGame</url-pattern>
+        <url-pattern>/deleteGame</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

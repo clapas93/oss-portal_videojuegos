@@ -18,6 +18,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 public class ManageGamesController extends HttpServlet {
+    
+    private Videogame game;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +34,7 @@ public class ManageGamesController extends HttpServlet {
             throws ServletException, IOException {
         String path = request.getRequestURI().substring(request.getContextPath().length());
         String view ="";
-        Videogame game=null;
+        game=null;
         List videogameList = null;
         switch(path){
             case "/managegames":
@@ -113,7 +115,7 @@ public class ManageGamesController extends HttpServlet {
         String username = (String)session.getAttribute("nomUsuario");
         System.out.println(username);
         String adminemail = "admin@oss.com";
-        Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
+        game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
         System.out.println("uploadGame");
         return game.saveDB();
     }
@@ -138,9 +140,8 @@ public class ManageGamesController extends HttpServlet {
         String title=request.getParameter("TITLE");
         String description=request.getParameter("DESCRIPTION");
         String videoUrl=request.getParameter("VIDEO");
-        HttpSession session;
         String adminemail = "admin@oss.com";
-        Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
+        game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
         game.setId(Integer.parseInt(id));
         System.out.println("uploadGame");
         return game.updateDB();
@@ -173,7 +174,28 @@ public class ManageGamesController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+        PrintWriter out = response.getWriter();
+        response.setContentType("application/json");
+        String res = ""; 
+        boolean success;
+        String id ="";
+        game = new Videogame();
+        switch(path){
+          case "/deleteGame":
+            id = (String)request.getParameter("idGame");
+            game.setId(Integer.parseInt(id));
+            success = game.deleteDB();
+            if(success){
+              res = "{\"success\":\""+1+"\"}";
+            }else{
+              res = "{\"error\":0}";
+            }
+            out.print(res);
+            out.flush();
+          break;
+        }
     }
 
     /**

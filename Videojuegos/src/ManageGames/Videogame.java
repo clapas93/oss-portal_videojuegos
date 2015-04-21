@@ -340,6 +340,22 @@ public class Videogame {
     }
     
     /**
+    * Change the status of this videogame on the database.
+    * @return boolean   true if the change was succesful, false in other case.
+    */
+    public boolean deleteDB(){
+        try{
+            String sql = "UPDATE Videogame SET state='0' WHERE idGame='" + id + "';";
+            System.out.println("state changed");
+            return initUpdateDB(sql);
+        }catch(Exception e){
+            System.out.println(e.toString());
+            return false;
+        }
+            
+    }
+    
+    /**
     * Returns the record in the database of the videogame with an specific id as a videogame object.
     * @param  idGame        the id of the game that return. 
     * @return Videogame     this videogame object.
