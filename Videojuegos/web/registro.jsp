@@ -12,24 +12,24 @@
     <div class="mi-title"><span>Registro</span></div>
     <hr size="2">  
       <div class="formulario">
-        <form data-toggle="validator" role="form" method="post" action="registerController?accion=REGISTER">
+        <form data-toggle="validator" role="form" method="post" action="registerController?accion=REGISTER" id="validate-form">
           <table border="0">
             <tr>
               <td>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="usr" placeholder="Nombre" name="name" required>
+                  <input type="text" class="form-control" id="usr name" placeholder="Nombre" name="name" required>
                 </div>
               </td>
             </tr>
             <tr>
               <td>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="usr" placeholder="Apellido Materno" name="lastname1" required>
+                  <input type="text" class="form-control" id="usr lastname1" placeholder="Apellido Paterno" name="lastname1" required>
                 </div>
               </td>
               <td>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="usr" placeholder="Apellido Paterno" name="lastname2">
+                  <input type="text" class="form-control" id="usr lastname2" placeholder="Apellido Materno" name="lastname2">
                 </div>
               </td>
             </tr>
@@ -38,12 +38,12 @@
                 
                     <div class="form-group">
                         <select class="form-control" name="career">
-                            <option value="">Actuaría</option>
-                            <option value="">Biología</option>
-                            <option value="">Ciencias de la Computación</option>
-                            <option value="">Ciencias de la Tierra</option>
-                            <option value="">Física</option>
-                            <option value="">Matemáticas</option>
+                            <option>Actuaría</option>
+                            <option>Biología</option>
+                            <option>Ciencias de la Computación</option>
+                            <option>Ciencias de la Tierra</option>
+                            <option>Física</option>
+                            <option>Matemáticas</option>
                         </select>
                     </div>
                 </td>
@@ -64,22 +64,15 @@
             <tr>
               <td>
                 <div class="form-group">
-                    <input type="history" class="form-control" id="inputHistory" placeholder="Historial" name="history">
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="form-group">
                   <div class="form-group">
-                    <input type="password" data-minlength="6" class="form-control" placeholder="Contraseña" name="password" required>
+                    <input type="password" data-minlength="6" class="form-control" placeholder="Contraseña" name="password" id="pass" required>
               
                   </div>
                 </div>
               </td>
               <td>
                 <div class="form-group">
-                  <input type="password" class="form-control"  placeholder="Confirma tu contraseña" required>
+                  <input type="password" class="form-control"  placeholder="Confirma tu contraseña" name="c_password" required>
                   <div class="help-block with-errors"></div>
                 </div>
               </td>   
@@ -97,22 +90,3 @@
         </form>
       </div>
     </div>
-<!--  
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-    
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav pull-left">
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
--->
-
