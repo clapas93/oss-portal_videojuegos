@@ -15,36 +15,84 @@ Author     : lalo
 <div u="slides" class="slidesdiv">
   <div>
     <img u="thumb" src="public/img/1920/thumb.jpg" />
-    <img u="image" src="public/img/1920/fondo3.jpg" />
-    <div u="caption" class="captiondiv">
-      <img class="captionimg" src="public/img/1920/thumb.jpg"/>
-    </div>
-    <div class="title" >Touch Swipe Slider
-    </div>
-    <div class="slidercontent">
-    Build your slider with anything, includes image, content, text, html, photo, picture
-    </div>
-  </div>
-
-  <div>
-    <img u="thumb" src="public/img/1920/thumb.jpg" />
     <img u="image" src="public/img/1920/fondo2.jpg" />
-    <div class="title">
-      Touch Swipe Slider
+    <div u="caption" class="captiondiv">
+     <iframe width="420" height="315" src="https://www.youtube.com/embed/DGBwXH5P218" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="title" >Game 1
     </div>
     <div class="slidercontent">
-    Build your slider with anything, includes image, content, text, html, photo, picture
+     <div class="row">
+        <div class="col-md-12">
+          Build your slider with anything, includes image, content, text, html, photo, picture
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          Precio: 10 creditos
+        </div>
+        <div class="col-md-6">
+        <button class="btn btn-success">Comprar</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <div>
-    <img u="thumb" src="public/img/1920/thumb.jpg" />
-    <img u="image" src="public/img/1920/fondo4.jpg" />
+    <img u="thumb" src="public/img/1920/thumb2.png" />
+    <img u="image" src="public/img/1920/fondo2.jpg" />
+    <div u="caption" class="captiondiv">
+     <iframe width="420" height="315" src="https://www.youtube.com/embed/D5QXhxGUvuA" frameborder="0" allowfullscreen></iframe>
+    </div>
     <div class="title">
-      Touch Swipe Slider
+      Game 2
+    </div>
+    <div class="slidercontent">
+      <div class="row">
+        <div class="col-md-12">
+          Build your slider with anything, includes image, content, text, html, photo, picture
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          Precio: 10 creditos
+        </div>
+        <div class="col-md-6">
+        <button class="btn btn-success">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <img u="thumb" src="public/img/1920/thumb3.png" />
+    <img u="image" src="public/img/1920/fondo2.jpg" />
+     <div u="caption" class="captiondiv">
+     <iframe width="420" height="315" src="https://www.youtube.com/embed/PT6ivWqZv-c" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="title">
+      Game 3
     </div>
     <div  class="slidercontent">
-    Build your slider with anything, includes image, content, text, html, photo, picture
+     <div class="row">
+        <div class="col-md-12">
+          Build your slider with anything, includes image, content, text, html, photo, picture
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          Precio: 10 creditos
+        </div>
+        <div class="col-md-6">
+        <button class="btn btn-success">Comprar</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
