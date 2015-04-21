@@ -50,7 +50,7 @@ public class Videogame {
         this.adminEmail="admin@oss.com";
     }
     
-<<<<<<< HEAD
+
     /**
     * Constructs a new Videogame with attributes that the system doesn't generate.
     * @param front          Videogame front.
@@ -61,7 +61,7 @@ public class Videogame {
     * @param title          Videogame title.
     * @param description    Videogame description.
     * @param videoUrl       video trailer.
-    * @param adminEmail     Admin's email who uploaded the videogame
+    * @param adminemail     Admin's email who uploaded the videogame
     */
     public Videogame(String front,String classification,float price,String storageRoute,String genre,String title,String description,String videoUrl,String adminemail){
         this.id=0;
