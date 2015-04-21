@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -109,8 +110,9 @@ public class ManageGamesController extends HttpServlet {
         String title=request.getParameter("TITLE");
         String description=request.getParameter("DESCRIPTION");
         String videoUrl=request.getParameter("VIDEO");
-        
-        Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl);
+        HttpSession session;
+        String adminemail = "admin@oss.com"
+        Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
         System.out.println("uploadGame");
         return game.saveDB();
     }
@@ -135,8 +137,9 @@ public class ManageGamesController extends HttpServlet {
         String title=request.getParameter("TITLE");
         String description=request.getParameter("DESCRIPTION");
         String videoUrl=request.getParameter("VIDEO");
-        
-        Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl);
+        HttpSession session;
+        String adminemail = "admin@oss.com"
+        Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
         game.setId(Integer.parseInt(id));
         System.out.println("uploadGame");
         return game.updateDB();

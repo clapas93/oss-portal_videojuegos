@@ -25,15 +25,7 @@ public class connectiondb {
   private Statement s = null;
   
   public Connection connectionDB(){
-    
-    String host;
-    String port;
-    String database;
-    String user;
-    String password;
-    String stringConection;
-    
-    public Connection connectionDB(){
+
         
         String host;
         String port;
@@ -45,7 +37,7 @@ public class connectiondb {
         try {
             
             host = "localhost";
-            port = "5432";
+            port = "5433";
             database = "videoGames";
             user = "Optimal";
             password = "OptimalSOfSo!";
@@ -62,4 +54,4 @@ public class connectiondb {
         }
     }
   }
-}
+

@@ -45,10 +45,10 @@ public class Videogame {
         this.description="";
         this.state="";
         this.videoUrl="";
-        this.adminEmail="";
+        this.adminEmail="admin@oss.com";
     }
     
-    public Videogame(String front,String classification,float price,String storageRoute,String genre,String title,String description,String videoUrl){
+    public Videogame(String front,String classification,float price,String storageRoute,String genre,String title,String description,String videoUrl,String adminemail){
         this.id=0;
         this.routeGame="http://pulsegames.com/videogames/"+id;
         this.front=front;

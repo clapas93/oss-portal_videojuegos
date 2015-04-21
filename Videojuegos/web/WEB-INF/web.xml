@@ -90,6 +90,7 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
+        <url-pattern>/logoutController</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

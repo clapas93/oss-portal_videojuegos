@@ -61,18 +61,18 @@ CREATE TABLE IF NOT EXISTS Loan (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Videogame CASCADE;
 CREATE TABLE IF NOT EXISTS Videogame (
-  idGame INT NOT NULL,
-  routeGame VARCHAR(45) NOT NULL,
-  front VARCHAR(45) NOT NULL,
+  idGame SERIAL NOT NULL,
+  routeGame VARCHAR(300) NOT NULL,
+  front VARCHAR(60) NOT NULL,
   downloads INT NOT NULL,
   classification CHAR NOT NULL,
   price FLOAT NOT NULL,
-  storageRoute VARCHAR(45) NOT NULL,
-  genre VARCHAR(15) NOT NULL,
-  title VARCHAR(45) NOT NULL,
-  description VARCHAR(250) NOT NULL,
-  state CHAR NOT NULL,
-  videoUrl VARCHAR(45) NOT NULL,
+  storageRoute VARCHAR(300) NOT NULL,
+  genre VARCHAR(20) NOT NULL,
+  title VARCHAR(60) NOT NULL,
+  description TEXT NOT NULL,
+  state VARCHAR(1) NOT NULL, --1 available, 0 Deleted
+  videoUrl VARCHAR(300) NOT NULL,
   adminEmail VARCHAR(318) NULL,
   PRIMARY KEY (idGame),
   CONSTRAINT adminEmail
@@ -85,9 +85,9 @@ CREATE TABLE IF NOT EXISTS Videogame (
 -- -----------------------------------------------------
 -- Table Download
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Download;
+DROP TABLE IF EXISTS Download CASCADE;
 CREATE TABLE IF NOT EXISTS Download (
-  idGame INT NULL,
+  idGame SERIAL NOT NULL,
   studentEmail VARCHAR(318) NULL,
   date TIMESTAMP NOT NULL,
   CONSTRAINT idGame
@@ -101,3 +101,8 @@ CREATE TABLE IF NOT EXISTS Download (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
+-----------------------
+--Insertions
+-----------------------
+INSERT INTO admin values ('admin@oss.com','Eduardo','Miranda','Sánchez','eduardomiranda@ciencias.unam.mx','5519134399','password');
+
