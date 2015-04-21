@@ -12,7 +12,7 @@ $('.deleteCM').on('click', function () {
       $.alert({
         title: 'Videojuego Eliminado',
         keyboardEnabled: true,
-        content: 'El videojuego ha sido eliminado <input type="text" />',
+        content: 'El videojuego ha sido eliminado',
         confirmButton: 'Aceptar',
         confirmButtonClass: 'btn-success',
         animation: 'top',

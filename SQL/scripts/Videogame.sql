@@ -71,8 +71,8 @@ CREATE TABLE IF NOT EXISTS Videogame (
   storageRoute VARCHAR(300) NOT NULL,
   genre VARCHAR(20) NOT NULL,
   title VARCHAR(60) NOT NULL,
-  description VARCHAR(250) NOT NULL,
-  state BIT(1) NOT NULL, --1 ARRIBA, 0 ELIMINADO
+  description TEXT NOT NULL,
+  state VARCHAR(1) NOT NULL, --1 available, 0 Deleted
   videoUrl VARCHAR(300) NOT NULL,
   adminEmail VARCHAR(318) NULL,
   PRIMARY KEY (idGame),

@@ -54,9 +54,6 @@ $(document).ready(function(){
                     numeric:{
                         message:'El número de créditos debe de ser un número.'
                     },
-                    integer:{
-                        message:'El número de créditos debe de ser un entero.'
-                    },
                     between:{
                         min:1,
                         max:10000,

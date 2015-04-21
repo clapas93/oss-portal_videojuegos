@@ -9,7 +9,6 @@ Author     : Claudia
   <div class="panel panel-default">
     <div class="panel-body">
       <form id="gameForm" enctype="multipart/form-data" method="get" action="saveGame">
-      <!--<form id="gameForm" enctype="multipart/form-data" >-->
         
         <div class="row">
           <div class="col-lg-6">
@@ -89,7 +88,7 @@ Author     : Claudia
             </div>
             <div class="form-group">
               <label class="control-label">Video</label>
-              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" value="http://www.tutorialspoint.com/servlets/servlets-form-data.htm">
+              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" value="https://www.youtube.com/watch?v=Mef-OEmw9vI">
             </div>
           </div>
         </div><!--3-row-->

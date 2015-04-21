@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
@@ -31,17 +32,27 @@ public class ManageGamesController extends HttpServlet {
             throws ServletException, IOException {
         String path = request.getRequestURI().substring(request.getContextPath().length());
         String view ="";
+        Videogame game=null;
+        List videogameList = null;
         switch(path){
             case "/managegames":
                 view = "ManageGamesHI.jsp";
                 request.setAttribute("view", view); 
                 request.setAttribute("title", "Manage Games");
+                game = new Videogame();
+                videogameList = game.getDB();
+                request.setAttribute("videogameList", videogameList);
                 request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
             break;
             case "/updategame":
+                String id=request.getParameter("ID");
+                System.out.println(id);
                 view = "UpdateGameHI.jsp";
                 request.setAttribute("view", view); 
                 request.setAttribute("title", "Manage Games");
+                game = new Videogame();
+                Videogame videogameId = game.getGameDB(id);
+                request.setAttribute("videogameId", videogameId);
                 request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
             break;
             case "/uploadgame":
@@ -55,7 +66,25 @@ public class ManageGamesController extends HttpServlet {
                     view = "ManageGamesHI.jsp";
                     request.setAttribute("view", view); 
                     request.setAttribute("title", "Manage Games");
+                    game = new Videogame();
+                    videogameList = game.getDB();
+                    request.setAttribute("videogameList", videogameList);
                     request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+                    System.out.println("saveDB");
+                }else{
+                    System.out.println("<script>alert('Datos inválidos'); location.href='index.jsp'</script>");
+                }
+            break;
+            case "/editGame":
+                if(updateGame(request,response)){
+                    view = "ManageGamesHI.jsp";
+                    request.setAttribute("view", view); 
+                    request.setAttribute("title", "Manage Games");
+                    game = new Videogame();
+                    videogameList = game.getDB();
+                    request.setAttribute("videogameList", videogameList);
+                    request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+                    System.out.println("editDB");
                 }else{
                     System.out.println("<script>alert('Datos inválidos'); location.href='index.jsp'</script>");
                 }
@@ -66,7 +95,7 @@ public class ManageGamesController extends HttpServlet {
     protected boolean uploadGame(HttpServletRequest request, HttpServletResponse response){
         String storageRoute = request.getParameter("GAME");
         String front = request.getParameter("FRONT");
-        char classification = (request.getParameter("CLASS")).charAt(0);
+        String classification = (request.getParameter("CLASS")).substring(0,1);
         String option = request.getParameter("creditOptions");
         float price=0;
         if ("FREE".equals(option)){
@@ -82,8 +111,35 @@ public class ManageGamesController extends HttpServlet {
         String videoUrl=request.getParameter("VIDEO");
         
         Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl);
-        
+        System.out.println("uploadGame");
         return game.saveDB();
+    }
+    
+    
+    protected boolean updateGame(HttpServletRequest request, HttpServletResponse response){
+        String id=request.getParameter("ID");
+        System.out.println("ID game:"+id);
+        String storageRoute = request.getParameter("GAME");
+        String front = request.getParameter("FRONT");
+        String classification = (request.getParameter("CLASS")).substring(0,1);
+        String option = request.getParameter("creditOptions");
+        float price=0;
+        if ("FREE".equals(option)){
+            price = 0;
+        }else {
+            if ("CREDIT".equals(option)){
+                price = Float.parseFloat(request.getParameter("PRICE"));
+            }
+        }
+        String genre=request.getParameter("GENRE");
+        String title=request.getParameter("TITLE");
+        String description=request.getParameter("DESCRIPTION");
+        String videoUrl=request.getParameter("VIDEO");
+        
+        Videogame game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl);
+        game.setId(Integer.parseInt(id));
+        System.out.println("uploadGame");
+        return game.updateDB();
     }
     
 

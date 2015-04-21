@@ -3,7 +3,12 @@ Document   : ManageGamesHI.jsp
 Author     : Claudia
 --%>
 
+<%@ page import ="java.util.List" %>
+<%@ page import ="ManageGames.Videogame" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+List videogameList = (List)request.getAttribute("videogameList");
+%>
 
 <div class="container">
   <h1>Videojuegos en el sistema</h1>
@@ -45,6 +50,25 @@ Author     : Claudia
               </tr>
             </thead>
             <tbody>
+              <%for(int i = 0; i<videogameList.size();i++){%>
+                  <%="<tr>"%>
+                  <td><%=((Videogame)videogameList.get(i)).getId()%></td>
+                  <td><%=((Videogame)videogameList.get(i)).getFront()%></td>
+                  <td><%=((Videogame)videogameList.get(i)).getTitle()%></td>
+                  <td><a href=<%=((Videogame)videogameList.get(i)).getVideoUrl()%>>video</a></td>
+                  <td><%=((Videogame)videogameList.get(i)).getClassification()%></td>
+                  <td><%=((Videogame)videogameList.get(i)).getGenre()%></td>
+                  <td><div class="hidden-xs"><%=((Videogame)videogameList.get(i)).getDescription()%></div></td>
+                  <td> <% Float pf = ((Videogame)videogameList.get(i)).getPrice();
+                        out.print((int)(Math.round(pf))); %></td>
+                  <td><%=((Videogame)videogameList.get(i)).getDownloads()%></td>
+                  <td>
+                  <a href="updategame?ID=<%=((Videogame)videogameList.get(i)).getId()%>" role="button" class="btn btn-large btn-primary" name="uploadG">Editar</a>
+                  <br><br>
+                  <button class="btn btn-danger deleteCM" role="button" name="deleteGame" value=<%=((Videogame)videogameList.get(i)).getId()%>>Eliminar</button>
+                </td>
+                  <%="</tr>"%>
+                <%}%>
               <tr>
                 <td>1</td>
                 <td><img src="public/img/videojuegos.jpg" height="70" width="100" class="img-rounded"></td>
@@ -59,38 +83,6 @@ Author     : Claudia
                   <a href="updategame" role="button" class="btn btn-large btn-primary">Editar</a>
                   <br><br>
                   <button class="btn btn-danger deleteCM" type="button">Eliminar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><img src="public/img/videojuegos.jpg" height="70" width="100" class="img-rounded"></td>
-                <td>Juego2</td>
-                <td>url</td>
-                <td>T</td>
-                <td>Simulacion</td>
-                <td><div class="hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</div></td>
-                <td>150</td>
-                <td>500</td>
-                <td>
-                  <a href="updategame" role="button" class="btn btn-large btn-warning">Editar</a>
-                  <br><br>
-                  <button class="btn btn-danger" type="button">Eliminar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><img src="public/img/videojuegos.jpg" height="70" width="100" class="img-rounded"></td>
-                <td>Juego3</td>
-                <td>url</td>
-                <td>E</td>
-                <td>Lucha</td>
-                <td><div class="hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</div></td>
-                <td>80</td>
-                <td>40</td>
-                <td>
-                  <a href="updategame" role="button" class="btn btn-large btn-warning">Editar</a>
-                  <br><br>
-                  <button class="btn btn-danger" type="button">Eliminar</button>
                 </td>
               </tr>
             </tbody>
