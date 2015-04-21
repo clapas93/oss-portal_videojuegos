@@ -50,7 +50,6 @@ public class Videogame {
         this.adminEmail="admin@oss.com";
     }
     
-<<<<<<< HEAD
     /**
     * Constructs a new Videogame with attributes that the system doesn't generate.
     * @param front          Videogame front.
