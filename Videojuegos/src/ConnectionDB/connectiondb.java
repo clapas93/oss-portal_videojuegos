@@ -19,37 +19,37 @@ import javax.swing.JOptionPane;
  * @author magdiel
  */
 public class connectiondb {
+  
+  private Connection connection = null;
+  private ResultSet rs = null;
+  private Statement s = null;
+  
+  public Connection connectionDB(){
     
-    private Connection connection = null;
-    private ResultSet rs = null;
-    private Statement s = null;
+    String host;
+    String port;
+    String database;
+    String user;
+    String password;
+    String stringConection;
     
-    public Connection connectionDB(){
-        
-        String host;
-        String port;
-        String database;
-        String user;
-        String password;
-        String stringConection;
-        
-        try {
-            
-            host = "localhost";
-            port = "5432";
-            database = "VideoGames";
-            user = "Optimal";
-            password = "OptimalSOfSo!";
-            stringConection = "jdbc:postgresql://" + host + ":" + port + "/" + database;
-            Class.forName("org.postgresql.Driver");
-            System.out.println("OK ... CONECTO CON DRIVER");
-            
-            return DriverManager.getConnection(stringConection, user, password);
-            
-          
-        } catch (Exception e) {
-            System.out.println("Problemas de Conexión: " + e.toString());
-            return null;
-        }
+    try {
+      
+      host = "localhost";
+      port = "5432";
+      database = "VideoGames";
+      user = "Optimal";
+      password = "OptimalSOfSo!";
+      stringConection = "jdbc:postgresql://" + host + ":" + port + "/" + database;
+      Class.forName("org.postgresql.Driver");
+      System.out.println("OK ... CONECTO CON DRIVER");
+      
+      return DriverManager.getConnection(stringConection, user, password);
+      
+      
+    } catch (Exception e) {
+      System.out.println("Problemas de Conexión: " + e.toString());
+      return null;
     }
+  }
 }

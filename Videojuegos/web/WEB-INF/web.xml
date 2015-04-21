@@ -74,6 +74,9 @@
     <servlet-mapping>
         <servlet-name>LoansController</servlet-name>
         <url-pattern>/loanapplications</url-pattern>
+        <url-pattern>/denyloan</url-pattern>
+        <url-pattern>/grantloan</url-pattern>
+        <url-pattern>/getalgo</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
