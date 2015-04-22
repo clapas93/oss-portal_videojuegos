@@ -293,7 +293,7 @@ public class Videogame {
     */
     public boolean saveDB(){
         try{
-            String sql = "INSERT INTO Videogame (routeGame,front,downloads,classification,price,"
+            String sql = "INSERT INTO videogame (routeGame,front,downloads,classification,price,"
                     + "storageRoute,genre,title,description,state,videoUrl,adminEmail) VALUES"
                     + "('" +  routeGame + "',"
                     + "'" + front + "'," + downloads + "," 
@@ -318,7 +318,7 @@ public class Videogame {
     */
     public boolean updateDB(){
         try{
-            String sql = "UPDATE Videogame SET "
+            String sql = "UPDATE videogame SET "
                     + "routeGame='" +  routeGame + "',"
                     + "front='" + front + "',"
                     + "downloads=" + downloads + "," 
@@ -363,7 +363,7 @@ public class Videogame {
     public Videogame getGameDB(String idGame){
         Videogame game= null;
         try{
-            String sql = "SELECT * FROM Videogame WHERE idGame='"+idGame+"';";
+            String sql = "SELECT * FROM videogame WHERE idGame='"+idGame+"';";
             game = initQueryGameDB(sql);
             return game;
         }catch(Exception e){
@@ -379,7 +379,7 @@ public class Videogame {
     public List<Videogame> getDB(){
         List <Videogame> gameList = new LinkedList <Videogame>();
         try{
-            String sql = "SELECT * FROM Videogame WHERE state='1';";
+            String sql = "SELECT * FROM videogame WHERE state='1';";
             gameList = initQueryDB(sql);
             return gameList;
         }catch(Exception e){

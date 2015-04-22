@@ -6,7 +6,6 @@
 package User;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import javax.servlet.AsyncContext;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -132,13 +131,15 @@ public class loginController extends HttpServlet {
         login cn = new login();
         
         System.out.println("OK ... bien4.1");
+        int value_page = cn.loginAdmin(data_user);
+        System.out.println("Devolvió:" + value_page );
             
-        if(cn.loginAdmin(data_user) == 0){
+        if(value_page == 0){
             HttpSession session;
-            String userAdmin;
+            String userStudent;
             session = request.getSession();
-            userAdmin = request.getParameter("usuario");
-            session.setAttribute("nomUsuario", userAdmin);
+            userStudent = request.getParameter("usuario");
+            session.setAttribute("userStudent", userStudent);
             String view = "videojuegos.jsp";
             request.setAttribute("view", view); 
             String footer = "footer.jsp";
@@ -146,17 +147,17 @@ public class loginController extends HttpServlet {
             String header = "headerLogin.jsp";
             request.setAttribute("header", header);
             request.getRequestDispatcher("layout.jsp").forward(request, response);
-            System.out.println("OK ... bienAdmin");
-        }else if(cn.loginAdmin(data_user) == 1){
+            System.out.println("OK ... bienUser");
+        }else if(value_page == 1){
             HttpSession session;
             String userAdmin;
             session = request.getSession();
             userAdmin = request.getParameter("usuario");
-            session.setAttribute("nomUsuario", userAdmin);
+            session.setAttribute("userAdmin", userAdmin);
             String view = "ManageGamesHI.jsp";
             request.setAttribute("view", view); 
             request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
-            System.out.println("OK ... bienStudent5");
+            System.out.println("OK ... bienAdmin");
         }else {
             RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o " +
 				"contraseña incorrectos");

@@ -29,13 +29,10 @@ String bool2 =(String)request.getAttribute("bool2");
   
 
 </head>
-
-
-
 <body>
  <nav class="navbar navbar-default navbar-fixed-top">
 
-    <% if(header == null && bool1 != "1"){ %>
+    <% if(header == null ){ %>
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
