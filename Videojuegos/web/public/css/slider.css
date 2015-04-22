@@ -20,8 +20,8 @@
     position: absolute; 
     width: 470px; 
     height: 220px; 
-    top: 120px; 
-    left: 650px;
+    top: 51px; 
+    left: 730px;
   }
   .captionimg{
     position: absolute; 
@@ -34,12 +34,12 @@
     position: absolute; 
     width: 480px; 
     height: 120px; 
-    top: 300px; 
+    top: 95px; 
     left: 30px; 
     padding: 5px;
     text-align: left; 
-    line-height: 36px; 
-    font-size: 30px;
+    line-height: 19px; 
+    font-size: 19px;
     color: #FFFFFF;
   }
   .title{
@@ -100,7 +100,7 @@
 }
 
 .jssort01 .p:hover .c, .jssort01 .pav:hover .c, .jssort01 .pav .c {
-  background: url(public/img/t01.png) center center;
+  background: url(../img/t01.png) center center;
   border-width: 0px;
   top: 2px;
   left: 2px;
@@ -128,7 +128,7 @@
   position: absolute;
   cursor: pointer;
   display: block;
-  background: url(public/img/a21.png) center center no-repeat;
+  background: url(../img/a21.png) center center no-repeat;
   overflow: hidden;
 }
 .jssora21l { background-position: -3px -33px; }

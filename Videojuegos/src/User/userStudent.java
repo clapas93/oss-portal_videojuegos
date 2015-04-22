@@ -11,13 +11,37 @@ package User;
  */
 public class userStudent extends user {
     
-    String studentemail;
-    String accountnumber;
-    String career;
-    String status;
-    String credits;
-    String history;
-                           
+    protected String studentemail;
+    protected String name;
+    protected String lastname1;
+    protected String lastname2;
+    protected String accountnumber;
+    protected String career;
+    protected String password;
+    protected String status;
+    protected String credits;
+    protected String history;
+    
+    public userStudent(){
+        
+    }
+    
+    public userStudent(String studentemail, String name, String lastname1,
+            String lastname2, String accountnumber, String career, String password,
+            String status, String credits, String history){
+        
+        this.studentemail = studentemail;
+        this.name = name;
+        this.lastname1 = lastname1;
+        this.lastname2 = lastname2;
+        this.accountnumber = accountnumber;
+        this.career = career;
+        this.password = password;
+        this.status = status;
+        this.credits = credits;
+        this.history = history;
+    
+    }
 
     public String getStudentemail() {
         return studentemail;
@@ -65,7 +89,5 @@ public class userStudent extends user {
 
     public void setHistory(String history) {
         this.history = history;
-    }
-     
-                            
+    }   
 }

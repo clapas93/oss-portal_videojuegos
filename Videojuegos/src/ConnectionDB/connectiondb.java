@@ -19,12 +19,13 @@ import javax.swing.JOptionPane;
  * @author magdiel
  */
 public class connectiondb {
-    
-    private Connection connection = null;
-    private ResultSet rs = null;
-    private Statement s = null;
-    
-    public Connection connectionDB(){
+  
+  private Connection connection = null;
+  private ResultSet rs = null;
+  private Statement s = null;
+  
+  public Connection connectionDB(){
+
         
         String host;
         String port;
@@ -36,8 +37,8 @@ public class connectiondb {
         try {
             
             host = "localhost";
-            port = "5432";
-            database = "VideoGames";
+            port = "5433";
+            database = "videoGames";
             user = "Optimal";
             password = "OptimalSOfSo!";
             stringConection = "jdbc:postgresql://" + host + ":" + port + "/" + database;
@@ -52,4 +53,5 @@ public class connectiondb {
             return null;
         }
     }
-}
+  }
+

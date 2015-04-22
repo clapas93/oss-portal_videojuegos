@@ -23,6 +23,7 @@
   
   <link rel="stylesheet" type="text/css" href="public/css/formvalidation/formValidation.css">
   <link rel="stylesheet" type="text/css" href="public/css/formvalidation/formValidation.min.css">
+  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   
 </head>
 
@@ -65,7 +66,6 @@
     
     <jsp:include page='<%= view %>' />
     
-    <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
     <!--<script type="text/javascript" src="public/js/jquery.min.js"></script>-->
     
     <!--<script type="text/javascript" src="public/js/jquery.validate.js"></script>-->
@@ -82,6 +82,10 @@
     <script type="text/javascript" src="public/js/bootstrap-select.min.js"></script>
     
     <script type="text/javascript" src="public/js/videogames/uGame.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="public/css/videogames/jquery-confirm.css" />
+    <script type="text/javascript" src="public/js/videogames/jquery-confirm.js"></script>
+    <script type="text/javascript" src="public/js/videogames/messagesVGames.js"></script>
     
 </body>
 </html>
