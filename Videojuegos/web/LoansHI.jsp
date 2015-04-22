@@ -2,33 +2,33 @@
     Document   : LoansHI
     Created on : 5/04/2015, 10:49:37 PM
     Author     : lalo
---%>
-<%@ page import ="java.util.List" %>
-<%@ page import ="Loans.Loan" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-List loans = (List)request.getAttribute("loans");
-%>
+    --%>
+    <%@ page import ="java.util.List" %>
+    <%@ page import ="Loans.Loan" %>
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    <%
+    List loans = (List)request.getAttribute("loans");
+    %>
 
 
-<div class="container">
-    <h1>Nuevas Solicitudes</h1>
-    <br>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="dataTable_wrapper">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover table-condensed">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Nombre</th>
-                  <th>Correo</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <%for(int i = 0; i<loans.size();i++){%>
+    <div class="container">
+      <h1>Nuevas Solicitudes</h1>
+      <br>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="dataTable_wrapper">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover table-condensed">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%for(int i = 0; i<loans.size();i++){%>
                   <%="<tr id='row"+i+"'>"%>
                   <td><%=i%></td>
                   <td><%=((Loan)loans.get(i)).getName()+" "+((Loan)loans.get(i)).getLastName1()+" "+((Loan)loans.get(i)).getLastName2() %></td>
@@ -37,84 +37,84 @@ List loans = (List)request.getAttribute("loans");
                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#<%=i%>">Ver Detalle</button>
                   </td>
                   <%="</tr>"%>
-                <%}%>
-              </tbody>
-            </table>
-          </div><!--table responsive-->
-        </div>
-        <nav>
-          <ul class="pager">
-            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Anterior</a></li>
-            <li class="next"><a href="#">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
- </div> <!--container-->
-
-<%for(int i = 0; i<loans.size();i++){%>
-<!-- Modal -->
-<div class="modal fade bs-example-modal-lg" id="<%=i%>"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center" id="myModalLabel">Detalle de Solicitud</h4>
-      </div>
-      <div class="modal-body">
-          <div class="row">
-              <div class="col-md-6">
-                  <embed src="public/historiales/<%=((Loan)loans.get(i)).getHistory()%>" width="450" height="500" alt="historial">
-              </div>
-              <div class="col-md-6">
-                   <div class="form-group">
-                    <label>Nombre(s)</label>
-                    <p><%=((Loan)loans.get(i)).getName()%></p>
-                  </div>
-                  <div class="form-group">
-                    <label>Apellido(s) </label>
-                    <p><%=((Loan)loans.get(i)).getLastName1()+" "+((Loan)loans.get(i)).getLastName2()%></p>
-                  </div>
-                  <div class="form-group">
-                    <label>Nímero de cuenta </label>
-                    <p><strong><%=((Loan)loans.get(i)).getAccountNumber()%></strong></p>
-                  </div>
-                  <div class="form-group">
-                    <label>Correo</label>
-                    <p><%=((Loan)loans.get(i)).getEmail() %></p>
-                  </div>
-                  <div class="form-group">
-                    <label>Carrera </label>
-                    <p><%=((Loan)loans.get(i)).getCareer() %></p>
-                  </div>
-                  <br>
-                  <br>
-                  <br>
-                  <div class="form-group">
-                    <label>Asignar Credito </label>
-                     <div class="row">
-                        <div class="col-sm-4">
-                          <input id="credito<%=i%>" type="text" class="form-control" name="credito" value="">
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <label id="mensaje<%=i%>"></label>
-                  </div>
-              </div>
+                  <%}%>
+                </tbody>
+              </table>
+            </div><!--table responsive-->
           </div>
+          <nav>
+            <ul class="pager">
+              <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Anterior</a></li>
+              <li class="next"><a href="#">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" value="<%=i%>" class="btn btn-primary"data-dismiss="modal">Cerrar</button>
-        <button type="button" email="<%=((Loan)loans.get(i)).getEmail() %>" value="<%=i%>" class="btn btn-danger denyloan">Denegar</button>
-        <button type="button" email="<%=((Loan)loans.get(i)).getEmail() %>" value="<%=i%>" class="btn btn-success giveloan">Dar Crédito</button>
+    </div> <!--container-->
+
+    <%for(int i = 0; i<loans.size();i++){%>
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="<%=i%>"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center" id="myModalLabel">Detalle de Solicitud</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <embed src="public/historiales/<%=((Loan)loans.get(i)).getHistory()%>" width="450" height="500" alt="historial">
+                </div>
+                <div class="col-md-6">
+                 <div class="form-group">
+                  <label>Nombre(s)</label>
+                  <p><%=((Loan)loans.get(i)).getName()%></p>
+                </div>
+                <div class="form-group">
+                  <label>Apellido(s) </label>
+                  <p><%=((Loan)loans.get(i)).getLastName1()+" "+((Loan)loans.get(i)).getLastName2()%></p>
+                </div>
+                <div class="form-group">
+                  <label>Nímero de cuenta </label>
+                  <p><strong><%=((Loan)loans.get(i)).getAccountNumber()%></strong></p>
+                </div>
+                <div class="form-group">
+                  <label>Correo</label>
+                  <p><%=((Loan)loans.get(i)).getEmail() %></p>
+                </div>
+                <div class="form-group">
+                  <label>Carrera </label>
+                  <p><%=((Loan)loans.get(i)).getCareer() %></p>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="form-group">
+                  <label>Asignar Credito </label>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <input id="credito<%=i%>" type="text" class="form-control" name="credito" value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label id="mensaje<%=i%>"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" value="<%=i%>" class="btn btn-primary"data-dismiss="modal">Cerrar</button>
+            <button type="button" email="<%=((Loan)loans.get(i)).getEmail() %>" value="<%=i%>" class="btn btn-danger denyloan">Denegar</button>
+            <button type="button" email="<%=((Loan)loans.get(i)).getEmail() %>" value="<%=i%>" class="btn btn-success giveloan">Dar Crédito</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<%}%>
+    <%}%>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
 
 $(".denyloan").click(function(){//funcion clic se activa cuando dan click a un objeto de la clase .denyloan
@@ -156,7 +156,7 @@ $(".giveloan").click(function(){
   }else{
     console.log(value);
     $.ajax({
-    type: "POST",
+      type: "POST",
       url: 'grantloan',
       dataType: "json",
       data:{email:email,credit:value},
@@ -175,3 +175,8 @@ $(".giveloan").click(function(){
 });
 
 </script>
+<!--<form  method="post" enctype="multipart/form-data" action="getalgo">
+    <input type="text" name="description" />
+    <input type="file" name="file" />
+    <input type="submit" />
+</form>-->
