@@ -36,7 +36,7 @@
                 <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation"><a role="menuitem" href="managegames">
-                      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Videojuegos</a>
+                      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> </a>
               </li>
               <li role="presentation"><a role="menuitem" href="loanapplications">
                       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Préstamos</a></li>

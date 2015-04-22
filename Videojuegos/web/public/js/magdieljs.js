@@ -4,14 +4,18 @@
  * and open the template in the editor.
  */
 
-
+var n=0;
 $(window).load( function() {
-            $('.navbar.navbar-default').click(function(){
-                $(".form-index").fadeOut();
-                
+            $('#event_click').click(function(){
+                $(".form-index").fadeIn();
             });
             
 });
+/*$(window).load(function(){
+    $('.navbar.navbar-default').click(function(){
+                $(".form-index").fadeOut();
+            });
+});*/
 
 $( document ).ready(function() {
     $('#loginForm').bootstrapValidator({
