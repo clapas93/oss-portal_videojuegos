@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-var n=0;
 $(window).load( function() {
             $('#event_click').click(function(){
                 $(".form-index").fadeIn();
