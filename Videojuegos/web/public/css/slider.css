@@ -1,10 +1,10 @@
 .slider1_container{
     position: relative; 
     margin: 0 auto;
-    top: 55px; 
+    top: 50px; 
     left: 0px; 
     width: 1300px; 
-    height: 500px; 
+    height: 480px; 
     overflow: hidden;
   }
   .slidesdiv{
@@ -34,8 +34,8 @@
     position: absolute; 
     width: 480px; 
     height: 120px; 
-    top: 95px; 
-    left: 30px; 
+    top: 110px; 
+    left: 70px; 
     padding: 5px;
     text-align: left; 
     line-height: 19px; 
@@ -46,8 +46,8 @@
     position: absolute; 
     width: 480px; 
     height: 120px; 
-    top: 30px;
-    left: 30px; 
+    top: 40px;
+    left: 70px; 
     padding: 5px;
     text-align: left; 
     line-height: 60px; 

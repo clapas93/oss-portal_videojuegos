@@ -15,7 +15,6 @@ Author     : lalo
 <div u="slides" class="slidesdiv">
   <div>
     <img u="thumb" src="public/img/1920/thumb.jpg" />
-    <img u="image" src="public/img/1920/fondo2.jpg" />
     <div u="caption" class="captiondiv">
      <iframe width="420" height="315" src="https://www.youtube.com/embed/DGBwXH5P218" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -42,7 +41,6 @@ Author     : lalo
 
   <div>
     <img u="thumb" src="public/img/1920/thumb2.png" />
-    <img u="image" src="public/img/1920/fondo2.jpg" />
     <div u="caption" class="captiondiv">
      <iframe width="420" height="315" src="https://www.youtube.com/embed/D5QXhxGUvuA" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -70,7 +68,6 @@ Author     : lalo
 
   <div>
     <img u="thumb" src="public/img/1920/thumb3.png" />
-    <img u="image" src="public/img/1920/fondo2.jpg" />
      <div u="caption" class="captiondiv">
      <iframe width="420" height="315" src="https://www.youtube.com/embed/PT6ivWqZv-c" frameborder="0" allowfullscreen></iframe>
     </div>
