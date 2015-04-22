@@ -15,11 +15,14 @@
   </div>
     <%
     userStudent student = (userStudent)request.getAttribute("student");
+    
     %>
     
    <div class="row">
     <form class='actualizaDatos form-horizontal' method ="POST" action="studentsave">
     <div class="col-md-4 col-md-offset-2">
+        
+        <p>Me ha llegado <%= session.getAttribute("variable") %></p>
         
         <div class="form-group">
                 <label>Nombre :</label>

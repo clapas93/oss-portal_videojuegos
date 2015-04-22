@@ -87,7 +87,7 @@
     </servlet-mapping>
     
     <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
+        <servlet-name>loginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
         <url-pattern>/logoutController</url-pattern>
     </servlet-mapping>

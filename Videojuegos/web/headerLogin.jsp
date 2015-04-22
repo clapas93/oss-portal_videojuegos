@@ -32,14 +32,14 @@
             
           <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="Logout" role="button" aria-expanded="false">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%=session.getAttribute("nomUsuario")%>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%=session.getAttribute("userStudent")%>
                 <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li role="presentation"><a role="menuitem" href="managegames">
-                      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> </a>
+              <li role="presentation"><a role="menuitem" href="updatestudent">
+                      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Editar mi perfil </a>
               </li>
-              <li role="presentation"><a role="menuitem" href="loanapplications">
-                      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Préstamos</a></li>
+              <li role="presentation"><a role="menuitem" href="videojuegos">
+                      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Mis videojuegos</a></li>
               <li class="divider"></li>
               <li role="presentation"><a role="menuitem" href="logoutController">
                       <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Salir</a>
