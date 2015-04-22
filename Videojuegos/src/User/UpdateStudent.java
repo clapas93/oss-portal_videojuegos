@@ -37,7 +37,7 @@ public class UpdateStudent extends HttpServlet {
         String view = "";
         String footer = "footer.jsp";
         
-        String selectSQL = "SELECT * FROM student * WHERE studentemail = 'g.antonio@ciencias.unam.mx'";
+        String selectSQL = "SELECT * FROM student * WHERE studentemail = 'eduardomiranda@ciencias.unam.mx'";
         
         connectiondb cn = new connectiondb();
         Connection connection;
@@ -117,19 +117,15 @@ public class UpdateStudent extends HttpServlet {
                 
                 //String SQL = "INSERT INTO student VALUES('gantonio@ciencias'"+",'"+name+"','"+lastName1+"','"+lastName2+"','"+"','"+carrer+"','"+numberAcc+"','"+pass+hist+"');";
                 
-                //String insertSQL ="INSERT INTO student (studentemail, name, lastname1, lastname2, accountnumber,"
-                  //  + "career, password, status, credits, history) VALUES "
-                  //  + "('" + student.getStudentemail() + "',"
-                  //  + "'" + student.getName() + "',"
-                  //  + "'" + student.getLastname1() + "',"
-                  //  + "'" + student.getLastname2() + "',"
-                  //  + "'" + student.getAccountnumber() + "',"
-                  //  + "'" + student.getCareer() + "',"
-                  //  + "'" + student.getPassword() + "',"
-                  //  + "'" + student.getStatus() + "',"
-                  //  + "'" + student.getCredits() + "',"
-                  //  + "'" + student.getHistory() + "');"; 
+                String insertSQL ="INSERT INTO loan (studentemail, adminemail, date, status, creditapproved) VALUES "
+                   + "('" + student.getStudentemail() + "',"
+                   + "'" + "admin@oss.com" + "',"
+                   + "'" + "2001-10-05 00:00:00" + "',"
+                   + "'" + "n" + "',"
+                   + "" + 100 + ");"; 
                 
+                System.out.println(insertSQL);
+
                 String updateSQL = "UPDATE student set name="+"'"+student.getName()+"',"
                         +"lastname1 = '"+student.getLastname1()+"',"
                         +"lastname2 = '"+student.getLastname2()+"',"
@@ -146,15 +142,10 @@ public class UpdateStudent extends HttpServlet {
                     stat = connection.createStatement();
                     //stat.executeQuery("DELETE FROM student WHERE studentemail = 'jen@ciencias.unam.mx'");
                     stat.executeQuery(updateSQL);
+                    stat.executeQuery(insertSQL);
                 }catch(Exception e){    
                     System.out.println(e.toString());
                 }
-
-
-
-
-
-
                 break;
         }
     }

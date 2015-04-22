@@ -37,7 +37,7 @@ public class connectiondb {
         try {
             
             host = "localhost";
-            port = "5432";
+            port = "5433";
             database = "videoGames";
             user = "Optimal";
             password = "OptimalSOfSo!";

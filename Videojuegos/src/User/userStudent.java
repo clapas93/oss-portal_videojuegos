@@ -40,9 +40,19 @@ public class userStudent extends user {
         this.status = status;
         this.credits = credits;
         this.history = history;
-    
     }
-
+     
+    public String getName() {
+        return this.name;
+    }
+    
+    public String getLastname1() {
+        return this.lastname1;
+    }
+    
+    public String getLastname2() {
+        return this.lastname2;
+    }
     public String getStudentemail() {
         return studentemail;
     }
