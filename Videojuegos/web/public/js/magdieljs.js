@@ -5,7 +5,6 @@
  */
 
 var n=0;
-
 $(window).load( function() {
  var clicked = false;
             $('#event_click').click(function(e){

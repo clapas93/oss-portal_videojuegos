@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,7 +38,12 @@ public class UpdateStudent extends HttpServlet {
         String view = "";
         String footer = "footer.jsp";
         
-        String selectSQL = "SELECT * FROM student * WHERE studentemail = 'eduardomiranda@mail.com'";
+
+        HttpSession session = request.getSession();
+        String user = (String) session.getAttribute("userStudent");
+        System.out.println(user);
+        
+        String selectSQL = "SELECT * FROM student * WHERE studentemail = '"+ user +"'";
         
         connectiondb cn = new connectiondb();
         Connection connection;
@@ -82,6 +88,8 @@ public class UpdateStudent extends HttpServlet {
             case "/updatestudent":
 
                 view = "profileUpdate.jsp";
+                String header = "headerLogin.jsp";
+                request.setAttribute("header", header);
                 request.setAttribute("view", view);
                 request.setAttribute("title", "Manage Games");
                 request.setAttribute("footer", footer);
