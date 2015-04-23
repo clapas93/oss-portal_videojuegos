@@ -70,14 +70,11 @@
             <label class="control-label">Confirmar Contraseña :</label>
             <input type='password'  style="width:20em !important"  class="form-control" name="pass2" value='Antonio ' size = 50 id='passCompare' required>
           </div>
-            
-          <%if(!student.getHistory().equals("")){}else{ %>
-          <div class="form-group">
+          <div class="form-group <%if(!student.getHistory().equals("")){ out.print("hidden");}else{ out.print("");}%>">
             <label for="exampleInputFile">Actualiza historial.</label>
             <input type="file" accept=".pdf" id="InputFile" name="fileUpload">
             <p style="color:#92C0D8;"class="help-block">Solicita credito subiendo tu historial academico.</p>
           </div>
-          <%}%>  
       </div>
        <div class="row">
         <div class="col-md-4 col-md-offset-4">

@@ -160,8 +160,8 @@ public class UpdateStudent extends HttpServlet {
 
         Part filePart = request.getPart("fileUpload");
         String hist = "";
-        if(filePart!=null){
-          
+        System.out.println(filePart.getSize()==0);
+        if(filePart.getSize()!=0){
           Hash hash = new Hash();
           hist =hash.generateCode(user);//getFileName(filePart);
         }
@@ -190,16 +190,28 @@ public class UpdateStudent extends HttpServlet {
                   dateS+"','"+state+"',"+credit+");";
 
         System.out.println(insertLoan);
-
-        String updateSQL = "UPDATE student set name="+"'"+student.getName()+"',"
-        +"lastname1 = '"+student.getLastname1()+"',"
-        +"lastname2 = '"+student.getLastname2()+"',"
-        +"accountnumber = '"+student.getAccountnumber()+"',"
-        +"career = '"+student.getCareer()+"',"
-        +"status = '"+student.getStatus()+"',"
-        +"credits ="+student.getCredits()+","
-        +"history ='"+student.getHistory()+"'"
-        +" where studentemail = '"+student.getStudentemail()+"';";
+        String updateSQL="";
+        if(hist==""){
+          updateSQL = "UPDATE student set name="+"'"+student.getName()+"',"
+          +"lastname1 = '"+student.getLastname1()+"',"
+          +"lastname2 = '"+student.getLastname2()+"',"
+          +"accountnumber = '"+student.getAccountnumber()+"',"
+          +"career = '"+student.getCareer()+"',"
+          +"status = '"+student.getStatus()+"',"
+          +"credits ="+student.getCredits()+" "
+          +" where studentemail = '"+student.getStudentemail()+"';";
+        }else{
+          updateSQL = "UPDATE student set name="+"'"+student.getName()+"',"
+          +"lastname1 = '"+student.getLastname1()+"',"
+          +"lastname2 = '"+student.getLastname2()+"',"
+          +"accountnumber = '"+student.getAccountnumber()+"',"
+          +"career = '"+student.getCareer()+"',"
+          +"status = '"+student.getStatus()+"',"
+          +"credits ="+student.getCredits()+","
+          +"history ='"+student.getHistory()+"'"
+          +" where studentemail = '"+student.getStudentemail()+"';";
+        }
+        //Si el historial no es subido cambiar no actualizar
         
         System.out.println(updateSQL);
         try{
@@ -214,12 +226,24 @@ public class UpdateStudent extends HttpServlet {
         }catch(Exception e){    
           System.out.println(e.toString());
         }
-        
+         if(filePart.getSize()!=0){
+          try{
+            connectiondb cn = new connectiondb();
+            Connection connection;
+            Statement stat;
+            connection = cn.connectionDB();
+            stat = connection.createStatement();
+            //stat.executeQuery("DELETE FROM student WHERE studentemail = 'jen@ciencias.unam.mx'");
+            stat.executeQuery(insertLoan);
+          }catch(Exception e){    
+            System.out.println(e.toString());
+          }
+        }
         String hist_path = getPath()+"/web/public/historiales";
         
         File folder = new File(hist_path);
         File files = new File(folder, hist); 
-        if(filePart!=null){
+        if(filePart.getSize()!=0){
           try (InputStream input = filePart.getInputStream()) {
               Files.copy(input, files.toPath()); 
           }
