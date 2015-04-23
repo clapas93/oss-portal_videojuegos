@@ -9,7 +9,7 @@ window.requestAnimFrame = (function() {
     };
 })();
 var c = document.getElementById('canv');
-var $ = c.getContext('2d');
+var canv = c.getContext('2d');
 var w = c.width = window.innerWidth;
 var h = c.height = window.innerHeight;
 var _w = w * 0.5;
@@ -51,20 +51,20 @@ function draw() {
   while (arr.length > 100) {
     arr.shift();
   }
-  $.clearRect(0, 0, w, h);
+  canv.clearRect(0, 0, w, h);
 
   for (var i = 0; i < arr.length; i++) {
 
     splot = arr[i];;
-    $.fillStyle = rndCol();
-    $.beginPath();
-    $.arc(splot.x, splot.y, splot.r, 0, Math.PI * 2, true);
-    $.shadowBlur = 80;
-    $.shadowOffsetX = 2;
-    $.shadowOffsetY = 2;
-    $.shadowColor = rndCol();
-    $.globalCompositeOperation = 'lighter';
-    $.fill();
+    canv.fillStyle = rndCol();
+    canv.beginPath();
+    canv.arc(splot.x, splot.y, splot.r, 0, Math.PI * 2, true);
+    canv.shadowBlur = 80;
+    canv.shadowOffsetX = 2;
+    canv.shadowOffsetY = 2;
+    canv.shadowColor = rndCol();
+    canv.globalCompositeOperation = 'lighter';
+    canv.fill();
 
     splot.x = splot.x + splot.spX;
     splot.y = splot.y + splot.spY;

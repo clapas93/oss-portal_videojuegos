@@ -16,20 +16,12 @@ String bool2 =(String)request.getAttribute("bool2");
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
-  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="public/css/liquid.css">
-
-  <!--videogame.jsp-->
-  <script type="text/javascript" src="public/js/jssor.js"></script>
-  <script type="text/javascript" src="public/js/jssor.slider.js"></script>
-  <script type="text/javascript" src="public/js/slider.js"></script>
-  <link rel="stylesheet" type="text/css" href="public/css/slider.css">
-
   
-
+  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
+  <script type="text/javascript" src="public/js/layout.js"></script>
+  <link rel="stylesheet" type="text/css" href="public/css/liquid.css">
 </head>
-<body>
+<body  style="display:none">
  <nav class="navbar navbar-default navbar-fixed-top">
 
     <% if(header == null ){ %>
@@ -88,11 +80,8 @@ String bool2 =(String)request.getAttribute("bool2");
 <section id="games">
     <jsp:include page='<%= view %>' />
   </section>
-
+<div style="display:none"class="transparent"></div>
 <jsp:include page='<%= footer %>' />
-
-
-
 </body>  
 </html>
 

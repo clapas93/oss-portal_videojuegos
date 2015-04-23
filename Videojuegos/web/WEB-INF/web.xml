@@ -31,6 +31,11 @@
     </servlet>
     
     <servlet>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>User.logoutController</servlet-class>
+    </servlet>
+    
+    <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>controllers.login</servlet-class>
     </servlet>
@@ -40,10 +45,6 @@
         <servlet-class>controllers.NewServlet</servlet-class>
     </servlet>
     
-    <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>User.loginController</servlet-class>
-    </servlet>
     
     <servlet>
         <servlet-name>registerController</servlet-name>
@@ -90,9 +91,12 @@
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
-        <url-pattern>/logoutController</url-pattern>
     </servlet-mapping>
     
+    <servlet-mapping>
+        <servlet-name>logoutController</servlet-name>
+        <url-pattern>/logoutController</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>registerController</servlet-name>
         <url-pattern>/registerController</url-pattern>

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: rojo;
+}
+
 .slider1_container{
     position: relative; 
     margin: 0 auto;
@@ -6,7 +10,8 @@
     width: 1300px; 
     height: 480px; 
     overflow: hidden;
-  }
+}
+
   .slidesdiv{
     cursor: move; 
     position: absolute; 
@@ -38,11 +43,17 @@
     left: 70px; 
     padding: 5px;
     text-align: left; 
-    line-height: 19px; 
-    font-size: 19px;
+    line-height: 14px; 
+    font-size: 15px;
     color: #FFFFFF;
   }
   .title{
+    color:hsla(0,50%,50%,1);
+    text-shadow:1px 1px hsla(0,0%,5%,1),
+          -1px -1px hsla(0,0%,5%,1);
+    font-family: rojo, cursive;
+    letter-spacing: 6px;
+    
     position: absolute; 
     width: 480px; 
     height: 120px; 
@@ -53,7 +64,6 @@
     line-height: 60px; 
     text-transform: uppercase; 
     font-size: 50px;
-    color: #FFFFFF;
   }
   /* jssor slider bullet navigator skin 21 css */
 /*

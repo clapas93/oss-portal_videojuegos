@@ -5,17 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-  <script type="text/javascript" src="public/js/magdieljs.js"></script>
-  <script type="text/javascript" src="public/js/jquery.validate.js"></script>
-  <script type="text/javascript" src="public/js/validCampo.js"></script>
-  <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-  <script type="text/javascript" src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="public/css/backend_style.css">  
-  <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
-
-<!-- Versión compilada y comprimida del JavaScript de Bootstrap -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
     <div class="navbar-header">
           <img src="public/img/brand.png" id="brandimage">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -49,8 +38,3 @@
         </ul>
     </div>
   
-  <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="public/css/style.css">
-  <link rel="stylesheet" type="text/css" href="public/css/inside.css">
-  <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
-  <script type="text/javascript" src="public/js/main.js"></script>

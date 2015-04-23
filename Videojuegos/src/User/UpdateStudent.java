@@ -37,12 +37,10 @@ public class UpdateStudent extends HttpServlet {
         String view = "";
         String footer = "footer.jsp";
         
-        String selectSQL = "SELECT * FROM student * WHERE studentemail = 'eduardomiranda@ciencias.unam.mx'";
+        String selectSQL = "SELECT * FROM student * WHERE studentemail = 'eduardomiranda@mail.com'";
         
         connectiondb cn = new connectiondb();
         Connection connection;
-        
-
         Statement stat;
         String emaildb = null;
         String namedb = null;
