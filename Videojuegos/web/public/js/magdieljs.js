@@ -21,6 +21,7 @@ $(window).load( function() {
             $(".transparent").click(function(){
                 $(".form-index").fadeOut();
                 $(".transparent").fadeOut();
+                clicked = false;
             });
 });
 /*$(window).load(function(){
