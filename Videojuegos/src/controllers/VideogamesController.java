@@ -33,6 +33,8 @@ public class VideogamesController extends HttpServlet {
         /**
          * lineas a copiar
          */
+        String header = "headerLogin.jsp";
+            request.setAttribute("header", header);
         String view = "videojuegos.jsp";
         request.setAttribute("view", view); 
         String footer = "footer.jsp";
