@@ -32,6 +32,7 @@ public class logoutController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         session.invalidate();
+        System.out.println("logout");
         response.sendRedirect("index.jsp");
         
     }

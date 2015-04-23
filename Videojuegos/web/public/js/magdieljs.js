@@ -4,11 +4,25 @@
  * and open the template in the editor.
  */
 
+var n=0;
 $(window).load( function() {
-            $('#event_click').click(function(){
-                $(".form-index").fadeIn();
+ var clicked = false;
+            $('#event_click').click(function(e){
+                if(!clicked){
+                    $(".form-index").fadeIn();
+                    $(".transparent").fadeIn();
+                    clicked = true;
+                }else{
+                    $(".form-index").fadeOut();
+                    $(".transparent").fadeOut();
+                    clicked = false;
+                }
             });
-            
+            $(".transparent").click(function(){
+                $(".form-index").fadeOut();
+                $(".transparent").fadeOut();
+                clicked = false;
+            });
 });
 /*$(window).load(function(){
     $('.navbar.navbar-default').click(function(){
