@@ -39,7 +39,7 @@ public class registerController extends HttpServlet {
             if(register(request, response)){
                 session = request.getSession();
                 userStudent = request.getParameter("email");
-                session.setAttribute("nomUsuario", userStudent);
+                session.setAttribute("userStudent", userStudent);
                 String view = "videojuegos.jsp";
                 request.setAttribute("view", view); 
                 String footer = "footer.jsp";
