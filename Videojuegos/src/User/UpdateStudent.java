@@ -38,6 +38,8 @@ public class UpdateStudent extends HttpServlet {
         String view = "";
         String footer = "footer.jsp";
         
+        
+        /* Recuperamos la sesión que está activa */
         HttpSession session = request.getSession();
         String user = (String) session.getAttribute("userStudent");
         System.out.println(user);
