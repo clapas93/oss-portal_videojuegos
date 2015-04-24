@@ -49,7 +49,7 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="usr" placeholder="Número de cuenta" name="accountnumber" required>
+                        <input type="number" class="form-control" id="usr" placeholder="Número de cuenta" name="accountnumber" required>
                     </div>
                 </td>
             </tr>
