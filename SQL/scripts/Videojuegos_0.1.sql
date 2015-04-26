@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS Admin (
   adminEmail VARCHAR(318) NOT NULL, --local-part@domain 64+1+253 = 318
   name VARCHAR(45) NOT NULL,
   lastName1 VARCHAR(45) NOT NULL,
-  lastName2 VARCHAR(45) NOT NULL,
+  lastName2 VARCHAR(45) ,
   emailContact VARCHAR(318) NOT NULL,
   phone VARCHAR(13) NOT NULL, 
   password VARCHAR(255) NOT NULL, --password + salt
@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS Student (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Loan CASCADE;
 CREATE TABLE IF NOT EXISTS Loan (
-  studentEmail VARCHAR(318) NULL,
-  adminEmail VARCHAR(318) NULL,
+  studentEmail VARCHAR(318) NOT NULL,
+  adminEmail VARCHAR(318) NOT NULL,
   date TIMESTAMP NOT NULL,
   status CHAR NOT NULL,
   creditApproved FLOAT NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS Videogame (
   description TEXT NOT NULL,
   state VARCHAR(1) NOT NULL, --1 available, 0 Deleted
   videoUrl VARCHAR(300) NOT NULL,
-  adminEmail VARCHAR(318) NULL,
+  adminEmail VARCHAR(318) NOT NULL,
   PRIMARY KEY (idGame),
   CONSTRAINT adminEmail
     FOREIGN KEY (adminEmail)
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS Videogame (
 DROP TABLE IF EXISTS Download CASCADE;
 CREATE TABLE IF NOT EXISTS Download (
   idGame SERIAL NOT NULL,
-  studentEmail VARCHAR(318) NULL,
+  studentEmail VARCHAR(318) NOT NULL,
   date TIMESTAMP NOT NULL,
   CONSTRAINT idGame
     FOREIGN KEY (idGame)
