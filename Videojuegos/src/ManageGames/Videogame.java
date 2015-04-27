@@ -484,7 +484,7 @@ public class Videogame {
         }catch(SQLException e){
             System.out.println("SQL exception queryGame: " + e.getMessage());
         }catch(Exception e){
-            System.out.println("Execption: "+e.getMessage());
+            System.out.println("Exception: "+e.getMessage());
         }
         return null;
     }

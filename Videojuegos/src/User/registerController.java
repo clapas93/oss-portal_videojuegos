@@ -7,6 +7,7 @@ package User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,31 +31,10 @@ public class registerController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        HttpSession session;
-        String userStudent;
         
-        String action=request.getParameter("accion");
-        if(action.equals("REGISTER")){
-            if(register(request, response)){
-                session = request.getSession();
-                userStudent = request.getParameter("email");
-                session.setAttribute("userStudent", userStudent);
-                String view = "videojuegos.jsp";
-                request.setAttribute("view", view); 
-                String footer = "footer.jsp";
-                request.setAttribute("footer", footer);
-                String header = "headerLogin.jsp";
-                request.setAttribute("header", header);
-                request.getRequestDispatcher("layout.jsp").forward(request, response);
-                
-            }else{
-                System.out.println("<script>alert('Datos inválidos'); location.href='index.jsp'</script>");
-            }
-        }
     }
     
-    protected boolean register(HttpServletRequest request, HttpServletResponse response){
+    protected int register(HttpServletRequest request, HttpServletResponse response){
         userStudent student = new userStudent();
         
         student.setStudentemail(request.getParameter("email"));
@@ -70,10 +50,18 @@ public class registerController extends HttpServlet {
         
         register reg = new register();
         
-        if(reg.registerStudent(student)){
-            return true;
+        int aux = reg.registerStudent(student);
+        
+        if(aux == 0){
+            return 0;
+        }else if(aux == 1){
+            return 1;
+        }else if(aux == 2){
+            return 2;
+        }else if(aux == 3){
+            return 3;
         }else{
-            return false;
+            return 4;
         }
     }
 
@@ -103,7 +91,39 @@ public class registerController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session;
+        String userStudent;
+        
+        String action=request.getParameter("accion");
+        if(action.equals("REGISTER")){
+            int flag = register(request,response); 
+            if(flag == 0){
+                RequestDispatcher a = request.getRequestDispatcher("registro?msg0=Correo ya registrado");
+                a.forward(request, response);
+            }else if(flag == 1){
+                RequestDispatcher a = request.getRequestDispatcher("registro?msg1=Número de cuenta ya registrado");
+                a.forward(request, response);
+            }else if(flag == 2){
+                session = request.getSession();
+                userStudent = request.getParameter("email");
+                session.setAttribute("userStudent", userStudent);
+                String view = "videojuegos.jsp";
+                request.setAttribute("view", view); 
+                String footer = "footer.jsp";
+                request.setAttribute("footer", footer);
+                String header = "headerLogin.jsp";
+                request.setAttribute("header", header);
+                request.getRequestDispatcher("layout.jsp").forward(request, response);
+                
+            }else if(flag == 3){
+                RequestDispatcher a = request.getRequestDispatcher("registro?msg2=Error al realizar la consulta");
+                a.forward(request, response);
+            }else {
+                RequestDispatcher a = request.getRequestDispatcher("registro?msg3=Error al conectarse a la base de datos");
+                a.forward(request, response);
+            }
+        }
     }
 
     /**

@@ -33,7 +33,6 @@ public class loginController extends HttpServlet {
         
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
     }
     
        // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,44 +66,17 @@ public class loginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String action=request.getParameter("accion");
+        /**
+         * Verificamos que se envió el formulario mediante post con el valor "LOGIN
+         * y ejecutamos el método logueo(request,response) que decide que tipo de vista muestra dependiendo
+         * de que tipo de usuario es el que se logueará.
+         */
         
         if("LOGIN".equals(action)){
             // Logueo del usuario
-            System.out.println("123456789");
             logueo(request, response);
 	}
         
-        /*
-        HttpSession session;
-        String userAdmin;
-        String action=request.getParameter("accion");
-        
-        if(action.equals("LOGIN")){
-            int value = logueo(request, response);
-            System.out.println(value + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            
-            if(value == 0 ){
-                session = request.getSession();
-                userAdmin = request.getParameter("usuario");
-                session.setAttribute("nomUsuario", userAdmin);
-                String view = "videojuegos.jsp";
-                request.setAttribute("view", view); 
-                String footer = "footer.jsp";
-                request.setAttribute("footer", footer);
-                String header = "headerLogin.jsp";
-                request.setAttribute("header", header);
-                request.getRequestDispatcher("layout.jsp").forward(request, response);
-            }else if(logueo(request, response) == 1){
-                session = request.getSession();
-                userAdmin = request.getParameter("usuario");
-                session.setAttribute("nomUsuario", userAdmin);
-                String view = "ManageGamesHI.jsp";
-                request.setAttribute("view", view); 
-                request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
-            }else {
-                
-            }
-        }*/
     }
     
     /**
@@ -117,22 +89,28 @@ public class loginController extends HttpServlet {
         return "Short description";
     }
     
+    /**
+     * Captura datos del formulario y realiza un inicio de sesión que depende que tipo de usuario es el que 
+     * inicia sesión.
+     * En caso de que el usuario no esté registrado en la base de  datos devuelve la página con un mensaje 
+     * de error.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    
     protected void logueo(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException{
         
-        
-        System.out.println("OK ... bien4");
         UserAdmin data_user = new UserAdmin();
         data_user.setAdminemail(request.getParameter("usuario"));
         data_user.setPassword(request.getParameter("password"));
-        System.out.println(request.getParameter("usuario"));
-        System.out.println(request.getParameter("password"));
            
         login cn = new login();
         
         System.out.println("OK ... bien4.1");
         int value_page = cn.loginAdmin(data_user);
-        System.out.println("Devolvió:" + value_page );
             
         if(value_page == 0){
             HttpSession session;
@@ -161,7 +139,7 @@ public class loginController extends HttpServlet {
         }else {
             RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o " +
 				"contraseña incorrectos");
-			a.forward(request, response);
+            a.forward(request, response);
         }
        
     }

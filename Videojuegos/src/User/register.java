@@ -16,7 +16,7 @@ import java.sql.Statement;
  */
 public class register {
     
-    private boolean exe_sql(String SQL){
+    private boolean exeRegister(String SQL){
         
         connectiondb cn = new connectiondb();
         //PARA INSERTAR,MODIFICAR,ELIMINAR
@@ -46,12 +46,41 @@ public class register {
             return false;
         }
     }
+    private boolean exeSelect(String SQL){
         
-    protected boolean registerStudent(userStudent userStudent){
-    
-        
+        connectiondb cn = new connectiondb();
+        /* PARA INSERTAR,MODIFICAR,ELIMINAR */
+        Connection connection;
+        Statement stat;
+        ResultSet result = null;
+        boolean flag;
         try{
-            String sql="INSERT INTO student (studentemail, name, lastname1, lastname2, accountnumber,"
+            connection = cn.connectionDB();
+            stat = connection.createStatement();
+            result = stat.executeQuery(SQL);
+            
+            if(result.next()){
+                flag = true;
+            }else{
+                System.out.println("NO EXISTE INFORMACION");
+                flag = false;
+            }      
+                        
+            return flag;
+        }catch(Exception e){
+            System.out.println("Error...."+ e.toString());
+            return false;
+        }
+    }
+        
+    protected int registerStudent(userStudent userStudent){
+    
+        try{
+            if(verifyEmail(userStudent)){
+                if(verifyAccountnumber(userStudent)){
+                    
+                    /* Registramos al nuevo estudiante */
+                    String sql="INSERT INTO student (studentemail, name, lastname1, lastname2, accountnumber,"
                     + "career, password, status, credits, history) VALUES "
                     + "('" + userStudent.getStudentemail() + "',"
                     + "'" + userStudent.getName() + "',"
@@ -63,20 +92,91 @@ public class register {
                     + "'" + 1 + "',"
                     + "'" + 0 + "',"
                     + "'" + userStudent.getHistory() + "');"; 
-            
-            if(exe_sql(sql)){
-                System.out.println("Consulta correcta");
-                return true;    
+                    
+                    if(exeRegister(sql)){
+                        System.out.println("Consulta correcta, se agregó estudiante");
+                        return 2;    
+                    }else{
+                        System.out.println("Error Consulta registro");
+                        return 3;
+                    }
+                    
+                    
+                }else{
+                    /* Ya existe el número de cuenta*/
+                    return 1;
+                }
+                
+                
+                
             }else{
-                System.out.println("Error Consulta");
-                return false;
+                /* Ya existe el email*/
+                return 0;
             }
+            
+            
+            
+        }catch(Exception e){
+            System.out.println(e.toString());
+            return 4;
+        }
+         
+    }
+    
+    /**
+     * Método para verificar si existe o no el usuario en la base de datos.
+     * @param userStudent
+     * @return true si no existe el correo en la base de datos
+     */
+    protected boolean verifyEmail(userStudent userStudent){
+        
+        
+        try{
+            String sql=
+            "SELECT * FROM student WHERE studentemail = '"+
+                    userStudent.getStudentemail()+"';";
+            /**
+             * Realizamos una coonsulta para verificar que no existe en la base de datos.
+             */
+            if(!exeSelect(sql)){
+                System.out.println("No existe este correo en la base de datos");
+                return true;                
+            }else{
+                System.out.println("Ya existe este correo ");
+                return false; 
+            }
+            
         }catch(Exception e){
             System.out.println(e.toString());
             return false;
         }
-         
-     
+        
+        
+    }
+    
+    protected boolean verifyAccountnumber(userStudent userStudent){
+        
+        try{
+            String sql=
+            "SELECT * FROM student WHERE accountnumber = '"+
+                    userStudent.getAccountnumber() + "';";
+            /**
+             * Realizamos una consulta para verificar que no existe en la base de datos el número de cuenta.
+             */
+            if(!exeSelect(sql)){
+                System.out.println("No existe esta cuenta en la base de datos");
+                return true;                
+            }else{
+                System.out.println("Ya existe esta cuenta ");
+                return false; 
+            }
+            
+        }catch(Exception e){
+            System.out.println(e.toString());
+            return false;
+        }
+        
+        
     }
     
 }

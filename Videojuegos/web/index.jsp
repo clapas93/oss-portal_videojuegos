@@ -16,6 +16,9 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   
   <script type="text/javascript" src="public/js/main.js"></script>
   <script type="text/javascript" src="public/js/bootstrapValidator.min.js"></script>
+  <script type="text/javascript" src="public/js/jquery.validate.js"></script>
+  <script type="text/javascript" src="public/js/validCampo.js"></script>
+  <script type="text/javascript" src="public/js/validando.js"></script>
   <script type="text/javascript" src="public/js/magdieljs.js"></script>
 
 </head>

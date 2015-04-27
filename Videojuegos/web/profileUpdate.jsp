@@ -22,8 +22,6 @@
 
     <div class="col-md-4 col-md-offset-2">
         
-        <p>Me ha llegado <%= session.getAttribute("userStudent") %></p>
-        
         <div class="form-group">
                 <label>Nombre :</label>
                 <input type='text' value="<%= student.getName() %>" style="width:20em !important" name="nombre_s" size = 50 id='nombre'  class="form-control" required placeholder='Nombre(s)' id="formGroupInputSmall" placeholder="Small input">
