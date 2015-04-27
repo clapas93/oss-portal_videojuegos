@@ -25,18 +25,22 @@
                 <span style="color:red"><%= msj3 %></span>
                 
                 <div class="form-group">
+                  <label>Nombre :</label>                  
                   <input type="text" class="form-control name" id="usr name" placeholder="Nombre" name="name">
                 </div>
               
                 <div class="form-group">
+                    <label> Apellido Paterno :</label>
                   <input type="text" class="form-control lastname1" id="usr lastname1" placeholder="Apellido Materno" name="lastname1">
                 </div>
              
                 <div class="form-group">
+                    <label> Apellido Materno :</label>
                   <input type="text" class="form-control lastname2" id="usr lastname2" placeholder="Apellido Paterno" name="lastname2">
                 </div>
                 
                 <div class="form-group">
+                    <label class="control-label">Correo :</label>
                   <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
                   <span style="color:red"><%= msj0 %></span>
                 </div>
@@ -45,6 +49,7 @@
 
             <div class="col-md-4">
                 <div class="form-group">
+                    <label> Carrera:</label>
                         <select class="form-control" name="career">
                             <option>Actuaría</option>
                             <option>Biología</option>
@@ -59,16 +64,19 @@
                     </div>
                 
                     <div class="form-group">
-                        <input type="number" class="form-control" id="usr" placeholder="Número de cuenta" name="accountnumber" required>
+                        <label class="control-label"> Número de cuenta :</label>
+                        <input type="text" class="form-control accountnumber" id="usr" placeholder="Número de cuenta" name="accountnumber" required>
                         <span style="color:red"><%= msj1 %></span>
                     </div>
                 
                 <div class="form-group">
+                    <label class="control-label">Contraseña :</label>
                     <input type="password" data-minlength="6" class="form-control" placeholder="Contraseña" name="password" id="pass">
               
                 </div>
               
                 <div class="form-group">
+                    <label class="control-label">Confirma tu contraseña :</label>
                   <input type="password" class="form-control"  placeholder="Confirma tu contraseña" name="c_password">
                 </div>
             </div>
