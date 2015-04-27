@@ -108,13 +108,7 @@ public class registerController extends HttpServlet {
                 session = request.getSession();
                 userStudent = request.getParameter("email");
                 session.setAttribute("userStudent", userStudent);
-                String view = "videojuegos.jsp";
-                request.setAttribute("view", view); 
-                String footer = "footer.jsp";
-                request.setAttribute("footer", footer);
-                String header = "headerLogin.jsp";
-                request.setAttribute("header", header);
-                request.getRequestDispatcher("layout.jsp").forward(request, response);
+                response.sendRedirect(response.encodeRedirectURL("videogames"));
                 
             }else if(flag == 3){
                 RequestDispatcher a = request.getRequestDispatcher("registro?msg2=Error al realizar la consulta");
