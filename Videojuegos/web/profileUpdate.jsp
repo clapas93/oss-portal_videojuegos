@@ -57,16 +57,16 @@
       <div class="col-md-6">
         <div class="form-group">
           <label class="control-label"> Número de cuenta :</label>
-          <input type='text' value="<%= student.getAccountnumber() %>" size = 50  style="width:20em !important" name="numberacc" id='num_cuenta'  maxlength="9" class="form-control" required placeholder='Número en la base de datos' disabled>
+          <input type='text' value="<%= student.getAccountnumber() %>" size = 50  style="width:20em !important" name="numberacc" id='num_cuenta'  maxlength="9" class="form-control" required placeholder='Número en la base de datos' READONLY>
         </div>
             
         <div class="form-group">
             <label class="control-label">Contraseña :</label>
-            <input type='password'  style="width:20em !important" class="form-control" name="pass1" value='Antonio ' size = 50 id='pass' required>
+            <input type='password'  style="width:20em !important" class="form-control" name="pass1" size = 50 id='pass' required>
           </div>
           <div class="form-group">
             <label class="control-label">Confirmar Contraseña :</label>
-            <input type='password'  style="width:20em !important"  class="form-control" name="pass2" value='Antonio ' size = 50 id='passCompare' required>
+            <input type='password'  style="width:20em !important"  class="form-control" name="pass2" size = 50 id='passCompare' required>
             <p style="color:red" id="validate-status"></p>
           </div>
           <div class="form-group <%if(!student.getHistory().equals("")){ out.print("hidden");}else{ out.print("");}%>">
