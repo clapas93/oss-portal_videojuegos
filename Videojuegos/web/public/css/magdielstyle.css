@@ -69,10 +69,11 @@ and open the template in the editor.
     }
 #validate-form label.error {
         color: red;
-        
+    }
+#validate-form label {
+     color:rgb(146, 192, 216);
     }
 .mi-title{
     color:rgb(146, 192, 216);
     }
-.form-group {margin-bottom: 40px}
 #validate-form {width:75%; margin: 0 auto;}

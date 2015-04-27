@@ -88,6 +88,10 @@ public class userStudent extends user {
     public void setCareer(String carrer) {
         this.career = carrer;
     }
+    
+    public String getPassword(){
+        return password;
+    }
 
     public void setPassword(String pass) {
         this.password = pass;

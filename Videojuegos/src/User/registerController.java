@@ -48,6 +48,8 @@ public class registerController extends HttpServlet {
         student.setCredits("0");
         student.setHistory("");
         
+        System.out.println(request.getParameter("password"));
+        
         register reg = new register();
         
         int aux = reg.registerStudent(student);
