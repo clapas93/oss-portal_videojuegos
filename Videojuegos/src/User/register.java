@@ -49,7 +49,7 @@ public class register {
     private boolean exeSelect(String SQL){
         
         connectiondb cn = new connectiondb();
-        /* PARA INSERTAR,MODIFICAR,ELIMINAR */
+        /* PARA INSERTAR, MODIFICAR, ELIMINAR */
         Connection connection;
         Statement stat;
         ResultSet result = null;
@@ -74,6 +74,8 @@ public class register {
     }
         
     protected int registerStudent(userStudent userStudent){
+        
+        System.out.println(userStudent.getPassword() + "#############################################");
     
         try{
             if(verifyEmail(userStudent)){

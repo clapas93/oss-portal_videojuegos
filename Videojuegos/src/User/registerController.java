@@ -48,6 +48,8 @@ public class registerController extends HttpServlet {
         student.setCredits("0");
         student.setHistory("");
         
+        System.out.println(request.getParameter("password"));
+        
         register reg = new register();
         
         int aux = reg.registerStudent(student);
@@ -114,7 +116,7 @@ public class registerController extends HttpServlet {
                 request.setAttribute("footer", footer);
                 String header = "headerLogin.jsp";
                 request.setAttribute("header", header);
-                request.getRequestDispatcher("layout.jsp").forward(request, response);
+                response.sendRedirect(response.encodeRedirectURL("videogames"));
                 
             }else if(flag == 3){
                 RequestDispatcher a = request.getRequestDispatcher("registro?msg2=Error al realizar la consulta");

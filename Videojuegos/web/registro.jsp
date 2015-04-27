@@ -26,22 +26,22 @@
                 
                 <div class="form-group">
                   <label>Nombre :</label>                  
-                  <input type="text" class="form-control name" id="usr name" placeholder="Nombre" name="name">
+                  <input type="text" class="form-control name" id="usr name" placeholder="Nombre" name="name" maxlength="45">
                 </div>
               
                 <div class="form-group">
                     <label> Apellido Paterno :</label>
-                  <input type="text" class="form-control lastname1" id="usr lastname1" placeholder="Apellido Materno" name="lastname1">
+                  <input type="text" class="form-control lastname1" id="usr lastname1" placeholder="Apellido Materno" name="lastname1" maxlength="45">
                 </div>
              
                 <div class="form-group">
                     <label> Apellido Materno :</label>
-                  <input type="text" class="form-control lastname2" id="usr lastname2" placeholder="Apellido Paterno" name="lastname2">
+                  <input type="text" class="form-control lastname2" id="usr lastname2" placeholder="Apellido Paterno" name="lastname2" maxlength="45">
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label">Correo :</label>
-                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                    <label class="control-label">Correo:</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" maxlength="318">
                   <span style="color:red"><%= msj0 %></span>
                 </div>
                 
@@ -65,13 +65,13 @@
                 
                     <div class="form-group">
                         <label class="control-label"> Número de cuenta :</label>
-                        <input type="text" class="form-control accountnumber" id="usr" placeholder="Número de cuenta" name="accountnumber" required>
+                        <input type="text" class="form-control accountnumber" id="usr" placeholder="Número de cuenta" name="accountnumber" maxlength="9" required>
                         <span style="color:red"><%= msj1 %></span>
                     </div>
                 
                 <div class="form-group">
                     <label class="control-label">Contraseña :</label>
-                    <input type="password" data-minlength="6" class="form-control" placeholder="Contraseña" name="password" id="pass">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="password" id="pass">
               
                 </div>
               
