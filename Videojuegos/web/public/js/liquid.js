@@ -35,7 +35,7 @@ function anim() {
   if (cnt % 6) draw();
   window.requestAnimFrame(anim);
 }
-anim();
+//anim();
 
 function draw() {
 

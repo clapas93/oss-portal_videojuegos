@@ -57,6 +57,11 @@
                             <option>Manejo Sustentable de Zonas Costeras</option>
                         </select>
                     </div>
+                
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="usr" placeholder="Número de cuenta" name="accountnumber" required>
+                    </div>
+                
                 <div class="form-group">
                     <input type="text" class="form-control accountnumber" id="usr" placeholder="Número de cuenta" name="accountnumber">
                     <span style="color:red"><%= msj1 %></span>

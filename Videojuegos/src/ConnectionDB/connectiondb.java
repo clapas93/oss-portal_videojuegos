@@ -43,8 +43,10 @@ public class connectiondb {
         try {
             
             host = "localhost";
+
+            //port = "5433";
             port = "5432";
-            database = "VideoGames";
+            database = "videoGames";
             user = "Optimal";
             password = "OptimalSOfSo!";
             stringConection = "jdbc:postgresql://" + host + ":" + port + "/" + database;

@@ -263,7 +263,7 @@ public class Loan {
   *@return boolean true if the query was successful
   */
   public boolean grantedLoan(String email, double val){
-    String q = "UPDATE loan SET status='a' WHERE studentemail='"+email+"'";
+    String q = "UPDATE loan SET status='a',creditapproved="+val+" WHERE studentemail='"+email+"'";
     String q2 = "UPDATE student SET  credits = "+val+" WHERE studentemail='"+email+"'";
     System.out.println(q2);
     boolean b1 = exe_sql(q);

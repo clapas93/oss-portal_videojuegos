@@ -80,6 +80,31 @@ public class Videogame {
     }
     
     /**
+    * Constructs a new Videogame with attributes that was uploaded.
+    * @param classification ESRB classification.
+    * @param price          Number of credits required to download.
+    * @param genre          Videogame genre.
+    * @param title          Videogame title.
+    * @param description    Videogame description.
+    * @param videoUrl       video trailer.
+    */
+    public Videogame(String classification,float price,String genre,String title,String description,String videoUrl){
+        this.id=0;
+        this.routeGame="http://pulsegames.com/videogames/"+id;
+        this.front="";
+        this.downloads=0;
+        this.classification=classification;
+        this.price=price;
+        this.storageRoute="";
+        this.genre=genre;
+        this.title=title;
+        this.description=description;
+        this.state="1";
+        this.videoUrl=videoUrl;
+        this.adminEmail="admin@oss.com";
+    }
+    
+    /**
     * Returns videogame id on the system.
     * @return int   id associated with this videogame.
     */
@@ -288,10 +313,21 @@ public class Videogame {
     }
     
     /**
+     * Return a String object representing this videogame value.
+     * @return String   a String represntation.
+     */
+    public String toString(){
+        return "Id: " + id + "\nTitulo: "+ title + ". Genero: " + genre + ". Class: " + classification + ".\n"
+                + "Description: " + description + ".\n Price: "+ price + ". State: " + state + ". Down: " + downloads +".\n"
+                + "Front: " + front + ". Game: " + storageRoute + ".Video: " + videoUrl + ". \n "
+                + "Admin:" + adminEmail + ". \n Url: " + routeGame; 
+    }
+    
+    /**
     * Save this videogame on the database.
     * @return boolean   true if the videogame insert was succesful, false in other case.
     */
-    public boolean saveDB(){
+    public boolean updloadDB(){
         try{
             String sql = "INSERT INTO videogame (routeGame,front,downloads,classification,price,"
                     + "storageRoute,genre,title,description,state,videoUrl,adminEmail) VALUES"
@@ -319,12 +355,9 @@ public class Videogame {
     public boolean updateDB(){
         try{
             String sql = "UPDATE videogame SET "
-                    + "routeGame='" +  routeGame + "',"
-                    + "front='" + front + "',"
                     + "downloads=" + downloads + "," 
                     + "classification='" + classification + "',"
                     + "price=" + price + ","
-                    + "storageRoute='" + storageRoute +"',"
                     + "genre='" + genre + "',"
                     + "title='" + title + "',"
                     + "description='" + description + "',"
@@ -360,11 +393,11 @@ public class Videogame {
     * @param  idGame        the id of the game that return. 
     * @return Videogame     this videogame object.
     */
-    public Videogame getGameDB(String idGame){
+    public Videogame getDB(String idGame){
         Videogame game= null;
         try{
             String sql = "SELECT * FROM videogame WHERE idGame='"+idGame+"';";
-            game = initQueryGameDB(sql);
+            game = initGameDB(sql);
             return game;
         }catch(Exception e){
             System.out.println(e.toString());
@@ -376,15 +409,32 @@ public class Videogame {
     * Returns all the videogames availables on the system.
     * @return List<Videogame>   List of all the videogames avilables.
     */
-    public List<Videogame> getDB(){
+    public List<Videogame> getListDB(){
         List <Videogame> gameList = new LinkedList <Videogame>();
         try{
             String sql = "SELECT * FROM videogame WHERE state='1';";
-            gameList = initQueryDB(sql);
+            gameList = initListDB(sql);
             return gameList;
         }catch(Exception e){
             System.out.println(e.toString());
             return gameList;
+        }
+    }
+    
+    /**
+    * Returns the max id of the videogames in the database.
+    * @return int   max id.
+    */
+    public int maxId(){
+        Videogame game= null;
+        try{
+            String sql = "SELECT * FROM videogame WHERE idgame = (SELECT MAX(idGame) FROM videogame);";
+            game = initGameDB(sql);
+            System.out.println(" max: "+ game.toString());
+            return game.getId();
+        }catch(Exception e){
+            System.out.println(e.toString());
+            return 0;
         }
     }
     
@@ -416,7 +466,7 @@ public class Videogame {
     * @param  script            the sql script to execute.
     * @return List<Videogame>   the list of all the videogames obteined. 
     */
-    public List<Videogame> initQueryDB(String script){
+    private List<Videogame> initListDB(String script){
         List<Videogame> list = new LinkedList<Videogame>();
         connectiondb conection = new connectiondb();
         Connection cn;
@@ -456,7 +506,7 @@ public class Videogame {
     * @param  script        the sql script to execute.
     * @return Videogame     the videogame obteined. 
     */
-    public Videogame initQueryGameDB(String script){
+    private Videogame initGameDB(String script){
         Videogame game = new Videogame();
         connectiondb conection = new connectiondb();
         Connection cn;
@@ -488,4 +538,5 @@ public class Videogame {
         }
         return null;
     }
+    
 }

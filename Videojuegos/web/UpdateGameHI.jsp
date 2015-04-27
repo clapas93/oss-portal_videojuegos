@@ -13,7 +13,8 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
   <h1>Editar Videojuego</h1>
   <div class="panel panel-default">
     <div class="panel-body">
-      <form id="gameForm" enctype="multipart/form-data" method="get" action="editGame">
+      <!--<form id="gameForm" enctype="multipart/form-data; charset=UTF-8" method="POST" action="editGame" acceptcharset="UTF-8">-->
+      <form id="gameForm" enctype="multipart/form-data" method="POST" action="editGame">
           <div class="col-lg-6 hidden">
             <div class="form-group">
               <input type="text" class="form-control input-group" name="ID" value=<%=((Videogame)videogameId).getId()%>>
@@ -23,7 +24,8 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
           <div class="col-lg-6">
             <div class="form-group">
               <label class="control-label" for="TITLE">Título</label>
-              <input type="text" class="form-control input-group" name="TITLE" value=<%=((Videogame)videogameId).getTitle()%>>
+              <%String title = ((Videogame)videogameId).getTitle();%>
+              <input type="text" class="form-control input-group" name="TITLE" value= "<%out.print(title);%>" >
             </div>
           </div>
           <div class="col-lg-6">
@@ -33,13 +35,13 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
               <label class="control-label" for="PRICE">Número de créditos</label>
               <div class="controls controls-row">
                 <div class="col-lg-2">
-                  <input type="radio" name="creditOptions" id="FREE" value="FREE" <%if(p==0.0){ out.print("checked");}%>> Gratis
+                  <input type="radio" name="creditOptions" id="FREE" value="FREE" <%if(p==0){ out.print("checked");}%>> Gratis
                 </div>
                 <div class="col-lg-3">
                   <input type="radio" name="creditOptions" id="CREDIT" value="CREDIT" <%if(p>0){ out.print("checked");}%>> Crédito
                 </div>
                 <div class="col-lg-6">
-                  <input class="form-control FREE input-group" name="PRICE" type="number" placeholder="Número de Créditos" <%if(p==0.0){ out.print("disabled");}%> value=<%out.print(p);%>>
+                  <input class="form-control FREE input-group" name="PRICE" type="number" placeholder="Número de Créditos" <%if(p==0){ out.print("disabled");}%> value=<%out.print(p);%>>
                 </div>
               </div>
             </div>
@@ -49,13 +51,13 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
           <div class="col-lg-3">
             <div class="form-group">
               <label class="control-label">Clasificación</label>
+              <% String c = ""; c= ((Videogame)videogameId).getClassification();%>
               <select name="CLASS" class="form-control">
-                <% String c = ""; c= ((Videogame)videogameId).getClassification();%>
-                <option <%if(c.equals("C")){ out.print("select");}%> >C (-5)</option>
-                <option <%if(c.equals("E")){ out.print("select");}%> >E (+5)</option>
-                <option <%if(c.equals("T")){ out.print("select");}%> >T (+13)</option>
-                <option <%if(c.equals("M")){ out.print("select");}%> >M (+17)</option>
-                <option <%if(c.equals("C")){ out.print("select");}%> >A (+18)</option>
+                <option <%if(c.equals("C")){ out.print("selected");}%> >C (-5)</option>
+                <option <%if(c.equals("E")){ out.print("selected");}%> >E (+5)</option>
+                <option <%if(c.equals("T")){ out.print("selected");}%> >T (+13)</option>
+                <option <%if(c.equals("M")){ out.print("selected");}%> >M (+17)</option>
+                <option <%if(c.equals("C")){ out.print("selected");}%> >A (+18)</option>
               </select>
             </div>
           </div>
@@ -64,24 +66,18 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
               <label class="control-label">Genero</label>
               <select name="GENRE" class="form-control">
                 <% String g = ""; g= ((Videogame)videogameId).getGenre();%>
-                <option <%if(g.equals("Acción")){ out.print("select");}%> >Acción</option>
-                <option <%if(g.equals("Lucha")){ out.print("select");}%> >Lucha</option>
-                <option <%if(g.equals("Estrategia")){ out.print("select");}%> >Estrategia</option>
-                <option <%if(g.equals("Deporte")){ out.print("select");}%> >Deporte</option>
-                <option <%if(g.equals("Carreras")){ out.print("select");}%> >Carreras</option>
-                <option <%if(g.equals("Musical")){ out.print("select");}%> >Musical</option>
-                <option <%if(g.equals("Simulación")){ out.print("select");}%> > Simulación</option>
-                <option <%if(g.equals("Vehiculos")){ out.print("select");}%> >Vehiculos</option>
-                <option <%if(g.equals("Disparos")){ out.print("select");}%> >Disparo</option>
-                <option <%if(g.equals("Rol")){ out.print("select");}%> >Rol/Destreza</option>
-                <option <%if(g.equals("Terror")){ out.print("select");}%> >Terror</option>
+                <option <%if(g.equals("Acción")){ out.print("selected");}%> >Acción</option>
+                <option <%if(g.equals("Lucha")){ out.print("selected");}%> >Lucha</option>
+                <option <%if(g.equals("Estrategia")){ out.print("selected");}%> >Estrategia</option>
+                <option <%if(g.equals("Deporte")){ out.print("selected");}%> >Deporte</option>
+                <option <%if(g.equals("Carreras")){ out.print("selected");}%> >Carreras</option>
+                <option <%if(g.equals("Musical")){ out.print("selected");}%> >Musical</option>
+                <option <%if(g.equals("Simulación")){ out.print("selected");}%> > Simulación</option>
+                <option <%if(g.equals("Vehiculos")){ out.print("selected");}%> >Vehiculos</option>
+                <option <%if(g.equals("Disparos")){ out.print("selected");}%> >Disparo</option>
+                <option <%if(g.equals("Rol/Destreza")){ out.print("selected");}%> >Rol/Destreza</option>
+                <option <%if(g.equals("Terror")){ out.print("selected");}%> >Terror</option>
               </select>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label class="control-label">Videojuego</label>
-              <input type="file" class="form-control" name="GAME">
             </div>
           </div>
         </div><!--2-row-->
@@ -93,10 +89,7 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="form-group">
-              <label class="control-label">Portada</label>
-              <input type="file" class="form-control" name="FRONT"/>
-            </div>
+            <p> <b>*El archivo ejecutable y la portada no se pueden editar.</b> </p>
             <div class="form-group">
               <label class="control-label">Video</label>
               <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" value=<%=((Videogame)videogameId).getVideoUrl()%>>
@@ -107,7 +100,6 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
           <div class="col-lg-12">
             <div class="text-center">
               <button type="submit" class="btn btn-success">Subir</button>
-              <button type="reset" class="btn btn-primary">Limpiar</button>
               <a href="managegames" role="button" class="btn btn-large btn-danger">Cancelar</a>
             </div>
           </div>

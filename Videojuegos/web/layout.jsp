@@ -29,7 +29,7 @@ String bool2 =(String)request.getAttribute("bool2");
   <% if(header == null ){ %>
   <div class="container-fluid">
    <div class="navbar-header">
-     <img src="public/img/brand.png" id="brandimage">
+       <a href="videogames"> <img src="public/img/brand.png" id="brandimage"></a>
      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
        <span class="sr-only">Toggle navigation</span>
        <span class="icon-bar"></span>

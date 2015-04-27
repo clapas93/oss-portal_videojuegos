@@ -118,13 +118,7 @@ public class loginController extends HttpServlet {
             session = request.getSession();
             userStudent = request.getParameter("usuario");
             session.setAttribute("userStudent", userStudent);
-            String view = "videojuegos.jsp";
-            request.setAttribute("view", view); 
-            String footer = "footer.jsp";
-            request.setAttribute("footer", footer);
-            String header = "headerLogin.jsp";
-            request.setAttribute("header", header);
-            request.getRequestDispatcher("layout.jsp").forward(request, response);
+            response.sendRedirect(response.encodeRedirectURL("videogames"));
             System.out.println("OK ... bienUser");
         }else if(value_page == 1){
             HttpSession session;
@@ -132,9 +126,7 @@ public class loginController extends HttpServlet {
             session = request.getSession();
             userAdmin = request.getParameter("usuario");
             session.setAttribute("userAdmin", userAdmin);
-            String view = "ManageGamesHI.jsp";
-            request.setAttribute("view", view); 
-            request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+            response.sendRedirect(response.encodeRedirectURL("managegames"));
             System.out.println("OK ... bienAdmin");
         }else {
             RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o " +
