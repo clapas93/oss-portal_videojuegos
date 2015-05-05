@@ -22,7 +22,7 @@
 
     <div class="col-md-4 col-md-offset-2">
         
-        <p>Me ha llegado <%= session.getAttribute("userStudent" ) %></p>
+        <p>Me ha llegado <%= session.getAttribute("userStudent") %></p>
         
         <div class="form-group">
                 <label>Nombre :</label>

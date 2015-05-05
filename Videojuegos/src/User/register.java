@@ -60,7 +60,7 @@ public class register {
                     + "'" + userStudent.getAccountnumber() + "',"
                     + "'" + userStudent.getCareer() + "',"
                     + "'" + userStudent.getPassword() + "',"
-                    + "'" + 0 + "',"
+                    + "'" + 1 + "',"
                     + "'" + 0 + "',"
                     + "'" + userStudent.getHistory() + "');"; 
             
