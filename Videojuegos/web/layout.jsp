@@ -10,6 +10,7 @@ String bool2 =(String)request.getAttribute("bool2");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="public/img/favicon.png"/>
   <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
@@ -18,7 +19,9 @@ String bool2 =(String)request.getAttribute("bool2");
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
   
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
+  <script type="text/javascript" src="public/js/validando.js"></script>
   <script type="text/javascript" src="public/js/layout.js"></script>
+  <script type="text/javascript" src="public/js/bootstrapValidator.js"></script>
   <link rel="stylesheet" type="text/css" href="public/css/liquid.css">
 </head>
 <body  style="display:none">
@@ -48,7 +51,7 @@ String bool2 =(String)request.getAttribute("bool2");
            <div class="form-group">
              <label class="col-md-3 control-label">Usuario</label>
              <div class="col-md-7">
-               <input type="text" class="form-control" name="usuario" placeholder="ejemplo@correo.com"/>
+               <input type="email" class="form-control" name="usuario" placeholder="ejemplo@correo.com" autocomplete="off"/>
              </div>
            </div>
            <div class="form-group">

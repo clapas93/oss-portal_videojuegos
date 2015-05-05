@@ -3,9 +3,10 @@
     Created on : 5/04/2015, 10:49:37 PM
     Author     : lalo
     --%>
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@ page import ="java.util.List" %>
     <%@ page import ="Loans.Loan" %>
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
     <%
     List loans = (List)request.getAttribute("loans");
     %>
@@ -94,7 +95,7 @@
                   <label>Asignar Credito </label>
                   <div class="row">
                     <div class="col-sm-4">
-                      <input id="credito<%=i%>" type="text" class="form-control" name="credito" value="">
+                      <input id="credito<%=i%>"  maxlength="7" type="text" class="form-control credito" name="credito" value="">
                     </div>
                   </div>
                 </div>
@@ -138,22 +139,49 @@ $(".denyloan").click(function(){//funcion clic se activa cuando dan click a un o
     }
   });
 });
+  $(document).ready(function() {
+    $(".credito").keydown(function (e) {
+        if (this.value.match(/[^a-zA-Z0-9 ]/g)) {
+                    this.value = this.value.replace(/[^a-zA-Z0-9 ]/g, '');
+                }
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right, down, up
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+});
 
 $(".giveloan").click(function(){
+   
   var email = $(this).attr("email");
   var val = $(this).val();
   var inp = "#credito"+val;
   var value = $(inp).val();
   console.log(inp);
   var msj = "#mensaje"+val;
+   $(msj).empty();
   var mod = '#'+val;
   var row = "row"+val;
   var tr = "#"+row;
   if(value==""){
     $(inp).css({'border-color':'red'});
     $(msj).css({'color':'red'});
-    $(msj).append("No puedes dar 0 crédito");
-  }else{
+    $(msj).append("Asigna Crédito");
+  }else{ 
+    if(parseInt(value)<=0){
+        $(inp).css({'border-color':'red'});
+        $(msj).css({'color':'red'});
+        $(msj).append("No puedes dar crédito negativo.<br>No puedes dar 0 de crédito");
+    }else{
     console.log(value);
     $.ajax({
       type: "POST",
@@ -172,6 +200,7 @@ $(".giveloan").click(function(){
       }
     });
   }
+ }
 });
 
 </script>

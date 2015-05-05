@@ -16,6 +16,9 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   
   <script type="text/javascript" src="public/js/main.js"></script>
   <script type="text/javascript" src="public/js/bootstrapValidator.min.js"></script>
+  <script type="text/javascript" src="public/js/jquery.validate.js"></script>
+  <script type="text/javascript" src="public/js/validCampo.js"></script>
+  <script type="text/javascript" src="public/js/validando.js"></script>
   <script type="text/javascript" src="public/js/magdieljs.js"></script>
 
 </head>
@@ -43,7 +46,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                  <div class="form-group">
                      <label class="col-md-3 control-label">Usuario</label>
                      <div class="col-md-7">
-                         <input type="text" class="form-control" name="usuario" placeholder="ejemplo@correo.com"/>
+                         <input type="email" class="form-control" name="usuario" placeholder="ejemplo@correo.com" autocomplete="off"/>
                      </div>
                  </div>
                  <div class="form-group">

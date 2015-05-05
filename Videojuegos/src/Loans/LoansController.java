@@ -115,7 +115,8 @@ public class LoansController extends HttpServlet {
         email = (String)request.getParameter("email");
         System.out.println("VALUE: "+request.getParameter("credit"));
         credito = Double.parseDouble(request.getParameter("credit"));
-        success = this.model.grantedLoan(email,credito);       
+        success = this.model.grantedLoan(email,credito);
+        System.out.println(success);
         if(success){
           res = "{\"success\":\""+1+"\"}";
         }else{
@@ -125,16 +126,21 @@ public class LoansController extends HttpServlet {
         out.flush();
       break;
       case "/getalgo":
+        request.setCharacterEncoding("UTF-8");
+        //response.setCharacterEncoding("UTF-8");
         String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
+        out.println(description);
         Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
         String fileName = getFileName(filePart);
+        out.println(fileName);
         String hist_path = getPath()+"/web/public/historiales";
         
         File folder = new File(hist_path);
         File files = new File(folder, "oss_"+fileName); 
-        try (InputStream input = filePart.getInputStream()) {
+        //try (
+        InputStream input = filePart.getInputStream();//) {
             Files.copy(input, files.toPath()); 
-        }        
+        //}        
         out.print("Uploaded file successfully saved in ");
         out.flush();
       break;

@@ -9,84 +9,83 @@
 <br>
 <br>
   <div class="form-registro">
+<%
+    String msj0 =  request.getParameter("msj0")!=null?request.getParameter("msj0"):"";
+    String msj1 =  request.getParameter("msj1")!=null?request.getParameter("msj1"):"";
+    String msj2 =  request.getParameter("msj2")!=null?request.getParameter("msj2"):"";
+    String msj3 =  request.getParameter("msj3")!=null?request.getParameter("msj3"):"";
+%>
     <div class="mi-title"><span>Registro</span></div>
-    <hr size="2">  
+    
       <div class="formulario">
-        <form data-toggle="validator" role="form" method="post" action="registerController?accion=REGISTER" id="validate-form">
-          <table border="0">
-            <tr>
-              <td>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="usr name" placeholder="Nombre" name="name" required>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="usr lastname1" placeholder="Apellido Paterno" name="lastname1" required>
-                </div>
-              </td>
-              <td>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="usr lastname2" placeholder="Apellido Materno" name="lastname2">
-                </div>
-              </td>
-            </tr>
-            <tr>
-                <td>
+        <form method="post" action="registerController?accion=REGISTER" id="validate-form">
+            
+            <div class="col-md-4 col-md-offset-2">
+                <span style="color:red"><%= msj2 %></span>
+                <span style="color:red"><%= msj3 %></span>
                 
-                    <div class="form-group">
+                <div class="form-group">
+                  <label>Nombre :</label>                  
+                  <input type="text" class="form-control name" id="usr name" placeholder="Nombre" name="name" maxlength="45">
+                </div>
+              
+                <div class="form-group">
+                    <label> Apellido Paterno :</label>
+                  <input type="text" class="form-control lastname1" id="usr lastname1" placeholder="Apellido Materno" name="lastname1" maxlength="45">
+                </div>
+             
+                <div class="form-group">
+                    <label> Apellido Materno :</label>
+                  <input type="text" class="form-control lastname2" id="usr lastname2" placeholder="Apellido Paterno" name="lastname2" maxlength="45">
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label">Correo:</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" maxlength="318">
+                  <span style="color:red"><%= msj0 %></span>
+                </div>
+                
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> Carrera:</label>
                         <select class="form-control" name="career">
                             <option>Actuaría</option>
                             <option>Biología</option>
                             <option>Ciencias de la Computación</option>
                             <option>Ciencias de la Tierra</option>
                             <option>Física</option>
+                            <option>Física Biomedica</option>
                             <option>Matemáticas</option>
+                            <option>Matemáticas Aplicadas</option>
+                            <option>Manejo Sustentable de Zonas Costeras</option>
                         </select>
                     </div>
-                </td>
-                <td>
+                
                     <div class="form-group">
-                        <input type="number" class="form-control" id="usr" placeholder="Número de cuenta" name="accountnumber" required>
+                        <label class="control-label"> Número de cuenta :</label>
+                        <input type="text" class="form-control accountnumber" id="usr" placeholder="Número de cuenta" name="accountnumber" maxlength="9" required>
+                        <span style="color:red"><%= msj1 %></span>
                     </div>
-                </td>
-            </tr>
-            <tr>
-              <td>
+                
                 <div class="form-group">
-                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
-                    <div class="help-block with-errors"></div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="form-group">
-                  <div class="form-group">
-                    <input type="password" data-minlength="6" class="form-control" placeholder="Contraseña" name="password" id="pass" required>
+                    <label class="control-label">Contraseña :</label>
+                    <input type="password" class="form-control" placeholder="Contraseña" name="password" id="pass">
               
-                  </div>
                 </div>
-              </td>
-              <td>
+              
                 <div class="form-group">
-                  <input type="password" class="form-control"  placeholder="Confirma tu contraseña" name="c_password" required>
-                  <div class="help-block with-errors"></div>
+                    <label class="control-label">Confirma tu contraseña :</label>
+                  <input type="password" class="form-control"  placeholder="Confirma tu contraseña" name="c_password">
                 </div>
-              </td>   
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td>
+            </div>
+            <div class="col-md-4 col-md-offset-4">
                 <div class="form-group" style="float:right;">
-                  <a class="btn btn-primary" href="videogames" title="Recrea Comunicación">Volver</a>
-                  <button type="submit" class="btn btn-primary">Registrarme</button>
+                    <a class="btn btn-primary" href="videogames" title="Recrea Comunicación">Volver</a>
+                    <button type="submit" class="btn btn-primary">Registrarme</button>
                 </div>
-              </td>
-            </tr>
-          </table>
+            </div> 
         </form>
       </div>
     </div>

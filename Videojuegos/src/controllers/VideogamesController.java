@@ -51,6 +51,7 @@ public class VideogamesController extends HttpServlet {
         String header = "";
         String selectSQL = "SELECT * FROM student  WHERE studentemail = '"+ user +"'";
 
+
         connectiondb cn = new connectiondb();
         Connection connection;
         Statement stat;

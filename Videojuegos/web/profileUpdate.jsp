@@ -22,21 +22,19 @@
 
     <div class="col-md-4 col-md-offset-2">
         
-        <p>Me ha llegado <%= session.getAttribute("userStudent") %></p>
-        
         <div class="form-group">
                 <label>Nombre :</label>
-                <input type='text' value="<%= student.getName() %>" style="width:20em !important" name="nombre_s" size = 50 id='nombre'  class="form-control" required placeholder='Nombre(s)' id="formGroupInputSmall" placeholder="Small input">
+                <input type='text' value="<%= student.getName() %>" style="width:20em !important" name="nombre_s" size = 50 id='nombre'  class="form-control" maxlength="45" required placeholder='Nombre(s)' id="formGroupInputSmall" placeholder="Small input">
               </div>
 
                <div class="form-group">
                 <label> Apellido Paterno :</label>
-                <input type='text' value="<%= student.getLastname1() %>" style="width:20em !important" name="last_name1" size = 50 id ='apellidoPatertno'  class="form-control" required placeholder='Apellido Paterno'>
+                <input type='text' value="<%= student.getLastname1() %>" style="width:20em !important" name="last_name1" size = 50 id ='apellidoPatertno' maxlength="45" class="form-control" required placeholder='Apellido Paterno'>
               </div>
             
               <div class="form-group">
                 <label> Apellido Materno :</label>
-                <input type='text' value="<%= student.getLastname2() %>" style="width:20em !important" name="last_name2" size = 50 id ='apellidoMaterno'  class="form-control" required placeholder='Apellido Materno'>
+                <input type='text' value="<%= student.getLastname2() %>" style="width:20em !important" name="last_name2" size = 50 id ='apellidoMaterno' maxlength="45" class="form-control" required placeholder='Apellido Materno'>
               </div>
             
         <div class="form-group">
@@ -59,16 +57,17 @@
       <div class="col-md-6">
         <div class="form-group">
           <label class="control-label"> Número de cuenta :</label>
-          <input type='text' value="<%= student.getAccountnumber() %>" size = 50  style="width:20em !important" name="numberacc" id='num_cuenta'  class="form-control" required placeholder='Número en la base de datos'>
+          <input type='text' value="<%= student.getAccountnumber() %>" size = 50  style="width:20em !important" name="numberacc" id='num_cuenta'  maxlength="9" class="form-control" required placeholder='Número en la base de datos' READONLY>
         </div>
             
         <div class="form-group">
             <label class="control-label">Contraseña :</label>
-            <input type='password'  style="width:20em !important" class="form-control" name="pass1" value='Antonio ' size = 50 id='pass' required>
+            <input type='password'  style="width:20em !important" class="form-control" name="pass1" size = 50 id='pass' required>
           </div>
           <div class="form-group">
             <label class="control-label">Confirmar Contraseña :</label>
-            <input type='password'  style="width:20em !important"  class="form-control" name="pass2" value='Antonio ' size = 50 id='passCompare' required>
+            <input type='password'  style="width:20em !important"  class="form-control" name="pass2" size = 50 id='passCompare' required>
+            <p style="color:red" id="validate-status"></p>
           </div>
           <div class="form-group <%if(!student.getHistory().equals("")){ out.print("hidden");}else{ out.print("");}%>">
             <label for="exampleInputFile">Actualiza historial.</label>
@@ -80,15 +79,51 @@
         <div class="col-md-4 col-md-offset-4">
           <div class="form-group">
             <a class="btn btn-primary" href="videogames" title="back">Cancelar</a>
-            <button class="btn btn-primary submit">Actualizar Datos</button>  
+            <button id="actualizar" class="btn btn-primary submit">Actualizar Datos</button>  
           </div>
         </div>
         </div>
      </form>
     </div>
   </div>
+<script type="text/javascript">
+$("#num_cuenta").keypress(function(key) {
+    if(key.charCode < 48 || key.charCode > 57) return false;
+});
+
+$("#nombre").keypress(function(key) {
+if((key.charCode < 97 || key.charCode > 122) && (key.charCode < 65 || key.charCode > 90) && (key.charCode != 45)) return false;
+});
+
+$("#apellidoPatertno").keypress(function(key) {
+if((key.charCode < 97 || key.charCode > 122) && (key.charCode < 65 || key.charCode > 90) && (key.charCode != 45)) return false;
+});
+
+$("#apellidoMaterno").keypress(function(key) {
+if((key.charCode < 97 || key.charCode > 122) && (key.charCode < 65 || key.charCode > 90) && (key.charCode != 45)) return false;
+});
+
+$(document).ready(function() {
+  $("#passCompare").keyup(validate);
+});
 
 
+function validate() {
+  var password1 = $("#pass").val();
+  var password2 = $("#passCompare").val();
+    if(password1 == password2) {
+      $("#validate-status").css({'color':'green'});
+      $("#validate-status").text("Las contraseñas coinciden");
+      $("#actualizar").removeAttr("disabled");        
+    }
+    else {
+      $("#validate-status").text("Las contraseñas no coinciden"); 
+      $("#actualizar").attr("disabled","disabled"); 
+    }
+    
+}
+
+</script>
 
 
 

@@ -10,8 +10,6 @@ $().ready(
         $("#validate-form").validate({
           // Empezamos por las reglas que se definirán
             rules: {
-          
-                
                 password: {  
                     required: true, // Tiene que ser requerido el password
                     minlength: 6    // Tiene que tener un tamaño mayor o igual a 6 caracteres
@@ -31,14 +29,16 @@ $().ready(
                 },
                 lastname2: {
                     minlength: 3,    // Tiene que tener un tamaño mayor o igual a 3 caracteres
-                    required: false  //Tiene que ser requeridos los apellidos
+                    required: true  //Tiene que ser requeridos los apellidos
                 },
                 email: {
                     required: true, //Solicita que se introduzca un mail
                     email: true //Condiciona a que tenga  estructura de un mail
                 },
                 accountnumber: {
-                    required: true  
+                    required: true,
+                    minlength: 7,
+                    maxlength: 9
                 }
                 
             },
@@ -60,17 +60,20 @@ $().ready(
       	    },
       	    lastname1: {
                 minlength: "Debe tener al menos 3 caracteres",
-        	required: "Introduce tu apellidos materno"
+        	required: "Introduce tu apellido materno"
       	    },
             lastname2: {
-                minlength: "Debe tener al menos 3 caracteres"
+                minlength: "Debe tener al menos 3 caracteres",
+                required: "Introduce tu apellido paterno"
       	    },
       	    email: {
                 required: "Introduce tu mail",
         	email: "Introduce un formato valido, por ejemplo: mail@correo.com"
       	    },
             accountnumber: {
-                required: "Introduce tu número de cuenta"
+                required: "Introduce tu número de cuenta",
+                minlength: "Debe tener al menos 7 números",
+                maxlength: "Debe tener máximo 9 números"
       	    }
       
         }
@@ -80,8 +83,8 @@ $().ready(
 $(function(){
     //Para escribir solo letras
 
-    $("#name").validCampo(" abcdefghijklmnñopqrstuvwxyzáéiou");
-    $("#lastname1").validCampo(" abcdefghijklmnñopqrstuvwxyzáéiou");
-    $("#lastname2").validCampo(" abcdefghijklmnñopqrstuvwxyzáéiou");
-    $("#accountnumber").validCampo("1234567890");
+    $(".name").validCampo(" abcdefghijklmnñopqrstuvwxyzáéiou");
+    $(".lastname1").validCampo(" abcdefghijklmnñopqrstuvwxyzáéiou");
+    $(".lastname2").validCampo(" abcdefghijklmnñopqrstuvwxyzáéiou");
+    $(".accountnumber").validCampo("1234567890");
 });

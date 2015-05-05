@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <div class="navbar-header">
-          <img src="public/img/brand.png" id="brandimage">
+          <a href="videogames"> <img src="public/img/brand.png" id="brandimage"></a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
