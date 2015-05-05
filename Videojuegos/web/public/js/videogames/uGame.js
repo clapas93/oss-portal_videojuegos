@@ -51,8 +51,8 @@ $(document).ready(function(){
                     notEmpty:{
                         message:'Especifica el número de creditos.'
                     },
-                    numeric:{
-                        message:'El número de créditos debe de ser un número.'
+                    integer:{
+                        message:'Debe de ser un número entero.'
                     },
                     between:{
                         min:1,
@@ -92,7 +92,9 @@ $(document).ready(function(){
                         message:'Indica la ubicación del archivo.'
                     },
                     file: {
-                        message: 'El archivo seleccionado no es valido.'
+                        extension: 'bin,zip,tar,tgz',
+                        type: 'application/mac-binary,application/macbinary,application/octet-stream,application/x-binary,application/x-macbinary,application/x-compressed,application/x-zip-compressed,application/zip,application/x-tar,application/gnutar,application/x-compressed',
+                        message: 'Solo puedes subir .bin, .zip, .tar, .tgz.'
                     }
                 }
             },
@@ -104,7 +106,8 @@ $(document).ready(function(){
                     file: {
                         extension: 'jpeg,jpg,png',
                         type: 'image/jpeg,image/png',
-                        //maxSize: 2097152,   // 2048 * 1024
+                        minSize: 32400, //180*180
+                        maxSize: 4194304,   // 2048 * 2048
                         message: 'El archivo seleccionado no es valido (jpeg,jpg,png).'
                     }
                 }

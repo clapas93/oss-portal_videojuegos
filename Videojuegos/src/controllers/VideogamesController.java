@@ -99,7 +99,7 @@ public class VideogamesController extends HttpServlet {
         }
         view = "videojuegos.jsp";
         Videogame game = new Videogame();
-        List<Videogame> videogames = game.getDB();
+        List<Videogame> videogames = game.getListDB();
         request.setAttribute("games", videogames);
         request.setAttribute("header", header);
         request.setAttribute("view", view);

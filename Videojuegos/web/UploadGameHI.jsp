@@ -8,13 +8,13 @@ Author     : Claudia
   <h1>Subir Videojuego</h1>
   <div class="panel panel-default">
     <div class="panel-body">
-      <form id="gameForm" enctype="multipart/form-data" method="get" action="saveGame">
-        
+      <!--<form id="gameForm" enctype="multipart/form-data; charset=UTF-8" method="POST" action="saveGame" acceptcharset="UTF-8">-->
+      <form id="gameForm" enctype="multipart/form-data" method="POST" action="saveGame">
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
               <label class="control-label" for="TITLE">Título</label>
-              <input type="text" class="form-control input-group" name="TITLE" placeholder="Título" value="Videojuego1">
+              <input type="text" class="form-control input-group" name="TITLE" placeholder="Título">
             </div>
           </div>
           <div class="col-lg-6">
@@ -28,7 +28,7 @@ Author     : Claudia
                   <input type="radio" name="creditOptions" id="CREDIT" value="CREDIT"> Crédito
                 </div>
                 <div class="col-lg-6">
-                  <input class="form-control FREE input-group" name="PRICE" type="number" placeholder="Número de Créditos" disabled value="100">
+                  <input class="form-control FREE input-group" name="PRICE" type="number" placeholder="Número de Créditos" disabled>
                 </div>
               </div>
             </div>
