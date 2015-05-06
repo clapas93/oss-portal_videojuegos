@@ -10,48 +10,37 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author magdiel
- */
 public class connectiondbL {
   
   private Connection connection = null;
   private ResultSet rs = null;
-  private Statement s = null;
+  private Statement stat = null;
+  private String host;
+  private String port;
+  private String database;
+  private String user;
+  private String password;
+  private String stringConection;
   
-  public Connection connectionDB(){
-    
-    String host;
-    String port;
-    String database;
-    String user;
-    String password;
-    String stringConection;
-    
+  public connectiondbL(){
     try {
       
-      host = "localhost";
-      port = "5433";
-      database = "videoGames";
-      user = "Optimal";
-      password = "OptimalSOfSo!";
-      stringConection = "jdbc:postgresql://" + host + ":" + port + "/" + database;
+      this.host = "localhost";
+      this.port = "5433";
+      this.database = "videoGames";
+      this.user = "Optimal";
+      this.password = "OptimalSOfSo!";
+      this.stringConection = "jdbc:postgresql://" + host + ":" + port + "/" + database;
       Class.forName("org.postgresql.Driver");
       System.out.println("OK ... CONECTO CON DRIVER");
       
-      return DriverManager.getConnection(stringConection, user, password);
+      this.connection = DriverManager.getConnection(stringConection, user, password);
       
       
-    } catch (Exception e) {
+    } catch (ClassNotFoundException | SQLException e) {
       System.out.println("Problemas de Conexión: " + e.toString());
-      return null;
     }
   }
-
 
 }

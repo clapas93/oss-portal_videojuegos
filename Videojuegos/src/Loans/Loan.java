@@ -9,12 +9,9 @@
 
 package Loans;
 
-import ConnectionDB.connectiondbL;
-import java.sql.Connection;
+import ConnectionDB.ConnectionDB;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
-import java.sql.SQLException;
 import java.util.LinkedList;
 
 public class Loan {
@@ -65,7 +62,20 @@ public class Loan {
   private double credit;
   
   /**
+  *Connection DB
+  */
+  private final ConnectionDB connection;
+
+  /**
   *Class construct
+   * @param email
+   * @param name
+   * @param lastname1
+   * @param lastname2
+   * @param accountnumber
+   * @param career
+   * @param history
+   * @param status
   */
   public Loan(String email, 
       String name,
@@ -76,6 +86,7 @@ public class Loan {
       String history, 
       String status
   ){
+    this.connection = new ConnectionDB();
     this.email=email;
     this.name = name;
     this.lastname1 = lastname1;
@@ -90,6 +101,7 @@ public class Loan {
   *Default Contrstructor
   */
   public Loan (){
+    this.connection = new ConnectionDB();
   }
 
 
@@ -158,78 +170,36 @@ public class Loan {
     return status;
   }
 
-
-  /**
-  *Check the connection with db and make an update consult
-  *@param String IStatement
-  *@return Boolean returns true if the query was succesfull
-  */
-  private boolean exe_sql(String SQL){
-
-    connectiondbL cn = new connectiondbL();
-    Connection connection;
-    Statement stat;
-    int result;
-    boolean flag;
-    try{
-      connection = cn.connectionDB();
-      stat = connection.createStatement();
-      result = stat.executeUpdate(SQL);
-      System.out.println(result);
-
-      if(result != 0){
-        System.out.println("OK ... bien1.1");
-        flag = true;
-      }else{
-        System.out.println("NO EXISTE INFORMACION");
-        flag = false;
-      }      
-
-      return flag;
-    }catch(Exception e){
-      System.out.println("Error...."+ e.toString());
-      return false;
-    }
-  } 
-
   /**
   *Generic method to make SELECT quert
   *@param  String  SELECT statement
   *@return  List return of the query
   */
-  private List query(String query)
-    throws SQLException {
-    List list = new LinkedList();
-    Statement stmt = null;
-    connectiondbL cn = new connectiondbL();
-    Connection con;
-    try {
-      con = cn.connectionDB();
-      stmt = con.createStatement();
-      ResultSet rs = stmt.executeQuery(query);
-      while (rs.next()) {
-        String email = rs.getString("studentemail");
-        String name = rs.getString("name");
-        String lastname1 = rs.getString("lastname1");
-        String lastname2 = rs.getString("lastname2");
-        String accountnumber = rs.getString("accountnumber");
-        String career = rs.getString("career");
-        String history = rs.getString("history");
-        Loan loan = new Loan(email,name,lastname1,lastname2,accountnumber,career,history,status);
-        list.add(loan);
-      }
-      return list;
-    } catch (SQLException e ) {
-        System.out.println(e);
-    } finally {
-        if (stmt != null) { stmt.close(); }
+  private List query(String query){
+    List list = new LinkedList();  
+    ResultSet rs = connection.select(query);
+    try{
+    while (rs.next()) {
+      String email = rs.getString("studentemail");
+      String name = rs.getString("name");
+      String lastname1 = rs.getString("lastname1");
+      String lastname2 = rs.getString("lastname2");
+      String accountnumber = rs.getString("accountnumber");
+      String career = rs.getString("career");
+      String history = rs.getString("history");
+      Loan loan = new Loan(email,name,lastname1,lastname2,accountnumber,career,history,status);
+      list.add(loan);
     }
-    return null;
+    return list;
+    }catch(Exception e){
+      System.out.println("Error...."+ e.toString());
+      return new LinkedList(); 
+    }
   }
   
   /**
   *Get a list of al the loans that match with the param type
-  *@param String status of the loan
+  * @param status
   *@return List list of all the loans that match
   */
   protected List getLoans(String status){
@@ -248,26 +218,27 @@ public class Loan {
 
   /**
   *Update the row with deny status specified the email 
-  *@param String email to search
+  * @param email
   *@return boolean true if the query was successful
   */
   public boolean denyLoan(String email){
     String q = "UPDATE loan SET status='d' WHERE studentemail='"+email+"'";
       System.out.println("q");
-    return exe_sql(q);
+    return connection.update(q);
   }
 
   /**
   *Update the row with approve status specified the email 
-  *@param String email to search
+  * @param email
+  * @param val
   *@return boolean true if the query was successful
   */
   public boolean grantedLoan(String email, double val){
     String q = "UPDATE loan SET status='a',creditapproved="+val+" WHERE studentemail='"+email+"'";
     String q2 = "UPDATE student SET  credits = "+val+" WHERE studentemail='"+email+"'";
     System.out.println(q2);
-    boolean b1 = exe_sql(q);
-    boolean b2 = exe_sql(q2);
+    boolean b1 = connection.update(q);
+    boolean b2 = connection.update(q2);
     return b1 && b2;
   }
 
