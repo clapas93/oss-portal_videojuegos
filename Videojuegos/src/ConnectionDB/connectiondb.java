@@ -44,8 +44,8 @@ public class connectiondb {
             
             host = "localhost";
 
-            //port = "5433";
-            port = "5432";
+            port = "5433";
+            //port = "5432";
             database = "videoGames";
             user = "Optimal";
             password = "OptimalSOfSo!";
