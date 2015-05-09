@@ -5,7 +5,7 @@
     --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="User.userStudent"%>
+<%@page import="User.UserStudent"%>
 <div id="games"></div>
 <div id="gamesupdate">
   <div class="row">
@@ -14,7 +14,7 @@
     </div>
   </div>
     <%
-    userStudent student = (userStudent)request.getAttribute("student");
+    UserStudent student = (UserStudent)request.getAttribute("student");
     
     %>
    <div class="row">

@@ -35,7 +35,7 @@ public class registerController extends HttpServlet {
     }
     
     protected int register(HttpServletRequest request, HttpServletResponse response){
-        userStudent student = new userStudent();
+        UserStudent student = new UserStudent();
         
         student.setStudentemail(request.getParameter("email"));
         student.setName(request.getParameter("name"));

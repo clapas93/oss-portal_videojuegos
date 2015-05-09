@@ -6,7 +6,7 @@
 package User;
 
 import Resources.Hash;
-import ConnectionDB.connectiondb;
+import ConnectionDB.ConnectionDB;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -34,7 +34,7 @@ import javax.servlet.http.Part;
  * @author antoniogalvan
  */
 @MultipartConfig
-public class UpdateStudent extends HttpServlet {
+public class UpdateStudentController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -55,9 +55,16 @@ public class UpdateStudent extends HttpServlet {
       String user = (String) session.getAttribute("userStudent");
       System.out.println(user);
 
-      String selectSQL = "SELECT * FROM student * WHERE studentemail = '"+ user +"'";
+      String selectSQL = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
+      
+      
+      
+      
+      
+      
+      
 
-      connectiondb cn = new connectiondb();
+      ConnectionDB cn = new ConnectionDB();
       Connection connection;
       Statement stat;
       String emaildb = null;
@@ -86,12 +93,16 @@ public class UpdateStudent extends HttpServlet {
           creditdb = executeQuery.getString("credits");
           histdb = executeQuery.getString("history");
         }
+        
+        UserStudent jenny = new UserStudent();
+        jenny = (UserStudent) jenny.selectStudent(emaildb);
+        
 
       }catch(Exception e){    
         System.out.println(e.toString());
       }
 
-      userStudent student = new userStudent(emaildb, namedb,lastName1db,
+      UserStudent student = new UserStudent(emaildb, namedb,lastName1db,
        lastName2db,numAccdb,carrerdb,passdb, statusdb, creditdb,histdb);
       request.setAttribute("student", student);
 
@@ -144,7 +155,7 @@ public class UpdateStudent extends HttpServlet {
       switch(path){
       case "/studentsave":
         view = "profileUpdate.jsp";
-        userStudent student = new userStudent();
+        UserStudent student = new UserStudent();
 
         HttpSession session = request.getSession();
         String user = (String) session.getAttribute("userStudent");

@@ -7,7 +7,7 @@ package controllers;
 
 import ConnectionDB.connectiondb;
 import ManageGames.Videogame;
-import User.userStudent;
+import User.UserStudent;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -86,7 +86,7 @@ public class VideogamesController extends HttpServlet {
           System.out.println(e.toString());
         }
 
-        userStudent student = new userStudent(emaildb, namedb,lastName1db,
+        UserStudent student = new UserStudent(emaildb, namedb,lastName1db,
          lastName2db,numAccdb,carrerdb,passdb, statusdb, creditdb,histdb);
         request.setAttribute("student", student);
 

@@ -73,7 +73,7 @@ public class register {
         }
     }
         
-    protected int registerStudent(userStudent userStudent){
+    protected int registerStudent(UserStudent userStudent){
         
         System.out.println(userStudent.getPassword() + "#############################################");
     
@@ -130,7 +130,7 @@ public class register {
      * @param userStudent
      * @return true si no existe el correo en la base de datos
      */
-    protected boolean verifyEmail(userStudent userStudent){
+    protected boolean verifyEmail(UserStudent userStudent){
         
         
         try{
@@ -156,7 +156,7 @@ public class register {
         
     }
     
-    protected boolean verifyAccountnumber(userStudent userStudent){
+    protected boolean verifyAccountnumber(UserStudent userStudent){
         
         try{
             String sql=

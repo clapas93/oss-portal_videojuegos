@@ -9,7 +9,7 @@ package User;
  *
  * @author magdiel
  */
-public class user {
+public class User {
     String name;
     String lastname1;
     String lastname2;

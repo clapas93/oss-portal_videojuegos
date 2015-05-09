@@ -9,7 +9,7 @@ package User;
  *
  * @author magdiel
  */
-public class UserAdmin extends user {
+public class UserAdmin extends User {
     
     String adminemail;
     String phone;
