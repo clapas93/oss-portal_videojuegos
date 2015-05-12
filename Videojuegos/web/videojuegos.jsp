@@ -4,235 +4,169 @@ Created on : 13/03/2015, 01:48:01 AM
 Author     : lalo
 --%>
 
-<%@page import="ManageGames.Videogame"%>
-<%@page import="java.util.List"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-List<Videogame> game = (List)request.getAttribute("games");
-%> 
-<!--videogame.jsp-->
-  <script type="text/javascript" src="public/js/jssor.js"></script>
-  <script type="text/javascript" src="public/js/jssor.slider.js"></script>
-  <script type="text/javascript" src="public/js/slider.js"></script>
-  <link rel="stylesheet" type="text/css" href="public/css/slider.css">
-<div id="slider1_container" class="slider1_container">
-<div u="slides" class="slidesdiv">
-    <%for(int i = 0; i<game.size();i++){%>
-    <div>
-    <img u="thumb" src="public/img/1920/thumb.jpg" />
-    <div u="caption" class="captiondiv">
-    <img class="video" video="<%=((Videogame)game.get(i)).getVideoUrl()%>" src="public/img/video.jpg">
-    </div>
-    <div class="title" > <%=((Videogame)game.get(i)).getTitle() %>
-    </div>
-    <div class="slidercontent">
-     <div class="row">
-        <div class="col-md-12">
-            <%=((Videogame)game.get(i)).getDescription() %>
-        </div>
+<script src="public/js/videogames/isotope.pkgd.js"></script>
+<link rel="stylesheet" type="text/css" href="public/css/videogames/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/videogames/demo.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/videogames/component.css" />
+    <script src="public/js/videogames/modernizr.custom.js"></script>
+  </head>
+  <body class="demo-2">
+    <div class="container">
+      <!-- Top Navigation -->
+      <div class="codrops-top clearfix">
+        <a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/ItemTransitions/"><span>Previous Demo</span></a>
+        <span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=18742"><span>Back to the Codrops Article</span></a></span>
       </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-6">
-          Genero: <%=((Videogame)game.get(i)).getGenre() %>
+      <header class="codrops-header">
+        <h1>3D Grid Effect <span>Recreation of the effect seen in the <a href="https://www.youtube.com/watch?v=sjGF6Mw6X_Y">prototype app by Marcus Eckert</a></span></h1>
+        <nav class="codrops-demos">
+          <a href="index.html">Vertical</a>
+          <a class="current-demo" href="index2.html">Horizontal</a>
+        </nav>
+      </header>
+      <section class="grid3d horizontal" id="grid3d">
+        <div class="grid-wrap">
+          <div class="grid">
+            <figure><img src="public/img/img/4.jpg" alt="img04"/></figure>
+            <figure><img src="public/img/img/3.jpg" alt="img03"/></figure>
+            <figure><img src="public/img/img/1.jpg" alt="img01"/></figure>
+            <figure><img src="public/img/img/5.jpg" alt="img05"/></figure>
+            <figure><img src="public/img/img/2.jpg" alt="img02"/></figure>
+            <figure><img src="public/img/img/8.jpg" alt="img08"/></figure>
+            <figure><img src="public/img/img/9.jpg" alt="img09"/></figure>
+            <figure><img src="public/img/img/6.jpg" alt="img06"/></figure>
+            <figure><img src="public/img/img/7.jpg" alt="img07"/></figure>
+          </div>
+        </div><!-- /grid-wrap -->
+        <div class="content">
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <div>
+            <div class="dummy-img"></div>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+            <p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+          </div>
+          <span class="loading"></span>
+          <span class="icon close-content"></span>
         </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-6">
-          Clasificación <%=((Videogame)game.get(i)).getClassification() %>
-        </div>
-      </div>
-      <br>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-6">
-          Precio: <%=((Videogame)game.get(i)).getPrice() %> creditos
-        </div>
-        <div class="col-md-6">
-        <button class="btn btn-success">Comprar</button>
-        </div>
-      </div>
-    </div>
-    </div>
-    <%}%>
-  <div>
-    <img u="thumb" src="public/img/1920/thumb.jpg" />
-    <div u="caption" class="captiondiv">
-     <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/DGBwXH5P218" frameborder="0"  allowfullscreen></iframe> -->
-    <img class="video" video="https://www.youtube.com/embed/DGBwXH5P218" src="public/img/video.jpg">
-    </div>
-    <div class="title" >Game 1
-    </div>
-    <div class="slidercontent">
-     <div class="row">
-        <div class="col-md-12">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc eros, lacinia quis tempor a, sodales non urna. Ut gravida, nisi ut vestibulum vulputate, nisi augue luctus leo, vitae facilisis neque magna quis odio. Fusce eleifend condimentum nibh ut maximus. Sed vel pharetra quam, ac interdum erat. In ex lacus, dapibus in sapien a, mollis ultrices urna. Sed eget eros luctus, lobortis massa eget, porta diam. Morbi id feugiat ligula, sed iaculis neque. Maecenas feugiat posuere tellus ut consequat. Morbi nec velit at magna interdum commodo. Integer rhoncus eget magna ut molestie. Aliquam accumsan sagittis enim a elementum. Aliquam vitae scelerisque lorem. Duis sed justo risus. Nullam sagittis rutrum odio, at viverra ante tempor eget. Fusce accumsan mollis magna, quis sollicitudin ante gravida et. Pellentesque a finibus elit.
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-6">
-          Precio: 10 creditos
-        </div>
-        <div class="col-md-6">
-        <button class="btn btn-success">Comprar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+      </section>
+      <section>
+        <p>Illustrations by <a href="https://www.behance.net/AdamQuest">Adam Quest</a></p>
+      </section>
+      <section class="related">
+        <p>If you enjoyed this demo you might also like:</p>
+        <a href="http://tympanus.net/Tutorials/TiltedContentSlideshow/">
+          <img src="http://tympanus.net/codrops/wp-content/uploads/2014/03/TiltedContentSlideshow-300x162.jpg" />
+          <h3>Tilted Content Slideshow</h3>
+        </a>
+        <a href="http://tympanus.net/Development/GridLoadingEffects/">
+          <img src="http://tympanus.net/codrops/wp-content/uploads/2013/07/GridLoadingEffects-300x162.png" />
+          <h3>Loading Effects for Grid Items</h3>
+        </a>
+      </section>
+    </div><!-- /container -->
+    <script src="public/js/videogames/classie.js"></script>
+    <script src="public/js/videogames/helper.js"></script>
+    <script src="public/js/videogames/grid3d.js"></script>
+    <script>
+      new grid3D( document.getElementById( 'grid3d' ) );
+    </script>
+  </body>
 
-  <div>
-    <img u="thumb" src="public/img/1920/thumb2.png" />
-    <div u="caption" class="captiondiv">
-     <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/D5QXhxGUvuA" frameborder="0" allowfullscreen></iframe> -->
-     <img class="video" video="https://www.youtube.com/embed/DGBwXH5P218" src="public/img/video.jpg">
-    </div>
-    <div class="title">
-      Game 2
-    </div>
-    <div class="slidercontent">
-      <div class="row">
-        <div class="col-md-12">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc eros, lacinia quis tempor a, sodales non urna. Ut gravida, nisi ut vestibulum vulputate, nisi augue luctus leo, vitae facilisis neque magna quis odio. Fusce eleifend condimentum nibh ut maximus. Sed vel pharetra quam, ac interdum erat. In ex lacus, dapibus in sapien a, mollis ultrices urna. Sed eget eros luctus, lobortis massa eget, porta diam. Morbi id feugiat ligula, sed iaculis neque. Maecenas feugiat posuere tellus ut consequat. Morbi nec velit at magna interdum commodo. Integer rhoncus eget magna ut molestie. Aliquam accumsan sagittis enim a elementum. Aliquam vitae scelerisque lorem. Duis sed justo risus. Nullam sagittis rutrum odio, at viverra ante tempor eget. Fusce accumsan mollis magna, quis sollicitudin ante gravida et. Pellentesque a finibus elit.
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-6">
-          Precio: 10 creditos
-        </div>
-        <div class="col-md-6">
-        <button class="btn btn-success">Comprar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- <img id="spinner" src="public/img/hex-loader2.gif">
+<div id="load" style="display:none"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></div> -->
+<script type="text/javascript">
+/*var info = new Array();
+$.ajax({
+  url: "getvideogames" ,
+  dataType: "json",
+  contentType: 'application/json',
+  success: function(data){
 
-  <div>
-    <img u="thumb" src="public/img/1920/thumb3.png" />
-     <div u="caption" class="captiondiv">
-     <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/PT6ivWqZv-c" frameborder="0" allowfullscreen></iframe> -->
-     <img class="video" video="https://www.youtube.com/embed/DGBwXH5P218" src="public/img/video.jpg">
-    </div>
-    <div class="title">
-      Game 3
-    </div>
-    <div  class="slidercontent">
-     <div class="row">
-        <div class="col-md-12">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc eros, lacinia quis tempor a, sodales non urna. Ut gravida, nisi ut vestibulum vulputate, nisi augue luctus leo, vitae facilisis neque magna quis odio. Fusce eleifend condimentum nibh ut maximus. Sed vel pharetra quam, ac interdum erat. In ex lacus, dapibus in sapien a, mollis ultrices urna. Sed eget eros luctus, lobortis massa eget, porta diam. Morbi id feugiat ligula, sed iaculis neque. Maecenas feugiat posuere tellus ut consequat. Morbi nec velit at magna interdum commodo. Integer rhoncus eget magna ut molestie. Aliquam accumsan sagittis enim a elementum. Aliquam vitae scelerisque lorem. Duis sed justo risus. Nullam sagittis rutrum odio, at viverra ante tempor eget. Fusce accumsan mollis magna, quis sollicitudin ante gravida et. Pellentesque a finibus elit.
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-6">
-          Precio: 10 creditos
-        </div>
-        <div class="col-md-6">
-        <button class="btn btn-success">Comprar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    $.each(data, function(index, elem) { 
+      info.push(elem)
+    });
+    console.log(info);
+    loadGames();
+  },
+  error: function(data){
+    console.error(data);
+  }
+});
 
-<div u="thumbnavigator" class="jssort01" style="position: absolute; width: 800px; height: 100px; left:20%; bottom: 0px;">
-<!-- Thumbnail Item Skin Begin -->
-<style>
 
-</style>
-<div class="slidethumb" u="slides" style="cursor: move;">
-  <div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0; left: 0;">
-    <div class=w><div u="thumbnailtemplate" style=" width: 100%; height: 100%; border: none;position:absolute; top: 0; left: 0;"></div></div>
-    <div class=c>
-    </div>
-  </div>
-</div>
-<!-- Thumbnail Item Skin End -->
-</div>
-<!-- Arrow Left -->
-<span u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 123px; left: 8px;">
-</span>
-<!-- Arrow Right -->
-<span u="arrowright" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
-</span>
-<!-- Arrow Navigator Skin End -->
-</div>
-<div class="videodiv" >
-  <div class="videoframe">
+var option = {itemSelector: '.element-item', layoutMode: 'masonry', masonry: {columnWidth: 110}, cellsByRow: {columnWidth: 220, rowHeight: 220},  masonryHorizontal: {rowHeight: 110}, cellsByColumn: {columnWidth: 220, rowHeight: 220}};
+$container = $('#games .isotope-demo').isotope(option);
+function loadGames() {
+  $("#spinner").fadeOut();
+  var $inser = "";
+  for(var i = $('#games .isotope-demo >').length; i < info.length+3 && i < $('#games .isotope-demo >').length + 6; i++){
+    $inser += 
+    '<li class="element-item icon-clima-2">'+
+    '<h3>Juego</h3><span class="rb-temp">terror</span>'+
+    '<div class="rb-overlay">'+
+    '<span class="rb-close">close</span>'+
+    '<div class="rb-week">'+
+    '<div><span class="rb-city">Juego</span><span class="icon-clima-2"></span><span>Portada</span></div>'+
+    '<div></div>'+
+    '</div>'+
+    '</div>'+
+    '</li>';  
+  }
+  $inser = $($inser);
+  $container.append( $inser ).isotope( 'addItems', $inser );
+  $container.isotope(option); 
+  setTimeout(function(){
+    $("html, body").animate({ scrollTop: $("body").height() }, 600);
+  },500);
 
-  </div>
-<div>
-  <img id="close"src="public/img/x.png">
-</div>
-</div>
-
-<style type="text/css">
-.videoframe{
-  width: 90%;
-  height: 90%;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  if(info.length<=i){
+    $("#load").fadeOut();
+    $("#morediv").fadeIn();
+  }else{
+    console.log(info.length);
+    $("#load").fadeIn();
+  }
 }
-
-#close {
-  color:white;
-  line-height: 12px;
-  width: 3em;
-  font-family: tahoma;
-  margin-top: 1px;
-  margin-right: 2px;
-  position:absolute;
-  top:0;
-  right:0;
-}
-.videodiv {
-  display: none;
-  z-index: 11;
-  position:fixed;
-  top: 0 ;
-  padding:0;
-  margin:0;
-  width: 100%;
-  height: 100%;
-  background-color:rgba(25,25,25,1); 
-}
-
-</style>
- <script type="text/javascript">
-  $(".video").click(function(){
-    var vid = $(this).attr("video");
-    console.log(vid);
-    $(".captiondiv").fadeOut(400);
-    $(".slidercontent").fadeOut(800);
-    $(".slidethumb").fadeOut(1200);
-    $(".jssort01").fadeOut(1600);
-    $(".title").fadeOut(2000);
-    var vapp ='<iframe width="100%" height="100%" src="'+vid+'?autoplay=0&showinfo=0&controls=0" frameborder="0" allowfullscreen>';
-    $(".videoframe").append(vapp);
-    $(".videodiv").fadeIn(2400);
-    
-  });
-
-  $("#close").click(function(){
-    $(".videoframe").empty();
-    $(".videodiv").fadeOut(400);
-    $(".captiondiv").fadeIn(800);
-    $(".slidercontent").fadeIn(1200);
-    $(".slidethumb").fadeIn(1600);
-    $(".jssort01").fadeIn(2000);
-    $(".title").fadeIn(2400);
-  });
-  
+*/
 </script>

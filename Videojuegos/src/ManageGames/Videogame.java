@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
-import ConnectionDB.connectiondb;
+import ConnectionDB.ConnectionDB;
 import java.util.List;
 import java.util.LinkedList;
 
@@ -30,11 +30,12 @@ public class Videogame {
     private String state; //1 available , 0 deleted
     private String videoUrl; //Videogame trailer
     private String adminEmail; //admin's email who uploaded the videogame
-    
-    /**
+    private final ConnectionDB connection;
+    /** 
     * Initializes a newly created Videogame object with all its attributes with default values.
     */
     public Videogame(){
+        this.connection = new ConnectionDB();
         this.id=0;
         this.routeGame="";
         this.front="";
@@ -77,6 +78,7 @@ public class Videogame {
         this.state="1";
         this.videoUrl=videoUrl;
         this.adminEmail="admin@oss.com";
+        this.connection = new ConnectionDB();
     }
     
     /**
@@ -102,6 +104,7 @@ public class Videogame {
         this.state="1";
         this.videoUrl=videoUrl;
         this.adminEmail="admin@oss.com";
+        this.connection = new ConnectionDB();
     }
     
     /**
@@ -444,21 +447,7 @@ public class Videogame {
     * @return boolean   true if the conecction was established, false in other case.
     */
     private boolean initUpdateDB(String script){
-        connectiondb conection = new connectiondb();
-        Connection cn;
-        Statement st;
-        try{
-            cn = conection.connectionDB();
-            st = cn.createStatement();
-            st.executeUpdate(script);
-            return true;
-        }catch(SQLException e){
-            System.out.println("SQL exception: " + e.getMessage());
-            return false;
-        }catch(Exception e){
-            System.out.println("Execption: "+e.getMessage());
-            return false;
-        }
+       return connection.update(script);
     }
     
     /**
@@ -468,14 +457,8 @@ public class Videogame {
     */
     private List<Videogame> initListDB(String script){
         List<Videogame> list = new LinkedList<Videogame>();
-        connectiondb conection = new connectiondb();
-        Connection cn;
-        Statement st = null;
-        ResultSet result;
         try{
-            cn = conection.connectionDB();
-            st = cn.createStatement();
-            result = st.executeQuery(script);
+            ResultSet result = connection.select(script);
             while(result.next()){
                 Videogame game = new Videogame();
                 game.setId(result.getInt("idGame"));
@@ -508,14 +491,8 @@ public class Videogame {
     */
     private Videogame initGameDB(String script){
         Videogame game = new Videogame();
-        connectiondb conection = new connectiondb();
-        Connection cn;
-        Statement st = null;
-        ResultSet result;
         try{
-            cn = conection.connectionDB();
-            st = cn.createStatement();
-            result = st.executeQuery(script);
+            ResultSet result = connection.select(script);
             while(result.next()){
                 game.setId(result.getInt("idGame"));
                 game.setRouteGame(result.getString("routeGame"));

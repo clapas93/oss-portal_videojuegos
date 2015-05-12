@@ -28,7 +28,7 @@ public class UserStudent extends User {
     private final ConnectionDB connection;
     
     public UserStudent(){
-        this.connection = null;
+        this.connection = new ConnectionDB();
     }
     
     public UserStudent(String studentemail, String name, String lastname1,
@@ -97,29 +97,41 @@ public class UserStudent extends User {
         this.history = history;
     }
     
-    public boolean updateDB(){
+    public boolean update(){
         String query = "UPDATE student set name ="+"'"+super.getName()+"'," 
-                +"lastname1="+"'"+super.getLastname1()+"',"
-                +"lastname2="+"'"+super.getLastname2()+"',"
-                +"accountnumber"+"'"+this.accountnumber+"',"
-                +"career"+"'"+this.career+"',"
-                +"password"+"'"+super.getPassword()+","
-                +"status"+"'"+this.status+"',"
-                +"credits"+"'"+this.credits+"',"
-                +"history"+"'"+this.history+"'"
+                +"lastname1="+"'"+this.getLastname1()+"',"
+                +"lastname2="+"'"+this.getLastname2()+"',"
+                +"accountnumber="+"'"+this.accountnumber+"',"
+                +"career="+"'"+this.career+"',"
+                +"password="+"'"+this.getPassword()+"',"
+                +"status="+"'"+this.status+"',"
+                +"credits="+"'"+this.credits+"',"
+                +"history="+"'"+this.history+"'"
                 +"WHERE studentemail ='"+this.studentemail+"';";
+        System.out.println(query);
         return connection.update(query);
     }
+
+    public boolean insert(String query){
+       return connection.insert(query);
+    }
     
-    public ResultSet selectStudent(String email){
-        try {
-            String query = "SELECT * FROM student WHERE studentemail ='"
-                    +this.studentemail+"';";
-            ResultSet tmp = connection.select(query);
-            
-            System.out.println(tmp.getString(0));
-            
-            return tmp;
+    public UserStudent selectStudent(String query){
+      UserStudent aux = new UserStudent();  
+      try {
+            System.out.println(query);
+            ResultSet rs = connection.select(query);
+            while(rs.next()){
+              aux.setName(rs.getString("name"));
+              aux.setLastname1(rs.getString("lastname1"));
+              aux.setLastname2(rs.getString("lastname2"));
+              aux.setAccountnumber(rs.getString("accountnumber"));
+              aux.setCareer(rs.getString("career"));
+              aux.setPassword(rs.getString("password"));
+              aux.setStatus(rs.getString("status"));
+              aux.setHistory(rs.getString("history"));
+            }
+            return aux;
         } catch (SQLException ex) {
             Logger.getLogger(UserStudent.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -5,74 +5,16 @@
  */
 package User;
 
-import ConnectionDB.connectiondb;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
-/**
- *
- * @author magdiel
- */
-public class register {
+import ConnectionDB.ConnectionDB;
+public class Register {
     
-    private boolean exeRegister(String SQL){
-        
-        connectiondb cn = new connectiondb();
-        //PARA INSERTAR,MODIFICAR,ELIMINAR
-        Connection connection;
-        Statement stat;
-        int result;
-        boolean flag;
-        try{
-            connection = cn.connectionDB();
-            System.out.println("OK ... bien1");
-            stat = connection.createStatement();
-            result = stat.executeUpdate(SQL);
-            System.out.println(result);
-            
-            if(result != 0){
-                System.out.println("OK ... bien1.1");
-                flag = true;
-            }else{
-                System.out.println("NO EXISTE INFORMACION");
-                flag = false;
-            }      
-            System.out.println("OK ... bien2");
-                        
-            return flag;
-        }catch(Exception e){
-            System.out.println("Error...."+ e.toString());
-            return false;
-        }
+  
+    public final ConnectionDB connection;
+    
+    public Register(){
+      connection = new ConnectionDB();
     }
-    private boolean exeSelect(String SQL){
-        
-        connectiondb cn = new connectiondb();
-        /* PARA INSERTAR, MODIFICAR, ELIMINAR */
-        Connection connection;
-        Statement stat;
-        ResultSet result = null;
-        boolean flag;
-        try{
-            connection = cn.connectionDB();
-            stat = connection.createStatement();
-            result = stat.executeQuery(SQL);
-            
-            if(result.next()){
-                flag = true;
-            }else{
-                System.out.println("NO EXISTE INFORMACION");
-                flag = false;
-            }      
-                        
-            return flag;
-        }catch(Exception e){
-            System.out.println("Error...."+ e.toString());
-            return false;
-        }
-    }
-        
+
     protected int registerStudent(UserStudent userStudent){
         
         System.out.println(userStudent.getPassword() + "#############################################");
@@ -95,7 +37,7 @@ public class register {
                     + "'" + 0 + "',"
                     + "'" + userStudent.getHistory() + "');"; 
                     
-                    if(exeRegister(sql)){
+                    if(connection.insert(sql)){
                         System.out.println("Consulta correcta, se agregó estudiante");
                         return 2;    
                     }else{
@@ -140,7 +82,7 @@ public class register {
             /**
              * Realizamos una coonsulta para verificar que no existe en la base de datos.
              */
-            if(!exeSelect(sql)){
+            if(connection.select(sql)!=null){
                 System.out.println("No existe este correo en la base de datos");
                 return true;                
             }else{
@@ -165,7 +107,7 @@ public class register {
             /**
              * Realizamos una consulta para verificar que no existe en la base de datos el número de cuenta.
              */
-            if(!exeSelect(sql)){
+            if(connection.select(sql)!=null){
                 System.out.println("No existe esta cuenta en la base de datos");
                 return true;                
             }else{

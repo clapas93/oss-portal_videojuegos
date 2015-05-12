@@ -5,50 +5,20 @@
  */
 package User;
 
-import java.sql.Connection;
+import ConnectionDB.ConnectionDB;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import ConnectionDB.connectiondb;
-import java.sql.SQLException;
+
 /**
  *
  * @author magdiel
  */
-public class login {
+public class Login {
     
-    /**
-     * Crea un objeto en el que mediante una conexión a la base de datos podemos realizar consultas.
-     * @param SQL cadena de sql para hacer consultas en la base de datos.
-     * @return true si pudo realizar la consulta.
-     * @return false si no hay infirmación en la base de datos. 
-     */
-    private boolean exe_sql(String SQL){
-        
-        connectiondb cn = new connectiondb();
-        /* PARA INSERTAR,MODIFICAR,ELIMINAR */
-        Connection connection;
-        Statement stat;
-        ResultSet result = null;
-        boolean flag;
-        try{
-            connection = cn.connectionDB();
-            stat = connection.createStatement();
-            result = stat.executeQuery(SQL);
-            
-            if(result.next()){
-                flag = true;
-            }else{
-                System.out.println("NO EXISTE INFORMACION");
-                flag = false;
-            }      
-                        
-            return flag;
-        }catch(Exception e){
-            System.out.println("Error...."+ e.toString());
-            return false;
-        }
+    private final ConnectionDB connection;
+    
+    public Login(){
+      connection = new ConnectionDB();
     }
-    
     /**
      * Modelo para solicitar una consulta a la base de datos.
      * Método para iniciar sesión como admin.
@@ -67,8 +37,8 @@ public class login {
             String sql=
             "SELECT * FROM admin WHERE adminemail = '"+
                     user.getAdminemail()+
-                    "' AND password = '"+user.getPassword()+"';";            
-            if(exe_sql(sql)){
+                    "' AND password = '"+user.getPassword()+"';";    
+            if(connection.select(sql).wasNull()){
                 System.out.println();
                 System.out.println("OK ... bien3");
                 return 1;
@@ -106,7 +76,7 @@ public class login {
                     "' AND password = '"+ psw +"';";
             System.out.println(user + " && " + psw);
             
-            if(exe_sql(sql)){
+            if(connection.select(sql).wasNull()){
                 System.out.println();
                 System.out.println("OK ... bien3");
                 return true;

@@ -18,15 +18,15 @@
     </servlet>
     <servlet>
         <servlet-name>UpdateStudent</servlet-name>
-        <servlet-class>User.UpdateStudentController</servlet-class>
+        <servlet-class>User.StudentController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>loginController</servlet-name>
-        <servlet-class>User.loginController</servlet-class>
+        <servlet-class>User.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>logoutController</servlet-name>
-        <servlet-class>User.logoutController</servlet-class>
+        <servlet-class>User.LogoutController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>login</servlet-name>
@@ -38,11 +38,12 @@
     </servlet>
     <servlet>
         <servlet-name>registerController</servlet-name>
-        <servlet-class>User.registerController</servlet-class>
+        <servlet-class>User.RegisterController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
+        <url-pattern>/getvideogames</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
@@ -68,11 +69,6 @@
         <url-pattern>/getalgo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UpdateStudent</servlet-name>
-        <url-pattern>/updatestudent</url-pattern>
-        <url-pattern>/studentsave</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>loginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
     </servlet-mapping>
@@ -83,6 +79,12 @@
     <servlet-mapping>
         <servlet-name>registerController</servlet-name>
         <url-pattern>/registerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStudent</servlet-name>
+        <url-pattern>/updatestudent</url-pattern>
+        <url-pattern>/myaccount</url-pattern>
+        <url-pattern>/studentsave</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

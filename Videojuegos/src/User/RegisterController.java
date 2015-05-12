@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author magdiel
  */
-public class registerController extends HttpServlet {
+public class RegisterController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -50,7 +50,7 @@ public class registerController extends HttpServlet {
         
         System.out.println(request.getParameter("password"));
         
-        register reg = new register();
+        Register reg = new Register();
         
         int aux = reg.registerStudent(student);
         

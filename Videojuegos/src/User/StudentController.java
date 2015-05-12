@@ -6,18 +6,13 @@
 package User;
 
 import Resources.Hash;
-import ConnectionDB.ConnectionDB;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -26,7 +21,6 @@ import java.nio.file.Files;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import javax.servlet.http.Part;
 
 /**
@@ -34,8 +28,13 @@ import javax.servlet.http.Part;
  * @author antoniogalvan
  */
 @MultipartConfig
-public class UpdateStudentController extends HttpServlet {
-
+public class StudentController extends HttpServlet {
+    
+    private UserStudent model ;
+  
+    public StudentController(){
+      model = new UserStudent();
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -50,74 +49,39 @@ public class UpdateStudentController extends HttpServlet {
       String path = request.getRequestURI().substring(request.getContextPath().length());
       String view = "";
       String footer = "footer.jsp";
+      String header = "headerLogin.jsp";
       /* Recuperamos la sesión que está activa */
       HttpSession session = request.getSession();
       String user = (String) session.getAttribute("userStudent");
-      System.out.println(user);
-
-      String selectSQL = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
+      System.out.println("user   "+user);
       
-      
-      
-      
-      
-      
-      
-
-      ConnectionDB cn = new ConnectionDB();
-      Connection connection;
-      Statement stat;
-      String emaildb = null;
-      String namedb = null;
-      String lastName1db = null;
-      String lastName2db = null;
-      String carrerdb = null;
-      String numAccdb = null;
-      String passdb = null;
-      String statusdb = null;
-      String creditdb = null;
-      String histdb = null;
-      try{
-        connection = cn.connectionDB();
-        stat = connection.createStatement();
-        ResultSet executeQuery = stat.executeQuery(selectSQL);
-        while(executeQuery.next()){
-          emaildb = executeQuery.getString("studentemail");
-          namedb = executeQuery.getString("name");
-          lastName1db = executeQuery.getString("lastname1");
-          lastName2db = executeQuery.getString("lastname2");
-          numAccdb = executeQuery.getString("accountnumber");
-          carrerdb = executeQuery.getString("career");
-          passdb = executeQuery.getString("password");
-          statusdb = executeQuery.getString("status");
-          creditdb = executeQuery.getString("credits");
-          histdb = executeQuery.getString("history");
-        }
-        
-        UserStudent jenny = new UserStudent();
-        jenny = (UserStudent) jenny.selectStudent(emaildb);
-        
-
-      }catch(Exception e){    
-        System.out.println(e.toString());
+      if(user==null){
+        response.sendRedirect(response.encodeRedirectURL("videogames"));
+        return;
       }
-
-      UserStudent student = new UserStudent(emaildb, namedb,lastName1db,
-       lastName2db,numAccdb,carrerdb,passdb, statusdb, creditdb,histdb);
-      request.setAttribute("student", student);
-
-
+      
+      String selectSQL = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
+      System.out.println(selectSQL);
+      UserStudent student = model.selectStudent(selectSQL);
+      
       switch (path) {
         case "/updatestudent":
-
-        view = "profileUpdate.jsp";
-        String header = "headerLogin.jsp";
-        request.setAttribute("header", header);
-        request.setAttribute("view", view);
-        request.setAttribute("title", "Manage Games");
-        request.setAttribute("footer", footer);
-        request.getRequestDispatcher("layout.jsp").forward(request, response);
-
+          view = "profileUpdate.jsp";
+          request.setAttribute("student", student);
+          request.setAttribute("header", header);
+          request.setAttribute("view", view);
+          request.setAttribute("title", "Manage Games");
+          request.setAttribute("footer", footer);
+          request.getRequestDispatcher("layout.jsp").forward(request, response);
+        break;
+        case "/myaccount":
+          view = "AccountHI.jsp";
+          request.setAttribute("student", student);
+          request.setAttribute("header", header);
+          request.setAttribute("view", view);
+          request.setAttribute("title", "Manage Games");
+          request.setAttribute("footer", footer);
+          request.getRequestDispatcher("layout.jsp").forward(request, response);
         break;
 
     }
@@ -159,9 +123,7 @@ public class UpdateStudentController extends HttpServlet {
 
         HttpSession session = request.getSession();
         String user = (String) session.getAttribute("userStudent");
-        System.out.println(user);
-
-
+        
         String name = request.getParameter("nombre_s");
         String lastName1 = request.getParameter("last_name1");
         String lastName2 = request.getParameter("last_name2");
@@ -174,7 +136,7 @@ public class UpdateStudentController extends HttpServlet {
         System.out.println(filePart.getSize()==0);
         if(filePart.getSize()!=0){
           Hash hash = new Hash();
-          hist =hash.generateCode(user);//getFileName(filePart);
+          hist =hash.generateCode(user);
         }
 
         student.setStudentemail(user);
@@ -201,51 +163,19 @@ public class UpdateStudentController extends HttpServlet {
                   dateS+"','"+state+"',"+credit+");";
 
         System.out.println(insertLoan);
-        String updateSQL="";
-        if(hist==""){
-          updateSQL = "UPDATE student set name="+"'"+student.getName()+"',"
-          +"lastname1 = '"+student.getLastname1()+"',"
-          +"lastname2 = '"+student.getLastname2()+"',"
-          +"accountnumber = '"+student.getAccountnumber()+"',"
-          +"career = '"+student.getCareer()+"',"
-          +"status = '"+student.getStatus()+"',"
-          +"credits ="+student.getCredits()+" "
-          +" where studentemail = '"+student.getStudentemail()+"';";
-        }else{
-          updateSQL = "UPDATE student set name="+"'"+student.getName()+"',"
-          +"lastname1 = '"+student.getLastname1()+"',"
-          +"lastname2 = '"+student.getLastname2()+"',"
-          +"accountnumber = '"+student.getAccountnumber()+"',"
-          +"career = '"+student.getCareer()+"',"
-          +"status = '"+student.getStatus()+"',"
-          +"credits ="+student.getCredits()+","
-          +"history ='"+student.getHistory()+"'"
-          +" where studentemail = '"+student.getStudentemail()+"';";
-        }
-        //Si el historial no es subido cambiar no actualizar
         
-        System.out.println(updateSQL);
+        //Si el historial no es subido cambiar no actualizar
         try{
-          connectiondb cn = new connectiondb();
-          Connection connection;
-          Statement stat;
-          connection = cn.connectionDB();
-          stat = connection.createStatement();
-          //stat.executeQuery("DELETE FROM student WHERE studentemail = 'jen@ciencias.unam.mx'");
-          stat.executeQuery(updateSQL);
-          stat.executeQuery(insertLoan);
+         
+          student.update();
+          model.insert(insertLoan);
         }catch(Exception e){    
           System.out.println(e.toString());
         }
          if(filePart.getSize()!=0){
           try{
-            connectiondb cn = new connectiondb();
-            Connection connection;
-            Statement stat;
-            connection = cn.connectionDB();
-            stat = connection.createStatement();
-            //stat.executeQuery("DELETE FROM student WHERE studentemail = 'jen@ciencias.unam.mx'");
-            stat.executeQuery(insertLoan);
+            
+            model.insert(insertLoan);
           }catch(Exception e){    
             System.out.println(e.toString());
           }

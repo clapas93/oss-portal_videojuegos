@@ -23,7 +23,7 @@ public class ConnectionDB {
   private String password;
   private String stringConection;
   
-  public ConnectionDB(){
+  public ConnectionDB() throws SQLException{
     try {
       
       this.host = "localhost";
@@ -58,7 +58,8 @@ public class ConnectionDB {
         System.out.println("OK ... bien1.1");
       }else{
         System.out.println("NO EXISTE INFORMACION");
-      }      
+      }
+      this.connection.close();
       return resultset;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());
@@ -77,6 +78,7 @@ public class ConnectionDB {
       stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
+      this.connection.close();
       return  true;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());
@@ -94,6 +96,7 @@ public class ConnectionDB {
       this.stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
+      this.connection.close();
       return true;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());
@@ -112,7 +115,7 @@ public class ConnectionDB {
       this.stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
-      
+      this.connection.close();
       return true;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());

@@ -13,7 +13,6 @@ String bool2 =(String)request.getAttribute("bool2");
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="public/img/favicon.png"/>
-  <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
@@ -21,16 +20,14 @@ String bool2 =(String)request.getAttribute("bool2");
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="public/js/validando.js"></script>
   <script type="text/javascript" src="public/js/layout.js"></script>
-  <script type="text/javascript" src="public/js/bootstrapValidator.js"></script>
-  <link rel="stylesheet" type="text/css" href="public/css/liquid.css">
 </head>
-<body  style="display:none">
+<body  style="display:none" class="demo-2">
  <nav class="navbar navbar-default navbar-fixed-top">
 
   <% if(header == null ){ %>
   <div class="container-fluid">
    <div class="navbar-header">
-       <a href="videogames"> <img src="public/img/brand.png" id="brandimage"></a>
+     <a href="videogames"> <img src="public/img/brand.png" id="brandimage"></a>
      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
        <span class="sr-only">Toggle navigation</span>
        <span class="icon-bar"></span>
@@ -83,13 +80,13 @@ String bool2 =(String)request.getAttribute("bool2");
 <% } %>
 </nav>
 
-<canvas id="canv" style="width: inherit; height: initial; position: absolute; left: 0px; top: 0px;" width="1366" height="658"></canvas>
+<div id="wrapper">
+<jsp:include page='<%= view %>' />
 
-<section id="games">
-  <jsp:include page='<%= view %>' />
-</section>
 <div style="display:none"class="transparent"></div>
+
 <jsp:include page='<%= footer %>' />
+</div>
 </body>  
 </html>
 

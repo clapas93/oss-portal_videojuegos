@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import ConnectionDB.connectiondb;
+import ConnectionDB.ConnectionDB;
 import ManageGames.Videogame;
 import User.UserStudent;
 import java.io.IOException;
@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -50,9 +52,6 @@ public class VideogamesController extends HttpServlet {
         System.out.println(user);
         String header = "";
         String selectSQL = "SELECT * FROM student  WHERE studentemail = '"+ user +"'";
-
-
-        connectiondb cn = new connectiondb();
         Connection connection;
         Statement stat;
         String emaildb = null;
@@ -66,9 +65,8 @@ public class VideogamesController extends HttpServlet {
         String creditdb = null;
         String histdb = null;
         try{
-          connection = cn.connectionDB();
-          stat = connection.createStatement();
-          ResultSet executeQuery = stat.executeQuery(selectSQL);
+          ConnectionDB cn = new ConnectionDB();
+          ResultSet executeQuery = cn.select(selectSQL);
           while(executeQuery.next()){
             emaildb = executeQuery.getString("studentemail");
             namedb = executeQuery.getString("name");
@@ -90,27 +88,46 @@ public class VideogamesController extends HttpServlet {
          lastName2db,numAccdb,carrerdb,passdb, statusdb, creditdb,histdb);
         request.setAttribute("student", student);
 
-
-        switch (path) {
-        case "/videogames":
-        if(user==null){
-          header = null;
-        }else{
-          header = "headerLogin.jsp";
-        }
-        view = "videojuegos.jsp";
         Videogame game = new Videogame();
-        List<Videogame> videogames = game.getListDB();
-        request.setAttribute("games", videogames);
-        request.setAttribute("header", header);
-        request.setAttribute("view", view);
-        request.setAttribute("title", "Manage Games");
-        request.setAttribute("footer", footer);
-        request.getRequestDispatcher("layout.jsp").forward(request, response);
-
-        break;
-
-    }
+        switch (path) {
+          case "/videogames":
+            if(user==null){
+              header = null;
+            }else{
+              header = "headerLogin.jsp";
+            }
+            view = "videojuegos.jsp";
+            List<Videogame> videogames = game.getListDB();
+            request.setAttribute("games", videogames);
+            request.setAttribute("header", header);
+            request.setAttribute("view", view);
+            request.setAttribute("title", "Manage Games");
+            request.setAttribute("footer", footer);
+            request.getRequestDispatcher("layout.jsp").forward(request, response);
+          break;
+          case "/getvideogames":
+            PrintWriter out = response.getWriter();
+            response.setContentType("application/json");
+            List<Videogame> games = game.getListDB();
+            JSONObject obj = new JSONObject();
+            JSONArray jgames = new JSONArray();
+            for(Videogame v : games){
+              JSONObject aux = new JSONObject();
+              aux.put("id",v.getId());
+              aux.put("title",v.getTitle() );
+              aux.put("description",v.getDescription());
+              aux.put("price",v.getPrice());
+              aux.put("state",v.getState());
+              aux.put("downloads",v.getDownloads());
+              aux.put("front",v.getFront());
+              aux.put("video",v.getVideoUrl());
+              aux.put("url",v.getRouteGame());
+              jgames.add(aux);
+            }
+            out.print(jgames);
+            out.flush();
+          break;
+      }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

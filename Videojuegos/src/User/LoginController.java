@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author magdiel
  */
-public class loginController extends HttpServlet {
+public class LoginController extends HttpServlet {
     
 
     /**
@@ -107,7 +107,7 @@ public class loginController extends HttpServlet {
         data_user.setAdminemail(request.getParameter("usuario"));
         data_user.setPassword(request.getParameter("password"));
            
-        login cn = new login();
+        Login cn = new Login();
         
         System.out.println("OK ... bien4.1");
         int value_page = cn.loginAdmin(data_user);
