@@ -130,6 +130,7 @@ public class UserStudent extends User {
               aux.setPassword(rs.getString("password"));
               aux.setStatus(rs.getString("status"));
               aux.setHistory(rs.getString("history"));
+              aux.setCredits(rs.getString("credits"));
             }
             return aux;
         } catch (SQLException ex) {

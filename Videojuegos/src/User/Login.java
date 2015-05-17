@@ -76,7 +76,7 @@ public class Login {
                     "' AND password = '"+ psw +"';";
             System.out.println(user + " && " + psw);
             
-            if(connection.select(sql).wasNull()){
+            if(!connection.select(sql).wasNull()){
                 System.out.println();
                 System.out.println("OK ... bien3");
                 return true;

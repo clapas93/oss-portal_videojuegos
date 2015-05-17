@@ -46,7 +46,7 @@ public class Videogame {
         this.genre="";
         this.title="";
         this.description="";
-        this.state="";
+        this.state="1";
         this.videoUrl="";
         this.adminEmail="admin@oss.com";
     }
@@ -55,6 +55,7 @@ public class Videogame {
     /**
     * Constructs a new Videogame with attributes that the system doesn't generate.
     * @param front          Videogame front.
+    * @param id             Videogame id
     * @param classification ESRB classification.
     * @param price          Number of credits required to download.
     * @param storageRoute   Videogame storage route on the system.
@@ -64,8 +65,8 @@ public class Videogame {
     * @param videoUrl       video trailer.
     * @param adminemail     Admin's email who uploaded the videogame
     */
-    public Videogame(String front,String classification,float price,String storageRoute,String genre,String title,String description,String videoUrl,String adminemail){
-        this.id=0;
+    public Videogame(int id,String front,String classification,float price,String storageRoute,String genre,String title,String description,String videoUrl,String adminemail){
+        this.id=id;
         this.routeGame="http://pulsegames.com/videogames/"+id;
         this.front=front;
         this.downloads=0;
@@ -332,9 +333,10 @@ public class Videogame {
     */
     public boolean updloadDB(){
         try{
-            String sql = "INSERT INTO videogame (routeGame,front,downloads,classification,price,"
+            String sql = "INSERT INTO videogame (idGame,routeGame,front,downloads,classification,price,"
                     + "storageRoute,genre,title,description,state,videoUrl,adminEmail) VALUES"
-                    + "('" +  routeGame + "',"
+                    + "(" + id + ","
+                    + "'" +  routeGame + "',"
                     + "'" + front + "'," + downloads + "," 
                     + "'" + classification + "'," + price + ","
                     + "'" + storageRoute +"',"
@@ -415,7 +417,7 @@ public class Videogame {
     public List<Videogame> getListDB(){
         List <Videogame> gameList = new LinkedList <Videogame>();
         try{
-            String sql = "SELECT * FROM videogame WHERE state='1';";
+            String sql = "SELECT * FROM videogame WHERE state='1' ORDER BY idGame;";
             gameList = initListDB(sql);
             return gameList;
         }catch(Exception e){

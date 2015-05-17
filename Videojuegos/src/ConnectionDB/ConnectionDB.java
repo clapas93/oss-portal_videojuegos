@@ -23,12 +23,11 @@ public class ConnectionDB {
   private String password;
   private String stringConection;
   
-  public ConnectionDB() throws SQLException{
+  public ConnectionDB(){
     try {
-      
       this.host = "localhost";
-      this.port = "5433";
-      //this.port = "5432";
+      //this.port = "5433";
+      this.port = "5432";
       this.database = "videoGames";
       this.user = "Optimal";
       this.password = "OptimalSOfSo!";
@@ -59,7 +58,6 @@ public class ConnectionDB {
       }else{
         System.out.println("NO EXISTE INFORMACION");
       }
-      this.connection.close();
       return resultset;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());

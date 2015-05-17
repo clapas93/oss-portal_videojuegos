@@ -81,7 +81,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/bootstrap-select.min.css">
     <script type="text/javascript" src="public/js/bootstrap-select.min.js"></script>
     
-    <script type="text/javascript" src="public/js/videogames/uGame.js"></script>
+    
     
     <link rel="stylesheet" type="text/css" href="public/css/videogames/jquery-confirm.css" />
     <script type="text/javascript" src="public/js/videogames/jquery-confirm.js"></script>

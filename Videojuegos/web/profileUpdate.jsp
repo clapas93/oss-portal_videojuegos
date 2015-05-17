@@ -6,6 +6,46 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="User.UserStudent"%>
+
+<style type="text/css">
+a.button-comp{
+  border: none;
+  padding: 0.6em 1.2em;
+  background: #083B56;
+  color: #fff;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  margin: 3px 2px;
+  border-radius: 2px;
+}
+a.button-comp:hover {
+  background: #773489;
+  text-decoration: none;
+}
+button.button-comp{
+  border: none;
+  padding: 0.6em 1.2em;
+  background: #083B56;
+  color: #fff;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  margin: 3px 2px;
+  border-radius: 2px;
+}
+button.button-comp:hover {
+  background: #773489;
+  text-decoration: none;
+}
+</style>
+
 <div id="games"></div>
 <div id="gamesupdate">
   <div class="row">
@@ -78,8 +118,8 @@
        <div class="row">
         <div class="col-md-4 col-md-offset-4">
           <div class="form-group">
-            <a class="btn btn-primary" href="videogames" title="back">Cancelar</a>
-            <button id="actualizar" class="btn btn-primary submit">Actualizar Datos</button>  
+            <a class="button-comp" href="videogames" title="back">Cancelar</a>
+            <button id="actualizar" class="button-comp">Actualizar Datos</button>  
           </div>
         </div>
         </div>
