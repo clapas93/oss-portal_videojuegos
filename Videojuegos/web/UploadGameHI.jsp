@@ -88,7 +88,7 @@ Author     : Claudia
             </div>
             <div class="form-group">
               <label class="control-label">Video</label>
-              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" value="https://www.youtube.com/watch?v=Mef-OEmw9vI">
+              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video">
             </div>
           </div>
         </div><!--3-row-->
@@ -107,3 +107,4 @@ Author     : Claudia
   </div><!--panel-->
 </div>
 
+<script type="text/javascript" src="public/js/videogames/uploadValidation.js"></script>

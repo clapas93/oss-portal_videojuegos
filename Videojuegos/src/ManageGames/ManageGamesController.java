@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -124,7 +125,7 @@ public class ManageGamesController extends HttpServlet {
         String frontExt = frontName.substring(frontName.length()-3,frontName.length());
         front = "front_" + maxId + "." + frontExt;
         
-        game = new Videogame(front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
+        game = new Videogame(maxId,front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
         System.out.println("uploadGame");
         
         if(game.updloadDB()){
@@ -136,6 +137,7 @@ public class ManageGamesController extends HttpServlet {
             }catch(Exception e){
                 game.deleteDB();
                 System.out.println("No se pudo subir el juego. " + e.getMessage());
+                return false;
             }
             
             String front_path = getPath()+"/web/public/videogames/fronts";
@@ -146,6 +148,7 @@ public class ManageGamesController extends HttpServlet {
             }catch(Exception e){
                 game.deleteDB();
                 System.out.println("No se pudo subir la portada. " + e.getMessage());
+                return false;
             }
             
             return true;
@@ -161,28 +164,88 @@ public class ManageGamesController extends HttpServlet {
      * @return boolean  true if the videogame was update , false in other case.
      * @throws UnsupportedEncodingException exception.
      */
-    protected boolean updateGame(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException{
+    protected boolean updateGame(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, IOException, ServletException{
         String id=request.getParameter("ID");
         System.out.println("ID game:"+id);
+        
+        Videogame game = new Videogame();
+        Videogame vgame = game.getDB(id);
+        //System.out.println(vgame.toString());
+        
         String classification = (request.getParameter("CLASS")).substring(0,1);
+        vgame.setClassification(classification);
         String option = request.getParameter("creditOptions");
         float price=0;
         if ("FREE".equals(option)){
-            price = 0;
+            vgame.setPrice(0);
         }else {
             if ("CREDIT".equals(option)){
                 price = Float.parseFloat(request.getParameter("PRICE"));
+                vgame.setPrice(price);
             }
         }
         String genre=request.getParameter("GENRE");
-        System.out.println("genre up:"+ genre);
+        vgame.setGenre(genre);
         String title=request.getParameter("TITLE");
+        vgame.setTitle(title);
         String description=request.getParameter("DESCRIPTION");
+        vgame.setDescription(description);
         String videoUrl=request.getParameter("VIDEO");
-        game = new Videogame(classification,price,genre,title,description,videoUrl);
-        game.setId(Integer.parseInt(id));
-        System.out.println("uploadGame");
-        return game.updateDB();
+        vgame.setVideoUrl(videoUrl);
+        
+        //set videogame filename
+        Part gamePart = request.getPart("GAME");
+        long gameSize = gamePart.getSize();
+        String storageRoute = "";
+        System.out.println("Game: "+ gameSize);
+        if (gameSize>0){
+            String gameName = getFileName(gamePart);
+            System.out.println("game:" + gameName);
+            String gameExt = gameName.substring(gameName.length()-3,gameName.length());
+            storageRoute = "game_" + id + "." + gameExt;
+            vgame.setStorageRoute(storageRoute);
+        }
+        
+        Part frontPart = request.getPart("FRONT");
+        long frontSize = frontPart.getSize();
+        String front = "";
+        if (frontSize>0){
+            String frontName = getFileName(frontPart);
+            String frontExt = frontName.substring(frontName.length()-3,frontName.length());
+            front = "front_" + id + "." + frontExt;
+            vgame.setFront(front);
+        }
+        
+        System.out.println("updateGame");
+        //return vgame.updateDB();
+        if(vgame.updateDB()){
+            if (gameSize>0){
+                String game_path = getPath()+"/web/public/videogames/games";
+                File gameFolder = new File(game_path);
+                File gameFiles = new File(gameFolder,storageRoute); 
+                try (InputStream input = gamePart.getInputStream()) {
+                    Files.copy(input, gameFiles.toPath(),StandardCopyOption.REPLACE_EXISTING);
+                }catch(Exception e){
+                    System.out.println("No se pudo subir el juego. " + e.getMessage());
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            if (frontSize>0){
+                String front_path = getPath()+"/web/public/videogames/fronts";
+                File frontFolder = new File(front_path);
+                File frontFiles = new File(frontFolder,front); 
+                try (InputStream input = frontPart.getInputStream()) {
+                    Files.copy(input, frontFiles.toPath(),StandardCopyOption.REPLACE_EXISTING);
+                }catch(Exception e){
+                    System.out.println("No se pudo subir la portada. " + e.getMessage());
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
     
     /**

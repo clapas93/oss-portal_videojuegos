@@ -80,6 +80,12 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
               </select>
             </div>
           </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="control-label">Videojuego</label>
+              <input type="file" class="form-control" name="GAME">
+            </div>
+          </div>
         </div><!--2-row-->
         <div class="row">
           <div class="col-lg-6">
@@ -89,7 +95,10 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
             </div>
           </div>
           <div class="col-lg-6">
-            <p> <b>*El archivo ejecutable y la portada no se pueden editar.</b> </p>
+            <div class="form-group">
+              <label class="control-label">Portada</label>
+              <input type="file" class="form-control" name="FRONT"/>
+            </div>
             <div class="form-group">
               <label class="control-label">Video</label>
               <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" value=<%=((Videogame)videogameId).getVideoUrl()%>>
@@ -108,3 +117,5 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
     </div><!--panel-body-->
   </div><!--panel-->
 </div>
+            
+<script type="text/javascript" src="public/js/videogames/updateValidation.js"></script>

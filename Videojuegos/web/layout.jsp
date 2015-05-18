@@ -98,6 +98,7 @@ String bool2 =(String)request.getAttribute("bool2");
   <div class="clear"></div>
 <jsp:include page='<%= footer %>' />
 </div><!-- /container -->
+</div>
 </body>  
 </html>
 

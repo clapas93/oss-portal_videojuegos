@@ -1,0 +1,8 @@
+INSERT INTO videogame (idgame,routegame,front,downloads,classification,price,storageroute,genre,title,description,state,videourl,adminemail) 
+VALUES (1,'http://pulsegames.com/videogames/1','front_1.jpg',0,'M',850,'game_1.zip','Acción','The Last of Us','The Last of Us es una aventura de acción exclusiva para PlayStation 3 que plantea un escenario catastrófico para la raza humana. Está desarrollada por Naugthy Dog, creadores de las franquicias Uncharted y Crash Bandicoot.','1','https://www.youtube.com/watch?v=W01L70IGBgE','admin@oss.com');
+
+INSERT INTO videogame (idgame,routegame,front,downloads,classification,price,storageroute,genre,title,description,state,videourl,adminemail) 
+VALUES (2,'http://pulsegames.com/videogames/2','front_2.jpg',0,'M',399,'game_2.tar','Acción','Tomb Raider','Tomb Raider es un videojuego de acción-aventura y plataformas desarrollado por Crystal Dynamics y distribuido por Square Enix. Es el noveno título de la serie Tomb Raider y el quinto título desarrollado por Crystal Dynamics','1','https://www.youtube.com/watch?v=N3HfmcDRbn8','admin@oss.com');
+
+INSERT INTO videogame (idgame,routegame,front,downloads,classification,price,storageroute,genre,title,description,state,videourl,adminemail) 
+VALUES (3,'http://pulsegames.com/videogames/3','front_3.png',0,'M',1000,'game_3.tar','Acción','Grand Theft Auto V','Grand Theft Auto V es un videojuego de acción-aventura de mundo abierto desarrollado por la compañía británica Rockstar North y distribuido por Rockstar Games. Fue lanzado el 17 de septiembre de 2013 para las consolas PlayStation 3 y Xbox 360.','1','https://www.youtube.com/watch?v=QkkoHAzjnUs','admin@oss.com');
