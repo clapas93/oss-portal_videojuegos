@@ -39,7 +39,7 @@ public class Login {
                     user.getAdminemail()+
                     "' AND password = '"+user.getPassword()+"';";    
             if(connection.select(sql).wasNull()){
-                System.out.println();
+                System.out.println(sql);
                 System.out.println("OK ... bien3");
                 return 1;
             }else{
@@ -76,7 +76,7 @@ public class Login {
                     "' AND password = '"+ psw +"';";
             System.out.println(user + " && " + psw);
             
-            if(connection.select(sql).wasNull()){
+            if(!connection.select(sql).wasNull()){
                 System.out.println();
                 System.out.println("OK ... bien3");
                 return true;

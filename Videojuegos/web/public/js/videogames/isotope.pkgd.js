@@ -2142,7 +2142,7 @@ Outlayer.Item = Item;
 // default options
 Outlayer.defaults = {
   containerStyle: {
-    position: 'relative'
+    //position: 'relative'
   },
   isInitLayout: true,
   isOriginLeft: true,
@@ -2441,7 +2441,7 @@ Outlayer.prototype._setContainerMeasure = function( measure, isWidth ) {
   }
 
   measure = Math.max( measure, 0 );
-  this.element.style[ isWidth ? 'width' : 'height' ] = measure + 'px';
+  //this.element.style[ isWidth ? 'width' : 'height' ] = measure + 'px';
 };
 
 /**

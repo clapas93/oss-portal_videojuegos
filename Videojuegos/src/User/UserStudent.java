@@ -137,4 +137,24 @@ public class UserStudent extends User {
         }
         return null;
     }
+    
+    public float selectCredits(String query){
+      UserStudent aux = new UserStudent();  
+      try {
+            System.out.println(query);
+            ResultSet rs = connection.select(query);
+            while(rs.next()){
+              aux.setCredits(rs.getString("credits"));
+            }
+            String credits = aux.getCredits();
+            if(credits!=null){
+              return Float.parseFloat(aux.getCredits());
+            }else{
+              return 0;
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(UserStudent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
 }

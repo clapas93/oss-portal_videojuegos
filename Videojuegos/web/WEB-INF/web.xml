@@ -44,6 +44,7 @@
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
         <url-pattern>/getvideogames</url-pattern>
+        <url-pattern>/getusercredits</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>

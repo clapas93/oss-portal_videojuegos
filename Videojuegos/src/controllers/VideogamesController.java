@@ -5,16 +5,11 @@
  */
 package controllers;
 
-import ConnectionDB.ConnectionDB;
 import ManageGames.Videogame;
 import User.UserStudent;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,59 +41,28 @@ public class VideogamesController extends HttpServlet {
         String path = request.getRequestURI().substring(request.getContextPath().length());
         String view = "";
         String footer = "footer.jsp";
-        /* Recuperamos la sesión que está activa */
-        HttpSession session = request.getSession();
-        String user = (String) session.getAttribute("userStudent");
-        System.out.println(user);
         String header = "";
-        String selectSQL = "SELECT * FROM student  WHERE studentemail = '"+ user +"'";
-        Connection connection;
-        Statement stat;
-        String emaildb = null;
-        String namedb = null;
-        String lastName1db = null;
-        String lastName2db = null;
-        String carrerdb = null;
-        String numAccdb = null;
-        String passdb = null;
-        String statusdb = null;
-        String creditdb = null;
-        String histdb = null;
-        try{
-          ConnectionDB cn = new ConnectionDB();
-          ResultSet executeQuery = cn.select(selectSQL);
-          while(executeQuery.next()){
-            emaildb = executeQuery.getString("studentemail");
-            namedb = executeQuery.getString("name");
-            lastName1db = executeQuery.getString("lastname1");
-            lastName2db = executeQuery.getString("lastname2");
-            numAccdb = executeQuery.getString("accountnumber");
-            carrerdb = executeQuery.getString("career");
-            passdb = executeQuery.getString("password");
-            statusdb = executeQuery.getString("status");
-            creditdb = executeQuery.getString("credits");
-            histdb = executeQuery.getString("history");
-          }
-
-        }catch(Exception e){    
-          System.out.println(e.toString());
-        }
-
-        UserStudent student = new UserStudent(emaildb, namedb,lastName1db,
-         lastName2db,numAccdb,carrerdb,passdb, statusdb, creditdb,histdb);
-        request.setAttribute("student", student);
-
+        PrintWriter out = response.getWriter();
+        UserStudent query = new UserStudent();
         Videogame game = new Videogame();
+        HttpSession session = request.getSession();
+        
         switch (path) {
           case "/videogames":
+            /* Recuperamos la sesión que está activa */
+            
+            String user = (String) session.getAttribute("userStudent");
+            System.out.println(user);
+            String selectSQL = "SELECT * FROM student  WHERE studentemail = '"+ user +"'";
+            UserStudent student = query.selectStudent(selectSQL);
+            
             if(user==null){
               header = null;
             }else{
+              request.setAttribute("student", student);
               header = "headerLogin.jsp";
             }
             view = "videojuegos.jsp";
-            List<Videogame> videogames = game.getListDB();
-            request.setAttribute("games", videogames);
             request.setAttribute("header", header);
             request.setAttribute("view", view);
             request.setAttribute("title", "Manage Games");
@@ -106,12 +70,13 @@ public class VideogamesController extends HttpServlet {
             request.getRequestDispatcher("layout.jsp").forward(request, response);
           break;
           case "/getvideogames":
-            PrintWriter out = response.getWriter();
+            
+            
             response.setContentType("application/json");
             List<Videogame> games = game.getListDB();
             JSONObject obj = new JSONObject();
             JSONArray jgames = new JSONArray();
-            for(Videogame v : games){
+            games.stream().map((v) -> {
               JSONObject aux = new JSONObject();
               aux.put("id",v.getId());
               aux.put("title",v.getTitle() );
@@ -122,9 +87,26 @@ public class VideogamesController extends HttpServlet {
               aux.put("front",v.getFront());
               aux.put("video",v.getVideoUrl());
               aux.put("url",v.getRouteGame());
+              return aux;
+              }).forEach((aux) -> {
               jgames.add(aux);
-            }
+            });
             out.print(jgames);
+            out.flush();
+          break;
+            
+          case "/getusercredits":
+            String usr = (String) session.getAttribute("userStudent");
+            float credits = query.selectCredits("SELECT credits FROM student  WHERE studentemail = '"+ usr +"'");
+            response.setContentType("application/json");
+            JSONObject usrj = new JSONObject();
+            if(usr != null){
+              usrj.put("session",true);
+            }else{
+              usrj.put("session",false);
+            }
+            usrj.put("credits",credits);
+            out.print(usrj);
             out.flush();
           break;
       }

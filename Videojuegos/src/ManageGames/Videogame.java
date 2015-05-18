@@ -8,9 +8,7 @@
 */
 package ManageGames;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.SQLException;
 import ConnectionDB.ConnectionDB;
 import java.util.List;
@@ -31,11 +29,13 @@ public class Videogame {
     private String videoUrl; //Videogame trailer
     private String adminEmail; //admin's email who uploaded the videogame
     private final ConnectionDB connection;
+    
+    
+    
     /** 
     * Initializes a newly created Videogame object with all its attributes with default values.
     */
     public Videogame(){
-        this.connection = new ConnectionDB();
         this.id=0;
         this.routeGame="";
         this.front="";
@@ -49,6 +49,27 @@ public class Videogame {
         this.state="";
         this.videoUrl="";
         this.adminEmail="admin@oss.com";
+        this.connection = new ConnectionDB(); 
+    }
+    
+    /** 
+    * Initializes a newly created Videogame object with all its attributes with default values.
+    */
+    public Videogame(boolean n){
+        this.id=0;
+        this.routeGame="";
+        this.front="";
+        this.downloads=0;
+        this.classification="";
+        this.price=0;
+        this.storageRoute="";
+        this.genre="";
+        this.title="";
+        this.description="";
+        this.state="";
+        this.videoUrl="";
+        this.adminEmail="admin@oss.com";
+        this.connection = null;
     }
     
 
@@ -78,7 +99,7 @@ public class Videogame {
         this.state="1";
         this.videoUrl=videoUrl;
         this.adminEmail="admin@oss.com";
-        this.connection = new ConnectionDB();
+        this.connection = null;
     }
     
     /**
@@ -104,7 +125,7 @@ public class Videogame {
         this.state="1";
         this.videoUrl=videoUrl;
         this.adminEmail="admin@oss.com";
-        this.connection = new ConnectionDB();
+        this.connection = null;
     }
     
     /**
@@ -460,7 +481,7 @@ public class Videogame {
         try{
             ResultSet result = connection.select(script);
             while(result.next()){
-                Videogame game = new Videogame();
+                Videogame game = new Videogame(true);
                 game.setId(result.getInt("idGame"));
                 game.setRouteGame(result.getString("routeGame"));
                 game.setFront(result.getString("front"));
@@ -475,6 +496,7 @@ public class Videogame {
                 game.setAdminEmail(result.getString("adminEmail"));
                 list.add(game);
             }
+            connection.ConnectionClose();
             return list;
         }catch(SQLException e){
             System.out.println("SQL exception: " + e.getMessage());
@@ -490,7 +512,7 @@ public class Videogame {
     * @return Videogame     the videogame obteined. 
     */
     private Videogame initGameDB(String script){
-        Videogame game = new Videogame();
+        Videogame game = new Videogame(true);
         try{
             ResultSet result = connection.select(script);
             while(result.next()){

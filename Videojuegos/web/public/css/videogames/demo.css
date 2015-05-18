@@ -14,19 +14,8 @@
 .clearfix:before, .clearfix:after { content: ''; display: table; }
 .clearfix:after { clear: both; }
 
-body {
-	background: #f24333;
-	color: #fff;
-	font-size: 100%;
-	line-height: 1.25;
-	font-family: 'Lato', Arial, sans-serif;
-}
-
-body.demo-2 {
-	background: #3498db;
-}
-
-.container {
+.container2 {
+	padding-top: 3em;
 	overflow: hidden;
 }
 

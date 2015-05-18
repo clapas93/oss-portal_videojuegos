@@ -19,17 +19,13 @@
 	font-style: normal;
 }
 
-body {
-	position: relative;
-}
-
 .noscroll {
 	overflow: hidden;
 }
 
 .grid-wrap {
 	margin: 10px auto 0;
-	max-width: 1090px;
+	max-width: 1092px;
 	width: 100%;
 	padding: 0;
 	-webkit-perspective: 1500px;
@@ -156,6 +152,7 @@ body {
 }
 
 .content.show {
+	overflow-x:auto;
 	height: auto;
 	pointer-events: auto;
 	visibility: visible;

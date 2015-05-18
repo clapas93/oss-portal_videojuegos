@@ -29,15 +29,6 @@ body{
     padding-top: 0.5em;
 }
 
-#wrapper {
-	min-height:100%;
-	position:relative;
-}
-
-#view{
-	position: relative;
-	height: 100%;
-}
 
 #brand{
 	height: 30px;
@@ -62,41 +53,4 @@ body{
 .navbar-default .navbar-text {
 	color: #1c9ccd;
 	font-weight: bold;
-}
-
-/**
-*LOGO
-*/
-
-.text-mask {
-	font-size: 0.8em;
-	font-family: 'Orbitron', sans-serif;
-	fill: white;
-	stroke: white;
-	stroke-opacity: .2;
-	stroke-width: 10;
-}
-
-svg {
-	z-index: 0;
-	position: absolute;
-	width: 112%;
-	height: 115%;
-	bottom:0em;
-}
-
-
-
-#pressstart{
-	width: 19em;
-	position: absolute;
-	top: 26em;
-	left: 38em;
-	cursor: pointer;
-}
-
-
-#entrar_row{
-	position: relative;
-	top: 25em;
 }

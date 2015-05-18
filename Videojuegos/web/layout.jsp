@@ -6,22 +6,33 @@ String header = (String)request.getAttribute("header");
 String bool1 = (String)request.getAttribute("bool1");
 String bool2 =(String)request.getAttribute("bool2");
 %>
-<html>
+<html class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="public/img/favicon.png"/>
+
   <title>Pulse Games</title>
+
+  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
-  
-  <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
-  <script type="text/javascript" src="public/js/validando.js"></script>
-  <script type="text/javascript" src="public/js/layout.js"></script>
+  <link rel="stylesheet" type="text/css" href="public/css/inside.css">
+  <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
+
+  <link rel="stylesheet" type="text/css" href="public/css/videogames/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/videogames/demo.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/videogames/component.css" />
+  <script src="public/js/videogames/modernizr.custom.js"></script>
+  <script src="public/js/videogames/isotope.pkgd.js"></script>
+  <script src="public/js/videogames/classie.js"></script>
+  <script src="public/js/videogames/helper.js"></script>
+  <script src="public/js/videogames/grid3d.js"></script>
+
 </head>
-<body  style="display:none" class="demo-2">
+<body  style="display:none">
  <nav class="navbar navbar-default navbar-fixed-top">
 
   <% if(header == null ){ %>
@@ -79,14 +90,14 @@ String bool2 =(String)request.getAttribute("bool2");
 </div>
 <% } %>
 </nav>
-
-<div id="wrapper">
-<jsp:include page='<%= view %>' />
-
 <div style="display:none"class="transparent"></div>
 
+<div id="wrapper">
+  <div id="container">
+    <jsp:include page='<%= view %>' />
+  <div class="clear"></div>
 <jsp:include page='<%= footer %>' />
-</div>
+</div><!-- /container -->
 </body>  
 </html>
 
