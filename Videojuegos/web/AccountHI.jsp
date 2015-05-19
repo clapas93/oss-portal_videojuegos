@@ -38,6 +38,19 @@ UserStudent student = (UserStudent)request.getAttribute("student");
       </div>
       <div class="row">
         <div class="col-md-6">
+          <h3>Num. Cuenta: <small><%=student.getAccountnumber()%></small></h3>
+        </div>
+        <div class="col-md-6">
+          <h3>Carrera: <small><%=student.getCareer()%></small></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Correo: <small><%=student.getStudentemail()%></small></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
           <h3>Créditos: <small><%=student.getCredits()%></small></h3>
         </div>
       </div>
