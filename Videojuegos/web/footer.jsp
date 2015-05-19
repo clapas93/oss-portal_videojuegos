@@ -8,9 +8,9 @@
  <!--footer-->
 
   
-  <div id="footer">
+  <!--<div id="footer">
     <div id="contacto">Contacto</div>
-  </div>
+  </div>-->
   
   <script type="text/javascript" src="public/js/validando.js"></script>
   <script type="text/javascript" src="public/js/layout.js"></script>

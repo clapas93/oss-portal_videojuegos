@@ -45,9 +45,6 @@ button.button-comp:hover {
   text-decoration: none;
 }
 </style>
-<br>
-<br>
-<br>
 <div class="form-registro">
   <%
   String msj0 =  request.getParameter("msj0")!=null?request.getParameter("msj0"):"";
