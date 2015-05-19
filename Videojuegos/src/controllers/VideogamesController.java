@@ -76,7 +76,7 @@ public class VideogamesController extends HttpServlet {
             List<Videogame> games = game.getListDB();
             JSONObject obj = new JSONObject();
             JSONArray jgames = new JSONArray();
-            games.stream().map((v) -> {
+            for(Videogame v : games){
               JSONObject aux = new JSONObject();
               aux.put("id",v.getId());
               aux.put("title",v.getTitle() );
@@ -87,10 +87,8 @@ public class VideogamesController extends HttpServlet {
               aux.put("front",v.getFront());
               aux.put("video",v.getVideoUrl());
               aux.put("url",v.getRouteGame());
-              return aux;
-              }).forEach((aux) -> {
               jgames.add(aux);
-            });
+            }
             out.print(jgames);
             out.flush();
           break;
