@@ -70,8 +70,6 @@ public class VideogamesController extends HttpServlet {
             request.getRequestDispatcher("layout.jsp").forward(request, response);
           break;
           case "/getvideogames":
-            
-            
             response.setContentType("application/json");
             List<Videogame> games = game.getListDB();
             JSONObject obj = new JSONObject();

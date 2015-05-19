@@ -47,7 +47,6 @@ Author     : lalo
     success: function(data){
       credit = data.credits;
       session = data.session;
-      console.log(credit+" "+session);
     },
     error: function(data){
       console.error(data);
@@ -61,7 +60,7 @@ Author     : lalo
 
   function insertdiv(){
     
-    for(var i = 0; i < info.length && i < j + 3; i++){
+    for(var i = 0; i < info.length && i < j + 6; i++){
       var cont = "";
       cont='<div>'+
         '<div class="container">'+
@@ -107,9 +106,6 @@ Author     : lalo
                   '<h3 class="precio">300</h3>'+
                 '</div>';
                 if(info[i].price>0){
-                  console.log(i);
-                  console.log(info[i].price);
-                  console.log(info[i].title);
                   if(credit<info[i].price){
                   }else{
                     cont+='<div class="col-md-3">'+
@@ -117,10 +113,6 @@ Author     : lalo
                   '</div>';
                   }
                 }else{
-                  console.log(info);
-                  console.log(i);
-                  console.log(info[i].price);
-                  console.log(info[i].title);
                   cont+='<div class="col-md-3">'+
                     '<button class="btn btn-primary accion" >Descargar</button>'+
                   '</div>';
@@ -144,8 +136,8 @@ Author     : lalo
   function loadGames() {
     $("#spinner").fadeOut();
     var $inser = "";
-    for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 3; i++){
-      $inser += '<div class="element-item" ><figure><img src="public/img/img/4.jpg" alt="img04"/></figure></div>'; 
+    for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 6; i++){
+      $inser += '<div class="element-item" ><figure><img src="public/videogames/fronts/'+info[i].front+'" /></figure></div>'; 
     }
     $inser = $($inser);
     $container.append( $inser ).isotope( 'addItems', $inser );
@@ -219,5 +211,6 @@ Author     : lalo
     padding-top: 17px;
     color: red;
   }
+ 
 
   </style>

@@ -6,7 +6,6 @@
 package User;
 
 import ConnectionDB.ConnectionDB;
-import java.sql.ResultSet;
 
 /**
  *
@@ -38,7 +37,7 @@ public class Login {
             "SELECT * FROM admin WHERE adminemail = '"+
                     user.getAdminemail()+
                     "' AND password = '"+user.getPassword()+"';";    
-            if(connection.select(sql).wasNull()){
+            if(connection.select(sql).next()){
                 System.out.println(sql);
                 System.out.println("OK ... bien3");
                 return 1;
@@ -76,7 +75,7 @@ public class Login {
                     "' AND password = '"+ psw +"';";
             System.out.println(user + " && " + psw);
             
-            if(!connection.select(sql).wasNull()){
+            if(connection.select(sql).next()){
                 System.out.println();
                 System.out.println("OK ... bien3");
                 return true;
