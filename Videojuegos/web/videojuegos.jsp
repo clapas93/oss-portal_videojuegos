@@ -145,7 +145,7 @@ Author     : lalo
     $("#spinner").fadeOut();
     var $inser = "";
     for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 3; i++){
-      $inser += '<div class="element-item" ><figure><img src="public/img/img/4.jpg" alt="img04"/></figure></div>'; 
+      $inser += '<div class="element-item" ><figure><img src="public/videogames/fronts/'+info[i].front+'" /></figure></div>'; 
     }
     $inser = $($inser);
     $container.append( $inser ).isotope( 'addItems', $inser );
