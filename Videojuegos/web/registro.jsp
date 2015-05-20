@@ -69,13 +69,13 @@ button.button-comp:hover {
         <div class="col-md-3">           
           <div class="form-group">
             <label><h4> Apellido Paterno :</h4></label>
-            <input type="text" class="form-control lastname1" id="usr lastname1" placeholder="Apellido Materno" name="lastname1" maxlength="45">
+            <input type="text" class="form-control lastname1" id="usr lastname1" placeholder="Apellido Paterno" name="lastname1" maxlength="45">
           </div>
         </div> 
         <div class="col-md-3">           
           <div class="form-group">
             <label><h4>Apellido Materno :</h4></label>
-            <input type="text" class="form-control lastname2" id="usr lastname2" placeholder="Apellido Paterno" name="lastname2" maxlength="45">
+            <input type="text" class="form-control lastname2" id="usr lastname2" placeholder="Apellido Materno" name="lastname2" maxlength="45">
           </div>
         </div>
       </div>
