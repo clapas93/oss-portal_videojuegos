@@ -77,21 +77,5 @@ public class Hash {
     public static String getUsrFrom(String codif){
         return codif.substring(8, codif.indexOf("~"));
     }
-    
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        Hash tmp = new Hash("Antonio");
-        System.out.println(tmp.getCode());
-        System.out.println(tmp.getUser());
-        
-        String codigo = tmp.getCode();
-        System.out.println(getUsrFrom(codigo));
-        
-        // TODO code application logic here
-    }
-    
+   
 }
