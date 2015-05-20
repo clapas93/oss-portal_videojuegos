@@ -86,14 +86,5 @@ public class Hash {
         return this.code;
     }
     
-    /**
-     * 
-     * @param codif
-     * @return 
-     */
-    
-    public static String getUsrFrom(String codif){
-        return codif.substring(8, codif.indexOf("~"));
-    }
    
 }
