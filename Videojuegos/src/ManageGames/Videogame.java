@@ -28,7 +28,6 @@ public class Videogame {
     private String state; //1 available , 0 deleted
     private String videoUrl; //Videogame trailer
     private String adminEmail; //admin's email who uploaded the videogame
-    private final ConnectionDB connection;
     
     
     
@@ -49,7 +48,6 @@ public class Videogame {
         this.state="1";
         this.videoUrl="";
         this.adminEmail="admin@oss.com";
-        this.connection = new ConnectionDB(); 
     }
     
     /** 
@@ -69,7 +67,6 @@ public class Videogame {
         this.state="";
         this.videoUrl="";
         this.adminEmail="admin@oss.com";
-        this.connection = null;
     }
     
 
@@ -100,7 +97,6 @@ public class Videogame {
         this.state="1";
         this.videoUrl=videoUrl;
         this.adminEmail="admin@oss.com";
-        this.connection = null;
     }
     
     /**
@@ -126,7 +122,6 @@ public class Videogame {
         this.state="1";
         this.videoUrl=videoUrl;
         this.adminEmail="admin@oss.com";
-        this.connection = null;
     }
     
     /**
@@ -381,6 +376,9 @@ public class Videogame {
     public boolean updateDB(){
         try{
             String sql = "UPDATE videogame SET "
+                    + "routeGame='" + routeGame +"',"
+                    + "storageRoute='" + storageRoute + "',"
+                    + "front='" + front + "',"
                     + "downloads=" + downloads + "," 
                     + "classification='" + classification + "',"
                     + "price=" + price + ","
@@ -470,6 +468,8 @@ public class Videogame {
     * @return boolean   true if the conecction was established, false in other case.
     */
     private boolean initUpdateDB(String script){
+        System.out.println(script);
+        ConnectionDB connection = new ConnectionDB();
        return connection.update(script);
     }
     
@@ -481,6 +481,7 @@ public class Videogame {
     private List<Videogame> initListDB(String script){
         List<Videogame> list = new LinkedList<Videogame>();
         try{
+            ConnectionDB connection = new ConnectionDB();
             ResultSet result = connection.select(script);
             while(result.next()){
                 Videogame game = new Videogame(true);
@@ -493,6 +494,7 @@ public class Videogame {
                 game.setStorageRoute(result.getString("storageRoute"));
                 game.setGenre(result.getString("genre"));
                 game.setTitle(result.getString("title"));
+                game.setState(result.getString("state"));
                 game.setDescription(result.getString("description"));
                 game.setVideoUrl(result.getString("videoUrl"));
                 game.setAdminEmail(result.getString("adminEmail"));
@@ -516,6 +518,7 @@ public class Videogame {
     private Videogame initGameDB(String script){
         Videogame game = new Videogame(true);
         try{
+            ConnectionDB connection = new ConnectionDB();
             ResultSet result = connection.select(script);
             while(result.next()){
                 game.setId(result.getInt("idGame"));
@@ -527,10 +530,12 @@ public class Videogame {
                 game.setStorageRoute(result.getString("storageRoute"));
                 game.setGenre(result.getString("genre"));
                 game.setTitle(result.getString("title"));
+                game.setState(result.getString("state"));
                 game.setDescription(result.getString("description"));
                 game.setVideoUrl(result.getString("videoUrl"));
                 game.setAdminEmail(result.getString("adminEmail"));
             }
+            connection.ConnectionClose();
             return game;
         }catch(SQLException e){
             System.out.println("SQL exception queryGame: " + e.getMessage());
