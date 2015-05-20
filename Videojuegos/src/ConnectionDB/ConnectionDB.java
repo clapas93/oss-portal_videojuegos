@@ -70,6 +70,11 @@ public class ConnectionDB {
   */
   public boolean insert(String SQL){    
     try{
+      SQL = SQL.replaceAll("\\('", "#");
+      SQL = SQL.replaceAll("'\\)", "#");
+      SQL = SQL.replaceAll("','", "#,#");
+      SQL = SQL.replaceAll("'", "\\\\'");
+      SQL = SQL.replaceAll("#", "'");
       stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
