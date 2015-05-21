@@ -12,6 +12,7 @@ Author     : lalo
     </div>
   </div><!-- /grid-wrap -->
   <div class="content">    
+      <div class="loadsec"></div>
   </div>
 </section>
 
@@ -125,16 +126,18 @@ Author     : lalo
          '</div>'+
         '</div>'+
       '</div>';  
-      $(".content").append(cont); 
+      $(".content").prepend(cont); 
     }
     j+=3;
-    $(".content").append('<span class="loading"></span>'+
+    $(".loadsec").append(
+      '<span class="loading"></span>'+
       '<span class="icon close-content"></span>');
     clickfun();
   }
 
   function loadGames() {
     $("#spinner").fadeOut();
+    $(".loadsec").empty();
     var $inser = "";
     for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 6; i++){
       $inser += '<div class="element-item" ><figure><img src="public/videogames/fronts/'+info[i].front+'" /></figure></div>'; 
@@ -211,6 +214,14 @@ Author     : lalo
     padding-top: 17px;
     color: red;
   }
- 
+  .element-item{
+    border-radius: 5px;
+    padding: 10px;
+    background-color:rgba(11, 11, 11, 0.62);
+    width: 27%;
+    height: auto;
+    margin: 1em;
+    
+  }
 
   </style>
