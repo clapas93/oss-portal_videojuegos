@@ -1,0 +1,136 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/03/2015, 01:38:04 PM
+    Author     : magdiel
+*/
+.form-index{
+        color: white;
+            width: 420px;
+            background: #0B243B;
+            border-radius: 10px 0px 10px 10px;
+            padding: 20px;
+            position: fixed;
+            right: 135px;
+            top: 50px;
+            display:none;
+            box-shadow: 0px 0px 29px 0px;
+            cursor:pointer;
+            z-index:100 !important;
+      }
+.transparent{
+    z-index: 1;
+    position:fixed;
+    top: 0 ;
+    padding:0;
+    margin:0;
+    width: 100%;
+    height: 100%;
+}
+#form-input{
+            width: 250px;
+            display: inline-block;
+            float: right;
+}
+.event-click{
+    padding: 10px;
+}
+.form-index:hover{
+    cursor:pointer;
+}
+.form-registro {
+}
+.form-registro td {
+    padding: 0px 16px; 
+    width: 270px;}
+.form-registro .mi-title {
+    text-align: center; 
+    padding: 10px 10px 20px 10px;
+    font-size: 2em;}
+.formulario{width:100%; margin: 0 auto; }
+.navbar-default .navbar-nav > li > a {cursor:pointer;}
+    
+#header-login {  
+        margin-top: 14px;
+        color: #1c9ccd;
+        font-weight: bold;
+        margin-right: 50px !important;
+        display: inline-block;
+        font-size: 15px;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+        color:#AD0EBE;                
+    }
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {   background: none;
+        color: #AD0EBE;
+    }
+#validate-form label.error {
+        color: red;
+    }
+#validate-form label {
+     color:rgb(146, 192, 216);
+    }
+.mi-title{
+    color:rgb(146, 192, 216);
+    }
+#validate-form {margin: 0 auto;}
+.form-group.asset {margin:0;}
+.checkout__button.p-login{right: 68px; display:inline; text-decoration: none;background: #083B56;
+padding: 16px 24px;}
+.checkout__button.p-reg{right: 65px; display: inline; text-decoration: none;margin-top: 0px;
+background: rgb(8, 59, 86) none repeat scroll 0% 0%;
+padding: 17px 15px;}
+.checkout__order {right: 160px !important;}
+
+.checkout__order-inner {margin-top: 30px;}
+.checkout__button {top: 14px;}
+.form-horizontal .control-label {font-size: 1em; color:rgb(28, 156, 205);}
+.has-error .help-block {font-size: 0.7em;}
+body {background: #0D0C0C !important;}
+.navbar-default .navbar-collapse {border-color: transparent;}
+.navbar-default {position:relative !important;}
+
+@media (min-width:992px) and (max-width:1024px){
+    #validate-form {width:100% !important;}
+    .grid.isotope.rainbowed.isotope-demo {margin-top: 3%;}
+    
+}
+@media (min-width:768px) and (max-width:991px){
+    #validate-form {width:60% !important;}
+    .grid.isotope.rainbowed.isotope-demo {margin-top: 3%;}
+    
+}
+@media (min-width:600px) and (max-width:767px){
+    .grid.isotope.rainbowed.isotope-demo {margin-top: 5%;}
+    #validate-form {width:60% !important;}
+    .checkout__order {margin: 0 auto;}
+    .col-md-8 {width:70%; display:inline-block;}
+}
+@media (min-width:480px) and (max-width:599px){
+    .grid.isotope.rainbowed.isotope-demo {margin-top: 10%;}
+    .checkout__button.p-login {background: #083B56; padding: 17px 20px;}
+    .checkout__button.p-login {right:68px;}
+    #validate-form {width:60% !important;}
+    .checkout__order {text-align: center !important; 
+                      top:180px !important;
+                      width:350px !important;
+                      margin: 90% 50%;
+                      top:0 !important;
+                      right: 0 !important;}
+}
+@media (min-width:320px) and (max-width:479px){
+    .grid.isotope.rainbowed.isotope-demo {margin-top: 13%;}
+    #validate-form {width:80% !important;}
+    .checkout__button.p-login {background: #083B56; padding: 17px 20px;}
+    .checkout__button.p-login {right:67px;}
+    .checkout__order {text-align: center !important; 
+                      top:180px !important;
+                      width:350px !important;
+                      margin: 90% 4%;
+                      top:0 !important;
+                      right: 0 !important;}
+    
+}

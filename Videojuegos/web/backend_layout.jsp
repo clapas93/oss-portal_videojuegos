@@ -32,12 +32,12 @@
     <div class="container-fluid">
       <div class="navbar-header">
           <img src="public/img/brand.png" id="brandimage">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
+        </button>-->
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -65,12 +65,6 @@
   </nav>
     
     <jsp:include page='<%= view %>' />
-    
-    <!--<script type="text/javascript" src="public/js/jquery.min.js"></script>-->
-    
-    <!--<script type="text/javascript" src="public/js/jquery.validate.js"></script>-->
-    <!--<script type="text/javascript" src="public/js/jquery.validate.min.js"></script>-->
-    
     <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="public/js/main.js"></script>
     
