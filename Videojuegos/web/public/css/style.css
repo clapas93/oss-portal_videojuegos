@@ -1,15 +1,21 @@
 body{  
-	overflow-x:hidden;
-	position: relative;
-	z-index: 100;
-	width: 100%;
-	height: 100%;
-	/*background: url(../img/Retro-V1.jpg) no-repeat center center fixed;*/
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+    overflow-x:hidden;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: hsla(0, 5%, 5%, 1);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(to right top, hsla(0, 5%, 15%, 0.5), hsla(0, 5%, 5%, 1));
+    background-image: -moz-linear-gradient(to right top, hsla(0, 5%, 15%, 0.5), hsla(0, 5%, 5%, 1));
 }
+
 @font-face {
   font-family: 'Orbitron';
   font-style: normal;
@@ -17,37 +23,12 @@ body{
   src: local('Orbitron-Light'), local('Orbitron-Regular'), url(http://fonts.gstatic.com/s/orbitron/v6/HmnHiRzvcnQr8CjBje6GQvesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
   /*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;*/
 }
+
 #brandimage{    
     width: 17em;
     padding-top: 0.5em;
 }
 
-#games{
-	position: absolute;	
-	top: 0em;
-	width: 100%;
-	height: 111%;
-	background-color: rgba(25,25,25,0.9);
-}
-#gamesview{
-	position: absolute;	
-	top: 0em;
-	width: 100%;
-	height: 122%;
-	background-color: rgba(25,25,25,0.9);
-}
-
-#gamesupdate{
-	position: relative;
-	color:rgb(146, 192, 216); 
-	padding-top:5em;
-	margin-left: 4em;
-	height: 100%;
-}
-#view{
-	position: relative;
-	height: 100%;
-}
 
 #brand{
 	height: 30px;
@@ -72,41 +53,4 @@ body{
 .navbar-default .navbar-text {
 	color: #1c9ccd;
 	font-weight: bold;
-}
-
-/**
-*LOGO
-*/
-
-.text-mask {
-	font-size: 0.8em;
-	font-family: 'Orbitron', sans-serif;
-	fill: white;
-	stroke: white;
-	stroke-opacity: .2;
-	stroke-width: 10;
-}
-
-svg {
-	z-index: 0;
-	position: absolute;
-	width: 112%;
-	height: 115%;
-	bottom:0em;
-}
-
-
-
-#pressstart{
-	width: 19em;
-	position: absolute;
-	top: 26em;
-	left: 38em;
-	cursor: pointer;
-}
-
-
-#entrar_row{
-	position: relative;
-	top: 25em;
 }

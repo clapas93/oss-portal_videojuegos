@@ -53,7 +53,10 @@ List videogameList = (List)request.getAttribute("videogameList");
               <%for(int i = 0; i<videogameList.size();i++){%>
                   <%="<tr id='row"+i+"'>"%>
                   <td><%=((Videogame)videogameList.get(i)).getId()%></td>
-                  <td><%=((Videogame)videogameList.get(i)).getFront()%></td>
+                  <% String frontUrl = ((Videogame)videogameList.get(i)).getFront();
+                     String img = "public/videogames/fronts/" + frontUrl;
+                     String htmlPage = ((Videogame)videogameList.get(i)).getRouteGame();%>
+                  <td><a href=<%=htmlPage%> target="_blank"><img src=<%=img%> height="100" width="100"></td></a>
                   <td><%=((Videogame)videogameList.get(i)).getTitle()%></td>
                   <td><a href=<%=((Videogame)videogameList.get(i)).getVideoUrl()%>>video</a></td>
                   <td><%=((Videogame)videogameList.get(i)).getClassification()%></td>
@@ -69,22 +72,6 @@ List videogameList = (List)request.getAttribute("videogameList");
                 </td>
                   <%="</tr>"%>
                 <%}%>
-              <tr>
-                <td>1</td>
-                <td><img src="public/img/videojuegos.jpg" height="70" width="100" class="img-rounded"></td>
-                <td>Juego1</td>
-                <td>url</td>
-                <td>M</td>
-                <td>Aventura</td>
-                <td><div class="hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper dui dui, in iaculis ipsum finibus eu. Integer a rutrum eros, eu dignissim eros. Aliquam ultricies vitae odio ut laoreet. In mattis dolor ligula, sit amet eleifend lectus congue at. Curabitur vel nunc pulvinar, pretium nisi non, lacinia elit. Etiam porttitor et felis quis pretium. Nullam lacinia posuere risus, eget hendrerit massa maximus vehicula.</div></td>
-                <td>200</td>
-                <td>100</td>
-                <td>
-                  <a href="updategame" role="button" class="btn btn-large btn-primary">Editar</a>
-                  <br><br>
-                  <button class="btn btn-danger deleteCM" type="button">Eliminar</button>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div><!--table responsive-->

@@ -7,12 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <div class="navbar-header">
           <a href="videogames"> <img src="public/img/brand.png" id="brandimage"></a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
+        </button>-->
     </div>
 
 
@@ -27,8 +27,8 @@
               <li role="presentation"><a role="menuitem" href="updatestudent">
                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Editar mi perfil </a>
               </li>
-              <li role="presentation"><a role="menuitem" href="videojuegos">
-                      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Mis videojuegos</a></li>
+              <li role="presentation"><a role="menuitem" href="myaccount">
+                      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Mis Cuenta</a></li>
               <li class="divider"></li>
               <li role="presentation"><a role="menuitem" href="logoutController">
                       <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Salir</a>

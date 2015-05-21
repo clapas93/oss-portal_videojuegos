@@ -2,21 +2,124 @@
     z-index: 10;
     background-color: rgba(165, 156, 244, 0.11);
     border-color: rgba(25,25,25,0.25);
-
-}
-#wrap{
-    padding-top: 60px;
+    position: relative;
+    display: block;
 }
 
-#footer{
-    padding-top: 0em;
-    font-weight: bold;
-    background-color: rgba(165, 156, 244, 0.11);
-    border-color: rgba(25,25,25,0.25);
+
+#gamesview{
+	position: absolute;	
+	top: 0em;
+	width: 100%;
+	height: 122%;
+	background-color: rgba(25,25,25,0.9);
 }
 
-#footer > p{
+#gamesupdate{
+	position: relative;
+	color:rgb(146, 192, 216); 
+	padding-top:5em;
+	margin-left: 4em;
+	height: 100%;
+}
+
+#account{
+	position: relative;
+	color:rgb(146, 192, 216); 
+	padding-top:5em;
+	margin-left: 4em;
+	height: 100%;
+}
+
+
+#load{
+  font-size: 5em;
+  display: table;
+  margin: 0 auto;
+  cursor: pointer;
+}
+#spinner{
+  width: 5em;
+  display: table;
+  margin: 0 auto;
+}
+
+#more{
+  width: 3em;
+  display: table;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+
+/**
+*Estilos
+*/
+#wrapper {
+	min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+#container{
+	padding-top:3%;
+  padding-bottom:195px;   /* Height of the footer */
+}
+.clear{
+
+}
+
+#footer {
+	color: #1c9ccd;
+	font-weight: bold;
+  background-color: rgba(165, 156, 244, 0.11);
+  border-color: rgba(25,25,25,0.25);
+	width:100%;
+	height:60px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+#contacto{
   margin: 1em 2em;
   margin-bottom: 0em;
 }
 
+
+.video{
+  cursor:pointer;
+}
+.videoframe{
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#close {
+  color:white;
+  line-height: 12px;
+  width: 3em;
+  font-family: tahoma;
+  margin-top: 1px;
+  margin-right: 2px;
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+.videodiv {
+  display: none;
+  z-index: 500;
+  position:fixed;
+  top: 0 ;
+  padding:0;
+  margin:0;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(25,25,25,1); 
+}

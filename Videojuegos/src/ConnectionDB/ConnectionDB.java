@@ -25,7 +25,6 @@ public class ConnectionDB {
   
   public ConnectionDB(){
     try {
-      
       this.host = "localhost";
       //this.port = "5433";
       this.port = "5432";
@@ -35,10 +34,7 @@ public class ConnectionDB {
       this.stringConection = "jdbc:postgresql://" + host + ":" + port + "/" + database;
       Class.forName("org.postgresql.Driver");
       System.out.println("OK ... CONECTO CON DRIVER");
-      
       this.connection = DriverManager.getConnection(stringConection, user, password);
-      
-      
     } catch (ClassNotFoundException | SQLException e) {
       System.out.println("Problemas de Conexión: " + e.toString());
     }
@@ -58,7 +54,7 @@ public class ConnectionDB {
         System.out.println("OK ... bien1.1");
       }else{
         System.out.println("NO EXISTE INFORMACION");
-      }      
+      }
       return resultset;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());
@@ -77,6 +73,7 @@ public class ConnectionDB {
       stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
+      this.connection.close();
       return  true;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());
@@ -112,13 +109,20 @@ public class ConnectionDB {
       this.stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
-      
       return true;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());
       return false;
     }
   } 
+  
+  public void ConnectionClose(){
+    try{
+      this.connection.close();
+    }catch(Exception e){
+      System.out.println("Error...."+ e.toString());
+    }
+  }
 
 
 }
