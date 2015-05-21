@@ -24,11 +24,6 @@ $(window).load( function() {
                 clicked = false;
             });
 });
-/*$(window).load(function(){
-    $('.navbar.navbar-default').click(function(){
-                $(".form-index").fadeOut();
-            });
-});*/
 
 $( document ).ready(function() {
     $('#loginForm').bootstrapValidator({
@@ -42,7 +37,7 @@ $( document ).ready(function() {
 		 usuario: {
 			 validators: {
 				 notEmpty: {
-					 message: 'El nombre de usuario es requerido'
+					 message: 'El correo de usuario es requerido'
 				 }
 			 }
 		 },

@@ -11,7 +11,10 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   <title>Pulse Games</title>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/portadastyle.css">
-  <link rel="stylesheet" type="text/css" href="public/css/magdielstyle.css">
+  <link rel="stylesheet" type="text/css" href="public/css/loginstyles.css">
+  <link rel="stylesheet" type="text/css" href="public/css/checkout-cornerflat.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome.min.css" />
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   
   <script type="text/javascript" src="public/js/main.js"></script>
@@ -19,56 +22,58 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   <script type="text/javascript" src="public/js/jquery.validate.js"></script>
   <script type="text/javascript" src="public/js/validCampo.js"></script>
   <script type="text/javascript" src="public/js/validando.js"></script>
-  <script type="text/javascript" src="public/js/magdieljs.js"></script>
+  <script type="text/javascript" src="public/js/loginstyles.js"></script>
+  <script type="text/javascript" src="public/js/classie.js"></script>
 
 </head>
 <body>
   <nav class="navbar navbar-default">
    <div class="container-fluid">
-     <div class="navbar-header">
-       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-         <span class="sr-only">Toggle navigation</span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </button>
-     </div>
+       <div class="checkout">
+            <a class="checkout__button p-login" href=""><!-- Fallback location -->
+                <span class="checkout__text ">   Login   </span>
+            </a>
+            <a class="checkout__button p-reg" href="registro"><!-- Fallback location -->
+                <span class="checkout__text ">   Registro   </span>
+            </a>
+            <div class="checkout__order hidden">
+		<div class="checkout__order-inner">
+                <div>
+                <form id="loginForm" method="post" class="form-horizontal" action="loginController?accion=LOGIN">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Usuario</label>
+                            <div class="col-md-8">
+                                <input type="email" class="form-control" name="usuario" placeholder="ejemplo@correo.com"/>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Contraseña</label>
+                        <div class="col-md-8">
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
+                        </div>
+                    </div>
+                    <div class="form-group asset">
+                        <div class="col-md-7">
+                            <span style="color:red"><%= req %></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div style="margin-right: 12%" class="">
+                            <span class="checkout__option checkout__option--silent checkout__cancel">
+                                <i class="fa fa-angle-left"></i> Cancelar
+                            </span>
+                            <button type="submit" class="checkout__option">ENTRAR</button>
+                            <button class="checkout__close checkout__cancel">
+                                <i class="icon fa fa-fw fa-close"></i>Close</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                </div>
+            </div>
+	</div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       <ul class="nav navbar-nav pull-right">
-         <li ><a id="event_click" >Iniciar Sesión</a></li>
-         <li><a id="registro" href="registro">Registrarse</a></li>
-       </ul>
-       <div class="form-index">
-           <span style="color:#fff; font-size: 1.5em;">Datos de usuario</span>
-           <hr color="#2c2c2c ">
-           <div>
-               <form id="loginForm" method="post" class="form-horizontal" action="loginController?accion=LOGIN">
-                 <div class="form-group">
-                     <label class="col-md-3 control-label">Usuario</label>
-                     <div class="col-md-7">
-                         <input type="email" class="form-control" name="usuario" placeholder="ejemplo@correo.com" autocomplete="off"/>
-                     </div>
-                 </div>
-                 <div class="form-group">
-                     <label class="col-md-3 control-label">Contraseña</label>
-                     <div class="col-md-7">
-                                        <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
-                     </div>
-                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-7">
-                                        <span style="color:red"><%= req %></span>
-                                    </div>
-                                </div>
-                 <div class="form-group">
-                     <div class="col-md-5 col-md-offset-3">
-                                           <button type="submit" class="btn btn-default">Entrar</button>
-                     </div>
-                 </div>
-                               
-               </form>
-           </div>
-       </div>
+        
      </div>
    </div>
  </nav>
@@ -125,7 +130,44 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   n/l)*f*2.2E-4,d+=D*n,b+=E*n);d*=.96;b*=.96;F(d);F(b);g+=d;c+=b;g>f?g-=f:0>g&&(g=f+g);c>k?c-=k:0>c&&(c=k+c);e.vX=d;e.vY=b;e.x=g;e.y=c;d=e;b=g/f*Math.PI*2;c=c/k*Math.PI;b={theta:b,phi:c,x:-100*Math.sin(c)*Math.sin(b),y:-100*Math.cos(c),z:-100*Math.sin(c)*Math.cos(b)};d.pos3D=b;e.pos3D.z-=200;-299>e.pos3D.z||(d=300/(300+e.pos3D.z),b=e.pos3D.x*d+f/2,c=e.pos3D.y*d+k/2,h.fillStyle=e.color,h.beginPath(),h.arc(b,c,d,0,I,!0),h.closePath(),h.fill())}}function r(a){f=document.documentElement.clientWidth;k=document.documentElement.clientHeight;
   p.width=f;p.height=k}function A(a){a=a?a:window.event;s=x=a.pageX;t=y=a.pageY;document.onmousemove=B}function B(a){a=a?a:window.event;s=a.pageX;t=a.pageY}function C(a){z=!0;return!1}function J(a){return z=!1}function K(){this.color="rgb("+Math.floor(255*Math.random())+","+Math.floor(255*Math.random())+","+Math.floor(255*Math.random())+")";this.size=this.vY=this.vX=this.x=this.y=0;this.pos3D={x:0,y:0,z:100}}var p,h,f=1E3,k=560,H=[],I=2*Math.PI,v=0,s,t,D=0,E=0,x=0,y=0,z=!1;window.onload=function(){p=
     document.getElementById("mainCanvas");if(p.getContext){document.getElementById("outer");document.getElementById("canvasContainer");h=p.getContext("2d");window.moveTo(0,0);window.resizeTo(screen.width,screen.height);r(null);for(var a=1350;a--;){var l=new K;l.x=.5*f;l.y=.5*k;l.vX=Math.cos(a)*Math.random()*40;l.vY=Math.sin(a)*Math.random()*20;l.size=2;H[a]=l}document.onmousemove=A;window.onresize=r;r(null);setInterval(w,33)}}})();
-    </script>	   
+    </script>
+    
+    <script>
+			(function() {
+				[].slice.call( document.querySelectorAll( '.checkout' ) ).forEach( function( el ) {
+					var openCtrl = el.querySelector( '.checkout__button' ),
+						closeCtrls = el.querySelectorAll( '.checkout__cancel' );
+
+					openCtrl.addEventListener( 'click', function(ev) {
+						ev.preventDefault();
+						classie.add( el, 'checkout--active' );
+					} );
+
+					[].slice.call( closeCtrls ).forEach( function( ctrl ) {
+						ctrl.addEventListener( 'click', function() {
+							classie.remove( el, 'checkout--active' );
+						} );
+					} );
+				} );
+			})();
+                        if($('body').width() >= 600){
+                            $('.checkout__order').removeClass('hidden');
+                        }else{
+                            console.log("pato");
+                            $('.checkout__button.p-login').click(function(){
+                                if($('.checkout__order').hasClass('hidden'))
+                                    $('.checkout__order').removeClass('hidden');
+                                else
+                                    $('.checkout__order').addClass('hidden');
+                            });
+                            $('.checkout__cancel').click(function(){
+                                if($('.checkout__order').hasClass('hidden'))
+                                    $('.checkout__order').removeClass('hidden');
+                                else
+                                    $('.checkout__order').addClass('hidden');
+                            });
+                        }
+    </script>
 
   </body>
-  </html>
+</html>

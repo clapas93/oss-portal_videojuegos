@@ -61,7 +61,7 @@ public class StudentController extends HttpServlet {
       }
       
       String selectSQL = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
-      System.out.println(selectSQL);
+      //System.out.println(selectSQL);
       UserStudent student = model.selectStudent(selectSQL);
       
       switch (path) {

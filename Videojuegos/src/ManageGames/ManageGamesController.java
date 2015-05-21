@@ -170,7 +170,6 @@ public class ManageGamesController extends HttpServlet {
         
         Videogame game = new Videogame();
         Videogame vgame = game.getDB(id);
-        //System.out.println(vgame.toString());
         
         String classification = (request.getParameter("CLASS")).substring(0,1);
         vgame.setClassification(classification);
@@ -216,9 +215,10 @@ public class ManageGamesController extends HttpServlet {
             vgame.setFront(front);
         }
         
-        System.out.println("updateGame");
-        //return vgame.updateDB();
-        if(vgame.updateDB()){
+        boolean na = vgame.updateDB();
+        // System.out.println (na);
+        if(na){
+            System.out.println("updateGame");
             if (gameSize>0){
                 String game_path = getPath()+"/web/public/videogames/games";
                 File gameFolder = new File(game_path);
