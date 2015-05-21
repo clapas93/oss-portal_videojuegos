@@ -69,7 +69,14 @@ public class ConnectionDB {
   * @return Boolean returns true if the query was succesfull
   */
   public boolean insert(String SQL){    
-    try{
+    try{  
+      SQL = SQL.replaceAll("\\('", "\\(#");
+      SQL = SQL.replaceAll("'\\)", "#\\)");
+      SQL = SQL.replaceAll("','", "#,#");
+      SQL = SQL.replaceAll("'", "\\\\'");
+      SQL = SQL.replaceAll("\\(#", "\\('");
+      SQL = SQL.replaceAll("#\\)", "'\\)");
+      SQL = SQL.replaceAll("#,#", "','");
       stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
