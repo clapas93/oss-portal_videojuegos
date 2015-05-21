@@ -108,7 +108,8 @@ public class UserStudent extends User {
                 +"credits="+"'"+this.credits+"',"
                 +"history="+"'"+this.history+"'"
                 +"WHERE studentemail ='"+this.studentemail+"';";
-        System.out.println(query);
+        System.out.println("QUery: " +query);
+        //connection = new ConnectionDB();
         return connection.update(query);
     }
 
@@ -120,8 +121,10 @@ public class UserStudent extends User {
       UserStudent aux = new UserStudent();  
       try {
             System.out.println(query);
+            //Connection connection = new ConnectionDB();
             ResultSet rs = connection.select(query);
             while(rs.next()){
+              aux.setStudentemail(rs.getString("studentemail"));
               aux.setName(rs.getString("name"));
               aux.setLastname1(rs.getString("lastname1"));
               aux.setLastname2(rs.getString("lastname2"));
@@ -143,6 +146,7 @@ public class UserStudent extends User {
       UserStudent aux = new UserStudent();  
       try {
             System.out.println(query);
+            //connection = new ConnectionDB();
             ResultSet rs = connection.select(query);
             while(rs.next()){
               aux.setCredits(rs.getString("credits"));
