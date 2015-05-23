@@ -8,6 +8,9 @@ package TransactionsController;
 import ConnectionDB.ConnectionDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,14 +56,14 @@ public class Transactions {
     public LinkedList<String> getHistory(String Id_Student){
         LinkedList<String> hist = null;
         ConnectionDB data = new ConnectionDB();
-        String query = "SELECT title, date, genre, state, front "
+        String query = "SELECT title, date, genre, state, front, routegame "
                 + " FROM videogame AS V JOIN download AS D ON (V.idgame = D.idgame) "
                 + "WHERE D.studentemail='"+Id_Student+"' ORDER BY date;";
         ResultSet res = data.select(query);
         try {
             hist = new LinkedList<String>();
             while(res.next()){
-                for(int i = 1; i < 6; i++){
+                for(int i = 1; i < 7; i++){
                    hist.add(res.getObject(i).toString());
                 }
             }
@@ -70,8 +73,21 @@ public class Transactions {
         return hist;
     } 
     
-    public boolean registerDownload(String Id_Student, String Id_Game){
+    /**
+     * Make the log of a transaction done by one user. Automatically this will
+     * make the discount of the user wallet.
+     * @param Id_Student
+     * @param Id_Game
+     * @return 
+     */
     
+    
+    public boolean registerDownload(String Id_Student, String Id_Game){
+        DateFormat dateForm =  new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
+        Date date = new Date();
+        String dateS = dateForm.format(date);
+        
+        
     return false;
     }
 }
