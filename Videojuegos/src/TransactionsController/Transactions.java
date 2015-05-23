@@ -8,6 +8,7 @@ package TransactionsController;
 import ConnectionDB.ConnectionDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,5 +40,38 @@ public class Transactions {
             Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
         }
         return resultado;
+    }
+    
+    /**
+     * This method will return a linkedlist of all the rows with
+     * the information of a bill of a user. Tho get the information
+     * of the row it's taken by module 5.
+     * @param Id_Student
+     * @return LinkedList
+     */
+    
+    public LinkedList<String> getHistory(String Id_Student){
+        LinkedList<String> hist = null;
+        ConnectionDB data = new ConnectionDB();
+        String query = "SELECT title, date, genre, state, front "
+                + " FROM videogame AS V JOIN download AS D ON (V.idgame = D.idgame) "
+                + "WHERE D.studentemail='"+Id_Student+"' ORDER BY date;";
+        ResultSet res = data.select(query);
+        try {
+            hist = new LinkedList<String>();
+            while(res.next()){
+                for(int i = 1; i < 6; i++){
+                   hist.add(res.getObject(i).toString());
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return hist;
+    } 
+    
+    public boolean registerDownload(String Id_Student, String Id_Game){
+    
+    return false;
     }
 }
