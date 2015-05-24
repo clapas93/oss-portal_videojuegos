@@ -25,10 +25,8 @@ public class UserStudent extends User {
     private String status;
     private String credits;
     private String history;
-    private final ConnectionDB connection;
     
     public UserStudent(){
-        this.connection = new ConnectionDB();
     }
     
     public UserStudent(String studentemail, String name, String lastname1,
@@ -44,9 +42,7 @@ public class UserStudent extends User {
         super.password = password;
         this.status = status;
         this.credits = credits;
-        this.history = history;
-        this.connection = new ConnectionDB();
-        
+        this.history = history;        
     }
 
     public String getStudentemail() {
@@ -109,19 +105,24 @@ public class UserStudent extends User {
                 +"history="+"'"+this.history+"'"
                 +"WHERE studentemail ='"+this.studentemail+"';";
         System.out.println("QUery: " +query);
-        //connection = new ConnectionDB();
-        return connection.update(query);
+        ConnectionDB connection = new ConnectionDB();
+        boolean res = connection.update(query);
+        connection.ConnectionClose();
+        return res;
     }
 
     public boolean insert(String query){
-       return connection.insert(query);
+      ConnectionDB connection = new ConnectionDB();
+      boolean res = connection.insert(query);
+      connection.ConnectionClose();
+      return res;
     }
     
     public UserStudent selectStudent(String query){
       UserStudent aux = new UserStudent();  
       try {
             System.out.println(query);
-            //Connection connection = new ConnectionDB();
+            ConnectionDB connection = new ConnectionDB();
             ResultSet rs = connection.select(query);
             while(rs.next()){
               aux.setStudentemail(rs.getString("studentemail"));
@@ -135,6 +136,7 @@ public class UserStudent extends User {
               aux.setHistory(rs.getString("history"));
               aux.setCredits(rs.getString("credits"));
             }
+            connection.ConnectionClose();
             return aux;
         } catch (SQLException ex) {
             Logger.getLogger(UserStudent.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,11 +148,12 @@ public class UserStudent extends User {
       UserStudent aux = new UserStudent();  
       try {
             System.out.println(query);
-            //connection = new ConnectionDB();
+            ConnectionDB connection = new ConnectionDB();
             ResultSet rs = connection.select(query);
             while(rs.next()){
               aux.setCredits(rs.getString("credits"));
             }
+            connection.ConnectionClose();
             String credits = aux.getCredits();
             if(credits!=null){
               return Float.parseFloat(aux.getCredits());

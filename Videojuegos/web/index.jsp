@@ -14,7 +14,6 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   <link rel="stylesheet" type="text/css" href="public/css/loginstyles.css">
   <link rel="stylesheet" type="text/css" href="public/css/checkout-cornerflat.css" />
   <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome.min.css" />
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   
   <script type="text/javascript" src="public/js/main.js"></script>

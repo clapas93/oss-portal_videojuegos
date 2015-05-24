@@ -28,7 +28,7 @@
                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Editar mi perfil </a>
               </li>
               <li role="presentation"><a role="menuitem" href="myaccount">
-                      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Mis Cuenta</a></li>
+                      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Mi Cuenta</a></li>
               <li class="divider"></li>
               <li role="presentation"><a role="menuitem" href="logoutController">
                       <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Salir</a>

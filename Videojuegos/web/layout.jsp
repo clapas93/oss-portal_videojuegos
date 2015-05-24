@@ -25,7 +25,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   <link rel="stylesheet" type="text/css" href="public/css/loginstyles.css">
   <link rel="stylesheet" type="text/css" href="public/css/checkout-cornerflat.css" />
   <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome.min.css" />
+ <!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome.min.css" />-->
 
   <link rel="stylesheet" type="text/css" href="public/css/videogames/normalize.css" />
   <link rel="stylesheet" type="text/css" href="public/css/videogames/component.css" />

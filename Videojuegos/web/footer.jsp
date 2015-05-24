@@ -16,7 +16,6 @@
   <script type="text/javascript" src="public/js/layout.js"></script>
   <script type="text/javascript" src="public/js/bootstrapValidator.min.js"></script>
   
-  <script type="text/javascript" src="public/js/magdieljs.js"></script>  
   <script type="text/javascript" src="public/js/validCampo.js"></script>
   <script type="text/javascript" src="public/js/jquery.validate.js"></script>
 

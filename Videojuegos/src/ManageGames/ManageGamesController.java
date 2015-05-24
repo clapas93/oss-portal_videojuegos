@@ -46,6 +46,14 @@ public class ManageGamesController extends HttpServlet {
         String view ="";
         game=null;
         List videogameList = null;
+        HttpSession session = request.getSession();
+        String user = (String) session.getAttribute("userAdmin");
+        System.out.println("user   "+user);
+
+        if(user==null){
+          response.sendRedirect(response.encodeRedirectURL("videogames"));
+          return;
+        }
         switch(path){
             case "/managegames":
                 view = "ManageGamesHI.jsp";

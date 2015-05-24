@@ -24,6 +24,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 
@@ -48,6 +49,14 @@ public class LoansController extends HttpServlet {
   throws ServletException, IOException {
     String path = request.getRequestURI().substring(request.getContextPath().length());
     String view ="";
+    HttpSession session = request.getSession();
+    String user = (String) session.getAttribute("userAdmin");
+    System.out.println("user   "+user);
+
+    if(user==null){
+      response.sendRedirect(response.encodeRedirectURL("videogames"));
+      return;
+    }
     switch(path){
         case "/loanapplications":
           view = "LoansHI.jsp";

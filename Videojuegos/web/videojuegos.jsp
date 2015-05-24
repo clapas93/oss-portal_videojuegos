@@ -12,18 +12,19 @@ Author     : lalo
     </div>
   </div><!-- /grid-wrap -->
   <div class="content">    
-      <div class="loadsec"></div>
   </div>
 </section>
 
 <!-- <img id="spinner" src="public/img/hex-loader2.gif">
   <div id="load" style="display:none"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></div> -->
-  <script type="text/javascript">
+<script type="text/javascript">
   var info = new Array();
   var credit = 0;
   var session = false;
   var j = 0;
-  $.ajax({
+  $( document ).ready(function() {
+    console.log( "ready!" );
+    $.ajax({
     url: "getvideogames" ,
     dataType: "json",
     contentType: 'application/json',
@@ -33,7 +34,7 @@ Author     : lalo
       });
       setTimeout(function(){
         loadGames();
-      },500);
+      },1000);
 
     },
     error: function(data){
@@ -53,6 +54,8 @@ Author     : lalo
       console.error(data);
     }
   });
+});
+  
 
 
 
@@ -104,7 +107,7 @@ Author     : lalo
                     '<h2>Precio:</h2>'+
                   '</div>'+
                  '<div class="col-md-3">'+
-                  '<h3 class="precio">300</h3>'+
+                  '<h3 class="precio">'+info[i].price+'</h3>'+
                 '</div>';
                 if(info[i].price>0){
                   if(credit<info[i].price){
@@ -126,28 +129,35 @@ Author     : lalo
          '</div>'+
         '</div>'+
       '</div>';  
-      $(".content").prepend(cont); 
+      $(".content").append(cont); 
     }
     j+=3;
-    $(".loadsec").append(
+    $(".content").append(
       '<span class="loading"></span>'+
       '<span class="icon close-content"></span>');
     clickfun();
   }
 
   function loadGames() {
+    setTimeout(function(){
+        insertdiv();
+    },500);
     $("#spinner").fadeOut();
     $(".loadsec").empty();
     var $inser = "";
+    
     for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 6; i++){
       $inser += '<div class="element-item" ><figure><img src="public/videogames/fronts/'+info[i].front+'" /></figure></div>'; 
+    }
+    if(i >= info.length){
+        $(".loadMore").fadeOut();
     }
     $inser = $($inser);
     $container.append( $inser ).isotope( 'addItems', $inser );
     $container.isotope(option);
     setTimeout(function(){
-      insertdiv();
-      $("html, body").animate({ scrollTop: $("body").height() }, 1200);
+      
+      $("html, body").animate({ scrollTop: $("body").height()+800 }, 1200);
       new grid3D( document.getElementById( 'grid3d' ) );
     },500);
 
@@ -168,6 +178,7 @@ Author     : lalo
       <img id="close"src="public/img/x.png">
     </div>
   </div>
+  
 
   <script type="text/javascript">
   function clickfun(){  
@@ -193,11 +204,39 @@ Author     : lalo
       $(".jssort01").fadeIn(2000);
       $(".title").fadeIn(2400);
     });
+    
+    $(".loadMore").click(function(){
+      loadGames();
+    });
+    
+    
+    
   }
   
   </script>
-
+  
+  <div class="loadMore">
+    <span  id="flecha" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+  </div>
+  
+  
   <style type="text/css">
+      #flecha{
+        font-size: 4em;
+        left: 23%;
+        top: 27%;
+      }
+      .loadMore{
+          position: fixed;
+          background-color: #083B56;
+          width: 7em;
+          height: 7em;
+          border-radius: 50%;
+          right: 6%;
+        bottom: 5%;
+        cursor:pointer;
+      }
+      
   .accion{
     position: relative;
     margin-top: 20%;
