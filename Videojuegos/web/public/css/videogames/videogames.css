@@ -1,0 +1,121 @@
+.espacio{
+  margin-bottom: 1em;
+}
+.sharefacebook{
+  background-color: #083B56;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  cursor:pointer;
+  margin-left: 43%;
+}
+.fbicon{
+  color: white;
+  position: relative;
+  font-size: 3em  !important;
+  left: 0;
+  top: 16%;
+}
+.sharetwitter{
+  background-color: #2B7DA8;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  cursor:pointer;
+  margin-left: 21%;
+}
+.twiticon{
+  color: white;
+  position: relative;
+  font-size: 3em  !important;
+  left: 0;
+  top: 16%;
+}
+#flecha{
+  font-size: 4em;
+  left: 23%;
+  top: 27%;
+}
+.loadMore{
+  position: fixed;
+  background-color: #083B56;
+  width: 7em;
+  height: 7em;
+  border-radius: 50%;
+  right: 6%;
+  bottom: 5%;
+  cursor:pointer;
+}
+
+.accion{
+  position: relative;
+  margin-top: 20%;
+}
+
+.precio{
+  position: relative;
+  margin-top: 24%;
+}
+h3>span{
+  font-weight: bold;
+}
+.msj{
+  padding-top: 17px;
+  color: red;
+}
+.element-item{
+  border-radius: 5px;
+  padding: 10px;
+  background-color:rgba(11, 11, 11, 0.62);
+  width: 27%;
+  height: auto;
+  margin: 1em;
+
+}
+
+/**--------------------------------------------------------------------------------**/
+@media only screen and (max-width: 992px) {
+  .content > div.show {
+    overflow-y: auto;
+  }
+  .precio{
+    margin-top: 6%;
+  }
+  .accion{
+    margin-top: 6%;
+    margin-left: 0;
+  }
+  .sharefacebook{
+    margin-left: 28%;
+  }
+  .sharetwitter{
+    margin-left: 0;
+    position: relative;
+    bottom: 5em;
+    left: 58%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .content > div.show {
+    overflow-y: auto;
+  }
+  .sharefacebook{
+    position: relative;
+    bottom: 0;
+    left: -14px;
+  }
+  .sharetwitter{
+    margin-left: 0;
+    position: relative;
+    bottom: 5em;
+    left: 58%;
+  }
+  .accion{
+    margin-left: 0;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .accion {
+    margin-left: 75%;
+  }
+}

@@ -19,16 +19,17 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   <title>Pulse Games</title>
 
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="public/css/videogames/videogames.css">
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="public/css/style.css">
   <link rel="stylesheet" type="text/css" href="public/css/inside.css">
   <link rel="stylesheet" type="text/css" href="public/css/loginstyles.css">
   <link rel="stylesheet" type="text/css" href="public/css/checkout-cornerflat.css" />
   <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
- <!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome.min.css" />-->
-
+  <link rel="stylesheet" type="text/css" href="public/fonts/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="public/css/videogames/normalize.css" />
   <link rel="stylesheet" type="text/css" href="public/css/videogames/component.css" />
+  
   <script src="public/js/videogames/modernizr.custom.js"></script>
   <script src="public/js/videogames/isotope.pkgd.js"></script>
   <script src="public/js/videogames/classie.js"></script>
@@ -147,6 +148,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                         }
 		
 </script>
+<div id="fb-root"></div>
 </body>  
 </html>
 
