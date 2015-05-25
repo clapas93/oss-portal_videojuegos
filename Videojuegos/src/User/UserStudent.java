@@ -30,8 +30,8 @@ public class UserStudent extends User {
     }
     
     public UserStudent(String studentemail, String name, String lastname1,
-            String lastname2, String accountnumber, String career, String password,
-            String status, String credits, String history){
+		       String lastname2, String accountnumber, String career, String password,
+		       String status, String credits, String history){
         
         this.studentemail = studentemail;
         super.name = name;
@@ -95,15 +95,15 @@ public class UserStudent extends User {
     
     public boolean update(){
         String query = "UPDATE student set name ="+"'"+super.getName()+"'," 
-                +"lastname1="+"'"+this.getLastname1()+"',"
-                +"lastname2="+"'"+this.getLastname2()+"',"
-                +"accountnumber="+"'"+this.accountnumber+"',"
-                +"career="+"'"+this.career+"',"
-                +"password="+"'"+this.getPassword()+"',"
-                +"status="+"'"+this.status+"',"
-                +"credits="+"'"+this.credits+"',"
-                +"history="+"'"+this.history+"'"
-                +"WHERE studentemail ='"+this.studentemail+"';";
+	    +"lastname1="+"'"+this.getLastname1()+"',"
+	    +"lastname2="+"'"+this.getLastname2()+"',"
+	    +"accountnumber="+"'"+this.accountnumber+"',"
+	    +"career="+"'"+this.career+"',"
+	    +"password="+"'"+this.getPassword()+"',"
+	    +"status="+"'"+this.status+"',"
+	    +"credits="+"'"+this.credits+"',"
+	    +"history="+"'"+this.history+"'"
+	    +"WHERE studentemail ='"+this.studentemail+"';";
         System.out.println("QUery: " +query);
         ConnectionDB connection = new ConnectionDB();
         boolean res = connection.update(query);
@@ -112,29 +112,29 @@ public class UserStudent extends User {
     }
 
     public boolean insert(String query){
-      ConnectionDB connection = new ConnectionDB();
-      boolean res = connection.insert(query);
-      connection.ConnectionClose();
-      return res;
+	ConnectionDB connection = new ConnectionDB();
+	boolean res = connection.insert(query);
+	connection.ConnectionClose();
+	return res;
     }
     
     public UserStudent selectStudent(String query){
-      UserStudent aux = new UserStudent();  
-      try {
+	UserStudent aux = new UserStudent();  
+	try {
             System.out.println(query);
             ConnectionDB connection = new ConnectionDB();
             ResultSet rs = connection.select(query);
             while(rs.next()){
-              aux.setStudentemail(rs.getString("studentemail"));
-              aux.setName(rs.getString("name"));
-              aux.setLastname1(rs.getString("lastname1"));
-              aux.setLastname2(rs.getString("lastname2"));
-              aux.setAccountnumber(rs.getString("accountnumber"));
-              aux.setCareer(rs.getString("career"));
-              aux.setPassword(rs.getString("password"));
-              aux.setStatus(rs.getString("status"));
-              aux.setHistory(rs.getString("history"));
-              aux.setCredits(rs.getString("credits"));
+		aux.setStudentemail(rs.getString("studentemail"));
+		aux.setName(rs.getString("name"));
+		aux.setLastname1(rs.getString("lastname1"));
+		aux.setLastname2(rs.getString("lastname2"));
+		aux.setAccountnumber(rs.getString("accountnumber"));
+		aux.setCareer(rs.getString("career"));
+		aux.setPassword(rs.getString("password"));
+		aux.setStatus(rs.getString("status"));
+		aux.setHistory(rs.getString("history"));
+		aux.setCredits(rs.getString("credits"));
             }
             connection.ConnectionClose();
             return aux;
@@ -145,20 +145,20 @@ public class UserStudent extends User {
     }
     
     public float selectCredits(String query){
-      UserStudent aux = new UserStudent();  
-      try {
+	UserStudent aux = new UserStudent();  
+	try {
             System.out.println(query);
             ConnectionDB connection = new ConnectionDB();
             ResultSet rs = connection.select(query);
             while(rs.next()){
-              aux.setCredits(rs.getString("credits"));
+		aux.setCredits(rs.getString("credits"));
             }
             connection.ConnectionClose();
             String credits = aux.getCredits();
             if(credits!=null){
-              return Float.parseFloat(aux.getCredits());
+		return Float.parseFloat(aux.getCredits());
             }else{
-              return 0;
+		return 0;
             } 
         } catch (SQLException ex) {
             Logger.getLogger(UserStudent.class.getName()).log(Level.SEVERE, null, ex);

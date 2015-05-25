@@ -33,7 +33,7 @@ public class StudentController extends HttpServlet {
     private UserStudent model ;
   
     public StudentController(){
-      model = new UserStudent();
+	model = new UserStudent();
     }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,47 +45,47 @@ public class StudentController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-      String path = request.getRequestURI().substring(request.getContextPath().length());
-      String view = "";
-      String footer = "footer.jsp";
-      String header = "headerLogin.jsp";
-      /* Recuperamos la sesión que está activa */
-      HttpSession session = request.getSession();
-      String user = (String) session.getAttribute("userStudent");
-      System.out.println("user   "+user);
+	throws ServletException, IOException {
+	String path = request.getRequestURI().substring(request.getContextPath().length());
+	String view = "";
+	String footer = "footer.jsp";
+	String header = "headerLogin.jsp";
+	/* Recuperamos la sesión que está activa */
+	HttpSession session = request.getSession();
+	String user = (String) session.getAttribute("userStudent");
+	System.out.println("user   "+user);
       
-      if(user==null){
-        response.sendRedirect(response.encodeRedirectURL("videogames"));
-        return;
-      }
+	if(user==null){
+	    response.sendRedirect(response.encodeRedirectURL("videogames"));
+	    return;
+	}
       
-      String selectSQL = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
-      //System.out.println(selectSQL);
-      UserStudent student = model.selectStudent(selectSQL);
+	String selectSQL = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
+	//System.out.println(selectSQL);
+	UserStudent student = model.selectStudent(selectSQL);
       
-      switch (path) {
+	switch (path) {
         case "/updatestudent":
-          view = "profileUpdate.jsp";
-          request.setAttribute("student", student);
-          request.setAttribute("header", header);
-          request.setAttribute("view", view);
-          request.setAttribute("title", "Manage Games");
-          request.setAttribute("footer", footer);
-          request.getRequestDispatcher("layout.jsp").forward(request, response);
-        break;
+	    view = "profileUpdate.jsp";
+	    request.setAttribute("student", student);
+	    request.setAttribute("header", header);
+	    request.setAttribute("view", view);
+	    request.setAttribute("title", "Manage Games");
+	    request.setAttribute("footer", footer);
+	    request.getRequestDispatcher("layout.jsp").forward(request, response);
+	    break;
         case "/myaccount":
-          view = "AccountHI.jsp";
-          request.setAttribute("student", student);
-          request.setAttribute("header", header);
-          request.setAttribute("view", view);
-          request.setAttribute("title", "Manage Games");
-          request.setAttribute("footer", footer);
-          request.getRequestDispatcher("layout.jsp").forward(request, response);
-        break;
+	    view = "AccountHI.jsp";
+	    request.setAttribute("student", student);
+	    request.setAttribute("header", header);
+	    request.setAttribute("view", view);
+	    request.setAttribute("title", "Manage Games");
+	    request.setAttribute("footer", footer);
+	    request.getRequestDispatcher("layout.jsp").forward(request, response);
+	    break;
 
+	}
     }
-}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -98,8 +98,8 @@ public class StudentController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-      processRequest(request, response);
+	throws ServletException, IOException {
+	processRequest(request, response);
     }
 
     /**
@@ -112,25 +112,25 @@ public class StudentController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+	throws ServletException, IOException {
         String path = request.getRequestURI().substring(request.getContextPath().length());
       
-      UserStudent student = new UserStudent();
-      HttpSession session = request.getSession();
-      String user = (String) session.getAttribute("userStudent");
+	UserStudent student = new UserStudent();
+	HttpSession session = request.getSession();
+	String user = (String) session.getAttribute("userStudent");
       
-      String query = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
-      student = student.selectStudent(query);
+	String query = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
+	student = student.selectStudent(query);
       
         System.out.println(student);
-      switch(path){
-          case "/historysave":
+	switch(path){
+	case "/historysave":
             Part hPart = request.getPart("historypdf");
             String history = "";
             System.out.println(hPart.getSize()==0);
             if(hPart.getSize()!=0){
-              Hash hash = new Hash();
-              history =hash.generateCode(user);
+		Hash hash = new Hash();
+		history =hash.generateCode(user);
             }
             student.setHistory(history);
             
@@ -140,9 +140,9 @@ public class StudentController extends HttpServlet {
                 File hfolder = new File(histPath);
                 File hfiles = new File(hfolder, history); 
                 if(hPart.getSize()!=0){
-                  try (InputStream input = hPart.getInputStream()) {
-                      Files.copy(input, hfiles.toPath()); 
-                  }
+		    try (InputStream input = hPart.getInputStream()) {
+			Files.copy(input, hfiles.toPath()); 
+		    }
                 }
             }else{
                 System.out.println("do Post - historial");
@@ -151,76 +151,76 @@ public class StudentController extends HttpServlet {
             response.sendRedirect(response.encodeRedirectURL("myaccount"));
             break;
               
-      case "/studentsave":
-        String name = request.getParameter("nombre_s");
-        String lastName1 = request.getParameter("last_name1");
-        String lastName2 = request.getParameter("last_name2");
-        String carrer = request.getParameter("carrer");
-        String numberAcc = request.getParameter("numberacc");
-        String pass = request.getParameter("pass1");
+	case "/studentsave":
+	    String name = request.getParameter("nombre_s");
+	    String lastName1 = request.getParameter("last_name1");
+	    String lastName2 = request.getParameter("last_name2");
+	    String carrer = request.getParameter("carrer");
+	    String numberAcc = request.getParameter("numberacc");
+	    String pass = request.getParameter("pass1");
 
-        Part filePart = request.getPart("fileUpload");
-        String hist = "";
-        System.out.println(filePart.getSize()==0);
-        if(filePart.getSize()!=0){
-          Hash hash = new Hash();
-          hist =hash.generateCode(user);
-        }
+	    Part filePart = request.getPart("fileUpload");
+	    String hist = "";
+	    System.out.println(filePart.getSize()==0);
+	    if(filePart.getSize()!=0){
+		Hash hash = new Hash();
+		hist =hash.generateCode(user);
+	    }
 
-        student.setStudentemail(user);
-        student.setName(name);
-        student.setLastname1(lastName1);
-        student.setLastname2(lastName2);
-        student.setCareer(carrer);
-        student.setCredits("0");
-        student.setAccountnumber(numberAcc);
-        student.setPassword(pass);
-        student.setHistory(hist);
-        student.setStatus("a");
+	    student.setStudentemail(user);
+	    student.setName(name);
+	    student.setLastname1(lastName1);
+	    student.setLastname2(lastName2);
+	    student.setCareer(carrer);
+	    student.setCredits("0");
+	    student.setAccountnumber(numberAcc);
+	    student.setPassword(pass);
+	    student.setHistory(hist);
+	    student.setStatus("a");
         
-        DateFormat dateForm =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date();
+	    DateFormat dateForm =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	    Date date = new Date();
                         
-        String dateS = dateForm.format(date);
-        String state = "n";
-        int credit = 0;
+	    String dateS = dateForm.format(date);
+	    String state = "n";
+	    int credit = 0;
                         
-        String insertLoan = "INSERT INTO loan (studentemail, adminemail,"
-                  + "date, status, creditapproved) VALUES ("+
-                  "'"+student.getStudentemail()+"','admin@oss.com','"+
-                  dateS+"','"+state+"',"+credit+");";
+	    String insertLoan = "INSERT INTO loan (studentemail, adminemail,"
+		+ "date, status, creditapproved) VALUES ("+
+		"'"+student.getStudentemail()+"','admin@oss.com','"+
+		dateS+"','"+state+"',"+credit+");";
 
-        System.out.println(insertLoan);
+	    System.out.println(insertLoan);
         
-        //Si el historial no es subido cambiar no actualizar
-        try{
+	    //Si el historial no es subido cambiar no actualizar
+	    try{
          
-          student.update();
-          model.insert(insertLoan);
-        }catch(Exception e){    
-          System.out.println(e.toString());
-        }
-         if(filePart.getSize()!=0){
-          try{
+		student.update();
+		model.insert(insertLoan);
+	    }catch(Exception e){    
+		System.out.println(e.toString());
+	    }
+	    if(filePart.getSize()!=0){
+		try{
             
-            model.insert(insertLoan);
-          }catch(Exception e){    
-            System.out.println(e.toString());
-          }
-        }
-        String hist_path = getPath()+"/web/public/historiales";
+		    model.insert(insertLoan);
+		}catch(Exception e){    
+		    System.out.println(e.toString());
+		}
+	    }
+	    String hist_path = getPath()+"/web/public/historiales";
         
-        File folder = new File(hist_path);
-        File files = new File(folder, hist); 
-        if(filePart.getSize()!=0){
-          try (InputStream input = filePart.getInputStream()) {
-              Files.copy(input, files.toPath()); 
-          }
-        }
+	    File folder = new File(hist_path);
+	    File files = new File(folder, hist); 
+	    if(filePart.getSize()!=0){
+		try (InputStream input = filePart.getInputStream()) {
+		    Files.copy(input, files.toPath()); 
+		}
+	    }
 
-        response.sendRedirect(response.encodeRedirectURL("updatestudent"));
-        break;
-      }
+	    response.sendRedirect(response.encodeRedirectURL("updatestudent"));
+	    break;
+	}
 
     }
 
@@ -230,17 +230,17 @@ public class StudentController extends HttpServlet {
             if (cd.trim().startsWith("filename")) {
                 String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
                 return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
-        }
-      }
-      return null;
+	    }
+	}
+	return null;
     }
 
     public String getPath() throws UnsupportedEncodingException {
-      String path = this.getClass().getClassLoader().getResource("").getPath();
-      String fullPath = URLDecoder.decode(path, "UTF-8");
-      String pathArr[] = fullPath.split("/build/web/WEB-INF/classes/");
-      fullPath = pathArr[0];
-      return fullPath;
+	String path = this.getClass().getClassLoader().getResource("").getPath();
+	String fullPath = URLDecoder.decode(path, "UTF-8");
+	String pathArr[] = fullPath.split("/build/web/WEB-INF/classes/");
+	fullPath = pathArr[0];
+	return fullPath;
     }
 
     
@@ -251,7 +251,7 @@ public class StudentController extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-      return "Short description";
+	return "Short description";
     }// </editor-fold>
 
-  }
+}

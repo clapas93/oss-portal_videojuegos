@@ -39,10 +39,10 @@ public class Hash {
     }
     
     /*
-    *Private method to do the map of the function.
-    *@param String user
-    *@return String
-    */
+     *Private method to do the map of the function.
+     *@param String user
+     *@return String
+     */
     
     private String mapping(String user){
         DateFormat dateForm =  new SimpleDateFormat("yyyyMMdd~HHmm");
