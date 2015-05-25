@@ -62,14 +62,14 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                                 <i class="fa fa-angle-left"></i> Cancelar
                             </span>
                             <button type="submit" class="checkout__option">ENTRAR</button>
-                            <button class="checkout__close checkout__cancel">
-                                <i class="icon fa fa-fw fa-close"></i>Close</button>
+                            
                         </div>
                     </div>
                 </form>
                 </div>
                 </div>
             </div>
+                        <div class="mi-back hidden"></div>
 	</div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         
@@ -152,19 +152,42 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                         if($('body').width() >= 600){
                             $('.checkout__order').removeClass('hidden');
                         }else{
-                            console.log("pato");
+                            
                             $('.checkout__button.p-login').click(function(){
-                                if($('.checkout__order').hasClass('hidden'))
+                                if($('.checkout__order').hasClass('hidden')){
                                     $('.checkout__order').removeClass('hidden');
-                                else
+                                }else{
                                     $('.checkout__order').addClass('hidden');
+                                }
+                                if($('.mi-back').hasClass('hidden')){
+                                    $('.mi-back').removeClass('hidden');
+                                }else{
+                                    $('.mi-back').addClass('hidden');
+                                    console.log("ggggato");
+                                }
+                                $('.checkout__order').css('z-index','10000');
                             });
                             $('.checkout__cancel').click(function(){
-                                if($('.checkout__order').hasClass('hidden'))
+                                if($('.checkout__order').hasClass('hidden')){
                                     $('.checkout__order').removeClass('hidden');
-                                else
+                                }else{
                                     $('.checkout__order').addClass('hidden');
+                                }
+                                if($('.mi-back').hasClass('hidden')){
+                                    $('.mi-back').removeClass('hidden');
+                                }else{
+                                    $('.mi-back').addClass('hidden');
+                                }
                             });
+                            $('.mi-back').click(function(){
+                               $('.mi-back').addClass('hidden'); 
+                               if($('.checkout__order').hasClass('hidden')){
+                                    $('.checkout__order').removeClass('hidden');
+                                }else{
+                                    $('.checkout__order').addClass('hidden');
+                                }
+                            });
+                            
                         }
     </script>
 

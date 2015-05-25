@@ -7,6 +7,19 @@ and open the template in the editor.
     Created on : 24/03/2015, 01:38:04 PM
     Author     : magdiel
 */
+.mi-back{
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: 9999;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.6);
+    display: block;
+    left: 0;
+    top: 0;
+        
+    
+}
 .form-index{
         color: white;
             width: 420px;
@@ -76,7 +89,7 @@ and open the template in the editor.
 .mi-title{
     color:rgb(146, 192, 216);
     }
-#validate-form {margin: 0 auto;}
+#validate-form {margin: 0 auto 30px auto;}
 .form-group.asset {margin:0;}
 .checkout__button.p-login{right: 68px; display:inline; text-decoration: none;background: #083B56;
 padding: 16px 24px;}
@@ -101,7 +114,10 @@ body {background: #0D0C0C !important;}
 @media (min-width:768px) and (max-width:991px){
     #validate-form {width:60% !important;}
     .grid.isotope.rainbowed.isotope-demo {margin-top: 3%;}
-    
+    .form-horizontal .control-label {display:inline-block; float: left;}
+    .has-feedback .form-control {width: 250px; float: right;}
+    .form-control {width:80%; margin: 0 auto;}
+    .formulario .form-group label {margin-left: 10%;}
 }
 @media (min-width:600px) and (max-width:767px){
     .grid.isotope.rainbowed.isotope-demo {margin-top: 5%;}
