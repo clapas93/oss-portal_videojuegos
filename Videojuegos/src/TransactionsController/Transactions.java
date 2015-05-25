@@ -83,11 +83,66 @@ public class Transactions {
     
     
     public boolean registerDownload(String Id_Student, String Id_Game){
-        DateFormat dateForm =  new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
+        DateFormat dateForm =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
         String dateS = dateForm.format(date);
-        
-        
-    return false;
+
+        ConnectionDB data = new ConnectionDB();
+        String query = "SELECT title FROM videogame AS V JOIN download AS D ON"
+                + " (V.idgame = D.idgame) WHERE V.idgame="+String.valueOf(Id_Game)+
+                " AND D.studentemail='"+Id_Student+"';";
+        ResultSet res = data.select(query);
+        try {
+            if(res.next()){
+                //In this case, the user has paid this game
+                query = "INSERT INTO download"
+                + " (idgame, studentemail, date) "
+                + "VALUES ("+String.valueOf(Id_Game)+",'"+Id_Student+"','"+dateS+"')";
+                data.insert(query);
+                
+                 query = "UPDATE videogame SET downloads = downloads + 1 "
+                      + "WHERE idgame = "+String.valueOf(Id_Game)+";";
+                data.update(query);
+                data.ConnectionClose();
+                return true;
+
+            }else{
+                //Make the download of this item for firts time
+                query = "INSERT INTO download"
+                + " (idgame, studentemail, date) "
+                + "VALUES ("+String.valueOf(Id_Game)+",'"+Id_Student+"','"+dateS+"')";
+                data.insert(query);
+                
+                String query_price = "SELECT price FROM videogame "
+                        + "WHERE idgame ="+String.valueOf(Id_Game)+";";
+                
+                ConnectionDB data_p = new ConnectionDB();
+                 
+                System.out.println(Id_Game);
+                ResultSet resp = data_p.select(query_price);
+                boolean tmp = resp.next();
+
+                if(tmp){
+                    String price = resp.getObject(1).toString();
+                    query = "UPDATE student SET credits = "
+                        + "credits - "+price
+                        +" WHERE studentemail = 'g.antonio@ciencias.unam.mx';";
+                    data.update(query);
+                }
+                
+                query = "UPDATE videogame SET downloads = downloads + 1 "
+                        + "WHERE idgame ="+String.valueOf(Id_Game)+";";
+                data.update(query);
+                data.ConnectionClose();
+                data_p.ConnectionClose();
+                return true;
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        return false;
+
     }
 }
