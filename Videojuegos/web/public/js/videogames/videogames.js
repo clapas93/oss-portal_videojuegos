@@ -106,7 +106,7 @@ function insertdiv(){
 		cont='<div>'+
 		'<div class="container">'+
 		'<div class="row">'+
-		'<div class="col-md-4 col-md-offset-4"><h1>'+info[i].title+'</h1></div>'+
+		'<div class="col-md-4 col-md-offset-4"><h1>'+info[i].id+'  '+info[i].title+'</h1></div>'+
 		'</div>'+
 		'<div class="row">'+
 		'<div class="col-md-6">'+
@@ -122,11 +122,11 @@ function insertdiv(){
 			'<div class="col-md-6">'+
 			'<div class="row">'+
 			'<div class="col-md-6">'+
-			'<h3>Mis créditos: <span>'+credit+'</span></h3>'+
+			'<h3>Mis cr&eacute;ditos: <span id="'+i+'">'+credit+'</span></h3>'+
 			'</div>';
 			if(credit<info[i].price&&(info[i].price>0)){
 				cont+='<div class="col-md-6">'+
-				'<p class="msj">Creditos insuficientes</p>'+
+				'<p class="msj">Cr&eacute;ditos insuficientes</p>'+
 				'</div>';
 			}else{}
 			cont+='</div>'+
@@ -144,18 +144,18 @@ function insertdiv(){
 		'<h2>Precio:</h2>'+
 		'</div>'+
 		'<div class="col-md-3">'+
-		'<h3 class="precio">'+info[i].price+' créditos</h3>'+
+		'<h3 class="precio">'+info[i].price+' cr&eacute;ditos</h3>'+
 		'</div>';
 		if(info[i].price>0){
 			if(credit<info[i].price){
 			}else{
 				cont+='<div class="col-md-3">'+
-				'<button class="btn btn-success accion" >Comprar</button>'+
+				'<button credit="'+i+'" idGame='+info[i].id+' price="'+info[i].price+'" class="btn btn-success accion" >Comprar</button>'+
 				'</div>';
 			}
 		}else{
 			cont+='<div class="col-md-3">'+
-			'<button class="btn btn-primary accion" >Descargar</button>'+
+			'<button idGame='+info[i].id+' class="btn btn-primary accion" >Descargar</button>'+
 			'</div>';
 		}
 
@@ -199,7 +199,8 @@ function loadGames() {
 	var $inser = "";
 
 	for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 3; i++){
-		$inser += '<div class="element-item" ><figure><img src="public/videogames/fronts/'+info[i].front+'" /></figure></div>'; 
+		var s = '<div class="element-item" ><figure><img src="public/videogames/fronts/'+info[i].front+'" /></figure></div>'; 
+		$inser = s + $inser;
 	}
 	if(i >= info.length){
 		$(".loadMore").fadeOut();
@@ -245,5 +246,29 @@ function clickfun(){
 
 	$(".loadMore").click(function(){
 		loadGames();
+	});
+
+	$(".accion").click(function(){
+		var idGame = $(this).attr("idGame");
+		var idC = $(this).attr("credit");
+		var price = parseInt($(this).attr("price"));
+		var credit = parseInt($("#"+idC).text());
+		console.log(idGame);
+		/*console.log(credit);
+		console.log(price);*/
+		$.ajax({
+			type:"POST",
+			url: "transaction" ,
+			dataType: "json",
+			data:{idGame:idGame},
+			success: function(data){
+				console.log(data);
+				$("#"+idC).text((credit-price));
+			},
+			error: function(data){
+				console.error(data);
+			}
+		});
+
 	});
 }

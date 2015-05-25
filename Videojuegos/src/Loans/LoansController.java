@@ -115,8 +115,8 @@ public class LoansController extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
   throws ServletException, IOException {
-    request.setCharacterEncoding("UTF-8");
-    response.setCharacterEncoding("UTF-8");
+    /*request.setCharacterEncoding("UTF-8");
+    response.setCharacterEncoding("UTF-8");*/
     String path2 = request.getRequestURI().substring(request.getContextPath().length());
     PrintWriter out = response.getWriter();
     response.setContentType("application/json");

@@ -115,7 +115,7 @@ public class Transactions {
                 
                 String query_price = "SELECT price FROM videogame "
                         + "WHERE idgame ="+String.valueOf(Id_Game)+";";
-                
+                System.out.println(query_price);
                 ConnectionDB data_p = new ConnectionDB();
                  
                 System.out.println(Id_Game);
@@ -126,8 +126,9 @@ public class Transactions {
                     String price = resp.getObject(1).toString();
                     query = "UPDATE student SET credits = "
                         + "credits - "+price
-                        +" WHERE studentemail = 'g.antonio@ciencias.unam.mx';";
+                        +" WHERE studentemail = '"+Id_Student+"';";
                     data.update(query);
+                    System.out.println(query);
                 }
                 
                 query = "UPDATE videogame SET downloads = downloads + 1 "

@@ -40,6 +40,10 @@
         <servlet-name>registerController</servlet-name>
         <servlet-class>User.RegisterController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TransactionsController</servlet-name>
+        <servlet-class>TransactionsController.TransactionsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
@@ -89,6 +93,10 @@
         <url-pattern>/myaccount</url-pattern>
         <url-pattern>/studentsave</url-pattern>
         <url-pattern>/historysave</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransactionsController</servlet-name>
+        <url-pattern>/transaction</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

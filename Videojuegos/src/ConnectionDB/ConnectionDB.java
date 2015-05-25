@@ -26,8 +26,8 @@ public class ConnectionDB {
   public ConnectionDB(){
     try {
       this.host = "localhost";
-      //this.port = "5433";
-      this.port = "5432";
+      this.port = "5433";
+      //this.port = "5432";
       this.database = "videoGames";
       this.user = "Optimal";
       this.password = "OptimalSOfSo!";
