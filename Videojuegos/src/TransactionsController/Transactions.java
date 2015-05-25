@@ -52,21 +52,21 @@ public class Transactions {
      * @param Id_Student
      * @return LinkedList
      */
-    
     public LinkedList<String> getHistory(String Id_Student){
         LinkedList<String> hist = null;
         ConnectionDB data = new ConnectionDB();
-        String query = "SELECT title, date, genre, state, front, routegame "
+        String query = "SELECT state, date, title, genre, storageroute "
                 + " FROM videogame AS V JOIN download AS D ON (V.idgame = D.idgame) "
                 + "WHERE D.studentemail='"+Id_Student+"' ORDER BY date;";
         ResultSet res = data.select(query);
         try {
             hist = new LinkedList<String>();
             while(res.next()){
-                for(int i = 1; i < 7; i++){
+                for(int i = 1; i < 6; i++){
                    hist.add(res.getObject(i).toString());
                 }
             }
+        data.ConnectionClose();
         } catch (SQLException ex) {
             Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
         }        
