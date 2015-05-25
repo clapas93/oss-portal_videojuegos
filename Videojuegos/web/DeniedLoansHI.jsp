@@ -13,7 +13,7 @@ List loans = (List)request.getAttribute("loans");
 
 
 <div class="container">
-  <h1>Nuevas Solicitudes</h1>
+  <h1>Solicitudes Denegadas</h1>
   <br>
   <div class="row">
     <div class="col-lg-12">
@@ -171,6 +171,7 @@ $(".giveloan").click(function(){
     $(msj).css({'color':'red'});
     $(msj).append("Asigna Crédito");
   }else{ 
+    console.log(value);
     if(parseInt(value)<=0){
       $(inp).css({'border-color':'red'});
       $(msj).css({'color':'red'});
