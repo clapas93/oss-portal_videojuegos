@@ -4,8 +4,10 @@ Created on : 20-mar-2015, 15:34:40
 Author     : lalo
 --%>
 
+<%@page import="java.util.LinkedList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="User.UserStudent"%>
+<%@page import="TransactionsController.Transactions"%>
 <%
 UserStudent student = (UserStudent)request.getAttribute("student");
 %>
@@ -61,36 +63,62 @@ UserStudent student = (UserStudent)request.getAttribute("student");
       <div class="md-content">
         <h3>Historial académico</h3>
         <div>
-          <p>This is a modal window. You can do the following things with it:</p>
-          <ul>
-            <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-            <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-            <li><strong>Close:</strong> click on the button below to close the modal.</li>
-          </ul>
+          <%
+          String history = student.getHistory();
+          String emb ="";
+          if(!history.equals("")){
+              emb += "<p><embed src='public/historiales/" + history + "' width='100%' height='250' alt='historial'></p>";
+          }else{
+              emb = "<form enctype='multipart/form-data' method='POST' action='historysave'> "
+                      + "<br>"
+                      + "<center><input type='file' accept='.pdf' id='InputFile' name='historypdf'></center>"
+                      + "<br>"
+                      + "<button type='submit' class='btn btn-success'>Subir</button>"
+                      + "<br><br>"
+                      + "</form>";
+          }
+          out.println(emb);
+          %>
           <button class="md-close">Cerrar</button>
         </div>
       </div>
 </div>
+          <!--<p><embed src="public/historiales/<%=student.getHistory()%>" width="100%" height="250" alt="historial"></p>-->
 
 <div class="md-modal md-effect-8" id="descargas">
       <div class="md-content">
         <h3>Historial de descargas</h3>
         <div>
-          <p>This is a modal window. You can do the following things with it:</p>
-          <ul>
-            <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-            <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-            <li><strong>Close:</strong> click on the button below to close the modal.</li>
-            <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-            <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-            <li><strong>Close:</strong> click on the button below to close the modal.</li>
-            <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-            <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-            <li><strong>Close:</strong> click on the button below to close the modal.</li>
-            <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-            <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-            <li><strong>Close:</strong> click on the button below to close the modal.</li>
-          </ul>
+            <div class="dataTable_wrapper">
+                <div class="table-responsive">
+                  <table class="table table-condensed">
+                    <thead>
+                      <tr>
+                        <th>Fecha</th>
+                        <th>Titulo</th>
+                        <th>Genero</th>
+                        <th>Ejecutable</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% 
+                        String email = student.getStudentemail();
+                        Transactions t = new Transactions();
+                        LinkedList<String> downloadHistory = t.getHistory(email);
+                        for(int i = 0; i<downloadHistory.size();i+=5){
+                            if(downloadHistory.get(i).equals("1")){
+                        %>
+                        <%="<tr id='row"+i+"'>"%>
+                        <% for(int j = i+1; j<i+5;j++){%>
+                            <td><%=downloadHistory.get(j)%></td>
+                        <%}
+                            }%>
+                        <%="</tr>"%>
+                        <%}%>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
           <button class="md-close">Cerrar</button>
         </div>
       </div>

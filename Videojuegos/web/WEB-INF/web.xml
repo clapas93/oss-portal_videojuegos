@@ -88,6 +88,7 @@
         <url-pattern>/updatestudent</url-pattern>
         <url-pattern>/myaccount</url-pattern>
         <url-pattern>/studentsave</url-pattern>
+        <url-pattern>/historysave</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
