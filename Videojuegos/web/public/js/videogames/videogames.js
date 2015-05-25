@@ -126,7 +126,7 @@ function insertdiv(){
 			'</div>';
 			if(credit<info[i].price&&(info[i].price>0)){
 				cont+='<div class="col-md-6">'+
-				'<p class="msj">Créditos insuficientes</p>'+
+				'<p class="msj">Creditos insuficientes</p>'+
 				'</div>';
 			}else{}
 			cont+='</div>'+
@@ -144,7 +144,7 @@ function insertdiv(){
 		'<h2>Precio:</h2>'+
 		'</div>'+
 		'<div class="col-md-3">'+
-		'<h3 class="precio">'+info[i].price+'</h3>'+
+		'<h3 class="precio">'+info[i].price+' créditos</h3>'+
 		'</div>';
 		if(info[i].price>0){
 			if(credit<info[i].price){
