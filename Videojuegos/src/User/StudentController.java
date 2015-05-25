@@ -113,17 +113,45 @@ public class StudentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-      String path = request.getRequestURI().substring(request.getContextPath().length());
-      String view = "";
-      String footer = "footer.jsp";
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+      
+      UserStudent student = new UserStudent();
+      HttpSession session = request.getSession();
+      String user = (String) session.getAttribute("userStudent");
+      
+      String query = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
+      student = student.selectStudent(query);
+      
+        System.out.println(student);
       switch(path){
-      case "/studentsave":
-        view = "profileUpdate.jsp";
-        UserStudent student = new UserStudent();
+          case "/historysave":
+            Part hPart = request.getPart("historypdf");
+            String history = "";
+            System.out.println(hPart.getSize()==0);
+            if(hPart.getSize()!=0){
+              Hash hash = new Hash();
+              history =hash.generateCode(user);
+            }
+            student.setHistory(history);
+            
+            if(student.update()){
+                String histPath = getPath()+"/web/public/historiales";
 
-        HttpSession session = request.getSession();
-        String user = (String) session.getAttribute("userStudent");
-        
+                File hfolder = new File(histPath);
+                File hfiles = new File(hfolder, history); 
+                if(hPart.getSize()!=0){
+                  try (InputStream input = hPart.getInputStream()) {
+                      Files.copy(input, hfiles.toPath()); 
+                  }
+                }
+            }else{
+                System.out.println("do Post - historial");
+            }
+
+            response.sendRedirect(response.encodeRedirectURL("myaccount"));
+            break;
+              
+      case "/studentsave":
         String name = request.getParameter("nombre_s");
         String lastName1 = request.getParameter("last_name1");
         String lastName2 = request.getParameter("last_name2");

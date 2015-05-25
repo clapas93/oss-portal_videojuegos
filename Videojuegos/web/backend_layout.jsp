@@ -19,7 +19,7 @@
   <meta name="author" content="Claudia Medina"/>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/backend_style.css">
-  <link rel="stylesheet" type="text/css" href="public/css/inside.css">
+  <!--<link rel="stylesheet" type="text/css" href="public/css/inside.css">-->
   
   <link rel="stylesheet" type="text/css" href="public/css/formvalidation/formValidation.css">
   <link rel="stylesheet" type="text/css" href="public/css/formvalidation/formValidation.min.css">

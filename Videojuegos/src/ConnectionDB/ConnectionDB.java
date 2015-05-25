@@ -26,8 +26,8 @@ public class ConnectionDB {
   public ConnectionDB(){
     try {
       this.host = "localhost";
-      this.port = "5433";
-      //this.port = "5432";
+      //this.port = "5433";
+      this.port = "5432";
       this.database = "videoGames";
       this.user = "Optimal";
       this.password = "OptimalSOfSo!";
@@ -70,7 +70,7 @@ public class ConnectionDB {
   */
   public boolean insert(String SQL){    
     try{
-      SQL = SQL.replaceAll(",'",",#");
+      /*SQL = SQL.replaceAll(",'",",#");
       SQL = SQL.replaceAll("','", "#,#");  
       SQL = SQL.replaceAll("\\('", "\\(#");
       SQL = SQL.replaceAll("'\\)", "#\\)");
@@ -78,7 +78,7 @@ public class ConnectionDB {
       SQL = SQL.replaceAll("\\(#", "\\('");
       SQL = SQL.replaceAll("#\\)", "'\\)");
       SQL = SQL.replaceAll("#,#", "','");
-      SQL = SQL.replaceAll(",\\\\'", ",'");
+      SQL = SQL.replaceAll(",\\\\'", ",'");*/
 
       stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
@@ -99,13 +99,13 @@ public class ConnectionDB {
   */
   public boolean update(String SQL){    
     try{
-      SQL = SQL.replaceAll("\\('", "\\(#");
-      SQL = SQL.replaceAll("'\\)", "#\\)");
-      SQL = SQL.replaceAll("','", "#,#");
-      SQL = SQL.replaceAll("'", "\\\\'");
-      SQL = SQL.replaceAll("\\(#", "\\('");
-      SQL = SQL.replaceAll("#\\)", "'\\)");
-      SQL = SQL.replaceAll("#,#", "','");
+      //SQL = SQL.replaceAll("\\('", "\\(#");
+      //SQL = SQL.replaceAll("'\\)", "#\\)");
+      //SQL = SQL.replaceAll("','", "#,#");
+      //SQL = SQL.replaceAll("'", "\\\\'");
+      //SQL = SQL.replaceAll("\\(#", "\\('");
+      //SQL = SQL.replaceAll("#\\)", "'\\)");
+      //SQL = SQL.replaceAll("#,#", "','");
       this.stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
