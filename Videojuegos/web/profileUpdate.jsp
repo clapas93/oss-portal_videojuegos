@@ -6,46 +6,6 @@ Author     : antoniogalvan
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="User.UserStudent"%>
-<link href="https://www.google.com/fonts#QuickUsePlace:quickUse/Family:Arvo:400,700" rel="stylesheet" type="text/css">
-
-<style type="text/css">
-a.button-comp{
-  border: none;
-  padding: 0.6em 1.2em;
-  background: #083B56;
-  color: #fff;
-  font-family: 'Lato', Calibri, Arial, sans-serif;
-  font-size: 1em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: inline-block;
-  margin: 3px 2px;
-  border-radius: 2px;
-}
-a.button-comp:hover {
-  background: #773489;
-  text-decoration: none;
-}
-button.button-comp{
-  border: none;
-  padding: 0.6em 1.2em;
-  background: #083B56;
-  color: #fff;
-  font-family: 'Lato', Calibri, Arial, sans-serif;
-  font-size: 1em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: inline-block;
-  margin: 3px 2px;
-  border-radius: 2px;
-}
-button.button-comp:hover {
-  background: #773489;
-  text-decoration: none;
-}
-</style>
 
 <div id="games"></div>
 <div id="gamesupdate">

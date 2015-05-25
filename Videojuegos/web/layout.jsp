@@ -29,6 +29,9 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   <link rel="stylesheet" type="text/css" href="public/fonts/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="public/css/videogames/normalize.css" />
   <link rel="stylesheet" type="text/css" href="public/css/videogames/component.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/buttons.css" />
+  
+  <link href="https://www.google.com/fonts#QuickUsePlace:quickUse/Family:Arvo:400,700" rel="stylesheet" type="text/css">
   
   <script src="public/js/videogames/modernizr.custom.js"></script>
   <script src="public/js/videogames/isotope.pkgd.js"></script>
