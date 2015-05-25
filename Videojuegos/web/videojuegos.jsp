@@ -10,7 +10,8 @@ Author     : lalo
     </div>
   </div><!-- /grid-wrap -->
   <div class="content">
-
+    <span class="loading"></span>
+    <span class="icon close-content"></span>
   </div>
 </section>
 <div class="videodiv" >

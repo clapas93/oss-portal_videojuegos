@@ -53,7 +53,7 @@
 
 .grid figure,
 .grid .placeholder {
-	width: 340px;
+	width: 100%; /*340px;*/
 	height: auto;
 }
 
@@ -118,7 +118,7 @@
 
 .grid figure img {
 	display: block;
-	width: 80%;
+	width: 100%;
 }
 
 .content,

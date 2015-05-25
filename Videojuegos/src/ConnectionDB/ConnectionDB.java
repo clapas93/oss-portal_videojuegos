@@ -70,20 +70,9 @@ public class ConnectionDB {
   */
   public boolean insert(String SQL){    
     try{
-      /*SQL = SQL.replaceAll(",'",",#");
-      SQL = SQL.replaceAll("','", "#,#");  
-      SQL = SQL.replaceAll("\\('", "\\(#");
-      SQL = SQL.replaceAll("'\\)", "#\\)");
-      SQL = SQL.replaceAll("'", "\\\\'");
-      SQL = SQL.replaceAll("\\(#", "\\('");
-      SQL = SQL.replaceAll("#\\)", "'\\)");
-      SQL = SQL.replaceAll("#,#", "','");
-      SQL = SQL.replaceAll(",\\\\'", ",'");*/
-
       stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);
-      this.connection.close();
       return  true;
     }catch(Exception e){
         System.out.println(SQL);
@@ -99,13 +88,6 @@ public class ConnectionDB {
   */
   public boolean update(String SQL){    
     try{
-      //SQL = SQL.replaceAll("\\('", "\\(#");
-      //SQL = SQL.replaceAll("'\\)", "#\\)");
-      //SQL = SQL.replaceAll("','", "#,#");
-      //SQL = SQL.replaceAll("'", "\\\\'");
-      //SQL = SQL.replaceAll("\\(#", "\\('");
-      //SQL = SQL.replaceAll("#\\)", "'\\)");
-      //SQL = SQL.replaceAll("#,#", "','");
       this.stat = this.connection.createStatement();
       stat.executeUpdate(SQL);
       System.out.println(SQL);

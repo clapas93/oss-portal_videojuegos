@@ -60,11 +60,7 @@ public class Loan {
   *User's credit
   */
   private double credit;
-  
-  /**
-  *Connection DB
-  */
-  private final ConnectionDB connection;
+ 
 
   /**
   *Class construct
@@ -84,9 +80,9 @@ public class Loan {
       String accountnumber,
       String career, 
       String history, 
-      String status
+      String status,
+      String credit
   ){
-    this.connection = new ConnectionDB();
     this.email=email;
     this.name = name;
     this.lastname1 = lastname1;
@@ -95,13 +91,13 @@ public class Loan {
     this.career = career;
     this.history = history;
     this.status = status;
+    this.credit = Double.parseDouble(credit);
   } 
 
   /**
   *Default Contrstructor
   */
   public Loan (){
-    this.connection = new ConnectionDB();
   }
 
 
@@ -171,11 +167,20 @@ public class Loan {
   }
 
   /**
+  *Gets the status
+  *@return String status
+  */
+  public double getCredits(){
+    return this.credit;
+  }
+
+  /**
   *Generic method to make SELECT quert
   *@param  String  SELECT statement
   *@return  List return of the query
   */
   private List query(String query){
+    ConnectionDB connection = new ConnectionDB();
     List list = new LinkedList();  
     ResultSet rs = connection.select(query);
     try{
@@ -187,9 +192,11 @@ public class Loan {
       String accountnumber = rs.getString("accountnumber");
       String career = rs.getString("career");
       String history = rs.getString("history");
-      Loan loan = new Loan(email,name,lastname1,lastname2,accountnumber,career,history,status);
+      String credit = rs.getString("creditapproved");
+      Loan loan = new Loan(email,name,lastname1,lastname2,accountnumber,career,history,status,credit);
       list.add(loan);
     }
+    connection.ConnectionClose();
     return list;
     }catch(Exception e){
       System.out.println("Error...."+ e.toString());
@@ -205,8 +212,7 @@ public class Loan {
   protected List getLoans(String status){
     List list;
     try{
-      String sql="SELECT s.studentemail,s.name, s.lastname1,s.lastname2,s.accountnumber, s.career,s.history FROM loan as p JOIN student as s ON p.studentemail=s.studentemail WHERE p.status like "+status; 
-      System.out.println(sql);
+      String sql="SELECT s.studentemail,s.name, s.lastname1,s.lastname2,s.accountnumber, s.career,s.history,p.creditapproved FROM loan as p JOIN student as s ON p.studentemail=s.studentemail WHERE p.status like "+status; 
       list = query(sql);
     return list;
     }catch(Exception e){
@@ -222,7 +228,8 @@ public class Loan {
   *@return boolean true if the query was successful
   */
   public boolean denyLoan(String email){
-    String q = "UPDATE loan SET status='d' WHERE studentemail='"+email+"'";
+    ConnectionDB connection = new ConnectionDB();
+    String q = "UPDATE loan SET status='d',creditapproved = 0 WHERE studentemail='"+email+"'";
       System.out.println("q");
     return connection.update(q);
   }
@@ -234,11 +241,29 @@ public class Loan {
   *@return boolean true if the query was successful
   */
   public boolean grantedLoan(String email, double val){
+    ConnectionDB connection = new ConnectionDB();
     String q = "UPDATE loan SET status='a',creditapproved="+val+" WHERE studentemail='"+email+"'";
     String q2 = "UPDATE student SET  credits = "+val+" WHERE studentemail='"+email+"'";
     System.out.println(q2);
     boolean b1 = connection.update(q);
     boolean b2 = connection.update(q2);
+    connection.ConnectionClose();
+    return b1 && b2;
+  }
+
+  /**
+  *Update the row with approve status specified the email 
+  * @param email
+  * @param val
+  *@return boolean true if the query was successful
+  */
+  public boolean reapproveLoan(String email){
+    ConnectionDB connection = new ConnectionDB();
+    String q = "UPDATE loan SET status='n',creditapproved = 0 WHERE studentemail='"+email+"'";
+    String q2 = "UPDATE student SET  credits = 0 WHERE studentemail='"+email+"'";
+    boolean b1 = connection.update(q);
+    boolean b2 = connection.update(q2);
+    connection.ConnectionClose();
     return b1 && b2;
   }
 

@@ -65,9 +65,11 @@
     <servlet-mapping>
         <servlet-name>LoansController</servlet-name>
         <url-pattern>/loanapplications</url-pattern>
+        <url-pattern>/approvedloans</url-pattern>
+        <url-pattern>/deniedloans</url-pattern>
         <url-pattern>/denyloan</url-pattern>
         <url-pattern>/grantloan</url-pattern>
-        <url-pattern>/getalgo</url-pattern>
+        <url-pattern>/reapprove</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>

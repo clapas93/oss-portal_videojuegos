@@ -13,7 +13,7 @@ List loans = (List)request.getAttribute("loans");
 
 
 <div class="container">
-  <h1>Nuevas Solicitudes</h1>
+  <h1>Solicitudes Aprovadas</h1>
   <br>
   <div class="row">
     <div class="col-lg-12">
@@ -83,26 +83,17 @@ List loans = (List)request.getAttribute("loans");
                 <p><%=((Loan)loans.get(i)).getCareer() %></p>
               </div>
               <br>
-              <br>
-              <br>
               <div class="form-group">
-                <label>Asignar Credito </label>
-                <div class="row">
-                  <div class="col-sm-4">
-                    <input id="credito<%=i%>"  maxlength="7" type="text" class="form-control credito" name="credito" value="">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label id="mensaje<%=i%>"></label>
+                <label>Créditos Asignados </label>
+                <p><%=((Loan)loans.get(i)).getCredits() %></p>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" value="<%=i%>" class="btn btn-primary"data-dismiss="modal">Cerrar</button>
-          <button type="button" email="<%=((Loan)loans.get(i)).getEmail() %>" value="<%=i%>" class="btn btn-danger denyloan">Denegar</button>
-          <button type="button" email="<%=((Loan)loans.get(i)).getEmail() %>" value="<%=i%>" class="btn btn-success giveloan">Dar Crédito</button>
+          <button type="button" email="<%=((Loan)loans.get(i)).getEmail() %>" value="<%=i%>" class="btn btn-danger denyloan">Quitar</button>
+          <button type="button" email="<%=((Loan)loans.get(i)).getEmail() %>" value="<%=i%>" class="btn btn-success giveloan">Re Aprobar</button>
         </div>
       </div>
     </div>
@@ -133,68 +124,33 @@ $(".denyloan").click(function(){//funcion clic se activa cuando dan click a un o
     }
   });
 });
-$(document).ready(function() {
-  $(".credito").keydown(function (e) {
-    if (this.value.match(/[^a-zA-Z0-9 ]/g)) {
-      this.value = this.value.replace(/[^a-zA-Z0-9 ]/g, '');
-    }
-// Allow: backspace, delete, tab, escape, enter and .
-if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-// Allow: Ctrl+A
-(e.keyCode == 65 && e.ctrlKey === true) || 
-// Allow: home, end, left, right, down, up
-(e.keyCode >= 35 && e.keyCode <= 40)) {
-// let it happen, don't do anything
-return;
-}
-// Ensure that it is a number and stop the keypress
-if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-  e.preventDefault();
-}
-});
-});
+
 
 $(".giveloan").click(function(){
-
   var email = $(this).attr("email");
   var val = $(this).val();
   var inp = "#credito"+val;
   var value = $(inp).val();
-  console.log(inp);
   var msj = "#mensaje"+val;
   $(msj).empty();
   var mod = '#'+val;
   var row = "row"+val;
   var tr = "#"+row;
-  if(value==""){
-    $(inp).css({'border-color':'red'});
-    $(msj).css({'color':'red'});
-    $(msj).append("Asigna Crédito");
-  }else{ 
-    if(parseInt(value)<=0){
-      $(inp).css({'border-color':'red'});
-      $(msj).css({'color':'red'});
-      $(msj).append("No puedes dar crédito negativo.<br>No puedes dar 0 de crédito");
-    }else{
-      console.log(value);
-      $.ajax({
-        type: "POST",
-        url: 'grantloan',
-        dataType: "json",
-        data:{email:email,credit:value},
-        success: function(data){
-          console.log(data);
-          $(tr).remove();
-          $(mod).modal('hide');
-        },
-        error: function(data){
-          console.log(data);
-          $(msj).css({'color':'red'});
-          $(msj).append("No puedes dar 0 crédito");
-        }
-      });
+  $.ajax({
+    type: "POST",
+    url: 'reapprove',
+    dataType: "json",
+    data:{email:email},
+    success: function(data){
+      console.log(data);
+      $(tr).remove();
+      $(mod).modal('hide');
+    },
+    error: function(data){
+      console.log(data);
     }
-  }
+  });
+
 });
 
 </script>

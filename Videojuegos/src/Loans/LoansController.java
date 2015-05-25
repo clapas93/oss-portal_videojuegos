@@ -10,13 +10,10 @@
 package Loans;
 
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.nio.file.Files;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -26,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-
+import Resources.SendMailTLS;
 
 @MultipartConfig
 public class LoansController extends HttpServlet {
@@ -57,12 +54,29 @@ public class LoansController extends HttpServlet {
       response.sendRedirect(response.encodeRedirectURL("videogames"));
       return;
     }
+    List loans = null;
     switch(path){
         case "/loanapplications":
           view = "LoansHI.jsp";
           request.setAttribute("view", view); 
           request.setAttribute("title", "Solicitudes de prestamo nuevas");
-          List loans = model.getLoans("'n'");
+          loans = model.getLoans("'n'");
+          request.setAttribute("loans", loans); 
+          request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+        break;
+        case "/approvedloans":
+          view = "ApprovedLoansHI.jsp";
+          request.setAttribute("view", view); 
+          request.setAttribute("title", "Solicitudes de prestamo nuevas");
+          loans = model.getLoans("'a'");
+          request.setAttribute("loans", loans); 
+          request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+        break;
+        case "/deniedloans":
+          view = "DeniedLoansHI.jsp";
+          request.setAttribute("view", view); 
+          request.setAttribute("title", "Solicitudes de prestamo nuevas");
+          loans = model.getLoans("'d'");
           request.setAttribute("loans", loans); 
           request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
         break;
@@ -101,6 +115,8 @@ public class LoansController extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
   throws ServletException, IOException {
+    request.setCharacterEncoding("UTF-8");
+    response.setCharacterEncoding("UTF-8");
     String path2 = request.getRequestURI().substring(request.getContextPath().length());
     PrintWriter out = response.getWriter();
     response.setContentType("application/json");
@@ -108,11 +124,13 @@ public class LoansController extends HttpServlet {
     boolean success;
     String email ="";
     double credito;
+    SendMailTLS mail = new SendMailTLS();
     switch(path2){
       case "/denyloan":
         email = (String)request.getParameter("email");
         success = this.model.denyLoan(email);
         if(success){
+          mail.sendMailDenied("to");
           res = "{\"success\":\""+1+"\"}";
         }else{
           res = "{\"error\":0}";
@@ -122,11 +140,10 @@ public class LoansController extends HttpServlet {
       break;
       case "/grantloan":
         email = (String)request.getParameter("email");
-        System.out.println("VALUE: "+request.getParameter("credit"));
         credito = Double.parseDouble(request.getParameter("credit"));
         success = this.model.grantedLoan(email,credito);
-        System.out.println(success);
         if(success){
+          mail.sendMailApproved("to",credito);
           res = "{\"success\":\""+1+"\"}";
         }else{
           res = "{\"error\":0}";
@@ -134,23 +151,15 @@ public class LoansController extends HttpServlet {
         out.print(res);
         out.flush();
       break;
-      case "/getalgo":
-        request.setCharacterEncoding("UTF-8");
-        //response.setCharacterEncoding("UTF-8");
-        String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
-        out.println(description);
-        Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
-        String fileName = getFileName(filePart);
-        out.println(fileName);
-        String hist_path = getPath()+"/web/public/historiales";
-        
-        File folder = new File(hist_path);
-        File files = new File(folder, "oss_"+fileName); 
-        //try (
-        InputStream input = filePart.getInputStream();//) {
-            Files.copy(input, files.toPath()); 
-        //}        
-        out.print("Uploaded file successfully saved in ");
+      case "/reapprove":
+        email = (String)request.getParameter("email");
+        success = this.model.reapproveLoan(email);
+        if(success){
+          res = "{\"success\":\""+1+"\"}";
+        }else{
+          res = "{\"error\":0}";
+        }
+        out.print(res);
         out.flush();
       break;
     }
