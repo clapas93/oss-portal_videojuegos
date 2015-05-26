@@ -273,7 +273,8 @@ function clickfun(){
 				$(".msj").text("Juego Comprado");
 				$(".msj").css({"color":"green"});
 				$(".msj").fadeIn('slow');
-				window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
+				//window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
+                                window.location.replace("http://localhost:8084/Videojuegos/DownloadFileServlet?game="+name);
 				setTimeout(function(){
 					$(".msj").text("");
 					$(".msj").fadeOut('slow');
@@ -299,7 +300,8 @@ function clickfun(){
 				$(".msj").text("Juego Descargado");
 				$(".msj").css({"color":"green"});
 				$(".msj").fadeIn('slow');
-				window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
+				//window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
+                                window.location.replace("http://localhost:8084/Videojuegos/DownloadFileServlet?game="+name);
 				setTimeout(function(){
 					$(".msj").text("");
 					$(".msj").fadeOut('slow');
