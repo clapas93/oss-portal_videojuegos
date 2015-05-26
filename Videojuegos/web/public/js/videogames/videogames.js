@@ -58,7 +58,7 @@ var session = false;
 var j = 0;
 
 $( document ).ready(function() {
-  $('body').fadeIn(2500);
+  $('body').fadeIn(3000);
 	console.log( "ready!" );
 	share();
 	$.ajax({
@@ -69,7 +69,9 @@ $( document ).ready(function() {
 			$.each(data, function(index, elem) { 
 				info.push(elem)
 			});
-			loadGames();
+			setTimeout(function(){
+				loadGames();
+			},2000);
 			setTimeout(function(){
 				insertdiv();
 			},500);
