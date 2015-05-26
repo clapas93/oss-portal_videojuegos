@@ -1,5 +1,5 @@
 <%-- 
-Document   : profileUpdate
+Document   : AccountHI.jsp
 Created on : 20-mar-2015, 15:34:40
 Author     : lalo
 --%>
@@ -69,7 +69,7 @@ UserStudent student = (UserStudent)request.getAttribute("student");
       }else{
       emb = "<form enctype='multipart/form-data' method='POST' action='historysave'> "
       + "<br>"
-      + "<center><input type='file' accept='.pdf' id='InputFile' name='historypdf'></center>"
+      + "<center><input type='file' accept='.pdf' id='InputFile' name='historypdf' required></center>"
       + "<br>"
       + "<button type='submit' class='btn btn-success'>Subir</button>"
       + "<br><br>"

@@ -93,6 +93,7 @@
         <url-pattern>/myaccount</url-pattern>
         <url-pattern>/studentsave</url-pattern>
         <url-pattern>/historysave</url-pattern>
+        <url-pattern>/deleteStudent</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TransactionsController</servlet-name>

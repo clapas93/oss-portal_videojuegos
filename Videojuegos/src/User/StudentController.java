@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package User;
 
 import Resources.Hash;
@@ -23,10 +18,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.Part;
 
-/**
- *
- * @author antoniogalvan
- */
+
 @MultipartConfig
 public class StudentController extends HttpServlet {
     
@@ -122,7 +114,7 @@ public class StudentController extends HttpServlet {
       String query = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
       student = student.selectStudent(query);
       
-        System.out.println(student);
+        System.out.println(student.getAccountnumber());
       switch(path){
           case "/historysave":
             Part hPart = request.getPart("historypdf");
@@ -134,7 +126,11 @@ public class StudentController extends HttpServlet {
             }
             student.setHistory(history);
             
-            if(student.update()){
+            String loan = "INSERT INTO loan (studentemail, adminemail, date, status, creditapproved) VALUES ("
+                    + "'" + student.getStudentemail() +"','admin@oss.com', current_timestamp , 'n' "
+                    + " , " + student.getCredits() +");";
+            
+            if(student.update() && student.insert(loan)){
                 String histPath = getPath()+"/web/public/historiales";
 
                 File hfolder = new File(histPath);
@@ -152,74 +148,62 @@ public class StudentController extends HttpServlet {
             break;
               
       case "/studentsave":
-        String name = request.getParameter("nombre_s");
-        String lastName1 = request.getParameter("last_name1");
-        String lastName2 = request.getParameter("last_name2");
-        String carrer = request.getParameter("carrer");
-        String numberAcc = request.getParameter("numberacc");
-        String pass = request.getParameter("pass1");
+          String name = request.getParameter("nombre_s");
+          if(!name.equals("")){student.setName(name);}
+          System.out.println(name);
+          String lastName1 = request.getParameter("last_name1");
+          System.out.println(lastName1);
+          if(!lastName1.equals("")){ student.setLastname1(lastName1);}
+          String lastName2 = request.getParameter("last_name2");
+          System.out.println(lastName2);
+          if(!lastName2.equals("")){ student.setLastname2(lastName2);}
+          String carrer = request.getParameter("career");
+          if(!carrer.equals("")){ student.setCareer(carrer);}
+          String pass = request.getParameter("pass1");
+          if(!pass.equals("")){student.setPassword(pass);}
+          
+          boolean update = student.update();
+          
+          Part filePart = request.getPart("fileUpload");
+            String hist = "";
+            long hsize = filePart.getSize();
+            System.out.println(update + "file: " + hsize);
+            if((hsize>0) && update){
+                Hash hash = new Hash();
+                hist =hash.generateCode(user);
+                student.setHistory(hist);
+                
+                String insertloan = "INSERT INTO loan (studentemail, adminemail, date, status, creditapproved) VALUES ("
+                    + "'" + student.getStudentemail() +"','admin@oss.com', current_timestamp , 'n' "
+                    + " , " + student.getCredits() +");";
+                if(student.update() && student.insert(insertloan)){
+                    String histPath = getPath()+"/web/public/historiales";
 
-        Part filePart = request.getPart("fileUpload");
-        String hist = "";
-        System.out.println(filePart.getSize()==0);
-        if(filePart.getSize()!=0){
-          Hash hash = new Hash();
-          hist =hash.generateCode(user);
-        }
-
-        student.setStudentemail(user);
-        student.setName(name);
-        student.setLastname1(lastName1);
-        student.setLastname2(lastName2);
-        student.setCareer(carrer);
-        student.setCredits("0");
-        student.setAccountnumber(numberAcc);
-        student.setPassword(pass);
-        student.setHistory(hist);
-        student.setStatus("a");
-        
-        DateFormat dateForm =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date();
-                        
-        String dateS = dateForm.format(date);
-        String state = "n";
-        int credit = 0;
-                        
-        String insertLoan = "INSERT INTO loan (studentemail, adminemail,"
-                  + "date, status, creditapproved) VALUES ("+
-                  "'"+student.getStudentemail()+"','admin@oss.com','"+
-                  dateS+"','"+state+"',"+credit+");";
-
-        System.out.println(insertLoan);
-        
-        //Si el historial no es subido cambiar no actualizar
-        try{
-         
-          student.update();
-          model.insert(insertLoan);
-        }catch(Exception e){    
-          System.out.println(e.toString());
-        }
-         if(filePart.getSize()!=0){
-          try{
+                    File hfolder = new File(histPath);
+                    File hfiles = new File(hfolder, hist); 
+                    if(filePart.getSize()!=0){
+                      try (InputStream input = filePart.getInputStream()) {
+                          Files.copy(input, hfiles.toPath()); 
+                      }
+                    }
+                }else{
+                    System.out.println("do Post - historial");
+                }
+            }
             
-            model.insert(insertLoan);
-          }catch(Exception e){    
-            System.out.println(e.toString());
+          response.sendRedirect(response.encodeRedirectURL("myaccount"));
+          break;
+      case "deleteStudent":
+          student.setStatus("b");
+          boolean b  = student.update();
+          System.out.println("delete: "+ b);
+          if(b){
+            session.invalidate();
+          }else{
+              System.out.println("no se pudo de baja");
           }
-        }
-        String hist_path = getPath()+"/web/public/historiales";
-        
-        File folder = new File(hist_path);
-        File files = new File(folder, hist); 
-        if(filePart.getSize()!=0){
-          try (InputStream input = filePart.getInputStream()) {
-              Files.copy(input, files.toPath()); 
-          }
-        }
-
-        response.sendRedirect(response.encodeRedirectURL("updatestudent"));
-        break;
+          response.sendRedirect(response.encodeRedirectURL("index.jsp"));
+          break;
       }
 
     }
