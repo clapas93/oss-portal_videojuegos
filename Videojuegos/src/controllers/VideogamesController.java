@@ -34,7 +34,7 @@ public class VideogamesController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         /**
          * lineas a copiar
          */
@@ -48,7 +48,7 @@ public class VideogamesController extends HttpServlet {
         HttpSession session = request.getSession();
         
         switch (path) {
-          case "/videogames":
+	case "/videogames":
             /* Recuperamos la sesión que está activa */
             
             String user = (String) session.getAttribute("userStudent");
@@ -57,10 +57,10 @@ public class VideogamesController extends HttpServlet {
             UserStudent student = query.selectStudent(selectSQL);
             
             if(user==null){
-              header = null;
+		header = null;
             }else{
-              request.setAttribute("student", student);
-              header = "headerLogin.jsp";
+		request.setAttribute("student", student);
+		header = "headerLogin.jsp";
             }
             view = "videojuegos.jsp";
             request.setAttribute("header", header);
@@ -68,44 +68,44 @@ public class VideogamesController extends HttpServlet {
             request.setAttribute("title", "Manage Games");
             request.setAttribute("footer", footer);
             request.getRequestDispatcher("layout.jsp").forward(request, response);
-          break;
-          case "/getvideogames":
+	    break;
+	case "/getvideogames":
             response.setContentType("application/json");
             List<Videogame> games = game.getListDB();
             JSONObject obj = new JSONObject();
             JSONArray jgames = new JSONArray();
             for(Videogame v : games){
-              JSONObject aux = new JSONObject();
-              aux.put("id",v.getId());
-              aux.put("title",v.getTitle() );
-              aux.put("description",v.getDescription());
-              aux.put("price",v.getPrice());
-              aux.put("state",v.getState());
-              aux.put("downloads",v.getDownloads());
-              aux.put("front",v.getFront());
-              aux.put("video",v.getVideoUrl());
-              aux.put("url",v.getRouteGame());
-              jgames.add(aux);
+		JSONObject aux = new JSONObject();
+		aux.put("id",v.getId());
+		aux.put("title",v.getTitle() );
+		aux.put("description",v.getDescription());
+		aux.put("price",v.getPrice());
+		aux.put("state",v.getState());
+		aux.put("downloads",v.getDownloads());
+		aux.put("front",v.getFront());
+		aux.put("video",v.getVideoUrl());
+		aux.put("url",v.getRouteGame());
+		jgames.add(aux);
             }
             out.print(jgames);
             out.flush();
-          break;
+	    break;
             
-          case "/getusercredits":
+	case "/getusercredits":
             String usr = (String) session.getAttribute("userStudent");
             float credits = query.selectCredits("SELECT credits FROM student  WHERE studentemail = '"+ usr +"'");
             response.setContentType("application/json");
             JSONObject usrj = new JSONObject();
             if(usr != null){
-              usrj.put("session",true);
+		usrj.put("session",true);
             }else{
-              usrj.put("session",false);
+		usrj.put("session",false);
             }
             usrj.put("credits",credits);
             out.print(usrj);
             out.flush();
-          break;
-      }
+	    break;
+	}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -119,7 +119,7 @@ public class VideogamesController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -133,7 +133,7 @@ public class VideogamesController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         processRequest(request, response);
     }
 

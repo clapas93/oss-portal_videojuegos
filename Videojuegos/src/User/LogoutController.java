@@ -29,7 +29,7 @@ public class LogoutController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         session.invalidate();
         System.out.println("logout");
@@ -48,7 +48,7 @@ public class LogoutController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -62,7 +62,7 @@ public class LogoutController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         processRequest(request, response);
     }
 

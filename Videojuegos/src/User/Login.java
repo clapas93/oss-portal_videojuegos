@@ -6,6 +6,7 @@
 package User;
 
 import ConnectionDB.ConnectionDB;
+import java.sql.ResultSet;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Login {
     private final ConnectionDB connection;
     
     public Login(){
-      connection = new ConnectionDB();
+	connection = new ConnectionDB();
     }
     /**
      * Modelo para solicitar una consulta a la base de datos.
@@ -34,9 +35,9 @@ public class Login {
          */
         try{
             String sql=
-            "SELECT * FROM admin WHERE adminemail = '"+
-                    user.getAdminemail()+
-                    "' AND password = '"+user.getPassword()+"';";    
+		"SELECT * FROM admin WHERE adminemail = '"+
+		user.getAdminemail()+
+		"' AND password = '"+user.getPassword()+"';";    
             if(connection.select(sql).next()){
                 System.out.println(sql);
                 System.out.println("OK ... bien3");
@@ -70,9 +71,9 @@ public class Login {
          */
         try{
             String sql=
-            "SELECT * FROM student WHERE studentemail = '"+
-                    user +
-                    "' AND password = '"+ psw +"';";
+		"SELECT * FROM student WHERE studentemail = '"+
+		user +
+		"' AND password = '"+ psw +"';";
             System.out.println(user + " && " + psw);
             
             if(connection.select(sql).next()){
@@ -86,6 +87,36 @@ public class Login {
         }catch(Exception e){
             System.out.println("Error:"+ e);
             return false;
+        }
+    }
+    
+    /**
+     * This method help to obtain the name of the student
+     * @param user
+     * @return 
+     */
+    protected String[] selectNameStudent(String email){
+        ResultSet result;
+        String[] arrayNameInformation = new String[3];
+        try{
+            String sql=
+            "SELECT name, lastname1, lastname2 FROM student WHERE studentemail = '"+ email
+                    + "';";
+            result = connection.select(sql);
+            if(result.next()){
+                arrayNameInformation[0] = result.getString("name");
+                arrayNameInformation[1] = result.getString("lastname1");
+                arrayNameInformation[2] = result.getString("lastname2");
+                System.out.println(arrayNameInformation[0] + " " + arrayNameInformation[1] + " " + arrayNameInformation[2]);
+                System.out.println("OK ... obtuvimos nombre");
+                return arrayNameInformation;
+            }else{
+                return arrayNameInformation;
+            }
+                
+        }catch(Exception e){
+            System.out.println("Error:"+ e);
+            return arrayNameInformation;
         }
     }
 }

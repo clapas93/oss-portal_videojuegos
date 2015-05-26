@@ -56,17 +56,17 @@ public class Transactions {
         LinkedList<String> hist = null;
         ConnectionDB data = new ConnectionDB();
         String query = "SELECT state, date, title, genre, storageroute "
-                + " FROM videogame AS V JOIN download AS D ON (V.idgame = D.idgame) "
-                + "WHERE D.studentemail='"+Id_Student+"' ORDER BY date;";
+	    + " FROM videogame AS V JOIN download AS D ON (V.idgame = D.idgame) "
+	    + "WHERE D.studentemail='"+Id_Student+"' ORDER BY date;";
         ResultSet res = data.select(query);
         try {
             hist = new LinkedList<String>();
             while(res.next()){
                 for(int i = 1; i < 6; i++){
-                   hist.add(res.getObject(i).toString());
+		    hist.add(res.getObject(i).toString());
                 }
             }
-        data.ConnectionClose();
+	    data.ConnectionClose();
         } catch (SQLException ex) {
             Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
         }        
@@ -89,19 +89,19 @@ public class Transactions {
 
         ConnectionDB data = new ConnectionDB();
         String query = "SELECT title FROM videogame AS V JOIN download AS D ON"
-                + " (V.idgame = D.idgame) WHERE V.idgame="+String.valueOf(Id_Game)+
-                " AND D.studentemail='"+Id_Student+"';";
+	    + " (V.idgame = D.idgame) WHERE V.idgame="+String.valueOf(Id_Game)+
+	    " AND D.studentemail='"+Id_Student+"';";
         ResultSet res = data.select(query);
         try {
             if(res.next()){
                 //In this case, the user has paid this game
                 query = "INSERT INTO download"
-                + " (idgame, studentemail, date) "
-                + "VALUES ("+String.valueOf(Id_Game)+",'"+Id_Student+"','"+dateS+"')";
+		    + " (idgame, studentemail, date) "
+		    + "VALUES ("+String.valueOf(Id_Game)+",'"+Id_Student+"','"+dateS+"')";
                 data.insert(query);
                 
-                 query = "UPDATE videogame SET downloads = downloads + 1 "
-                      + "WHERE idgame = "+String.valueOf(Id_Game)+";";
+		query = "UPDATE videogame SET downloads = downloads + 1 "
+		    + "WHERE idgame = "+String.valueOf(Id_Game)+";";
                 data.update(query);
                 data.ConnectionClose();
                 return true;
@@ -109,12 +109,12 @@ public class Transactions {
             }else{
                 //Make the download of this item for firts time
                 query = "INSERT INTO download"
-                + " (idgame, studentemail, date) "
-                + "VALUES ("+String.valueOf(Id_Game)+",'"+Id_Student+"','"+dateS+"')";
+		    + " (idgame, studentemail, date) "
+		    + "VALUES ("+String.valueOf(Id_Game)+",'"+Id_Student+"','"+dateS+"')";
                 data.insert(query);
                 
                 String query_price = "SELECT price FROM videogame "
-                        + "WHERE idgame ="+String.valueOf(Id_Game)+";";
+		    + "WHERE idgame ="+String.valueOf(Id_Game)+";";
                 System.out.println(query_price);
                 ConnectionDB data_p = new ConnectionDB();
                  
@@ -132,7 +132,7 @@ public class Transactions {
                 }
                 
                 query = "UPDATE videogame SET downloads = downloads + 1 "
-                        + "WHERE idgame ="+String.valueOf(Id_Game)+";";
+		    + "WHERE idgame ="+String.valueOf(Id_Game)+";";
                 data.update(query);
                 data.ConnectionClose();
                 data_p.ConnectionClose();
@@ -144,6 +144,42 @@ public class Transactions {
         }
  
         return false;
-
+    }
+    
+    public String getGameName(String Id_Game){
+        ConnectionDB data = new ConnectionDB();
+        String query = "SELECT storageroute FROM videogame  WHERE idgame="+String.valueOf(Id_Game)+";";
+        ResultSet res = data.select(query);
+        String name ="";
+        try {
+            if(res.next()){
+                name = res.getString("storageroute");
+                data.ConnectionClose();
+                return name;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        return name;
+    }
+    
+    public double getCredits(String id_student){
+        ConnectionDB data = new ConnectionDB();
+        String query = "SELECT credits FROM student  WHERE studentemail='"+String.valueOf(id_student)+"';";
+        System.out.println(query);
+        ResultSet res = data.select(query);
+        double credits = 0;
+        try {
+            if(res.next()){
+                credits = Double.parseDouble(res.getString("credits"));
+                data.ConnectionClose();
+                return credits;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        return credits;
     }
 }
