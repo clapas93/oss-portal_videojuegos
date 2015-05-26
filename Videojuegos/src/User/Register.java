@@ -12,7 +12,7 @@ public class Register {
     public final ConnectionDB connection;
     
     public Register(){
-      connection = new ConnectionDB();
+	connection = new ConnectionDB();
     }
 
     protected int registerStudent(UserStudent userStudent){
@@ -25,17 +25,17 @@ public class Register {
                     
                     /* Registramos al nuevo estudiante */
                     String sql="INSERT INTO student (studentemail, name, lastname1, lastname2, accountnumber,"
-                    + "career, password, status, credits, history) VALUES "
-                    + "('" + userStudent.getStudentemail() + "',"
-                    + "'" + userStudent.getName() + "',"
-                    + "'" + userStudent.getLastname1() + "',"
-                    + "'" + userStudent.getLastname2() + "',"
-                    + "'" + userStudent.getAccountnumber() + "',"
-                    + "'" + userStudent.getCareer() + "',"
-                    + "'" + userStudent.getPassword() + "',"
-                    + "'" + 1 + "',"
-                    + "'" + 0 + "',"
-                    + "'" + userStudent.getHistory() + "');"; 
+			+ "career, password, status, credits, history) VALUES "
+			+ "('" + userStudent.getStudentemail() + "',"
+			+ "'" + userStudent.getName() + "',"
+			+ "'" + userStudent.getLastname1() + "',"
+			+ "'" + userStudent.getLastname2() + "',"
+			+ "'" + userStudent.getAccountnumber() + "',"
+			+ "'" + userStudent.getCareer() + "',"
+			+ "'" + userStudent.getPassword() + "',"
+			+ "'" + 1 + "',"
+			+ "'" + 0 + "',"
+			+ "'" + userStudent.getHistory() + "');"; 
                     
                     if(connection.insert(sql)){
                         System.out.println("Consulta correcta, se agregó estudiante");
@@ -77,8 +77,8 @@ public class Register {
         
         try{
             String sql=
-            "SELECT * FROM student WHERE studentemail = '"+
-                    userStudent.getStudentemail()+"';";
+		"SELECT * FROM student WHERE studentemail = '"+
+		userStudent.getStudentemail()+"';";
             /**
              * Realizamos una coonsulta para verificar que no existe en la base de datos.
              */
@@ -102,8 +102,8 @@ public class Register {
         
         try{
             String sql=
-            "SELECT * FROM student WHERE accountnumber = '"+
-                    userStudent.getAccountnumber() + "';";
+		"SELECT * FROM student WHERE accountnumber = '"+
+		userStudent.getAccountnumber() + "';";
             /**
              * Realizamos una consulta para verificar que no existe en la base de datos el número de cuenta.
              */

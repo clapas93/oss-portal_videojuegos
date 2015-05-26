@@ -35,13 +35,13 @@ public class LogDataBase {
         
         if(sqlScript.exists()){
             try ( //If the file exist, then, I only put the query into the file.
-                    BufferedWriter buffer = new BufferedWriter(new FileWriter(sqlScript, true))) {
+		 BufferedWriter buffer = new BufferedWriter(new FileWriter(sqlScript, true))) {
                 buffer.write("\n" + query + "\n");
             }
         }else{
             try ( //The, if don't exist I create this one and add the header of the
-            //file.
-                    BufferedWriter buffer = new BufferedWriter(new FileWriter(sqlScript))) {
+		 //file.
+		 BufferedWriter buffer = new BufferedWriter(new FileWriter(sqlScript))) {
                 buffer.write("--This file contains the updates from the \n");
                 Date date = new Date();
                 buffer.write("--date "+ date.toString()+"\n");
