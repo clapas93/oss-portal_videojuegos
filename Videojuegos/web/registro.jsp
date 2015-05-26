@@ -92,7 +92,7 @@ Author     : magdiel
         <div class="col-md-4">
           <div class="form-group">
             <label class="control-label"><h4>Confirma tu contraseña :</h4></label>
-            <input type="password" class="form-control"  placeholder="Confirma tu contraseña" name="c_password">
+            <input type="password" class="form-control"  placeholder="Confirma tu contraseña" name="c_password" id="pass_c">
           </div>
         </div>
       </div>
@@ -106,4 +106,14 @@ Author     : magdiel
         </div> 
       </div>
     </form>
-  </div>
+  </div
+  
+<script>
+$("#pass").keypress(function(key) {
+  if(key.charCode == 39) return false;
+});
+
+$("#pass_c").keypress(function(key) {
+  if(key.charCode == 39) return false;
+});
+</script>

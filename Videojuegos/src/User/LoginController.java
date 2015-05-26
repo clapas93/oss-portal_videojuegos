@@ -102,7 +102,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException{
         
         UserAdmin data_user = new UserAdmin();
-        data_user.setAdminemail(request.getParameter("usuario"));
+        data_user.setAdminEmail(request.getParameter("usuario"));
         data_user.setPassword(request.getParameter("password"));
            
         Login cn = new Login();
@@ -111,7 +111,7 @@ public class LoginController extends HttpServlet {
         int value_page = cn.loginAdmin(data_user);
             
         if(value_page == 0){
-            String[] datos = cn.selectNameStudent(data_user.getAdminemail());
+            String[] datos = cn.selectNameStudent(data_user.getAdminEmail());
             HttpSession session;
             String userStudent;
             String nameStudent;
