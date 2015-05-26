@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package TransactionsController;
 
 import ConnectionDB.ConnectionDB;
@@ -16,6 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * Optimal Software Solutions
+ * Project : Pulse Games
  *This class will provide at the transactions a 
  * controller in agreement with the model, view, controller 
  * @author antoniogalvan

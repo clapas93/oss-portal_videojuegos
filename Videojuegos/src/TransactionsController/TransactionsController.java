@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TransactionsController;
 
 import java.io.IOException;
@@ -16,8 +11,10 @@ import org.json.simple.JSONObject;
 import TransactionsController.Transactions;
 
 /**
- *
- * @author lalo
+ * Optimal Software Solutions
+ * Project : Pulse Games
+ * This is the Controller to do the transaction for the system.
+ * @author Miranda Sáncehz Luis Eduardo
  */
 public class TransactionsController extends HttpServlet {
 
