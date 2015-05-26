@@ -144,6 +144,42 @@ public class Transactions {
         }
  
         return false;
-
+    }
+    
+    public String getGameName(String Id_Game){
+        ConnectionDB data = new ConnectionDB();
+        String query = "SELECT storageroute FROM videogame  WHERE idgame="+String.valueOf(Id_Game)+";";
+        ResultSet res = data.select(query);
+        String name ="";
+        try {
+            if(res.next()){
+                name = res.getString("storageroute");
+                data.ConnectionClose();
+                return name;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        return name;
+    }
+    
+    public double getCredits(String id_student){
+        ConnectionDB data = new ConnectionDB();
+        String query = "SELECT credits FROM student  WHERE studentemail='"+String.valueOf(id_student)+"';";
+        System.out.println(query);
+        ResultSet res = data.select(query);
+        double credits = 0;
+        try {
+            if(res.next()){
+                credits = Double.parseDouble(res.getString("credits"));
+                data.ConnectionClose();
+                return credits;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Transactions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        return credits;
     }
 }

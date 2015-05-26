@@ -128,7 +128,11 @@ function insertdiv(){
 				cont+='<div class="col-md-6">'+
 				'<p class="msj">Cr&eacute;ditos insuficientes</p>'+
 				'</div>';
-			}else{}
+			}else{
+				cont+='<div class="col-md-6">'+
+				'<p class="msj"></p>'+
+				'</div>';
+			}
 			cont+='</div>'+
 			'</div>' +
 			'</div>';
@@ -155,7 +159,7 @@ function insertdiv(){
 			}
 		}else{
 			cont+='<div class="col-md-3">'+
-			'<button idGame='+info[i].id+' class="btn btn-primary accion" >Descargar</button>'+
+			'<button idGame='+info[i].id+' class="btn btn-primary freedownload" >Descargar</button>'+
 			'</div>';
 		}
 
@@ -253,7 +257,7 @@ function clickfun(){
 		var idC = $(this).attr("credit");
 		var price = parseInt($(this).attr("price"));
 		var credit = parseInt($("#"+idC).text());
-		console.log(idGame);
+		//console.log(idGame);
 		/*console.log(credit);
 		console.log(price);*/
 		$.ajax({
@@ -262,8 +266,44 @@ function clickfun(){
 			dataType: "json",
 			data:{idGame:idGame},
 			success: function(data){
+				var name = data.name;
+				var creditd = data.credit;
 				console.log(data);
-				$("#"+idC).text((credit-price));
+				$("#"+idC).text(creditd);
+				$(".msj").text("Juego Comprado");
+				$(".msj").css({"color":"green"});
+				$(".msj").fadeIn('slow');
+				window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
+				setTimeout(function(){
+					$(".msj").text("");
+					$(".msj").fadeOut('slow');
+				},4000)
+			},
+			error: function(data){
+				console.error(data);
+			}
+		});
+	});
+
+	$(".freedownload").click(function(){
+		var idGame = $(this).attr("idGame");
+		$.ajax({
+			type:"POST",
+			url: "transaction" ,
+			dataType: "json",
+			data:{idGame:idGame},
+			success: function(data){
+				var name = data.name;
+				var creditd = data.credit;
+				console.log(data);
+				$(".msj").text("Juego Descargado");
+				$(".msj").css({"color":"green"});
+				$(".msj").fadeIn('slow');
+				window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
+				setTimeout(function(){
+					$(".msj").text("");
+					$(".msj").fadeOut('slow');
+				},4000)
 			},
 			error: function(data){
 				console.error(data);

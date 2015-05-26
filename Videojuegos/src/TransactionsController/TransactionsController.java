@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
-import TransactionsController.Transactions;
 
 /**
  *
@@ -74,9 +73,15 @@ public class TransactionsController extends HttpServlet {
         JSONObject obj = new JSONObject();
         idGame = (String)request.getParameter("idGame");
         System.out.println("idGame   "+idGame);
+        if(email==null||email.equals("")){
+          email = "null@mail.com";
+        }
         success = transaction.registerDownload(email, idGame);
+        String name  = transaction.getGameName(idGame);
+        double credit = transaction.getCredits(email);
         if(success){
-          obj.put("success",true);
+          obj.put("name",name);
+          obj.put("credit",credit);
         }else{
           obj.put("error",false);
         }

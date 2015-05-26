@@ -52,6 +52,11 @@
   margin-top: 20%;
 }
 
+.freedownload{
+  position: relative;
+  margin-top: 20%;
+}
+
 .precio{
   position: relative;
   margin-top: 24%;
@@ -85,6 +90,10 @@ h3>span{
     margin-top: 6%;
     margin-left: 0;
   }
+  .freedownload {
+    margin-top: 6%;
+    margin-left: 0;
+  }
   .sharefacebook{
     margin-left: 28%;
   }
@@ -113,9 +122,16 @@ h3>span{
   .accion{
     margin-left: 0;
   }
+  .freedownload {
+    margin-left: 0;
+  }
 }
 @media only screen and (min-width: 992px) {
   .accion {
+    margin-left: 75%;
+  }
+
+  .freedownload {
     margin-left: 75%;
   }
 }
