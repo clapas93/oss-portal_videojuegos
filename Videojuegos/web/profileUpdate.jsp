@@ -151,7 +151,8 @@ $("#darBaja").click(function(){
 		dataType: "json",
 		contentType: 'application/json',
 		success: function(data){
-			window.location.replace("http://localhost:8080/Videojuegos/");
+			//window.location.replace("http://localhost:8080/Videojuegos/index.jsp");
+                        window.location.replace("http://localhost:8084/Videojuegos/");
 		},
 		error: function(data){
 			console.error(data);

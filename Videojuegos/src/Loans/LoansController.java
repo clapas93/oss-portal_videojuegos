@@ -73,14 +73,22 @@ public class LoansController extends HttpServlet {
 	    request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
 	    break;
         case "/deniedloans":
-	    view = "DeniedLoansHI.jsp";
-	    request.setAttribute("view", view); 
-	    request.setAttribute("title", "Solicitudes de prestamo nuevas");
-	    loans = model.getLoans("'d'");
-	    request.setAttribute("loans", loans); 
-	    request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
-	    break;
-	}
+          view = "DeniedLoansHI.jsp";
+          request.setAttribute("view", view); 
+          request.setAttribute("title", "Solicitudes de prestamo nuevas");
+          loans = model.getLoans("'d'");
+          request.setAttribute("loans", loans); 
+          request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+        break;
+        case "/newSemestre":
+          if(model.newSemestre()){
+              System.out.println("Nuevo semestre");
+              response.sendRedirect(response.encodeRedirectURL("loanapplications"));
+          }else{
+              System.out.println("Nuevo semestre - error ");
+          }
+          break;
+        }
     }
     public String getPath() throws UnsupportedEncodingException {
 	String path = this.getClass().getClassLoader().getResource("").getPath();

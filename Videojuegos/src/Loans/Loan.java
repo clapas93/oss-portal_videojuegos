@@ -251,20 +251,33 @@ public class Loan {
 	return b1 && b2;
     }
 
-    /**
-     *Update the row with approve status specified the email 
-     * @param email
-     * @param val
-     *@return boolean true if the query was successful
-     */
-    public boolean reapproveLoan(String email){
-	ConnectionDB connection = new ConnectionDB();
-	String q = "UPDATE loan SET status='n',creditapproved = 0 WHERE studentemail='"+email+"'";
-	String q2 = "UPDATE student SET  credits = 0 WHERE studentemail='"+email+"'";
-	boolean b1 = connection.update(q);
-	boolean b2 = connection.update(q2);
-	connection.ConnectionClose();
-	return b1 && b2;
-    }
-
+  /**
+  *Update the row with approve status specified the email 
+  * @param email
+  * @param val
+  *@return boolean true if the query was successful
+  */
+  public boolean reapproveLoan(String email){
+    ConnectionDB connection = new ConnectionDB();
+    String q = "UPDATE loan SET status='n',creditapproved = 0 WHERE studentemail='"+email+"'";
+    String q2 = "UPDATE student SET  credits = 0 WHERE studentemail='"+email+"'";
+    boolean b1 = connection.update(q);
+    boolean b2 = connection.update(q2);
+    connection.ConnectionClose();
+    return b1 && b2;
+  }
+  
+  /**
+   * Reset loan and delete student story in the database
+   * @return boolean true if the query was successful
+   */
+  public boolean newSemestre(){
+      ConnectionDB connection = new ConnectionDB();
+      String history = "UPDATE student SET history = '';";
+      String loan = "DELETE FROM loan WHERE status != '';";
+      boolean u1 = connection.update(history);
+      boolean u2 = connection.update(loan);
+      connection.ConnectionClose();
+      return u1 && u2;
+  }
 }
