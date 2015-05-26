@@ -7,6 +7,20 @@ and open the template in the editor.
     Created on : 24/03/2015, 01:38:04 PM
     Author     : magdiel
 */
+
+.mi-back{
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: 9999;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.6);
+    display: block;
+    left: 0;
+    top: 0;
+        
+    
+}
 .form-index{
         color: white;
             width: 420px;
@@ -76,7 +90,7 @@ and open the template in the editor.
 .mi-title{
     color:rgb(146, 192, 216);
     }
-#validate-form {margin: 0 auto;}
+#validate-form {margin: 0 auto 30px auto;}
 .form-group.asset {margin:0;}
 .checkout__button.p-login{right: 68px; display:inline; text-decoration: none;background: #083B56;
 padding: 16px 24px;}
@@ -101,13 +115,21 @@ body {background: #0D0C0C !important;}
 @media (min-width:768px) and (max-width:991px){
     #validate-form {width:60% !important;}
     .grid.isotope.rainbowed.isotope-demo {margin-top: 3%;}
-    
+    .form-horizontal .control-label {display:inline-block; float: left;}
+    .has-feedback .form-control {width: 250px; float: right;}
+    .form-control {width:80%; margin: 0 auto;}
+    .formulario .form-group label {margin-left: 10%;}
+    #pressstart {right: 0; left: 0; margin: 0 auto;}
 }
 @media (min-width:600px) and (max-width:767px){
     .grid.isotope.rainbowed.isotope-demo {margin-top: 5%;}
     #validate-form {width:60% !important;}
     .checkout__order {margin: 0 auto;}
     .col-md-8 {width:70%; display:inline-block;}
+    #pressstart {right: 0 !important; left: 0 !important; margin: 0 auto;}
+    .dropdown-menu .divider {display:none; visibility: hidden;}
+    .glyphicon {margin: 0 10px;}
+    .collapse {display: inline-block; visibility: inherit;}
 }
 @media (min-width:480px) and (max-width:599px){
     .grid.isotope.rainbowed.isotope-demo {margin-top: 10%;}
@@ -120,8 +142,24 @@ body {background: #0D0C0C !important;}
                       margin: 90% 50%;
                       top:0 !important;
                       right: 0 !important;}
+    #pressstart {right: 0 !important; left: 0 !important; margin: 0 auto;}
+    .dropdown-menu .divider {display:none; visibility: hidden;}
+    .glyphicon {margin: 0 10px;}
+    .collapse {display: inline-block; visibility: inherit;}
+    #bs-example-navbar-collapse-1, .nav.navbar-nav.nav.nav-pills.pull-right, .dropdown.open{width:90%;}
+    ul.nav.navbar-nav.nav.nav-pills.pull-right {text-align: center;}
+    .nav-pills > li {float:none;}
+    .dropdown-menu li {margin-left: 20%;}
 }
 @media (min-width:320px) and (max-width:479px){
+    #bs-example-navbar-collapse-1, .nav.navbar-nav.nav.nav-pills.pull-right, .dropdown.open{width:90%;}
+    #loginForm .icon {
+        top: -15px !important;
+        right: 15px !important;
+        cursor: pointer !important;
+        left: auto;
+    }
+    .collapse {display: inline-block; visibility: inherit;}
     .grid.isotope.rainbowed.isotope-demo {margin-top: 13%;}
     #validate-form {width:80% !important;}
     .checkout__button.p-login {background: #083B56; padding: 17px 20px;}
@@ -132,5 +170,10 @@ body {background: #0D0C0C !important;}
                       margin: 90% 4%;
                       top:0 !important;
                       right: 0 !important;}
-    
+    #pressstart {right: 0 !important; left: 0 !important; margin: 0 auto;}
+    .dropdown-menu .divider {display:none; visibility: hidden;}
+    .glyphicon {margin: 0 10px;}
+    .dropdown {width: 100%;}
+    ul.nav.navbar-nav.nav.nav-pills.pull-right {text-align: center;}
+    .dropdown-menu li {margin-left: 5%;}
 }

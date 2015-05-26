@@ -33,6 +33,7 @@ public class ConnectionDB {
 	} catch (ClassNotFoundException | SQLException e) {
 	    System.out.println("Problemas de Conexión: " + e.toString());
 	}
+
     }
     
     /**
