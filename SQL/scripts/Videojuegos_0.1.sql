@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS Admin (
   adminEmail VARCHAR(318) NOT NULL, --local-part@domain 64+1+253 = 318
   name VARCHAR(45) NOT NULL,
   lastName1 VARCHAR(45) NOT NULL,
-  lastName2 VARCHAR(45) ,
+  lastName2 VARCHAR(45) NOT NULL,
   emailContact VARCHAR(318) NOT NULL,
   phone VARCHAR(13) NOT NULL, 
   password VARCHAR(255) NOT NULL, --password + salt
@@ -104,5 +104,5 @@ CREATE TABLE IF NOT EXISTS Download (
 --Insertions
 -----------------------
 INSERT INTO admin values ('admin@oss.com','Eduardo','Miranda','Sánchez','eduardomiranda@ciencias.unam.mx','5519134399','password');
-INSERT INTO student (studentemail,name,lastname1,lastname2,accountnumber,career,password,status,credits,history)
-VALUES ('null@mail.com','null','null','null','000000000','CC.','null','x',0,'');
+--INSERT INTO student (studentemail,name,lastname1,lastname2,accountnumber,career,password,status,credits,history)
+--VALUES ('null@mail.com','null','null','null','000000000','CC.','null','x',0,'');
