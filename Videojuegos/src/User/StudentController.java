@@ -10,14 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.file.Files;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import javax.servlet.http.Part;
-
+import org.json.simple.JSONObject;
 
 @MultipartConfig
 public class StudentController extends HttpServlet {
@@ -110,7 +108,7 @@ public class StudentController extends HttpServlet {
       UserStudent student = new UserStudent();
       HttpSession session = request.getSession();
       String user = (String) session.getAttribute("userStudent");
-      
+      PrintWriter out = response.getWriter();
       String query = "SELECT * FROM student WHERE studentemail = '"+ user +"'";
       student = student.selectStudent(query);
       
@@ -193,16 +191,22 @@ public class StudentController extends HttpServlet {
             
           response.sendRedirect(response.encodeRedirectURL("myaccount"));
           break;
-      case "deleteStudent":
-          student.setStatus("b");
-          boolean b  = student.update();
-          System.out.println("delete: "+ b);
-          if(b){
-            session.invalidate();
-          }else{
+          case "/deleteStudent":
+            JSONObject obj = new JSONObject();
+            student.setStatus("b");
+            boolean b  = student.update();
+            System.out.println("delete: "+ b);
+            if(b){
+              session.setAttribute("userStudent", null);
+              obj.put("success",true);
+              session.invalidate();
+            }else{
+              obj.put("error",false);
               System.out.println("no se pudo de baja");
-          }
-          response.sendRedirect(response.encodeRedirectURL("index.jsp"));
+            }
+            out.print(obj);
+            out.flush();
+            //response.sendRedirect(response.encodeRedirectURL("index.jsp"));
           break;
       }
 

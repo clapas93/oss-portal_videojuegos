@@ -106,9 +106,7 @@ Author     : antoniogalvan
 <div class="Baja">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <form enctype="multipart/form-data"  method ="POST" action="deleteStudent">
                 <center><button id="darBaja" class="button-comp" style="background:red">Dar de Baja</button></center>
-            </form>
         </div>
     </div>
 </div>
@@ -117,11 +115,12 @@ Author     : antoniogalvan
 <script type="text/javascript">
 $("#darBaja").click(function(){
 	$.ajax({
+    type:"POST",
 		url: "deleteStudent" ,
 		dataType: "json",
 		contentType: 'application/json',
 		success: function(data){
-			window.location.replace("http://localhost:8080/Videogames/");
+			window.location.replace("http://localhost:8080/Videojuegos/");
 		},
 		error: function(data){
 			console.error(data);
