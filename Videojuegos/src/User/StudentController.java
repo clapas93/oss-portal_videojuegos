@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+/**
+ * /**
+ *Controller for the Register action on the system.
+ * Optimal Software Solutions
+ *Controller for the Register action on the system.
+ * @author Antonio Galvan.
+ */
+=======
+>>>>>>> master
 package User;
 
 import Resources.Hash;
@@ -17,6 +27,10 @@ import java.nio.file.Files;
 import javax.servlet.http.Part;
 import org.json.simple.JSONObject;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 @MultipartConfig
 public class StudentController extends HttpServlet {
     

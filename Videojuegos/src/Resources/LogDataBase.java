@@ -1,3 +1,14 @@
+/**
+ * Optimal Software Solutions
+ * Project : Pulse Games
+ *The porpuse of this class it's the next. Given a query in the
+ * controller of the database, we expect that one change make it 
+ * by one member of the proyect was the same in all the databases
+ * of the members of the team. For this, this class will make a log
+ * of that patches and make the .sql to run in uor database.
+ * @author Antonio Galvan
+ * @since April 15 2015.
+ */
 
 package Resources;
 
@@ -7,21 +18,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *The porpuse of this class it's the next. Given a query in the
- * controller of the database, we expect that one change make it 
- * by one member of the proyect was the same in all the databases
- * of the members of the team. For this, this class will make a log
- * of that patches and make the .sql to run in uor database.
- * @author Antonio Galvan
- * @since April 15 2015.
- */
 public class LogDataBase {
     
     private String query;

@@ -6,6 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+/**
+ * Optimal Software Solutions
+ * Project : Pulse Games
+ * This class is the driver for the Database connection.
+ * @author Miranda Sáncehz Luis Eduardo
+ * @version 0.1
+ * @since 19/04/2015
+ */
+
 public class ConnectionDB {
     
     private Connection connection = null;
@@ -17,6 +27,11 @@ public class ConnectionDB {
     private String user;
     private String password;
     private String stringConection;
+    
+    
+    /**
+     * Constructor of the class
+     */
     
     public ConnectionDB(){
 	try {
@@ -111,6 +126,11 @@ public class ConnectionDB {
 	    return false;
 	}
     } 
+    
+    
+    /**
+     * Method to close the conection.
+     */
     
     public void ConnectionClose(){
 	try{

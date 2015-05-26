@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Optimal Software Solutions
+ * Project : Pulse Games
+ *Controller for the logout of an user to the system.
+ * @author Magdiel Juarez.
  */
 package User;
 
@@ -13,10 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author magdiel
- */
+
 public class LogoutController extends HttpServlet {
 
     /**
