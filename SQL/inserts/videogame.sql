@@ -18,7 +18,7 @@ VALUES (2,'http://pulsegames.com/videogames/2','front_2.jpg',0,'M',0,'game_2.tar
 	,'1','https://www.youtube.com/embed/N3HfmcDRbn8','admin@oss.com');
 
 INSERT INTO videogame (idgame,routegame,front,downloads,classification,price,storageroute,genre,title,description,state,videourl,adminemail) 
-VALUES (3,'http://pulsegames.com/videogames/3','front_3.jpg',0,'M',1000,'game_3.tar','Acción','Grand Theft Auto V',
+VALUES (3,'http://pulsegames.com/videogames/3','front_3.png',0,'M',1000,'game_3.tar','Acción','Grand Theft Auto V',
 	'Grand Theft Auto V para PlayStation®4, Xbox One y PC aprovechará al máximo la potencia de los sistemas y consolas de nueva generación 
 	con mejoras de todo tipo, que incluyen resolución y detalle gráfico mejorados, tráfico más denso, mayor distancia visual, IA mejorada, 
 	nueva fauna y efectos de daño y clima avanzados para crear la experiencia de mundo abierto suprema. 
@@ -35,3 +35,21 @@ VALUES (4,'http://pulsegames.com/videogames/4','front_4.jpg',0,'M' ,599,'game_4.
 	Halo en una instalación remota conocida como el Arca. Ahora, tras el conflicto, el Jefe y Cortana vagan a la deriva por el espacio a bordo 
 	de los restos de la Forward Unto Dawn, mientras se acercan lentamente a un misterioso mundo artificial que pronto llamarán Requiem.'
 	,'1','https://www.youtube.com/embed/ulLDTPJ_sWo','admin@oss.com');
+
+INSERT INTO videogame (idgame,routegame,front,downloads,classification,price,storageroute,genre,title,description,state,videourl,adminemail)
+VALUES (5,'http://pulsegames.com/videogames/5','front_5.jpg',0,'M',899,'game_5.tar','Disparos','CALL OF DUTY ADVANCED WARFARE',
+	'Call of Duty Advanced Warfare se situará en el año 2054. Las compañías militares privadas o PMCs se encuentran en la cúspide de la 
+	práctica militar a nivel mundial, ofreciendo sus servicios a distintas naciones sin importar las fronteras. Jonathan Irons (Kevin Spacey) 
+	es el fundador de la PMC más grande de todas: “Atlas”. El mundo se encuentra en un estado crítico tras un ataque a gran escala, 
+	descrito por Sledgehammer como un nuevo 11 de septiembre, por parte del grupo terrorista KVA. 
+	El protagonista, el cabo Mitchell será un Marine de los Estados Unidos que se une a la PMC Atlas a petición del hijo de Jonathan Irons, 
+	Will Irons. Se menciona que Mitchell será el único protagonista y que no hablará durante el juego, solo en las cutscenes.'
+	,'1','https://www.youtube.com/embed/sFu5qXMuaJU','admin@oss.com')
+
+INSERT INTO videogame (idgame,routegame,front,downloads,classification,price,storageroute,genre,title,description,state,videourl,adminemail)
+VALUES (6,'http://pulsegames.com/videogames/6','front_6.jpg',0,'E',0,'game_6.zip','Musical','Mario Party 10',
+	'Es momento de la diversión con la evolución de los juegos de mesa de Nintendo con Mario Party, después de tantos años tenemos una nueva 
+	versión para Wii U. 
+	El detalle más importante será que podremos jugar 4 personajes los minijuegos, pero ahora Bowser será controlado por una quinta persona 
+	por medio del gamepad para hacernos sufrir de una manera exagerada, aunque no será en todo momento.'
+	,'1','https://www.youtube.com/embed/L69Z39bgdU4','admin@oss.com')
