@@ -1,3 +1,7 @@
+.thumbimage{
+  width: 300px;
+}
+
 .espacio{
   margin-bottom: 1em;
 }
@@ -73,7 +77,6 @@ h3>span{
   border-radius: 5px;
   padding: 10px;
   background-color:rgba(11, 11, 11, 0.62);
-  width: auto;
   height: auto;
   margin: 2em;
 

@@ -104,12 +104,14 @@ $container = $('#games .isotope-demo').isotope(option);
 
 function insertdiv(){
 
-	for(var i = 0; i < info.length; i++){
+	for(var i = info.length-1; i >= 0; i--){
+		console.log(info[i]);
+		console.log(i);
 		var cont = "";
 		cont='<div>'+
 		'<div class="container">'+
 		'<div class="row">'+
-		'<div class="col-md-4 col-md-offset-4"><h1>'+info[i].id+'  '+info[i].title+'</h1></div>'+
+		'<div class="col-md-12"><h1 class="text-center">'+info[i].id+'  '+info[i].title+'</h1></div>'+
 		'</div>'+
 		'<div class="row">'+
 		'<div class="col-md-6">'+
@@ -203,8 +205,8 @@ function loadGames() {
 	var $inser = "";
 
 	for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 3; i++){
-		var s = '<div class="element-item" ><img src="public/videogames/fronts/'+info[i].front+'" /></div>'; 
-		$inser = s + $inser;
+		var s = '<div class="element-item" ><img class="thumbimage" src="public/videogames/fronts/'+info[i].front+'" /></div>'; 
+		$inser = $inser + s ;
 	}
 	if(i >= info.length){
 		$(".loadMore").fadeOut();

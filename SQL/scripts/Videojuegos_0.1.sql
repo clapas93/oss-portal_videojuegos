@@ -108,7 +108,6 @@ INSERT INTO student (studentemail,name,lastname1,lastname2,accountnumber,career,
 VALUES ('null@mail.com','null','null','null','000000000','CC.','null','x',0,'');
 
 INSERT INTO videogame (idgame,routegame,front,downloads,classification,price,storageroute,genre,title,description,state,videourl,adminemail) 
-
 VALUES (1,'http://pulsegames.com/videogames/1','front_1.jpg',0,'M',850,'game_1.zip','Acción','The Last of Us',
   'Ciudades abandonadas e invadidas por la naturaleza. Una población diezmada por una plaga moderna. Los supervivientes se matan unos a 
   otros por comida, armas; cualquier cosa a la que puedan echar mano. Joel, un superviviente brutal, y Ellie, una joven adolescente 
@@ -154,7 +153,7 @@ VALUES (5,'http://pulsegames.com/videogames/5','front_5.jpg',0,'M',899,'game_5.t
   descrito por Sledgehammer como un nuevo 11 de septiembre, por parte del grupo terrorista KVA. 
   El protagonista, el cabo Mitchell será un Marine de los Estados Unidos que se une a la PMC Atlas a petición del hijo de Jonathan Irons, 
   Will Irons. Se menciona que Mitchell será el único protagonista y que no hablará durante el juego, solo en las cutscenes.'
-  ,'1','https://www.youtube.com/embed/sFu5qXMuaJU','admin@oss.com')
+  ,'1','https://www.youtube.com/embed/sFu5qXMuaJU','admin@oss.com');
 
 INSERT INTO videogame (idgame,routegame,front,downloads,classification,price,storageroute,genre,title,description,state,videourl,adminemail)
 VALUES (6,'http://pulsegames.com/videogames/6','front_6.jpg',0,'E',0,'game_6.zip','Musical','Mario Party 10',
@@ -162,4 +161,4 @@ VALUES (6,'http://pulsegames.com/videogames/6','front_6.jpg',0,'E',0,'game_6.zip
   versión para Wii U. 
   El detalle más importante será que podremos jugar 4 personajes los minijuegos, pero ahora Bowser será controlado por una quinta persona 
   por medio del gamepad para hacernos sufrir de una manera exagerada, aunque no será en todo momento.'
-  ,'1','https://www.youtube.com/embed/L69Z39bgdU4','admin@oss.com')
+  ,'1','https://www.youtube.com/embed/L69Z39bgdU4','admin@oss.com');
