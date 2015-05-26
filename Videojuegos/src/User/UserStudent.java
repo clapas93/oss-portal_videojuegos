@@ -125,16 +125,16 @@ public class UserStudent extends User {
             ConnectionDB connection = new ConnectionDB();
             ResultSet rs = connection.select(query);
             while(rs.next()){
-		aux.setStudentemail(rs.getString("studentemail"));
-		aux.setName(rs.getString("name"));
-		aux.setLastname1(rs.getString("lastname1"));
-		aux.setLastname2(rs.getString("lastname2"));
-		aux.setAccountnumber(rs.getString("accountnumber"));
-		aux.setCareer(rs.getString("career"));
-		aux.setPassword(rs.getString("password"));
-		aux.setStatus(rs.getString("status"));
-		aux.setHistory(rs.getString("history"));
-		aux.setCredits(rs.getString("credits"));
+              aux.setStudentemail(rs.getString("studentemail"));
+              aux.setName(rs.getString("name"));
+              aux.setLastname1(rs.getString("lastname1"));
+              aux.setLastname2(rs.getString("lastname2"));
+              aux.setAccountnumber(rs.getString("accountnumber"));
+              aux.setCareer(rs.getString("career"));
+              aux.setPassword(rs.getString("password"));
+              aux.setStatus(rs.getString("status"));
+              aux.setHistory(rs.getString("history"));
+              aux.setCredits(rs.getString("credits"));
             }
             connection.ConnectionClose();
             return aux;
