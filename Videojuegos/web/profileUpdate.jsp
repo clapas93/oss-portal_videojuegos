@@ -67,14 +67,14 @@ Author     : antoniogalvan
 
         <div class="form-group">
             <label ><h4>Contraseña :</h4></label>
-          <input type='password'  style="width:25em !important" class="form-control" name="pass1" id='pass'>
+          <input type='password'  style="width:25em !important" class="form-control" name="pass1" id='password'>
         </div>
 
       </div>
       <div class="col-md-4">
         <div class="form-group">
             <label ><h4>Confirmar Contraseña :</h4></label>
-          <input type='password'  style="width:25em !important"  class="form-control" name="pass2" id='passCompare'>
+          <input type='password'  style="width:25em !important"  class="form-control" name="pass2" id='password-check'>
           <p style="color:red" id="validate-status"></p>
         </div>
       </div>
@@ -95,7 +95,7 @@ Author     : antoniogalvan
         <div class="form-group">
             <center>
           <a class="button-comp" href="videogames" title="back">Cancelar</a>
-          <button id="actualizar" class="button-comp">Actualizar Datos</button>  
+          <button id="submit" class="button-comp">Actualizar Datos</button>  
             </center>
         </div>
       </div>
@@ -113,6 +113,37 @@ Author     : antoniogalvan
 
           
 <script type="text/javascript">
+jQuery(function(){
+        $("#submit").click(function(){
+        $(".error").hide();
+        var hasError = false;
+        var passwordVal = $("#password").val();
+        var nombre = $("#nombre").val();
+        var app = $("#app").val();
+        var apm = $("#apm").val();
+        var checkVal = $("#password-check").val();
+        if (passwordVal != checkVal ) {
+            $("#password-check").after('<span class="error">Las contraseñas no coinciden</span>');
+            hasError = true;
+        }else if((passwordVal != ''&&checkVal != '')&&passwordVal.length <= 8){
+            $("#password-check").after('<span class="error">La contraseña debe tener al menos 8 caracteres.</span>');
+            hasError = true;
+        }
+         if(nombre.length <= 3){
+            $("#nombre").after('<span class="error">El nombre debe tener mas de 3 caracteres</span>');
+            hasError = true;
+        }
+         if(app.length <= 3){
+            $("#app").after('<span class="error">El nombre debe tener mas de 3 caracteres</span>');
+            hasError = true;
+        }
+         if(apm.length <= 3){
+            $("#apm").after('<span class="error">El nombre debe tener mas de 3 caracteres</span>');
+            hasError = true;
+        }
+        if(hasError == true) {return false;}
+    });
+});
 $("#darBaja").click(function(){
 	$.ajax({
     type:"POST",
@@ -129,3 +160,9 @@ $("#darBaja").click(function(){
 });
 </script>
 <script type="text/javascript" src="public/js/profileUpdateValidation.js"></script>
+
+<style type="text/css">
+.error{
+  color: red;
+}
+</style>
