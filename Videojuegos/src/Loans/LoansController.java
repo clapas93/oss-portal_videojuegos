@@ -80,6 +80,14 @@ public class LoansController extends HttpServlet {
           request.setAttribute("loans", loans); 
           request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
         break;
+        case "/newSemestre":
+          if(model.newSemestre()){
+              System.out.println("Nuevo semestre");
+              response.sendRedirect(response.encodeRedirectURL("loanapplications"));
+          }else{
+              System.out.println("Nuevo semestre - error ");
+          }
+          break;
     }
   }
   public String getPath() throws UnsupportedEncodingException {

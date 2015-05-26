@@ -74,6 +74,7 @@
         <url-pattern>/denyloan</url-pattern>
         <url-pattern>/grantloan</url-pattern>
         <url-pattern>/reapprove</url-pattern>
+        <url-pattern>/newSemestre</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>

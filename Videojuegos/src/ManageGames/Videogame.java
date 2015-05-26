@@ -96,7 +96,7 @@ public class Videogame {
         this.description=description;
         this.state="1";
         this.videoUrl=videoUrl;
-        this.adminEmail="admin@oss.com";
+        this.adminEmail=adminemail;
     }
     
     /**

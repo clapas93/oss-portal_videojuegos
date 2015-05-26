@@ -266,5 +266,19 @@ public class Loan {
     connection.ConnectionClose();
     return b1 && b2;
   }
+  
+  /**
+   * Reset loan and delete student story in the database
+   * @return boolean true if the query was successful
+   */
+  public boolean newSemestre(){
+      ConnectionDB connection = new ConnectionDB();
+      String history = "UPDATE student SET history = '';";
+      String loan = "DELETE FROM loan WHERE status != '';";
+      boolean u1 = connection.update(history);
+      boolean u2 = connection.update(loan);
+      connection.ConnectionClose();
+      return u1 && u2;
+  }
 
 }

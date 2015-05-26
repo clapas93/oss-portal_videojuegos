@@ -88,13 +88,14 @@ public class ManageGamesController extends HttpServlet {
     
     /**
      * Upload the videogame on the system.
+     * @param user      admin email
      * @param request   servlet request.
      * @param response  servlet response.
      * @return boolean  true if the videogame was uploaded, false in other case.
      * @throws ServletException if a servlet-specific error occurs.
      * @throws IOException  if an I/O error occurs.
      */
-    protected boolean uploadGame(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    protected boolean uploadGame(String user,HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         Videogame max= new Videogame();
         int maxId = max.maxId() + 1;
         
@@ -113,11 +114,7 @@ public class ManageGamesController extends HttpServlet {
         String genre=request.getParameter("GENRE");
         String description=request.getParameter("DESCRIPTION");
         String videoUrl=request.getParameter("VIDEO");
-        HttpSession session = request.getSession(true);
-        String username = (String)session.getAttribute("nomUsuario");
-        System.out.println(username);
-        String adminemail = "admin@oss.com";
-
+        
         //set videogame filename
         String storageRoute = "";
         Part gamePart = request.getPart("GAME");
@@ -133,7 +130,7 @@ public class ManageGamesController extends HttpServlet {
         String frontExt = frontName.substring(frontName.length()-3,frontName.length());
         front = "front_" + maxId + "." + frontExt;
         
-        game = new Videogame(maxId,front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
+        game = new Videogame(maxId,front,classification,price,storageRoute,genre,title,description,videoUrl,user);
         System.out.println("uploadGame");
         
         if(game.updloadDB()){
@@ -167,12 +164,13 @@ public class ManageGamesController extends HttpServlet {
     
     /**
      * Update the videogame on the system.
+     * @param user      admin email
      * @param request   servlet request.
      * @param response  servlet response.
      * @return boolean  true if the videogame was update , false in other case.
      * @throws UnsupportedEncodingException exception.
      */
-    protected boolean updateGame(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, IOException, ServletException{
+    protected boolean updateGame(String user,HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, IOException, ServletException{
         String id=request.getParameter("ID");
         System.out.println("ID game:"+id);
         
@@ -314,16 +312,20 @@ public class ManageGamesController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String path = request.getRequestURI().substring(request.getContextPath().length());
+        HttpSession session = request.getSession();
+        String user = (String) session.getAttribute("userAdmin");
+        System.out.println("user post  "+user);
+        
         switch(path){
             case "/saveGame":
-                if(uploadGame(request,response)){
+                if(uploadGame(user,request,response)){
                     response.sendRedirect(response.encodeRedirectURL("managegames"));
                 }else{
                     System.out.println("doPost - saveGame");
                 }
             break;
             case "/editGame":
-                if(updateGame(request,response)){
+                if(updateGame(user,request,response)){
                     response.sendRedirect(response.encodeRedirectURL("managegames"));
                 }else{
                     System.out.println("doPost - editGame");
