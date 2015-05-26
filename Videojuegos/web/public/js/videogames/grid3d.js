@@ -66,7 +66,7 @@
 
 			// trick to prevent scrolling when animation is running (opening only)
 			// this prevents that the back of the placeholder does not stay positioned in a wrong way
-			window.addEventListener( 'scroll', function() {
+			/*window.addEventListener( 'scroll', function() {
 				if ( self.isAnimating ) {
 					window.scrollTo( self.scrollPosition ? self.scrollPosition.x : 0, self.scrollPosition ? self.scrollPosition.y : 0 );
 				}
@@ -75,7 +75,7 @@
 					// change the grid perspective origin as we scroll the page
 					self._scrollHandler();
 				}
-			});
+			});*/
 		}
 	};
 
@@ -98,6 +98,7 @@
 					classie.addClass( self.contentItems[ pos ], 'show' );
 				}, 1000 );
 				// show content area
+				$(self.contentEl).fadeIn();
 				classie.addClass( self.contentEl, 'show' );
 				// show loader
 				classie.addClass( self.loader, 'show' );
@@ -106,7 +107,7 @@
 			};
 
 		// if no support just load the content (simple fallback - no animation at all)
-		if( !this.support ) {
+		if(this.support ) {
 			loadContent();
 			return false;
 		}
@@ -148,8 +149,15 @@
 			contentItem = this.el.querySelector( 'div.content > .show' ),
 			currentItem = this.gridItems[ this.contentItems.indexOf( contentItem ) ];
 		
-		classie.removeClass( contentItem, 'show' );
-		classie.removeClass( this.contentEl, 'show' );
+		$(contentItem).removeClass('show' );
+		var el = this.contentEl;
+		$(this.contentEl).fadeOut('slow',function(){
+			$(el).removeClass('show' );	
+			console.log(el);
+			$(this.contentEl).css({"visibility":"hidden"});
+		});
+		
+		
 		// without the timeout there seems to be some problem in firefox
 		setTimeout( function() { classie.removeClass( document.body, 'noscroll' ); }, 25 );
 		// that's it for no support..
@@ -158,10 +166,10 @@
 		classie.removeClass( this.gridWrap, 'view-full' );
 
 		// reset placeholder style values
-		this.placeholder.style.left = currentItem.offsetLeft + 'px';
+		/*this.placeholder.style.left = currentItem.offsetLeft + 'px';
 		this.placeholder.style.top = currentItem.offsetTop + 'px';
 		this.placeholder.style.width = this.itemSize.width + 'px';
-		this.placeholder.style.height = this.itemSize.height + 'px';
+		this.placeholder.style.height = this.itemSize.height + 'px';*/
 
 		var onEndPlaceholderTransFn = function( ev ) {
 			this.removeEventListener( transEndEventName, onEndPlaceholderTransFn );
@@ -170,7 +178,7 @@
 			// show grid item again
 			classie.removeClass( currentItem, 'active' );
 		};
-		this.placeholder.addEventListener( transEndEventName, onEndPlaceholderTransFn );
+		//this.placeholder.addEventListener( transEndEventName, onEndPlaceholderTransFn );
 	}
 
 	// function to create the placeholder

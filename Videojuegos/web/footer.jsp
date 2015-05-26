@@ -5,8 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<script type="text/javascript" src="public/js/videogames/videogames.js"></script>
+<script type="text/javascript">
 
+$( document ).ready(function() {
+  $('body').fadeIn(2500);
+});
+</script>
 <script type="text/javascript" src="public/js/validando.js"></script>
 <script type="text/javascript" src="public/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="public/js/validCampo.js"></script>

@@ -58,7 +58,7 @@ var session = false;
 var j = 0;
 
 $( document ).ready(function() {
-  $('body').fadeIn(2500);
+  $('body').fadeIn(3000);
 	console.log( "ready!" );
 	share();
 	$.ajax({
@@ -71,7 +71,10 @@ $( document ).ready(function() {
 			});
 			setTimeout(function(){
 				loadGames();
-			},1000);
+			},2000);
+			setTimeout(function(){
+				insertdiv();
+			},500);
 
 		},
 		error: function(data){
@@ -101,7 +104,7 @@ $container = $('#games .isotope-demo').isotope(option);
 
 function insertdiv(){
 
-	for(var i = 0; i < info.length && i < j + 3; i++){
+	for(var i = 0; i < info.length; i++){
 		var cont = "";
 		cont='<div>'+
 		'<div class="container">'+
@@ -195,15 +198,12 @@ function insertdiv(){
 }
 
 function loadGames() {
-	setTimeout(function(){
-		insertdiv();
-	},500);
 	$("#spinner").fadeOut();
 	$(".loadsec").empty();
 	var $inser = "";
 
 	for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 3; i++){
-		var s = '<div class="element-item" ><figure><img src="public/videogames/fronts/'+info[i].front+'" /></figure></div>'; 
+		var s = '<div class="element-item" ><img src="public/videogames/fronts/'+info[i].front+'" /></div>'; 
 		$inser = s + $inser;
 	}
 	if(i >= info.length){
