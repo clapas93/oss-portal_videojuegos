@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
-import TransactionsController.Transactions;
 
 /**
  * Optimal Software Solutions
@@ -47,42 +46,47 @@ public class TransactionsController extends HttpServlet {
 	processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	throws ServletException, IOException {
-	String path = request.getRequestURI().substring(request.getContextPath().length());
-	PrintWriter out = response.getWriter();
-	HttpSession session = request.getSession();
-	String email = (String) session.getAttribute("userStudent");
-	String idGame;
-	Transactions transaction = null;
-	boolean success;
-	switch(path){
-	case "/transaction":
-	    transaction= new Transactions();
-	    JSONObject obj = new JSONObject();
-	    idGame = (String)request.getParameter("idGame");
-	    System.out.println("idGame   "+idGame);
-	    success = transaction.registerDownload(email, idGame);
-	    if(success){
-		obj.put("success",true);
-	    }else{
-		obj.put("error",false);
-	    }
-	    out.print(obj);
-	    out.flush();
-	    break;
-	}
+  /**
+   * Handles the HTTP <code>POST</code> method.
+   *
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    String path = request.getRequestURI().substring(request.getContextPath().length());
+    PrintWriter out = response.getWriter();
+    HttpSession session = request.getSession();
+    String email = (String) session.getAttribute("userStudent");
+    String idGame;
+    Transactions transaction = null;
+    boolean success;
+    switch(path){
+      case "/transaction":
+        transaction= new Transactions();
+        JSONObject obj = new JSONObject();
+        idGame = (String)request.getParameter("idGame");
+        System.out.println("idGame   "+idGame);
+        if(email==null||email.equals("")){
+          email = "null@mail.com";
+        }
+        success = transaction.registerDownload(email, idGame);
+        String name  = transaction.getGameName(idGame);
+        double credit = transaction.getCredits(email);
+        if(success){
+          obj.put("name",name);
+          obj.put("credit",credit);
+        }else{
+          obj.put("error",false);
+        }
+        out.print(obj);
+        out.flush();
+      break;
     }
-
+  }
     /**
      * Returns a short description of the servlet.
      *

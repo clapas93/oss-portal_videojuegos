@@ -99,40 +99,42 @@ public class LoginController extends HttpServlet {
      */
     
     protected void logueo(HttpServletRequest request, HttpServletResponse response) 
-	throws ServletException, IOException{
-	request.setCharacterEncoding("UTF-8");
-	response.setCharacterEncoding("UTF-8");
-	UserAdmin data_user = new UserAdmin();
-	data_user.setAdminEmail(request.getParameter("usuario"));
-	data_user.setPassword(request.getParameter("password"));
-      
-	Login cn = new Login();
-      
-	System.out.println("OK ... bien4.1");
-	int value_page = cn.loginAdmin(data_user);
-      
-	if(value_page == 0){
-	    HttpSession session;
-	    String userStudent;
-	    session = request.getSession();
-	    userStudent = request.getParameter("usuario");
-	    session.setAttribute("userStudent", userStudent);
-	    response.sendRedirect(response.encodeRedirectURL("videogames"));
-	    System.out.println("OK ... bienUser");
-	}else if(value_page == 1){
-	    HttpSession session;
-	    String userAdmin;
-	    session = request.getSession();
-	    userAdmin = request.getParameter("usuario");
-	    session.setAttribute("userAdmin", userAdmin);
-	    response.sendRedirect(response.encodeRedirectURL("managegames"));
-	    System.out.println("OK ... bienAdmin");
-	}else {
-	    RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o " +
-							       "contraseña incorrectos");
-	    a.forward(request, response);
-	}
-      
+            throws ServletException, IOException{
+        
+        UserAdmin data_user = new UserAdmin();
+        data_user.setAdminemail(request.getParameter("usuario"));
+        data_user.setPassword(request.getParameter("password"));
+           
+        Login cn = new Login();
+        
+        System.out.println("OK ... bien4.1");
+        int value_page = cn.loginAdmin(data_user);
+            
+        if(value_page == 0){
+            String[] datos = cn.selectNameStudent(data_user.getAdminemail());
+            HttpSession session;
+            String userStudent;
+            String nameStudent;
+            session = request.getSession();
+            userStudent = request.getParameter("usuario");
+            nameStudent = datos[0];
+            session.setAttribute("userStudent", userStudent);
+            session.setAttribute("nameStudent", nameStudent);
+            response.sendRedirect(response.encodeRedirectURL("videogames"));
+            System.out.println("OK ... bienUser");
+        }else if(value_page == 1){
+            HttpSession session;
+            String userAdmin;
+            session = request.getSession();
+            userAdmin = request.getParameter("usuario");
+            session.setAttribute("userAdmin", userAdmin);
+            response.sendRedirect(response.encodeRedirectURL("managegames"));
+            System.out.println("OK ... bienAdmin");
+        }else {
+            RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o " +
+				"contraseña incorrectos");
+            a.forward(request, response);
+        }
     }
 }
   

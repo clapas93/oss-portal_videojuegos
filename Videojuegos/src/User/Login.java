@@ -7,6 +7,7 @@
 package User;
 
 import ConnectionDB.ConnectionDB;
+import java.sql.ResultSet;
 
 
 public class Login {
@@ -89,6 +90,36 @@ public class Login {
         }catch(Exception e){
             System.out.println("Error:"+ e);
             return false;
+        }
+    }
+    
+    /**
+     * This method help to obtain the name of the student
+     * @param user
+     * @return 
+     */
+    protected String[] selectNameStudent(String email){
+        ResultSet result;
+        String[] arrayNameInformation = new String[3];
+        try{
+            String sql=
+            "SELECT name, lastname1, lastname2 FROM student WHERE studentemail = '"+ email
+                    + "';";
+            result = connection.select(sql);
+            if(result.next()){
+                arrayNameInformation[0] = result.getString("name");
+                arrayNameInformation[1] = result.getString("lastname1");
+                arrayNameInformation[2] = result.getString("lastname2");
+                System.out.println(arrayNameInformation[0] + " " + arrayNameInformation[1] + " " + arrayNameInformation[2]);
+                System.out.println("OK ... obtuvimos nombre");
+                return arrayNameInformation;
+            }else{
+                return arrayNameInformation;
+            }
+                
+        }catch(Exception e){
+            System.out.println("Error:"+ e);
+            return arrayNameInformation;
         }
     }
 }

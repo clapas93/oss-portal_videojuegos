@@ -1,4 +1,3 @@
-
 package ConnectionDB;
 
 import java.sql.Connection;
@@ -37,8 +36,8 @@ public class ConnectionDB {
     public ConnectionDB(){
 	try {
 	    this.host = "localhost";
-	    this.port = "5433";
-	    //this.port = "5432";
+	    //this.port = "5433";
+	    this.port = "5432";
 	    this.database = "videoGames";
 	    this.user = "Optimal";
 	    this.password = "OptimalSOfSo!";
@@ -49,6 +48,7 @@ public class ConnectionDB {
 	} catch (ClassNotFoundException | SQLException e) {
 	    System.out.println("Problemas de Conexión: " + e.toString());
 	}
+
     }
     
     /**

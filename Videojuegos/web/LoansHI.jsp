@@ -14,6 +14,11 @@ List loans = (List)request.getAttribute("loans");
 
 <div class="container">
   <h1>Nuevas Solicitudes</h1>
+  <div class="row">
+    <div class="col-lg-12">
+      <br><a href="newSemestre" role="button" class="btn btn-large btn-success pull-right">Nuevo Semestre</a>
+    </div>
+  </div>
   <br>
   <div class="row">
     <div class="col-lg-12">
