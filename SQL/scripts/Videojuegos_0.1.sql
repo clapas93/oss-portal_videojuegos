@@ -105,5 +105,5 @@ CREATE TABLE IF NOT EXISTS Download (
 --Insertions
 -----------------------
 INSERT INTO admin values ('admin@oss.com','Eduardo','Miranda','Sánchez','eduardomiranda@ciencias.unam.mx','5519134399','password');
---INSERT INTO student (studentemail,name,lastname1,lastname2,accountnumber,career,password,status,credits,history)
---VALUES ('null@mail.com','null','null','null','000000000','CC.','null','x',0,'');
+INSERT INTO student (studentemail,name,lastname1,lastname2,accountnumber,career,password,status,credits,history)
+VALUES ('null@mail.com','null','null','null','000000000','CC.','null','x',0,'');
