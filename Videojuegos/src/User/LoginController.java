@@ -113,11 +113,15 @@ public class LoginController extends HttpServlet {
         int value_page = cn.loginAdmin(data_user);
             
         if(value_page == 0){
+            String[] datos = cn.selectNameStudent(data_user.getAdminemail());
             HttpSession session;
             String userStudent;
+            String nameStudent;
             session = request.getSession();
             userStudent = request.getParameter("usuario");
+            nameStudent = datos[0];
             session.setAttribute("userStudent", userStudent);
+            session.setAttribute("nameStudent", nameStudent);
             response.sendRedirect(response.encodeRedirectURL("videogames"));
             System.out.println("OK ... bienUser");
         }else if(value_page == 1){

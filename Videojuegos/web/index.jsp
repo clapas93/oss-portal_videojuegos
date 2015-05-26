@@ -14,6 +14,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
   <link rel="stylesheet" type="text/css" href="public/css/loginstyles.css">
   <link rel="stylesheet" type="text/css" href="public/css/checkout-cornerflat.css" />
   <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+   <link rel="stylesheet" type="text/css" href="public/fonts/font-awesome.min.css" />
   <script type="text/javascript" src="public/js/jquery-2.1.3.js"></script>
   
   <script type="text/javascript" src="public/js/main.js"></script>
@@ -62,6 +63,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                                 <i class="fa fa-angle-left"></i> Cancelar
                             </span>
                             <button type="submit" class="checkout__option">ENTRAR</button>
+                            <i class="checkout__close checkout__cancel icon fa fa-fw fa-close"></i>
                             
                         </div>
                     </div>

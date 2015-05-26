@@ -21,7 +21,7 @@
             
           <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="Logout" role="button" aria-expanded="false">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%=session.getAttribute("userStudent")%>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%=session.getAttribute("nameStudent")%>
                 <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation"><a role="menuitem" href="updatestudent">

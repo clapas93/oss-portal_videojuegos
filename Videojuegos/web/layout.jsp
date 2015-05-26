@@ -3,8 +3,6 @@
 String view = (String)request.getAttribute("view");
 String footer = (String)request.getAttribute("footer");
 String header = (String)request.getAttribute("header");
-String bool1 = (String)request.getAttribute("bool1");
-String bool2 =(String)request.getAttribute("bool2");
 String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
 %>
 
@@ -80,6 +78,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                                 <i class="fa fa-angle-left"></i> Cancelar
                             </span>
                             <button type="submit" class="checkout__option">ENTRAR</button>
+                            <i class="checkout__close checkout__cancel icon fa fa-fw fa-close"></i>
                             
                         </div>
                     </div>
@@ -129,10 +128,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
 					} );
 				} );
 			})();
-                        if($('body').width() >= 600){
-                            $('.checkout__order').removeClass('hidden');
-                        }else{
-                            
+                        
                             $('.checkout__button.p-login').click(function(){
                                 if($('.checkout__order').hasClass('hidden')){
                                     $('.checkout__order').removeClass('hidden');
@@ -168,7 +164,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                                 }
                             });
                             
-                        }
+                        
 		
 </script>
 <div id="fb-root"></div>
