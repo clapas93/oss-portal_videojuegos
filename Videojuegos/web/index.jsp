@@ -134,7 +134,7 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
     </script>
     
     <script>
-			(function() {
+            (function() {
 				[].slice.call( document.querySelectorAll( '.checkout' ) ).forEach( function( el ) {
 					var openCtrl = el.querySelector( '.checkout__button' ),
 						closeCtrls = el.querySelectorAll( '.checkout__cancel' );
@@ -151,11 +151,26 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
 					} );
 				} );
 			})();
-                        if($('body').width() >= 600){
-                            $('.checkout__order').removeClass('hidden');
-                        }else{
-                            
+function menorWidth(){
+    $('.checkout__order').removeClass('hidden');
                             $('.checkout__button.p-login').click(function(){
+                                if($('.mi-back').hasClass('hidden')){
+                                    $('.mi-back').removeClass('hidden');
+                                }else{
+                                    $('.mi-back').addClass('hidden');
+                                }    
+                            });
+                            $('.checkout__cancel').click(function(){
+                                if($('.mi-back').hasClass('hidden')){
+                                    $('.mi-back').removeClass('hidden');
+                                }else{
+                                    $('.mi-back').addClass('hidden');
+                                }
+                            });
+}
+
+function mayorWidth(){
+    $('.checkout__button.p-login').click(function(){
                                 if($('.checkout__order').hasClass('hidden')){
                                     $('.checkout__order').removeClass('hidden');
                                 }else{
@@ -165,7 +180,6 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                                     $('.mi-back').removeClass('hidden');
                                 }else{
                                     $('.mi-back').addClass('hidden');
-                                    console.log("ggggato");
                                 }
                                 $('.checkout__order').css('z-index','10000');
                             });
@@ -189,8 +203,23 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
                                     $('.checkout__order').addClass('hidden');
                                 }
                             });
-                            
-                        }
+    
+}
+if(width >= 600){
+    mayorWidth();
+    }else{
+    menorWidth();                 
+}
+
+var width = $(window).width();
+$(window).resize(function(){
+      if(width >= 600){
+            mayorWidth();
+      }else{
+           menorWidth();                 
+      }
+});
+                        
     </script>
 
   </body>

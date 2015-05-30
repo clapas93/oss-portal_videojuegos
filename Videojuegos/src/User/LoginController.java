@@ -133,8 +133,7 @@ public class LoginController extends HttpServlet {
             response.sendRedirect(response.encodeRedirectURL("managegames"));
             System.out.println("OK ... bienAdmin");
         }else {
-            RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o " +
-				"contraseña incorrectos");
+            RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o contraseña incorrectos");
             a.forward(request, response);
         }
        
