@@ -152,70 +152,66 @@ String req =  request.getParameter("msg")!=null?request.getParameter("msg"):"";
 				} );
 			})();
 function menorWidth(){
-    $('.checkout__order').removeClass('hidden');
-                            $('.checkout__button.p-login').click(function(){
-                                if($('.mi-back').hasClass('hidden')){
-                                    $('.mi-back').removeClass('hidden');
-                                }else{
-                                    $('.mi-back').addClass('hidden');
-                                }    
-                            });
-                            $('.checkout__cancel').click(function(){
-                                if($('.mi-back').hasClass('hidden')){
-                                    $('.mi-back').removeClass('hidden');
-                                }else{
-                                    $('.mi-back').addClass('hidden');
-                                }
-                            });
+    $('.checkout__button.p-login').click(function(){
+        $('.checkout__order').fadeIn();
+        if($('.checkout__order').hasClass('hidden'))
+            $('.checkout__order').removeClass('hidden');
+        else
+            $('.checkout__order').addClass('hidden');
+        
+        if($('.mi-back').hasClass('hidden'))
+            $('.mi-back').removeClass('hidden');
+        else
+            $('.mi-back').addClass('hidden');
+        
+        
+    });
+    $('.checkout__cancel').click(function(){
+        $('.mi-back').addClass('hidden');
+        
+        $('.checkout__order').addClass('hidden');
+    });
 }
 
 function mayorWidth(){
+    $('.checkout__order').removeClass('hidden');
     $('.checkout__button.p-login').click(function(){
-                                if($('.checkout__order').hasClass('hidden')){
-                                    $('.checkout__order').removeClass('hidden');
-                                }else{
-                                    $('.checkout__order').addClass('hidden');
-                                }
-                                if($('.mi-back').hasClass('hidden')){
-                                    $('.mi-back').removeClass('hidden');
-                                }else{
-                                    $('.mi-back').addClass('hidden');
-                                }
-                                $('.checkout__order').css('z-index','10000');
-                            });
-                            $('.checkout__cancel').click(function(){
-                                if($('.checkout__order').hasClass('hidden')){
-                                    $('.checkout__order').removeClass('hidden');
-                                }else{
-                                    $('.checkout__order').addClass('hidden');
-                                }
-                                if($('.mi-back').hasClass('hidden')){
-                                    $('.mi-back').removeClass('hidden');
-                                }else{
-                                    $('.mi-back').addClass('hidden');
-                                }
-                            });
-                            $('.mi-back').click(function(){
-                               $('.mi-back').addClass('hidden'); 
-                               if($('.checkout__order').hasClass('hidden')){
-                                    $('.checkout__order').removeClass('hidden');
-                                }else{
-                                    $('.checkout__order').addClass('hidden');
-                                }
-                            });
-    
+        
+        if($('.mi-back').hasClass('hidden')){
+             $('.mi-back').removeClass('hidden');
+        }else{
+             $('.mi-back').addClass('hidden');
+             $( ".checkout__cancel" ).trigger( "click" );
+        }
+    });
+    $('.checkout__cancel').click(function(){
+        if($('.mi-back').hasClass('hidden')){
+            $('.mi-back').removeClass('hidden');
+        }else{
+            $('.mi-back').addClass('hidden');
+        }
+    });
+    $('.mi-back').click(function(){
+        $( ".checkout__cancel" ).trigger( "click" );
+        if($('.mi-back').hasClass('hidden')){
+            $('.mi-back').removeClass('hidden');
+        }else{
+            $('.mi-back').addClass('hidden');
+        }
+    });
 }
+var width = $(window).width();
 if(width >= 600){
     mayorWidth();
-    }else{
+}else{
     menorWidth();                 
 }
 
-var width = $(window).width();
 $(window).resize(function(){
       if(width >= 600){
             mayorWidth();
       }else{
+          $('.checkout__order').addClass('hidden');
            menorWidth();                 
       }
 });
