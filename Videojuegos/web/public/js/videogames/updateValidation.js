@@ -1,3 +1,15 @@
+$("#Title").keypress(function(key) {
+  if(key.charCode == 39) return false;
+});
+
+$("#description").keypress(function(key) {
+  if(key.charCode == 39) return false;
+});
+
+$("#video").keypress(function(key) {
+  if(key.charCode == 39) return false;
+});
+
 $(document).ready(function(){
     
     $("input[name=creditOptions][id=FREE]").click(function(){

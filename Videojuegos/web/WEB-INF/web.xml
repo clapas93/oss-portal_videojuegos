@@ -44,6 +44,10 @@
         <servlet-name>TransactionsController</servlet-name>
         <servlet-class>TransactionsController.TransactionsController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DownloadFileServlet</servlet-name>
+        <servlet-class>Resources.DownloadFileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VideogamesController</servlet-name>
         <url-pattern>/videogames</url-pattern>
@@ -74,6 +78,7 @@
         <url-pattern>/denyloan</url-pattern>
         <url-pattern>/grantloan</url-pattern>
         <url-pattern>/reapprove</url-pattern>
+        <url-pattern>/newSemestre</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
@@ -93,10 +98,15 @@
         <url-pattern>/myaccount</url-pattern>
         <url-pattern>/studentsave</url-pattern>
         <url-pattern>/historysave</url-pattern>
+        <url-pattern>/deleteStudent</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TransactionsController</servlet-name>
         <url-pattern>/transaction</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadFileServlet</servlet-name>
+        <url-pattern>/DownloadFileServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

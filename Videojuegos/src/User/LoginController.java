@@ -1,23 +1,21 @@
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-    package User;
-
-    import java.io.IOException;
-    import javax.servlet.AsyncContext;
-    import javax.servlet.RequestDispatcher;
-    import javax.servlet.ServletException;
-    import javax.servlet.http.HttpServlet;
-    import javax.servlet.http.HttpServletRequest;
-    import javax.servlet.http.HttpServletResponse;
-    import javax.servlet.http.HttpSession;
-
 /**
- *
- * @author magdiel
+ * Optimal Software Solutions
+ * Project : Pulse Games
+ *Controller for the login of an user to the system.
+ * @author Magdiel Juarez.
  */
+package User;
+
+import java.io.IOException;
+import javax.servlet.AsyncContext;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
 public class LoginController extends HttpServlet {
   
 
@@ -32,10 +30,10 @@ public class LoginController extends HttpServlet {
      */
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+	throws ServletException, IOException {
     }
     
-       // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
      * <code>GET</code> method.
@@ -47,8 +45,8 @@ public class LoginController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-      processRequest(request, response);
+	throws ServletException, IOException {
+	processRequest(request, response);
     }
     
     /**
@@ -62,10 +60,10 @@ public class LoginController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-      response.setContentType("text/html;charset=UTF-8");
+	throws ServletException, IOException {
+	response.setContentType("text/html;charset=UTF-8");
       
-      String action=request.getParameter("accion");
+	String action=request.getParameter("accion");
         /**
          * Verificamos que se envió el formulario mediante post con el valor "LOGIN
          * y ejecutamos el método logueo(request,response) que decide que tipo de vista muestra dependiendo
@@ -74,10 +72,10 @@ public class LoginController extends HttpServlet {
         
         if("LOGIN".equals(action)){
             // Logueo del usuario
-          logueo(request, response);
+	    logueo(request, response);
         }
         
-      }
+    }
       
     /**
      * Returns a short description of the servlet.
@@ -86,7 +84,7 @@ public class LoginController extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-      return "Short description";
+	return "Short description";
     }
     
     /**
@@ -104,7 +102,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException{
         
         UserAdmin data_user = new UserAdmin();
-        data_user.setAdminemail(request.getParameter("usuario"));
+        data_user.setAdminEmail(request.getParameter("usuario"));
         data_user.setPassword(request.getParameter("password"));
            
         Login cn = new Login();
@@ -113,7 +111,7 @@ public class LoginController extends HttpServlet {
         int value_page = cn.loginAdmin(data_user);
             
         if(value_page == 0){
-            String[] datos = cn.selectNameStudent(data_user.getAdminemail());
+            String[] datos = cn.selectNameStudent(data_user.getAdminEmail());
             HttpSession session;
             String userStudent;
             String nameStudent;
@@ -136,9 +134,8 @@ public class LoginController extends HttpServlet {
             RequestDispatcher a = request.getRequestDispatcher("index.jsp?msg=Usuario y/o contraseña incorrectos");
             a.forward(request, response);
         }
-       
     }
-  }
+}
   
   
 

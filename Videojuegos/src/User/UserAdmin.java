@@ -1,43 +1,95 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Optimal Software Solutions
+ * Project : Pulse Games
+ *With this class we can make a model of an Student, this class
+ * extends at User, and with this we endow at this class with 
+ * her methods 
+ * @author Magdiel Juarez.
  */
+
 package User;
 
-/**
- *
- * @author magdiel
- */
+
 public class UserAdmin extends User {
     
-    String adminemail;
+    String adminEmail;
     String phone;
-    String email_contact;
+    String emailContact;
+    
+    /*
+    *Constructor by omission.
+    */
+    
+    public UserAdmin(){
+        
+    }
+    
+    
+    /**
+     * Constructor of the class
+     * @param adminEmail
+     * @param phone
+     * @param emailContact 
+     */
+    
+    public UserAdmin(String adminEmail, String phone, String emailContact ){
+        this.adminEmail = adminEmail;
+        this.phone = phone;
+        this.emailContact = emailContact;
+    }
+    
+    /**
+     * Return the admin email
+     * @return String
+     */
 
-    public String getAdminemail() {
-        return adminemail;
+    public String getAdminEmail() {
+        return adminEmail;
+    }
+    
+    /**
+     * Set a new eamil for the admin.
+     * @param adminEmail
+     */
+
+    public void setAdminEmail(String adminEmail) {
+        this.adminEmail = adminEmail;
     }
 
-    public void setAdminemail(String
-            adminemail) {
-        this.adminemail = adminemail;
-    }
-
+    /**
+     * Return the phone number to do contact with the admin.
+     * @return String
+     */
+    
     public String getPhone() {
         return phone;
     }
+    
+    /**
+     * Set a new phone number foy the admin
+     * @param phone 
+     */
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    
+    /**
+     * Get the email contact for the admin.
+     * @return String
+     */
 
-    public String getEmail_contact() {
-        return email_contact;
+    public String getEmailContact() {
+        return emailContact;
     }
+    
+    /**
+     * Updata the email contact by the admin.
+     * @param emailContact 
+     */
 
-    public void setEmail_contact(String email_contact) {
-        this.email_contact = email_contact;
+    public void setEmailContact(String emailContact) {
+        this.emailContact = emailContact;
     }
 
 }

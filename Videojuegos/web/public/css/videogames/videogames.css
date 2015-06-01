@@ -33,7 +33,7 @@
 }
 #flecha{
   font-size: 4em;
-  left: 23%;
+  left: 18%;
   top: 27%;
 }
 .loadMore{
@@ -52,6 +52,11 @@
   margin-top: 20%;
 }
 
+.freedownload{
+  position: relative;
+  margin-top: 20%;
+}
+
 .precio{
   position: relative;
   margin-top: 24%;
@@ -63,14 +68,14 @@ h3>span{
   padding-top: 17px;
   color: red;
 }
+
 .element-item{
   border-radius: 5px;
   padding: 10px;
   background-color:rgba(11, 11, 11, 0.62);
-  width: 27%;
+  width: auto;
   height: auto;
-  margin: 1em;
-
+  margin: 2em;
 }
 
 /**--------------------------------------------------------------------------------**/
@@ -85,6 +90,10 @@ h3>span{
     margin-top: 6%;
     margin-left: 0;
   }
+  .freedownload {
+    margin-top: 6%;
+    margin-left: 0;
+  }
   .sharefacebook{
     margin-left: 28%;
   }
@@ -94,6 +103,7 @@ h3>span{
     bottom: 5em;
     left: 58%;
   }
+
 }
 @media only screen and (max-width: 600px) {
   .content > div.show {
@@ -113,9 +123,25 @@ h3>span{
   .accion{
     margin-left: 0;
   }
+  .freedownload {
+    margin-left: 0;
+  }
+  #flecha{
+    left: 12%;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  #flecha{
+    left: 12%;
+  }
 }
 @media only screen and (min-width: 992px) {
   .accion {
+    margin-left: 75%;
+  }
+
+  .freedownload {
     margin-left: 75%;
   }
 }

@@ -23,27 +23,28 @@
 	overflow: hidden;
 }
 
-.grid-wrap {
+/*.grid-wrap {
 	margin: 10px 10% 10px;
 	max-width: 1092px;
 	width: 100%;
 	padding: 0;
 	-webkit-perspective: 1500px;
 	perspective: 1500px;
-}
+}*/
 
 @media only screen and (max-width: 500px) {
-	.grid-wrap {
+	/*.grid-wrap {
 		margin: 10px 20% 10px;
-	}
+	}*/
 }
 
 .grid {
-	position: relative;
+	cursor: pointer;
+	/*position: relative;
 	-webkit-transition: all 0.5s cubic-bezier(0,0,0.25,1);
 	transition: all 0.5s cubic-bezier(0,0,0.25,1);
 	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
+	transform-style: preserve-3d;*/
 }
 
 .view-full .grid {

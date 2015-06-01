@@ -12,11 +12,11 @@ $().ready(
             rules: {
                 password: {  
                     required: true, // Tiene que ser requerido el password
-                    minlength: 6    // Tiene que tener un tamaño mayor o igual a 6 caracteres
+                    minlength: 8    // Tiene que tener un tamaño mayor o igual a 6 caracteres
                 },
                 c_password: {
                     required: true,  //Tiene que solicitar la confirmación de password
-                    minlength: 6, //Debe de tener al menos 6 caracteres el password
+                    minlength: 8, //Debe de tener al menos 6 caracteres el password
                     equalTo: "#pass" //Verifica que sea igual al password
                 },
                 name: {
@@ -37,7 +37,7 @@ $().ready(
                 },
                 accountnumber: {
                     required: true,
-                    minlength: 7,
+                    minlength: 9,
                     maxlength: 9
                 }
                 
@@ -47,11 +47,11 @@ $().ready(
             
       	    password: {
                 required: "Por favor, introduce tu password",
-        	minlength: "Debe de tener al menos 6 caracteres"
+        	minlength: "Debe de tener al menos 8 caracteres"
             },
       	    c_password: {
                 required: "Por favor, introduce de nuevo tu password",
-        	minlength: "Debe de tener al menos 6 caracteres",
+        	minlength: "Debe de tener al menos 8 caracteres",
         	equalTo: "Los password introducidos no son iguales"
             },
       	    name: {
@@ -71,9 +71,9 @@ $().ready(
         	email: "Introduce un formato valido, por ejemplo: mail@correo.com"
       	    },
             accountnumber: {
-                required: "Introduce tu número de cuenta",
-                minlength: "Debe tener al menos 7 números",
-                maxlength: "Debe tener máximo 9 números"
+                required: "Introduce tu n&uacute;mero de cuenta",
+                minlength: "Debe tener al menos 9 n&uacute;meros",
+                maxlength: "Debe tener máximo 9 n&uacute;meros"
       	    }
       
         }

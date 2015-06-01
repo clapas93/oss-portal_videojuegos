@@ -14,7 +14,7 @@ Author     : Claudia
           <div class="col-lg-6">
             <div class="form-group">
               <label class="control-label" for="TITLE">Título</label>
-              <input type="text" class="form-control input-group" name="TITLE" placeholder="Título">
+              <input type="text" class="form-control input-group" name="TITLE" placeholder="Título" id="Title">
             </div>
           </div>
           <div class="col-lg-6">
@@ -78,7 +78,7 @@ Author     : Claudia
           <div class="col-lg-6">
             <div class="form-group">
               <label class="control-label">Descripción</label>
-              <textarea rows="4" class="form-control" name="DESCRIPTION" placeholder="Descripción"></textarea>
+              <textarea rows="4" class="form-control" name="DESCRIPTION" placeholder="Descripción" id="description"></textarea>
             </div>
           </div>
           <div class="col-lg-6">
@@ -88,7 +88,7 @@ Author     : Claudia
             </div>
             <div class="form-group">
               <label class="control-label">Video</label>
-              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video">
+              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" id="video">
             </div>
           </div>
         </div><!--3-row-->

@@ -5,46 +5,7 @@ Author     : magdiel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link href="https://www.google.com/fonts#QuickUsePlace:quickUse/Family:Arvo:400,700" rel="stylesheet" type="text/css">
 
-<style type="text/css">
-a.button-comp{
-  border: none;
-  padding: 0.6em 1.2em;
-  background: #083B56;
-  color: #fff;
-  font-family: 'Lato', Calibri, Arial, sans-serif;
-  font-size: 1em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: inline-block;
-  margin: 3px 2px;
-  border-radius: 2px;
-}
-a.button-comp:hover {
-  background: #773489;
-  text-decoration: none;
-}
-button.button-comp{
-  border: none;
-  padding: 0.6em 1.2em;
-  background: #083B56;
-  color: #fff;
-  font-family: 'Lato', Calibri, Arial, sans-serif;
-  font-size: 1em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: inline-block;
-  margin: 3px 2px;
-  border-radius: 2px;
-}
-button.button-comp:hover {
-  background: #773489;
-  text-decoration: none;
-}
-</style>
 <div class="form-registro">
   <%
   String msj0 =  request.getParameter("msj0")!=null?request.getParameter("msj0"):"";
@@ -57,7 +18,7 @@ button.button-comp:hover {
   <div class="formulario">
     <form method="post" action="registerController?accion=REGISTER" id="validate-form">
       <div class="row">
-        <div class="col-md-3 col-md-offset-2">
+        <div class="col-md-4 col-md-offset-2">
           <span style="color:red"><%= msj2 %></span>
           <span style="color:red"><%= msj3 %></span>
 
@@ -66,13 +27,15 @@ button.button-comp:hover {
             <input type="text" class="form-control name" id="usr name" placeholder="Nombre" name="name" maxlength="45">
           </div>
         </div>
-        <div class="col-md-3">           
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-2">
           <div class="form-group">
             <label><h4> Apellido Paterno :</h4></label>
             <input type="text" class="form-control lastname1" id="usr lastname1" placeholder="Apellido Paterno" name="lastname1" maxlength="45">
           </div>
-        </div> 
-        <div class="col-md-3">           
+        </div>
+        <div class="col-md-4">
           <div class="form-group">
             <label><h4>Apellido Materno :</h4></label>
             <input type="text" class="form-control lastname2" id="usr lastname2" placeholder="Apellido Materno" name="lastname2" maxlength="45">
@@ -80,16 +43,21 @@ button.button-comp:hover {
         </div>
       </div>
       <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <hr>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-4 col-md-offset-2">
           <div class="form-group">
-            <label class="control-label"> Número de cuenta :</label>
+            <label class="control-label"><h4>Número de cuenta :</h4></label>
             <input type="text" class="form-control accountnumber" id="usr" placeholder="Número de cuenta" name="accountnumber" maxlength="9" required>
             <span style="color:red"><%= msj1 %></span>
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label> Carrera:</label>
+            <label><h4>Carrera:</h4></label>
             <select class="form-control" name="career">
               <option>Actuaría</option>
               <option>Biología</option>
@@ -107,7 +75,7 @@ button.button-comp:hover {
       <div class="row">
         <div class="col-md-4 col-md-offset-2">
           <div class="form-group">
-            <label class="control-label">Correo:</label>
+            <label class="control-label"><h4>Correo:</h4></label>
             <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" maxlength="318">
             <span style="color:red"><%= msj0 %></span>
           </div>
@@ -116,22 +84,21 @@ button.button-comp:hover {
       <div class="row">
         <div class="col-md-4 col-md-offset-2">
           <div class="form-group">
-            <label class="control-label">Contraseña :</label>
+            <label class="control-label"><h4>Contraseña :</h4></label>
             <input type="password" class="form-control" placeholder="Contraseña" name="password" id="pass">
 
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label class="control-label">Confirma tu contraseña :</label>
-            <input type="password" class="form-control"  placeholder="Confirma tu contraseña" name="c_password">
+            <label class="control-label"><h4>Confirma tu contraseña :</h4></label>
+            <input type="password" class="form-control"  placeholder="Confirma tu contraseña" name="c_password" id="pass_c">
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-3 col-md-offset-4">
           <br>
-          <br
           <div class="form-group" style="float:right;">
             <a class="button-comp" href="videogames" title="Recrea Comunicación">Volver</a>
             <button type="submit" class="button-comp">Registrarme</button>

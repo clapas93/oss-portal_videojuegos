@@ -25,7 +25,7 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
             <div class="form-group">
               <label class="control-label" for="TITLE">Título</label>
               <%String title = ((Videogame)videogameId).getTitle();%>
-              <input type="text" class="form-control input-group" name="TITLE" value= "<%out.print(title);%>" >
+              <input type="text" class="form-control input-group" name="TITLE" value= "<%out.print(title);%>" id="Title">
             </div>
           </div>
           <div class="col-lg-6">
@@ -91,7 +91,7 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
           <div class="col-lg-6">
             <div class="form-group">
               <label class="control-label">Descripción</label>
-              <textarea rows="4" class="form-control" name="DESCRIPTION" placeholder="Descripción"><% out.print(((Videogame)videogameId).getDescription());%></textarea>
+              <textarea rows="4" class="form-control" name="DESCRIPTION" placeholder="Descripción"   id="description"><% out.print(((Videogame)videogameId).getDescription());%></textarea>
             </div>
           </div>
           <div class="col-lg-6">
@@ -101,7 +101,7 @@ Videogame videogameId = (Videogame)request.getAttribute("videogameId");
             </div>
             <div class="form-group">
               <label class="control-label">Video</label>
-              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" value=<%=((Videogame)videogameId).getVideoUrl()%>>
+              <input type="url" class="form-control" name="VIDEO" placeholder="Url del video" value=<%=((Videogame)videogameId).getVideoUrl()%>   id="video">
             </div>
           </div>
         </div><!--3-row-->

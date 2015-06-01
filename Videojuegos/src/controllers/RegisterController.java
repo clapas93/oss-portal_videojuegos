@@ -27,7 +27,7 @@ public class RegisterController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         String view = "registro.jsp";
         request.setAttribute("view", view); 
         String footer = "footer.jsp";
@@ -51,7 +51,7 @@ public class RegisterController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -65,7 +65,7 @@ public class RegisterController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         processRequest(request, response);
     }
 

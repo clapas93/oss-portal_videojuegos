@@ -1,11 +1,11 @@
 /**
-* Optimal Software Solutions
-* Project : Pulse Games
-* This class is the controller of the manage game use case
-* @author Claudia Paola Medina Santamaria 
-* @version 1.0
-* @since 18/04/2015
-*/
+ * Optimal Software Solutions
+ * Project : Pulse Games
+ * This class is the controller of the manage game use case
+ * @author Claudia Paola Medina Santamaria 
+ * @version 1.0
+ * @since 18/04/2015
+ */
 package ManageGames;
 
 import java.io.File;
@@ -41,7 +41,7 @@ public class ManageGamesController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         String path = request.getRequestURI().substring(request.getContextPath().length());
         String view ="";
         game=null;
@@ -51,50 +51,51 @@ public class ManageGamesController extends HttpServlet {
         System.out.println("user   "+user);
 
         if(user==null){
-          response.sendRedirect(response.encodeRedirectURL("videogames"));
-          return;
+	    response.sendRedirect(response.encodeRedirectURL("videogames"));
+	    return;
         }
         switch(path){
-            case "/managegames":
-                view = "ManageGamesHI.jsp";
-                request.setAttribute("view", view); 
-                request.setAttribute("title", "Manage Games");
-                game = new Videogame();
-                videogameList = game.getListDB();
-                request.setAttribute("videogameList", videogameList);
-                request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+	case "/managegames":
+	    view = "ManageGamesHI.jsp";
+	    request.setAttribute("view", view); 
+	    request.setAttribute("title", "Manage Games");
+	    game = new Videogame();
+	    videogameList = game.getListDB();
+	    request.setAttribute("videogameList", videogameList);
+	    request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
             break;
-            case "/uploadgame":
-                view = "UploadGameHI.jsp";
-                request.setAttribute("view", view); 
-                request.setAttribute("title", "Manage Games");
-                request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+	case "/uploadgame":
+	    view = "UploadGameHI.jsp";
+	    request.setAttribute("view", view); 
+	    request.setAttribute("title", "Manage Games");
+	    request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
             break;
-            case "/updategame":
-                String id=request.getParameter("ID");
-                System.out.println(id);
-                view = "UpdateGameHI.jsp";
-                request.setAttribute("view", view); 
-                request.setAttribute("title", "Manage Games");
-                game = new Videogame();
-                Videogame videogameId = game.getDB(id);
-                //System.out.println(videogameId.toString());
-                System.out.println(videogameId.getTitle());
-                request.setAttribute("videogameId", videogameId);
-                request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
+	case "/updategame":
+	    String id=request.getParameter("ID");
+	    System.out.println(id);
+	    view = "UpdateGameHI.jsp";
+	    request.setAttribute("view", view); 
+	    request.setAttribute("title", "Manage Games");
+	    game = new Videogame();
+	    Videogame videogameId = game.getDB(id);
+	    //System.out.println(videogameId.toString());
+	    System.out.println(videogameId.getTitle());
+	    request.setAttribute("videogameId", videogameId);
+	    request.getRequestDispatcher("backend_layout.jsp").forward(request, response);
             break;
         }
     }
     
     /**
      * Upload the videogame on the system.
+     * @param user      admin email
      * @param request   servlet request.
      * @param response  servlet response.
      * @return boolean  true if the videogame was uploaded, false in other case.
      * @throws ServletException if a servlet-specific error occurs.
      * @throws IOException  if an I/O error occurs.
      */
-    protected boolean uploadGame(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    protected boolean uploadGame(String user,HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         Videogame max= new Videogame();
         int maxId = max.maxId() + 1;
         
@@ -113,11 +114,7 @@ public class ManageGamesController extends HttpServlet {
         String genre=request.getParameter("GENRE");
         String description=request.getParameter("DESCRIPTION");
         String videoUrl=request.getParameter("VIDEO");
-        HttpSession session = request.getSession(true);
-        String username = (String)session.getAttribute("nomUsuario");
-        System.out.println(username);
-        String adminemail = "admin@oss.com";
-
+        
         //set videogame filename
         String storageRoute = "";
         Part gamePart = request.getPart("GAME");
@@ -133,7 +130,7 @@ public class ManageGamesController extends HttpServlet {
         String frontExt = frontName.substring(frontName.length()-3,frontName.length());
         front = "front_" + maxId + "." + frontExt;
         
-        game = new Videogame(maxId,front,classification,price,storageRoute,genre,title,description,videoUrl,adminemail);
+        game = new Videogame(maxId,front,classification,price,storageRoute,genre,title,description,videoUrl,user);
         System.out.println("uploadGame");
         
         if(game.updloadDB()){
@@ -167,12 +164,13 @@ public class ManageGamesController extends HttpServlet {
     
     /**
      * Update the videogame on the system.
+     * @param user      admin email
      * @param request   servlet request.
      * @param response  servlet response.
      * @return boolean  true if the videogame was update , false in other case.
      * @throws UnsupportedEncodingException exception.
      */
-    protected boolean updateGame(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, IOException, ServletException{
+    protected boolean updateGame(String user,HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, IOException, ServletException{
         String id=request.getParameter("ID");
         System.out.println("ID game:"+id);
         
@@ -295,7 +293,7 @@ public class ManageGamesController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -309,42 +307,46 @@ public class ManageGamesController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	throws ServletException, IOException {
         //processRequest(request, response);
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String path = request.getRequestURI().substring(request.getContextPath().length());
+        HttpSession session = request.getSession();
+        String user = (String) session.getAttribute("userAdmin");
+        System.out.println("user post  "+user);
+        
         switch(path){
             case "/saveGame":
-                if(uploadGame(request,response)){
+                if(uploadGame(user,request,response)){
                     response.sendRedirect(response.encodeRedirectURL("managegames"));
                 }else{
                     System.out.println("doPost - saveGame");
                 }
             break;
             case "/editGame":
-                if(updateGame(request,response)){
+                if(updateGame(user,request,response)){
                     response.sendRedirect(response.encodeRedirectURL("managegames"));
                 }else{
                     System.out.println("doPost - editGame");
                 }
             break;
-            case "/deleteGame":
-                PrintWriter out = response.getWriter();
-                response.setContentType("application/json");
-                String res = ""; 
-                game = new Videogame();
-                String id = (String)request.getParameter("idGame");
-                game.setId(Integer.parseInt(id));
-                boolean success = game.deleteDB();
-                if(success){
-                  res = "{\"success\":\""+1+"\"}";
-                }else{
-                  res = "{\"error\":0}";
-                }
-                out.print(res);
-                out.flush();
-          break;
+	case "/deleteGame":
+	    PrintWriter out = response.getWriter();
+	    response.setContentType("application/json");
+	    String res = ""; 
+	    game = new Videogame();
+	    String id = (String)request.getParameter("idGame");
+	    game.setId(Integer.parseInt(id));
+	    boolean success = game.deleteDB();
+	    if(success){
+		res = "{\"success\":\""+1+"\"}";
+	    }else{
+		res = "{\"error\":0}";
+	    }
+	    out.print(res);
+	    out.flush();
+	    break;
         }
     }
 

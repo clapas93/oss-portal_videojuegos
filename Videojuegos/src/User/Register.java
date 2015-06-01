@@ -1,42 +1,51 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *Model for the Register action on the system.
+ * @author Magdiel Juarez.
  */
 package User;
 
 import ConnectionDB.ConnectionDB;
+
 public class Register {
-    
-  
+
     public final ConnectionDB connection;
     
+    
+    /*
+    *Constructor of the class.
+    */
+    
     public Register(){
-      connection = new ConnectionDB();
+	connection = new ConnectionDB();
     }
 
+    /**
+     * With this method we will make the register of an student in the system.
+     * @param userStudent
+     * @return int
+     */
+    
     protected int registerStudent(UserStudent userStudent){
         
-        System.out.println(userStudent.getPassword() + "#############################################");
+        System.out.println(userStudent.getPassword());
     
         try{
             if(verifyEmail(userStudent)){
                 if(verifyAccountnumber(userStudent)){
                     
-                    /* Registramos al nuevo estudiante */
                     String sql="INSERT INTO student (studentemail, name, lastname1, lastname2, accountnumber,"
-                    + "career, password, status, credits, history) VALUES "
-                    + "('" + userStudent.getStudentemail() + "',"
-                    + "'" + userStudent.getName() + "',"
-                    + "'" + userStudent.getLastname1() + "',"
-                    + "'" + userStudent.getLastname2() + "',"
-                    + "'" + userStudent.getAccountnumber() + "',"
-                    + "'" + userStudent.getCareer() + "',"
-                    + "'" + userStudent.getPassword() + "',"
-                    + "'" + 1 + "',"
-                    + "'" + 0 + "',"
-                    + "'" + userStudent.getHistory() + "');"; 
-                    
+			+ "career, password, status, credits, history) VALUES "
+			+ "('" + userStudent.getStudentemail() + "',"
+			+ "'" + userStudent.getName() + "',"
+			+ "'" + userStudent.getLastname1() + "',"
+			+ "'" + userStudent.getLastname2() + "',"
+			+ "'" + userStudent.getAccountnumber() + "',"
+			+ "'" + userStudent.getCareer() + "',"
+			+ "'" + userStudent.getPassword() + "',"
+			+ "'" + 1 + "',"
+			+ "'" + 0 + "',"
+			+ "'" + userStudent.getHistory() + "');"; 
+
                     if(connection.insert(sql)){
                         System.out.println("Consulta correcta, se agregó estudiante");
                         return 2;    
@@ -44,10 +53,7 @@ public class Register {
                         System.out.println("Error Consulta registro");
                         return 3;
                     }
-                    
-                    
                 }else{
-                    /* Ya existe el número de cuenta*/
                     return 1;
                 }
                 
@@ -68,7 +74,7 @@ public class Register {
     }
     
     /**
-     * Método para verificar si existe o no el usuario en la base de datos.
+     * Method to make the validation of someone exist or not in the database.
      * @param userStudent
      * @return true si no existe el correo en la base de datos
      */
@@ -77,8 +83,8 @@ public class Register {
         
         try{
             String sql=
-            "SELECT * FROM student WHERE studentemail = '"+
-                    userStudent.getStudentemail()+"';";
+		"SELECT * FROM student WHERE studentemail = '"+
+		userStudent.getStudentemail()+"';";
             /**
              * Realizamos una coonsulta para verificar que no existe en la base de datos.
              */
@@ -98,12 +104,18 @@ public class Register {
         
     }
     
+    /**
+     * Check if the account number its al ready in the database. 
+     * @param userStudent
+     * @return boolean.
+     */
+    
     protected boolean verifyAccountnumber(UserStudent userStudent){
         
         try{
             String sql=
-            "SELECT * FROM student WHERE accountnumber = '"+
-                    userStudent.getAccountnumber() + "';";
+		"SELECT * FROM student WHERE accountnumber = '"+
+		userStudent.getAccountnumber() + "';";
             /**
              * Realizamos una consulta para verificar que no existe en la base de datos el número de cuenta.
              */

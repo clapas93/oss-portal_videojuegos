@@ -3,7 +3,10 @@
     Created on : 12/04/2015, 06:35:28 PM
     Author     : magdiel
 --%>
-
+<%@page import="User.UserStudent"%>
+<%
+UserStudent student = (UserStudent)request.getAttribute("student");
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <div class="navbar-header">
           <a href="videogames"> <img src="public/img/brand.png" id="brandimage"></a>
@@ -21,7 +24,7 @@
             
           <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="Logout" role="button" aria-expanded="false">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%=session.getAttribute("nameStudent")%>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%=student.getName()+" "+student.getLastname1()%>
                 <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation"><a role="menuitem" href="updatestudent">
