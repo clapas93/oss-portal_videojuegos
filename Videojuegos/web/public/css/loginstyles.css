@@ -12,7 +12,7 @@ and open the template in the editor.
     position: fixed;
     min-height: 100%;
     min-width: 100%;
-    z-index: 9999;
+    z-index: 99;
     margin: 0 auto;
     background: rgba(0,0,0,0.6);
     display: block;
@@ -92,7 +92,7 @@ and open the template in the editor.
     }
 #validate-form {margin: 0 auto 30px auto;}
 .form-group.asset {margin:0;}
-.checkout__button.p-login{right: 68px; display:inline; text-decoration: none;background: #083B56;
+.checkout__button.p-login{right: 68px; display:inline; text-decoration: none;background: #083B56; z-index: 200;
 padding: 16px 24px;}
 .checkout__button.p-reg{right: 65px; display: inline; text-decoration: none;margin-top: 0px;
 background: rgb(8, 59, 86) none repeat scroll 0% 0%;
@@ -102,17 +102,44 @@ padding: 17px 15px;}
 .checkout__order-inner {margin-top: 30px;}
 .checkout__button {top: 14px;}
 .form-horizontal .control-label {font-size: 1em; color:rgb(28, 156, 205);}
-.has-error .help-block {font-size: 0.7em;}
+.has-error .help-block {font-size: 0.7em; display: inline-block !important;}
 body {background: #0D0C0C !important;}
 .navbar-default .navbar-collapse {border-color: transparent;}
 .navbar-default {position:relative !important;}
-
-@media (min-width:992px) and (max-width:1024px){
+@media (min-width:1024px){
+    .dropdown-menu {background: #1D1B25; color:#777; 
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);
+-moz-box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);
+box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);}
+    .dropdown-menu > li > a {color:#777;}
+    .glyphicon {margin: 0 5px}
+    .dropdown {right: 65px;}
+    .dropdown-menu .divider {display: none;}
+    .checkout--active .checkout__close {display:none;}
+}
+@media (min-width:992px) and (max-width:1023px){
+    .checkout--active .checkout__close {display:none;}
     #validate-form {width:100% !important;}
     .grid.isotope.rainbowed.isotope-demo {margin-top: 3%;}
-    
+    .dropdown {right: 65px;}
+    .dropdown-menu {background: #1D1B25; color:#777; 
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);
+-moz-box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);
+box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);}
+    .dropdown-menu > li > a {color:#777;}
+    .dropdown-menu .divider {display: none;}
+    .glyphicon {margin: 0 5px}
 }
 @media (min-width:768px) and (max-width:991px){
+    .checkout--active .checkout__close {display:none;}
+    .dropdown {right: 65px;}
+    .dropdown-menu {background: #1D1B25; color:#777; 
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);
+-moz-box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);
+box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);}
+    .dropdown-menu > li > a {color:#777;}
+    .dropdown-menu .divider {display: none;}
+    .glyphicon {margin: 0 5px}
     #validate-form {width:60% !important;}
     .grid.isotope.rainbowed.isotope-demo {margin-top: 3%;}
     .form-horizontal .control-label {display:inline-block; float: left;}
@@ -122,6 +149,14 @@ body {background: #0D0C0C !important;}
     #pressstart {right: 0; left: 0; margin: 0 auto;}
 }
 @media (min-width:600px) and (max-width:767px){
+    .checkout--active .checkout__close {display:none;}
+    .dropdown-menu {background: #1D1B25; color:#fff; 
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);
+-moz-box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);
+box-shadow: 0px 0px 12px 0px rgba(256,256,256,1);}
+    .dropdown-menu > li > a {color:#fff;}
+    .dropdown-menu .divider {display: none;}
+    .glyphicon {margin: 0 5px}
     .grid.isotope.rainbowed.isotope-demo {margin-top: 5%;}
     #validate-form {width:60% !important;}
     .checkout__order {margin: 0 auto;}
@@ -130,6 +165,7 @@ body {background: #0D0C0C !important;}
     .dropdown-menu .divider {display:none; visibility: hidden;}
     .glyphicon {margin: 0 10px;}
     .collapse {display: inline-block; visibility: inherit;}
+    //.loadMore {display:none;}
 }
 @media (min-width:480px) and (max-width:599px){
     .grid.isotope.rainbowed.isotope-demo {margin-top: 10%;}
@@ -150,6 +186,7 @@ body {background: #0D0C0C !important;}
     ul.nav.navbar-nav.nav.nav-pills.pull-right {text-align: center;}
     .nav-pills > li {float:none;}
     .dropdown-menu li {margin-left: 20%;}
+    .checkout__close {display: inline-block; position: absolute;}
 }
 @media (min-width:320px) and (max-width:479px){
     #bs-example-navbar-collapse-1, .nav.navbar-nav.nav.nav-pills.pull-right, .dropdown.open{width:90%;}
@@ -176,4 +213,5 @@ body {background: #0D0C0C !important;}
     .dropdown {width: 100%;}
     ul.nav.navbar-nav.nav.nav-pills.pull-right {text-align: center;}
     .dropdown-menu li {margin-left: 5%;}
+    .checkout__close {display: inline-block; position: absolute;}
 }
