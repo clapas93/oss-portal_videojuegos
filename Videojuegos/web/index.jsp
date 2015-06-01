@@ -211,7 +211,6 @@ $(window).resize(function(){
       if(width >= 600){
             mayorWidth();
       }else{
-          $('.checkout__order').addClass('hidden');
            menorWidth();                 
       }
 });
