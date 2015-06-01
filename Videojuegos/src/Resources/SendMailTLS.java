@@ -17,7 +17,7 @@ import javax.mail.internet.MimeMessage;
  
 public class SendMailTLS {
  
-    public void sendMailApproved(String to,double credit) {
+    public void sendMailApproved(String email,double credit) {
  
 	final String username = "eduardomiranda@ciencias.unam.mx";
 	final String password = "dexeEqZLhM-r79hBodoY2w";
@@ -42,7 +42,7 @@ public class SendMailTLS {
             
 	    message.setFrom(new InternetAddress("noreply@pulsegames.com"));
 	    message.setRecipients(Message.RecipientType.TO,
-				  InternetAddress.parse("eduardomiranda@ciencias.unam.mx"));
+				  InternetAddress.parse(email));
 	    message.setSubject("[Pulse Games] Tu solicitud de prestamo ha sido aprovada");
 	    String text = mailApprove(credit);
 	    message.setContent(text, "text/html; charset=utf-8");
@@ -55,7 +55,7 @@ public class SendMailTLS {
 	    throw new RuntimeException(e);
 	}
     }
-    public void sendMailDenied(String to) {
+    public void sendMailDenied(String email) {
  
 	final String username = "eduardomiranda@ciencias.unam.mx";
 	final String password = "dexeEqZLhM-r79hBodoY2w";
@@ -80,7 +80,7 @@ public class SendMailTLS {
             
 	    message.setFrom(new InternetAddress("noreply@pulsegames.com"));
 	    message.setRecipients(Message.RecipientType.TO,
-				  InternetAddress.parse("eduardomiranda@ciencias.unam.mx"));
+				  InternetAddress.parse(email));
 	    message.setSubject("[Pulse Games] Tu solicitud de prestamo no ha sido aprovada");
 	    String text = mailDenied();
 	    message.setContent(text, "text/html; charset=utf-8");
@@ -96,13 +96,13 @@ public class SendMailTLS {
 
     public String mailApprove(double credito){
 	String mail = "<div style='background-color:#121C25; width:500px;height:250px'>"+
-	    "<div><img style='height:40px;display: block;margin-left: auto;margin-right: auto;padding-top: 10px;' src='public/img/brand.png'></div>"+
+	    "<div><img style='height:40px;display: block;margin-left: auto;margin-right: auto;padding-top: 10px;' src='http://pulsegames.com.mx/public/img/brand.png'></div>"+
 	    "<div style='color:#606871;position: relative;'>"+
 	    "<h2 style='text-align: center;vertical-align: middle;line-height: 30px;'>Felicidades has obtenido "+credito+" créditos</h2>"+
 	    "<h2 style='text-align: center;vertical-align: middle;line-height: 5px;'>por tu buen desempeño académico</h2>"+
 	    "<p style='text-align: center;vertical-align: middle;line-height: 5px;'>ya puedes comprar los juegos que quieras.</p>"+
 	    "<p style='text-align: center;vertical-align: middle;line-height: 5px;'>Sólo ingresa al sítio: </p>"+
-	    "<a style='color:#0A5786;;'href='http://pulsegames.com'><h2 style='text-align: center;vertical-align: middle;line-height: 40px;text-decoration: underline;'>http://pulsegames.com</h2></a>"+
+	    "<a style='color:#0A5786;;'href='http://pulsegames.com.mx'><h2 style='text-align: center;vertical-align: middle;line-height: 40px;text-decoration: underline;'>http://pulsegames.com</h2></a>"+
 	    "</div>"+
 	    "</div>";
 	return mail;
@@ -110,12 +110,12 @@ public class SendMailTLS {
 
     public String mailDenied(){
 	String mail = "<div style='background-color:#121C25; width:500px;height:250px'>"+
-	    "<div><img style='height:40px;display: block;margin-left: auto;margin-right: auto;padding-top: 10px;' src='public/img/brand.png'></div>"+
+	    "<div><img style='height:40px;display: block;margin-left: auto;margin-right: auto;padding-top: 10px;' src='http://pulsegames.com.mx/public/img/brand.png'></div>"+
 	    "<div style='color:#606871;position: relative;'>"+
 	    "<h2 style='text-align: center;vertical-align: middle;line-height: 30px;'>Lo sentimos tu solicitud no ha sido aprobada</h2>"+
 	    "<p style='text-align: center;vertical-align: middle;line-height: 10px;'>Puedes ver nuevo contenido y descargar juegos gratis.</p>"+
 	    "<p style='text-align: center;vertical-align: middle;line-height: 10px;'>Sólo ingresa al sítio: </p>"+
-	    "<a style='color:#0A5786;;'href='http://pulsegames.com'><h2 style='text-align: center;vertical-align: middle;line-height: 30px;text-decoration: underline;'>http://pulsegames.com</h2></a>"+
+	    "<a style='color:#0A5786;;'href='http://pulsegames.com.mx'><h2 style='text-align: center;vertical-align: middle;line-height: 30px;text-decoration: underline;'>http://pulsegames.com.mx</h2></a>"+
 	    "</div>"+
 	    "</div>";
 	return mail;

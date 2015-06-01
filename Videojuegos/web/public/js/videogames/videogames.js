@@ -53,6 +53,7 @@ function share_tw(share_title) {
 }
 
 var info = new Array();
+var info2 = new Array();
 var credit = 0;
 var session = false;
 var j = 0;
@@ -69,6 +70,11 @@ $( document ).ready(function() {
 			$.each(data, function(index, elem) { 
 				info.push(elem)
 			});
+                        $.each(data, function(index, elem) { 
+				info2.push(elem)
+			});
+                        info.reverse();
+                        //console.log(info2);
 			setTimeout(function(){
 				loadGames();
 			},2000);
@@ -201,12 +207,11 @@ function loadGames() {
 	$("#spinner").fadeOut();
 	$(".loadsec").empty();
 	var $inser = "";
-        console.log(info);
-	for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 3; i++){
-		var s = '<div class="element-item" ><img style="width:20em"src="public/videogames/fronts/'+info[i].front+'" /></div>'; 
-		$inser = s + $inser;
+	for(var i = $('#games .isotope-demo >').length; i < info2.length && i < $('#games .isotope-demo >').length + 3; i++){
+		var s = '<div class="element-item" ><img style="width:20em"src="public/videogames/fronts/'+info2[i].front+'" /></div>'; 
+		$inser += s;//$inser;
 	}
-	if(i >= info.length){
+	if(i >= info2.length){
 		$(".loadMore").fadeOut();
 	}
 	$inser = $($inser);
@@ -273,8 +278,8 @@ function clickfun(){
 				$(".msj").text("Juego Comprado");
 				$(".msj").css({"color":"green"});
 				$(".msj").fadeIn('slow');
-				//window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
-                                window.location.replace("http://localhost:8084/Videojuegos/DownloadFileServlet?game="+name);
+				window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
+                                //window.location.replace("http://localhost:8084/Videojuegos/DownloadFileServlet?game="+name);
 				setTimeout(function(){
 					$(".msj").text("");
 					$(".msj").fadeOut('slow');
@@ -300,8 +305,8 @@ function clickfun(){
 				$(".msj").text("Juego Descargado");
 				$(".msj").css({"color":"green"});
 				$(".msj").fadeIn('slow');
-				//window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
-                                window.location.replace("http://localhost:8084/Videojuegos/DownloadFileServlet?game="+name);
+				window.location.replace("http://localhost:8080/Videojuegos/DownloadFileServlet?game="+name);
+                                //window.location.replace("http://localhost:8084/Videojuegos/DownloadFileServlet?game="+name);
 				setTimeout(function(){
 					$(".msj").text("");
 					$(".msj").fadeOut('slow');
