@@ -99,7 +99,7 @@ $( document ).ready(function() {
 
 
 
-var option = {itemSelector: '.element-item', layoutMode: 'masonry' };
+var option = {itemSelector: '.element-item', layoutMode: 'masonry', masonry: {columnWidth: 210}, cellsByRow: {columnWidth: 220, rowHeight: 220},  masonryHorizontal: {rowHeight: 110}, cellsByColumn: {columnWidth: 300, rowHeight: 250}};
 $container = $('#games .isotope-demo').isotope(option);
 
 function insertdiv(){
@@ -203,7 +203,7 @@ function loadGames() {
 	var $inser = "";
 
 	for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 3; i++){
-		var s = '<div class="element-item" ><img src="public/videogames/fronts/'+info[i].front+'" /></div>'; 
+		var s = '<div class="element-item" ><img style="width:20em"src="public/videogames/fronts/'+info[i].front+'" /></div>'; 
 		$inser = s + $inser;
 	}
 	if(i >= info.length){
