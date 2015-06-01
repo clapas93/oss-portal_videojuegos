@@ -10,6 +10,14 @@
 $( document ).ready(function() {
   $('body').fadeIn(2500);
 });
+$("#pass").keypress(function(key) {
+  if(key.charCode == 39) return false;
+});
+
+$("#pass_c").keypress(function(key) {
+  if(key.charCode == 39) return false;
+});
+
 </script>
 <script type="text/javascript" src="public/js/validando.js"></script>
 <script type="text/javascript" src="public/js/bootstrapValidator.min.js"></script>

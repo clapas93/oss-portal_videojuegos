@@ -106,14 +106,4 @@ Author     : magdiel
         </div> 
       </div>
     </form>
-  </div
-  
-<script>
-$("#pass").keypress(function(key) {
-  if(key.charCode == 39) return false;
-});
-
-$("#pass_c").keypress(function(key) {
-  if(key.charCode == 39) return false;
-});
-</script>
+  </div>

@@ -201,7 +201,7 @@ function loadGames() {
 	$("#spinner").fadeOut();
 	$(".loadsec").empty();
 	var $inser = "";
-
+        console.log(info);
 	for(var i = $('#games .isotope-demo >').length; i < info.length && i < $('#games .isotope-demo >').length + 3; i++){
 		var s = '<div class="element-item" ><img style="width:20em"src="public/videogames/fronts/'+info[i].front+'" /></div>'; 
 		$inser = s + $inser;

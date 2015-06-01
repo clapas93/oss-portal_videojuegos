@@ -31,7 +31,7 @@ jQuery(function(){
             $("#password-check").after('<span class="error">Las contraseñas no coinciden</span>');
             hasError = true;
         }else if((passwordVal != ''&&checkVal != '')&&passwordVal.length <= 8){
-            $("#password-check").after('<span class="error">La contraseña debe tener al menos 8 caracteres.</span>');
+            $("#password-check").after('<span class="error">La contrase&nacute;a debe tener al menos 8 caracteres.</span>');
             hasError = true;
         }
          if(nombre.length <= 3){
