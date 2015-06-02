@@ -8,6 +8,24 @@ $().ready(
     function() {  
         // Configuramos la validación de los distintos campos del formulario
         $("#validate-form").validate({
+            
+             submitHandler: function(form) {
+                $.ajax({
+                            url:"registerController?accion=REGISTER",
+                            type:"POST",
+                            dataType:"json",
+                            contentType: 'application/json',
+                            data:form,
+                            success: function(data){
+                                console.log(data);
+                                alert(data.message);
+                            },
+                            error: function(data){
+                                console.error(data);
+                            }
+                        });
+              return false;
+            },
           // Empezamos por las reglas que se definirán
             rules: {
                 password: {  

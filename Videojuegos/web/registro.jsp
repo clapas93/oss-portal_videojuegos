@@ -16,7 +16,7 @@ Author     : magdiel
   <div class="mi-title"><span><h1>Registro</h1></span></div>
 
   <div class="formulario">
-    <form method="post" action="registerController?accion=REGISTER" id="validate-form">
+    <form id="validate-form">
       <div class="row">
         <div class="col-md-4 col-md-offset-2">
           <span style="color:red"><%= msj2 %></span>
@@ -101,9 +101,35 @@ Author     : magdiel
           <br>
           <div class="form-group" style="float:right;">
             <a class="button-comp" href="videogames" title="Recrea Comunicación">Volver</a>
-            <button type="submit" class="button-comp">Registrarme</button>
+            <button type="submit" id="submit" class="button-comp">Registrarme</button>
           </div>
         </div> 
       </div>
     </form>
   </div>
+          <script>
+              /*jQuery(function(){
+                    $("#form-registro").validate();
+                    $("#submit").click(function(e){
+                        var success = $("#form-registro").valid();
+                        if(!success){
+                            e.preventDefault();
+                            alert("mensaje");
+                        }
+                        /*$.ajax({
+                            url:"registerController?accion=REGISTER",
+                            type:"POST",
+                            dataType:"json",
+                            contentType: 'application/json',
+                            data:{},
+                            success: function(data){
+                                console.log(data);
+                            },
+                            error: function(data){
+                                console.error(data);
+                            }
+                        });           
+        });
+    });*/
+              
+          </script>

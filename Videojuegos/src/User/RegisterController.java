@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import org.json.simple.JSONObject;
 /**
 *
 * @author magdiel
@@ -99,29 +99,38 @@ public class RegisterController extends HttpServlet {
     throws ServletException, IOException {
       HttpSession session;
       String userStudent;
-      
+      PrintWriter out = response.getWriter();
+      JSONObject obj = new JSONObject();
       String action=request.getParameter("accion");
       if(action.equals("REGISTER")){
         int flag = register(request,response); 
         if(flag == 0){
-          RequestDispatcher a = request.getRequestDispatcher("registro?msg0=Correo ya registrado");
-          a.forward(request, response);
-        }else if(flag == 1){
-          RequestDispatcher a = request.getRequestDispatcher("registro?msg1=Número de cuenta ya registrado");
-          a.forward(request, response);
-        }else if(flag == 2){
-          session = request.getSession();
-          userStudent = request.getParameter("email");
-          session.setAttribute("userStudent", userStudent);
-          response.sendRedirect(response.encodeRedirectURL("videogames"));
+          //RequestDispatcher a = request.getRequestDispatcher("registro?msg0=Correo ya registrado");
+          //a.forward(request, response);
           
+          obj.put("message","Correo ya registrado");
+          
+        }else if(flag == 1){
+          //RequestDispatcher a = request.getRequestDispatcher("registro?msg1=Número de cuenta ya registrado");
+          //a.forward(request, response);
+            obj.put("message","NUm ya registrado");
+        }else if(flag == 2){
+          //session = request.getSession();
+          //userStudent = request.getParameter("email");
+          //session.setAttribute("userStudent", userStudent);
+          //response.sendRedirect(response.encodeRedirectURL("videogames"));
+          obj.put("message","caso chido");
         }else if(flag == 3){
-          RequestDispatcher a = request.getRequestDispatcher("registro?msg2=Error al realizar la consulta");
-          a.forward(request, response);
+          //RequestDispatcher a = request.getRequestDispatcher("registro?msg2=Error al realizar la consulta");
+          //a.forward(request, response);
+            obj.put("message","Base error");
         }else {
-          RequestDispatcher a = request.getRequestDispatcher("registro?msg3=Error al conectarse a la base de datos");
-          a.forward(request, response);
+          //RequestDispatcher a = request.getRequestDispatcher("registro?msg3=Error al conectarse a la base de datos");
+          //a.forward(request, response);
+            obj.put("message","Error");
         }
+        out.print(obj);
+        out.flush();
       }
     }
 
