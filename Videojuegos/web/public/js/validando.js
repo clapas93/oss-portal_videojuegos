@@ -3,31 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-$().ready(
+var inputs=null;
+function send(form){
+    inputs = $("#validate-form :input");
+    var f = {};
+    for(i = 0;i<inputs.length;i++){
+        obj = inputs[i].name;
+        val = inputs[i].value;
+        //console.log(inputs[i]);
+        f[obj]=val;
+    }
+    console.log(f);
+    $.ajax({
+        url:"registerController?accion=REGISTER",
+        type:"POST",
+        dataType:"json",
+        contentType: 'application/json',
+        data:f,
+        success: function(data){
+            console.log(data);
+            alert(data.message);//aqui recibes el mensaje o numero de error dependiendo de eso mandas el pop up bello
+            //si es caso bueno donde si se registro mandas la funcion 
+            //redirectonsuccess = location.origin+"/videogames";
+            //window.location=redirectonsuccess;
+        },
+        error: function(data){
+            console.error(data);
+        }
+    });
+}
+$().ready(    
     function() {  
         // Configuramos la validación de los distintos campos del formulario
-        $("#validate-form").validate({
-            
+        //$("#validate-form")
+        $("#validate-form").submit(function(e) {
+                e.preventDefault();
+            }).validate({
+             
              submitHandler: function(form) {
-                $.ajax({
-                            url:"registerController?accion=REGISTER",
-                            type:"POST",
-                            dataType:"json",
-                            contentType: 'application/json',
-                            data:form,
-                            success: function(data){
-                                console.log(data);
-                                alert(data.message);
-                            },
-                            error: function(data){
-                                console.error(data);
-                            }
-                        });
-              return false;
+                 send(form);
+                /**/
             },
           // Empezamos por las reglas que se definirán
-            rules: {
+            /*rules: {
                 password: {  
                     required: true, // Tiene que ser requerido el password
                     minlength: 8    // Tiene que tener un tamaño mayor o igual a 6 caracteres
@@ -59,7 +77,7 @@ $().ready(
                     maxlength: 9
                 }
                 
-            },
+            },*/
     
         messages: { // Se indica para cada campo y para cada regla el mensaje que quiero mostrar si no cumple.
             
@@ -94,6 +112,14 @@ $().ready(
                 maxlength: "Debe tener máximo 9 n&uacute;meros"
       	    }
       
+        }
+    });
+     $("#validate-form").on('submit', function(e){
+        var isvalidate=$("#validate-form").valid();
+        if(isvalidate)
+        {
+            e.preventDefault();
+           // alert(getvalues("myform"));
         }
     });
 });

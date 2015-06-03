@@ -107,29 +107,3 @@ Author     : magdiel
       </div>
     </form>
   </div>
-          <script>
-              /*jQuery(function(){
-                    $("#form-registro").validate();
-                    $("#submit").click(function(e){
-                        var success = $("#form-registro").valid();
-                        if(!success){
-                            e.preventDefault();
-                            alert("mensaje");
-                        }
-                        /*$.ajax({
-                            url:"registerController?accion=REGISTER",
-                            type:"POST",
-                            dataType:"json",
-                            contentType: 'application/json',
-                            data:{},
-                            success: function(data){
-                                console.log(data);
-                            },
-                            error: function(data){
-                                console.error(data);
-                            }
-                        });           
-        });
-    });*/
-              
-          </script>
